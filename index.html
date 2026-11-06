@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beatriz Rocha Sociedade Individual de Advocacia | Marília/SP</title>
+  <meta name="description" content="Beatriz Rocha Sociedade Individual de Advocacia (OAB/SP 463.673). Advocacia especializada em Direito à Saúde, Autismo (TEA), Tutelas de Urgência contra Planos de Saúde, Família e Sucessões, Isenção de IPVA e Cível. Torre Nova York, Marília/SP.">
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Garamond', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #FAF7F2;
+      color: #18181B;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection {
+      background-color: rgba(140, 115, 85, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FAF7F2] text-[#18181B]">
+
+  <!-- Topbar Minimalista e Fina -->
+  <aside class="border-b border-[#E6E1D6] bg-[#F4EFE6]/60 text-[11px] tracking-[0.06em] text-[#52525B] uppercase" aria-label="Informações Institucionais">
+    <div class="max-w-6xl mx-auto px-6 py-2 flex flex-wrap justify-between items-center gap-4">
+      <span>Edifício Torre Nova York • Av. das Esmeraldas, 3895, Salas 305/306 • Marília/SP</span>
+      <div class="flex items-center gap-6">
+        <span>OAB/SP 463.673</span>
+        <span class="hidden sm:inline">•</span>
+        <span class="hidden sm:inline">Seg. a Sex. 08h30 às 18h00</span>
+        <span>•</span>
+        <a href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica." target="_blank" rel="noreferrer" class="text-[#18181B] font-medium hover:text-[#8C7355] transition-colors">
+          (14) 99711-8732
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header Enxuto e Elegante com Menu Otimizado -->
+  <header class="sticky top-0 z-50 bg-[#FAF7F2]/90 backdrop-blur-md border-b border-[#E6E1D6]">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Monograma BR + Nome -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-10 h-10 border border-[#8C7355]/50 flex items-center justify-center bg-white">
+          <span class="font-serif text-xl tracking-tighter text-[#18181B]">BR</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-base tracking-[0.14em] text-[#18181B] uppercase leading-none">
+            Beatriz Rocha
+          </span>
+          <span class="text-[9px] tracking-[0.22em] text-[#71717A] uppercase mt-1">
+            Sociedade Individual de Advocacia
+          </span>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação Otimizado para UX & Conversão -->
+      <nav class="hidden lg:flex items-center gap-8 text-[13px] tracking-[0.02em] text-[#52525B]">
+        <a href="#escritorio" class="hover:text-[#18181B] transition-colors">
+          O Escritório
+        </a>
+        <a 
+          href="#saude-tea" 
+          class="text-[#8C7355] font-medium border-b-2 border-[#8C7355] pb-0.5 hover:text-[#18181B] hover:border-[#18181B] transition-colors flex items-center gap-1.5"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
+          Saúde & Autismo (TEA)
+        </a>
+        <a href="#atuacao" class="hover:text-[#18181B] transition-colors">
+          Áreas de Atuação
+        </a>
+        <a href="#jurisprudencia" class="hover:text-[#18181B] transition-colors">
+          Jurisprudência & Notícias
+        </a>
+        <a href="#contato" class="hover:text-[#18181B] transition-colors">
+          Contato
+        </a>
+      </nav>
+
+      <!-- CTA Discreto e Fino + Botão Mobile -->
+      <div class="flex items-center gap-3">
+        <a
+          href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
+          target="_blank"
+          rel="noreferrer"
+          class="px-5 py-2.5 bg-[#8C7355] text-white text-xs tracking-[0.08em] uppercase font-medium hover:bg-[#735D43] transition-colors shadow-sm"
+        >
+          Agendar Consulta
+        </a>
+        <button
+          id="mobile-btn"
+          class="lg:hidden p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase"
+          aria-label="Abrir Menu"
+        >
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-[#E6E1D6] bg-[#FAF7F2] px-6 py-4 flex flex-col gap-3 text-sm">
+      <a href="#escritorio" class="py-1 hover:text-[#8C7355] mobile-nav-link">O Escritório</a>
+      <a href="#saude-tea" class="py-1 text-[#8C7355] font-medium flex items-center gap-2 mobile-nav-link">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span> Saúde & Autismo (TEA)
+      </a>
+      <a href="#atuacao" class="py-1 hover:text-[#8C7355] mobile-nav-link">Áreas de Atuação</a>
+      <a href="#jurisprudencia" class="py-1 hover:text-[#8C7355] mobile-nav-link">Jurisprudência & Notícias</a>
+      <a href="#contato" class="py-1 hover:text-[#8C7355] mobile-nav-link">Contato</a>
+    </div>
+  </header>
+
+  <!-- Hero Section Editorial -->
+  <section class="py-20 md:py-28 border-b border-[#E6E1D6]">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
+      <div class="md:col-span-8">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#E6E1D6] bg-white mb-8">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
+          <span class="text-[10px] tracking-[0.16em] uppercase text-[#52525B]">
+            Sociedade de Advocacia • OAB/SP 463.673
+          </span>
+        </div>
+        
+        <h1 class="font-serif text-4xl sm:text-5xl md:text-[54px] text-[#18181B] leading-[1.12] tracking-tight font-normal">
+          Orientação jurídica precisa e condução estratégica para proteger seus direitos com <span className="italic text-[#8C7355]">segurança e discrição.</span>
+        </h1>
+        
+        <p class="mt-7 text-base md:text-lg text-[#52525B] font-light leading-relaxed max-w-2xl">
+          Atuação consultiva e contenciosa pautada pelo rigor técnico, atendimento humanizado e confidencialidade irrestrita em demandas de Direito à Saúde, Proteção no Autismo (TEA), Sucessões e Contratos.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href="#saude-tea"
+            class="px-7 py-3.5 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#735D43] transition-colors"
+          >
+            Núcleo de Direito à Saúde & TEA
+          </a>
+          <a
+            href="#contato"
+            class="px-7 py-3.5 border border-[#D6CFC2] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:border-[#8C7355] transition-colors"
+          >
+            Solicitar Análise Confidencial
+          </a>
+        </div>
+      </div>
+
+      <!-- Quadro Institucional Minimalista -->
+      <div class="md:col-span-4 border border-[#E6E1D6] bg-white p-8">
+        <span class="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block mb-4">
+          Sede Corporativa
+        </span>
+        <h2 class="font-serif text-2xl text-[#18181B] font-normal mb-2">
+          Edifício Torre Nova York
+        </h2>
+        <p class="text-sm text-[#52525B] font-light leading-relaxed mb-6">
+          Avenida das Esmeraldas, nº 3895, Salas 305 e 306 — Marília/SP. Estrutura privativa preparada para atendimento presencial e telepresencial em todo o país.
+        </p>
+        <div class="pt-6 border-t border-[#F0ECE1] space-y-3 text-xs text-[#52525B]">
+          <div class="flex justify-between">
+            <span class="text-[#71717A]">Atuação Processual</span>
+            <span class="text-[#18181B] font-medium">TJSP, TRFs, STJ e STF</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-[#71717A]">Atendimento</span>
+            <span class="text-[#18181B] font-medium">Com hora marcada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABA / SEÇÃO EXCLUSIVA EM DESTAQUE: Direito à Saúde & Autismo (TEA) -->
+  <section id="saude-tea" class="py-24 bg-white border-b border-[#E6E1D6]">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <!-- Cabeçalho da Seção focado na dor do cliente e autoridade -->
+      <div class="max-w-3xl mb-14">
+        <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
+          Núcleo Especializado • Tutela Provisória de Urgência
+        </span>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-[42px] text-[#18181B] font-normal leading-tight">
+          Proteção Jurídica contra Negativas de Planos de Saúde e Garantia de Tratamento Integral no Autismo (TEA)
+        </h2>
+        <p class="mt-5 text-[#52525B] font-light leading-relaxed text-base md:text-lg">
+          Receber a recusa de cobertura de um tratamento prescrito pelo médico ou ter o fornecimento de medicamentos de alto custo negado é um momento de extrema angústia e sensação de desamparo para qualquer família. No caso do <strong>Transtorno do Espectro Autista (TEA)</strong>, a intervenção precoce é uma corrida contra o relógio: cada semana de atraso afeta diretamente a janela neurológica de desenvolvimento da criança.
+        </p>
+        <p class="mt-4 text-[#52525B] font-light leading-relaxed text-base">
+          Nossa banca atua com foco em <strong>medidas liminares de urgência</strong> para restabelecer imediatamente a assistência devida, com base no princípio supremo de que a indicação do médico assistente prevalece sobre qualquer cláusula restritiva da operadora.
+        </p>
+      </div>
+
+      <!-- Destaque para os Marcos Jurídicos Consolidados -->
+      <div class="mb-16 p-8 border border-[#E6E1D6] bg-[#FAF7F2] rounded-none">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-[#E6E1D6]">
+          <div>
+            <span class="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block font-medium">
+              Fundamentação Técnica Inafastável
+            </span>
+            <h3 class="font-serif text-2xl text-[#18181B] font-normal mt-1">
+              Marcos Jurídicos e Precedentes que Protegem o Paciente
+            </h3>
+          </div>
+          <span class="text-xs text-[#71717A] bg-white border border-[#E6E1D6] px-3.5 py-1.5 self-start md:self-auto">
+            Jurisprudência Vinculante
+          </span>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 border border-[#E6E1D6]">
+            <span class="text-xs font-semibold text-[#8C7355] block mb-2 uppercase tracking-wider">
+              Lei Federal nº 14.454/2022
+            </span>
+            <h4 class="font-serif text-lg text-[#18181B] mb-2 font-medium">
+              Rol Exemplificativo da ANS
+            </h4>
+            <p class="text-xs text-[#52525B] font-light leading-relaxed">
+              Superação legislativa definitiva da tese do rol taxativo. O plano de saúde é obrigado a custear procedimentos e tratamentos prescritos que possuam respaldo técnico-científico e recomendação do médico assistente.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 border border-[#E6E1D6]">
+            <span class="text-xs font-semibold text-[#8C7355] block mb-2 uppercase tracking-wider">
+              Tema 1069 do STJ
+            </span>
+            <h4 class="font-serif text-lg text-[#18181B] mb-2 font-medium">
+              Tratamento Multidisciplinar Contínuo
+            </h4>
+            <p class="text-xs text-[#52525B] font-light leading-relaxed">
+              Tese fixada pelo Superior Tribunal de Justiça reconhecendo a ilegalidade de limitações contratuais que restrinjam a quantidade de sessões de terapias necessárias à reabilitação do paciente.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 border border-[#E6E1D6]">
+            <span class="text-xs font-semibold text-[#8C7355] block mb-2 uppercase tracking-wider">
+              Súmula 102 do TJSP
+            </span>
+            <h4 class="font-serif text-lg text-[#18181B] mb-2 font-medium">
+              Prevalência da Prescrição Médica
+            </h4>
+            <p class="text-xs text-[#52525B] font-light leading-relaxed">
+              <em>"Havendo expressa indicação médica, é abusiva a negativa de cobertura de custeio de tratamento sob o argumento da sua natureza experimental ou por não estar previsto no rol da ANS."</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards de Atuação Especializada em Saúde -->
+      <div class="grid md:grid-cols-2 gap-8 mb-14">
+        
+        <div class="p-8 border border-[#E6E1D6] bg-[#FAF7F2]/40 hover:bg-[#FAF7F2] transition-colors">
+          <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
+            Autismo e Desenvolvimento Atípico
+          </span>
+          <h3 class="font-serif text-2xl text-[#18181B] mb-3">
+            Terapias Multidisciplinares pelo Método ABA sem Limite de Sessões
+          </h3>
+          <p class="text-sm text-[#52525B] font-light leading-relaxed mb-4">
+            Garantia de custeio integral para todas as especialidades terapêuticas prescritas: <strong>Psicologia Comportamental (Método ABA)</strong>, Fonoaudiologia, Terapia Ocupacional com Integração Sensorial, Psicopedagogia e Musicoterapia. Ação voltada à derrubada de tetos anuais de sessões, cobrança indevida de coparticipação e obtenção de reembolso integral quando a operadora não possuir profissionais devidamente certificados na comarca.
+          </p>
+          <div class="pt-4 border-t border-[#E6E1D6]/70 flex items-center justify-between text-xs text-[#8C7355]">
+            <span>Lei 14.454/2022 • Tema 1069 STJ</span>
+            <span class="font-medium">Liminar Urgente</span>
+          </div>
+        </div>
+
+        <div class="p-8 border border-[#E6E1D6] bg-[#FAF7F2]/40 hover:bg-[#FAF7F2] transition-colors">
+          <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
+            Fármacos Especiais e Oncologia
+          </span>
+          <h3 class="font-serif text-2xl text-[#18181B] mb-3">
+            Medicamentos de Alto Custo, Biológicos e Tratamentos Oncológicos
+          </h3>
+          <p class="text-sm text-[#52525B] font-light leading-relaxed mb-4">
+            Medidas jurídicas com pedido de tutela antecipada (liminar deferida em 24h a 48h) para fornecimento de medicamentos importados, imunobiológicos e quimioterápicos de uso oral ou ambulatorial recusados sob alegação genérica de ausência na Diretriz de Utilização (DUT) ou no Rol da ANS.
+          </p>
+          <div class="pt-4 border-t border-[#E6E1D6]/70 flex items-center justify-between text-xs text-[#8C7355]">
+            <span>Súmula 102 TJSP • Tema 106 STJ</span>
+            <span class="font-medium">Fornecimento Rápido</span>
+          </div>
+        </div>
+
+        <div class="p-8 border border-[#E6E1D6] bg-[#FAF7F2]/40 hover:bg-[#FAF7F2] transition-colors">
+          <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
+            Cirurgias e Cuidados Críticos
+          </span>
+          <h3 class="font-serif text-2xl text-[#18181B] mb-3">
+            Cirurgias de Urgência, Órteses, Próteses e Home Care
+          </h3>
+          <p class="text-sm text-[#52525B] font-light leading-relaxed mb-4">
+            Atuação célere contra glosas abusivas de materiais cirúrgicos essenciais (próteses, stents, marca-passos) e obtenção de liminar para implantação de estrutura completa de internação domiciliar (<em>Home Care</em>) com enfermagem 12h/24h, fisioterapia motora e respiratória para pacientes com dependência de suporte à vida.
+          </p>
+          <div class="pt-4 border-t border-[#E6E1D6]/70 flex items-center justify-between text-xs text-[#8C7355]">
+            <span>Súmula 90 TJSP • Atendimento Plantonista</span>
+            <span class="font-medium">Plantão Urgente</span>
+          </div>
+        </div>
+
+        <div class="p-8 border border-[#E6E1D6] bg-[#FAF7F2]/40 hover:bg-[#FAF7F2] transition-colors">
+          <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
+            Equilíbrio Contratual
+          </span>
+          <h3 class="font-serif text-2xl text-[#18181B] mb-3">
+            Cancelamentos Unilaterais e Reajustes Abusivos de Mensalidade
+          </h3>
+          <p class="text-sm text-[#52525B] font-light leading-relaxed mb-4">
+            Restabelecimento judicial de contratos individuais e coletivos rescindidos de forma arbitrária durante internações ou tratamentos contínuos de saúde, bem como a revisão de reajustes desproporcionais por mudança de faixa etária aos 59 anos ou sinistralidade sem cálculo atuarial transparente.
+          </p>
+          <div class="pt-4 border-t border-[#E6E1D6]/70 flex items-center justify-between text-xs text-[#8C7355]">
+            <span>Tema 1082 STJ • Manutenção Obrigatória</span>
+            <span class="font-medium">Proteção do Vínculo</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bloco de Ação / Gatilhos de Conversão Éticos -->
+      <div class="p-8 md:p-10 border border-[#8C7355]/40 bg-[#FAF7F2] flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="max-w-xl">
+          <span class="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] font-semibold block mb-1">
+            Atendimento Prioritário em Saúde
+          </span>
+          <h3 class="font-serif text-2xl text-[#18181B] font-normal">
+            Seu plano de saúde negou cobertura médica, terapias ou medicamentos?
+          </h3>
+          <p class="text-sm text-[#52525B] font-light mt-2">
+            Analise a viabilidade de uma tutela de urgência (liminar) para restabelecer imediatamente os cuidados prescritos com total segurança jurídica.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+          <a
+            href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Preciso%20de%20uma%20an%C3%A1lise%20de%20urg%C3%AAncia%20para%20uma%20negativa%20de%20sa%C3%BAde%20%2F%20terapias%20TEA."
+            target="_blank"
+            rel="noreferrer"
+            class="w-full sm:w-auto px-7 py-3.5 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors text-center whitespace-nowrap shadow-sm"
+          >
+            Solicitar Análise de Urgência
+          </a>
+          <a
+            href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
+            target="_blank"
+            rel="noreferrer"
+            class="w-full sm:w-auto px-7 py-3.5 border border-[#18181B] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:bg-[#18181B] hover:text-white transition-colors text-center whitespace-nowrap"
+          >
+            Fale com um Especialista via WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SUB-BLOCO / SEÇÃO EXCLUSIVA: Jurisprudência & Notícias Reais -->
+  <section id="jurisprudencia" class="py-24 bg-[#FAF7F2] border-b border-[#E6E1D6]">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="max-w-3xl mb-14">
+        <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
+          Atualização Jurisprudencial • Segurança Jurídica
+        </span>
+        <h2 class="font-serif text-3xl md:text-4xl text-[#18181B] font-normal leading-tight">
+          Últimas Notícias e Entendimentos dos Tribunais Superiores
+        </h2>
+        <p class="mt-4 text-[#52525B] font-light leading-relaxed">
+          O ordenamento jurídico brasileiro e a jurisprudência dominante nos tribunais (STJ e TJSP) garantem amparo rigoroso contra abusividades cometidas por convênios médicos. Acompanhe os precedentes mais recentes aplicados em nossas teses:
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-14">
+        
+        <!-- Notícia 1: Terapias ABA no STJ (Tema 1.295) -->
+        <article class="bg-white border border-[#E6E1D6] p-8 flex flex-col justify-between shadow-xs hover:border-[#8C7355] transition-all">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-[#71717A] mb-4 pb-3 border-b border-[#F0ECE1]">
+              <span class="font-semibold text-[#8C7355] uppercase tracking-wider">STJ • Tema Repetitivo 1.295</span>
+              <span class="bg-[#FAF7F2] px-2 py-0.5 border border-[#E6E1D6] text-[10px]">Tese Vinculante</span>
+            </div>
+            <h3 class="font-serif text-xl text-[#18181B] font-normal leading-snug mb-3">
+              STJ veda em recurso repetitivo a limitação de sessões multidisciplinares (ABA) para pessoas com TEA
+            </h3>
+            <p class="text-xs text-[#52525B] font-light leading-relaxed mb-6">
+              Em julgamento vinculante da Segunda Seção sob o rito dos recursos repetitivos (Tema 1.295 – REsp 2.153.672 e REsp 2.167.050), o Superior Tribunal de Justiça fixou a tese de que é manifestamente abusiva a imposição de tetos quantitativos ou limites anuais para sessões de psicologia (Método ABA), fonoaudiologia, terapia ocupacional e fisioterapia prescritas a pacientes com TEA, obrigando todas as operadoras do país à cobertura integral e ininterrupta.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#F0ECE1] flex items-center justify-between">
+            <span class="text-[10px] text-[#71717A] uppercase tracking-wider">Fonte Oficial</span>
+            <a
+              href="https://www.stj.jus.br"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs text-[#8C7355] font-medium hover:text-[#18181B] transition-colors"
+            >
+              Consultar acórdão no STJ ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- Notícia 2: Medicamentos e Liminares no TJSP -->
+        <article class="bg-white border border-[#E6E1D6] p-8 flex flex-col justify-between shadow-xs hover:border-[#8C7355] transition-all">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-[#71717A] mb-4 pb-3 border-b border-[#F0ECE1]">
+              <span class="font-semibold text-[#8C7355] uppercase tracking-wider">TJSP • Lei Federal 14.454/22</span>
+              <span class="bg-[#FAF7F2] px-2 py-0.5 border border-[#E6E1D6] text-[10px]">Tutela de Urgência</span>
+            </div>
+            <h3 class="font-serif text-xl text-[#18181B] font-normal leading-snug mb-3">
+              TJSP concede liminares em até 48h para fornecimento urgente de medicamentos oncológicos e de alto custo
+            </h3>
+            <p class="text-xs text-[#52525B] font-light leading-relaxed mb-6">
+              Com respaldo na Lei Federal nº 14.454/2022 — que superou a tese do rol taxativo da ANS — e nos precedentes pacíficos das Câmaras de Direito Privado de São Paulo, magistrados têm deferido liminares com fixação de multa diária (astreintes) obrigando convênios a disponibilizarem fármacos biológicos, imunoterápicos e orais de alta complexidade negados sob alegações burocráticas de falta de previsão em diretrizes internas.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#F0ECE1] flex items-center justify-between">
+            <span class="text-[10px] text-[#71717A] uppercase tracking-wider">Fonte Oficial</span>
+            <a
+              href="https://www.tjsp.jus.br"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs text-[#8C7355] font-medium hover:text-[#18181B] transition-colors"
+            >
+              Consultar jurisprudência no TJSP ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- Notícia 3: Reembolso Integral por Falta de Rede Apta -->
+        <article class="bg-white border border-[#E6E1D6] p-8 flex flex-col justify-between shadow-xs hover:border-[#8C7355] transition-all">
+          <div>
+            <div class="flex items-center justify-between text-[11px] text-[#71717A] mb-4 pb-3 border-b border-[#F0ECE1]">
+              <span class="font-semibold text-[#8C7355] uppercase tracking-wider">ANS & Jurisprudência</span>
+              <span class="bg-[#FAF7F2] px-2 py-0.5 border border-[#E6E1D6] text-[10px]">Reembolso 100%</span>
+            </div>
+            <h3 class="font-serif text-xl text-[#18181B] font-normal leading-snug mb-3">
+              Justiça consolida dever de reembolso 100% integral quando operadora não dispõe de rede apta em método específico
+            </h3>
+            <p class="text-xs text-[#52525B] font-light leading-relaxed mb-6">
+              Em conformidade com a Resolução Normativa nº 566/2022 da ANS e farta jurisprudência noticiada pelo Consultor Jurídico (ConJur), a ausência de clínica credenciada devidamente certificada na metodologia recomendada (como ABA ou Integração Sensorial de Ayres) ou a existência de filas desproporcionais obriga a operadora ao reembolso total das faturas particulares emitidas pela equipe escolhida pela família.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-[#F0ECE1] flex items-center justify-between">
+            <span class="text-[10px] text-[#71717A] uppercase tracking-wider">Conferência Externa</span>
+            <div class="flex items-center gap-3">
+              <a
+                href="https://www.gov.br/ans"
+                target="_blank"
+                rel="noreferrer"
+                class="text-xs text-[#8C7355] font-medium hover:text-[#18181B] transition-colors"
+              >
+                Portal ANS ↗
+              </a>
+              <span class="text-[#D6CFC2]">•</span>
+              <a
+                href="https://www.conjur.com.br"
+                target="_blank"
+                rel="noreferrer"
+                class="text-xs text-[#8C7355] font-medium hover:text-[#18181B] transition-colors"
+              >
+                ConJur ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Barra de Conversão na Seção de Notícias -->
+      <div class="border border-[#E6E1D6] bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="space-y-1">
+          <h4 class="font-serif text-xl text-[#18181B] font-normal">
+            Dúvidas sobre os seus direitos ou laudo médico em mãos?
+          </h4>
+          <p class="text-xs text-[#52525B] font-light">
+            Consulte nossa equipe especializada pelo WhatsApp e esclareça a viabilidade do seu caso.
+          </p>
+        </div>
+        <a
+          href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
+          target="_blank"
+          rel="noreferrer"
+          class="px-6 py-3 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#8C7355] transition-colors whitespace-nowrap"
+        >
+          Falar no WhatsApp: (14) 99711-8732
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Demais Áreas de Atuação (Sem Criminal, Limpo e Fino) -->
+  <section id="atuacao" class="py-24 border-b border-[#E6E1D6]">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mb-16">
+        <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
+          Prática Jurídica Integrada
+        </span>
+        <h2 class="font-serif text-3xl md:text-4xl text-[#18181B] font-normal">
+          Outras Áreas de Especialidade
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Família e Sucessões -->
+        <div class="bg-white border border-[#E6E1D6] p-8 flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] tracking-[0.18em] uppercase text-[#8C7355] block mb-3 font-medium">
+              Patrimonial & Sucessório
+            </span>
+            <h3 class="font-serif text-2xl text-[#18181B] font-normal mb-4">
+              Família e Sucessões
+            </h3>
+            <p class="text-sm text-[#52525B] font-light leading-relaxed mb-6">
+              Condução discreta e célere de inventários, partilhas e reorganização patrimonial familiar.
+            </p>
+            <ul class="space-y-2.5 text-sm text-[#52525B] font-light border-t border-[#F0ECE1] pt-5">
+              <li>• Inventários em cartório (inclusive com menores — Res. 571/2024 CNJ) e judiciais</li>
+              <li>• Planejamento sucessório, testamentos e doações em vida</li>
+              <li>• Divórcios consensuais ou litigiosos e partilha de bens</li>
+              <li>• Pensão alimentícia, guarda e regulamentação de convivência</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Direito Tributário -->
+        <div class="bg-white border border-[#E6E1D6] p-8 flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] tracking-[0.18em] uppercase text-[#8C7355] block mb-3 font-medium">
+              Tributário & Fazendário
+            </span>
+            <h3 class="font-serif text-2xl text-[#18181B] font-normal mb-4">
+              Isenções e Recuperação Fiscal
+            </h3>
+            <p class="text-sm text-[#52525B] font-light leading-relaxed mb-6">
+              Defesa do contribuinte perante a Fazenda Estadual e recuperação administrativa de créditos tributários.
+            </p>
+            <ul class="space-y-2.5 text-sm text-[#52525B] font-light border-t border-[#F0ECE1] pt-5">
+              <li>• Isenção de IPVA para PCD e pessoas com TEA (condutores e não condutores)</li>
+              <li>• Assessoria em laudos do IMESC e restituição de valores pagos</li>
+              <li>• Recuperação administrativa de créditos (PIS/COFINS monofásico e ICMS-ST para Simples Nacional)</li>
+              <li>• Anulação de cobranças fiscais indevidas</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Direito Cível e Contratos -->
+        <div class="bg-white border border-[#E6E1D6] p-8 flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] tracking-[0.18em] uppercase text-[#8C7355] block mb-3 font-medium">
+              Obrigações & Negócios
+            </span>
+            <h3 class="font-serif text-2xl text-[#18181B] font-normal mb-4">
+              Direito Cível e Contratos
+            </h3>
+            <p class="text-sm text-[#52525B] font-light leading-relaxed mb-6">
+              Segurança jurídica na elaboração de negócios e atuação estratégica em litígios patrimoniais.
+            </p>
+            <ul class="space-y-2.5 text-sm text-[#52525B] font-light border-t border-[#F0ECE1] pt-5">
+              <li>• Elaboração e revisão de contratos civis, empresariais e imobiliários</li>
+              <li>• Ações indenizatórias por responsabilidade civil e fraudes bancárias</li>
+              <li>• Direito imobiliário: posse, usucapião e rescisões contratuais</li>
+              <li>• Cobranças judiciais e execução de títulos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O Escritório -->
+  <section id="escritorio" class="py-24 bg-white border-b border-[#E6E1D6]">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-start">
+      <div class="md:col-span-5">
+        <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
+          Institucional
+        </span>
+        <h2 class="font-serif text-3xl md:text-4xl text-[#18181B] font-normal leading-tight">
+          Atendimento artesanal, rigor técnico e transparência.
+        </h2>
+      </div>
+      <div class="md:col-span-7 space-y-5 text-[#52525B] font-light leading-relaxed">
+        <p>
+          A <strong>Beatriz Rocha Sociedade Individual de Advocacia</strong> (OAB/SP 463.673) foi estruturada sob a premissa de que demandas sensíveis — especialmente aquelas que envolvem a saúde da família e o patrimônio construído ao longo da vida — exigem atenção direta, estudo minucioso e comunicação clara.
+        </p>
+        <p>
+          Localizado no Edifício Torre Nova York, na Avenida das Esmeraldas em Marília/SP, o escritório combina o acolhimento presencial com atuação digital integrada em todas as comarcas do país, assegurando agilidade no protocolo de medidas urgentes e acompanhamento próximo em cada etapa processual.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato e Triagem -->
+  <section id="contato" class="py-24">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12">
+      
+      <!-- Dados de Contato -->
+      <div class="md:col-span-5 space-y-8">
+        <div>
+          <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
+            Agendamento e Triagem
+          </span>
+          <h2 class="font-serif text-3xl text-[#18181B] font-normal">
+            Canais de Atendimento
+          </h2>
+          <p class="mt-3 text-sm text-[#52525B] font-light leading-relaxed">
+            Atendimento presencial em Marília/SP mediante agendamento prévio ou consultas por videoconferência para todo o território nacional.
+          </p>
+        </div>
+
+        <div class="space-y-5 text-sm border-t border-[#E6E1D6] pt-6">
+          <div>
+            <span class="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">Endereço</span>
+            <p class="text-[#18181B] mt-1">Av. das Esmeraldas, 3895 — Ed. Torre Nova York, Salas 305 e 306 • Marília/SP</p>
+          </div>
+          <div>
+            <span class="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">Telefone & WhatsApp</span>
+            <p class="text-[#18181B] mt-1 font-medium">(14) 99711-8732</p>
+          </div>
+          <div>
+            <span class="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">E-mail Institucional</span>
+            <p class="text-[#18181B] mt-1">beatrizrochaf@adv.oabsp.org.br</p>
+          </div>
+          <div>
+            <span class="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">Expediente</span>
+            <p class="text-[#18181B] mt-1">Segunda a Sexta-feira, das 08h30 às 18h00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulário Limpo (Sem Defesa Criminal) -->
+      <div class="md:col-span-7 bg-white border border-[#E6E1D6] p-8 md:p-10">
+        <h3 class="font-serif text-2xl text-[#18181B] font-normal mb-6">
+          Solicitar Orientação Jurídica
+        </h3>
+        <form id="contact-form" class="space-y-5">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="nome" class="block text-[11px] uppercase tracking-wider text-[#52525B] mb-2">Nome Completo *</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                required
+                placeholder="Informe seu nome"
+                class="w-full px-4 py-3 bg-[#FAF7F2] border border-[#E6E1D6] text-sm focus:outline-none focus:border-[#8C7355]"
+              >
+            </div>
+            <div>
+              <label for="telefone" class="block text-[11px] uppercase tracking-wider text-[#52525B] mb-2">WhatsApp / Telefone *</label>
+              <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                required
+                placeholder="(14) 99999-9999"
+                maxlength="15"
+                class="w-full px-4 py-3 bg-[#FAF7F2] border border-[#E6E1D6] text-sm focus:outline-none focus:border-[#8C7355]"
+              >
+            </div>
+          </div>
+
+          <div>
+            <label for="email" class="block text-[11px] uppercase tracking-wider text-[#52525B] mb-2">E-mail (Opcional)</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seuemail@exemplo.com"
+              class="w-full px-4 py-3 bg-[#FAF7F2] border border-[#E6E1D6] text-sm focus:outline-none focus:border-[#8C7355]"
+            >
+          </div>
+
+          <div>
+            <label for="area" class="block text-[11px] uppercase tracking-wider text-[#52525B] mb-2">Matéria da Demanda</label>
+            <select 
+              id="area"
+              name="area"
+              class="w-full px-4 py-3 bg-[#FAF7F2] border border-[#E6E1D6] text-sm text-[#18181B] focus:outline-none focus:border-[#8C7355]"
+            >
+              <option value="">Selecione a área correspondente</option>
+              <option value="Direito à Saúde & Autismo / TEA">Direito à Saúde & Autismo / TEA (Liminares, Terapias, Medicamentos)</option>
+              <option value="Família e Sucessões">Família e Sucessões (Inventário, Partilha, Divórcio)</option>
+              <option value="Direito Tributário">Direito Tributário (Isenção de IPVA PCD/TEA e Recuperação Fiscal)</option>
+              <option value="Direito Cível e Contratos">Direito Cível, Contratos e Indenizações</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="relato" class="block text-[11px] uppercase tracking-wider text-[#52525B] mb-2">Resumo da Situação</label>
+            <textarea
+              id="relato"
+              name="relato"
+              rows="4"
+              placeholder="Descreva brevemente o caso ou se há urgência médica/prazo em andamento..."
+              class="w-full px-4 py-3 bg-[#FAF7F2] border border-[#E6E1D6] text-sm focus:outline-none focus:border-[#8C7355]"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-3.5 bg-[#18181B] text-white text-xs tracking-[0.12em] uppercase hover:bg-[#8C7355] transition-colors"
+          >
+            Enviar para Análise Confidencial
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Rodapé Minimalista -->
+  <footer class="border-t border-[#E6E1D6] bg-white py-10 text-xs text-[#71717A]">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>© <span id="current-year"></span> Beatriz Rocha Sociedade Individual de Advocacia • OAB/SP 463.673.</p>
+      <p>Conteúdo informativo nos termos do Provimento nº 205/2021 da OAB.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
