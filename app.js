@@ -1,5 +1,5 @@
 // ==========================================================================
-// Beatriz Rocha Sociedade Individual de Advocacia (OAB/SP 463.673)
+// Beatriz Rocha Sociedade Individual de Advocacia
 // Scripts de Interatividade, Filtros de Notícias, Menu Mobile e WhatsApp
 // ==========================================================================
 

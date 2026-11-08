@@ -141,9 +141,7 @@ export default function BeatrizRochaAdvocacia() {
         <div className="max-w-6xl mx-auto px-6 py-2 flex flex-wrap justify-between items-center gap-4">
           <span>Edifício Torre Nova York • Av. das Esmeraldas, 3895, Salas 305/306 • Marília/SP</span>
           <div className="flex items-center gap-6">
-            <span>OAB/SP 463.673</span>
-            <span className="hidden sm:inline">•</span>
-            <span className="hidden sm:inline">Seg. a Sex. 08h30 às 18h00</span>
+            <span>Seg. a Sex. 08h30 às 18h00</span>
             <span>•</span>
             <a href={whatsappUrl} target="_blank" rel="noreferrer" className="text-[#18181B] font-medium hover:text-[#8C7355] transition-colors">
               (14) 99711-8732
@@ -166,12 +164,12 @@ export default function BeatrizRochaAdvocacia() {
                 Beatriz Rocha
               </span>
               <span className="text-[9px] tracking-[0.22em] text-[#71717A] uppercase mt-1">
-                Sociedade Individual de Advocacia • OAB/SP 463.673
+                Sociedade Individual de Advocacia
               </span>
             </div>
           </a>
 
-          {/* Menu Principal Higienizado & Objetivo (5 Itens Fundamentais) */}
+          {/* Menu Principal Higienizado & Objetivo (Sem Seção de Avaliação) */}
           <nav className="hidden lg:flex items-center gap-8 text-[13px] tracking-[0.02em] text-[#52525B]">
             <a href="#inicio" className="hover:text-[#18181B] transition-colors">
               Início
@@ -253,10 +251,6 @@ export default function BeatrizRochaAdvocacia() {
               )}
             </div>
 
-            <a href="#reputacao" className="hover:text-[#18181B] transition-colors">
-              Reputação & Avaliações
-            </a>
-
             <a href="#noticias" className="hover:text-[#18181B] transition-colors">
               Notícias
             </a>
@@ -319,7 +313,6 @@ export default function BeatrizRochaAdvocacia() {
               )}
             </div>
 
-            <a href="#reputacao" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Reputação & Avaliações</a>
             <a href="#noticias" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Notícias</a>
             <a href="#contato" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Contato</a>
           </div>
@@ -333,7 +326,7 @@ export default function BeatrizRochaAdvocacia() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#E6E1D6] bg-white mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
               <span className="text-[10px] tracking-[0.16em] uppercase text-[#52525B]">
-                Sociedade de Advocacia • OAB/SP 463.673
+                Assessoria Jurídica Especializada
               </span>
             </div>
             
@@ -399,7 +392,7 @@ export default function BeatrizRochaAdvocacia() {
           </div>
           <div className="md:col-span-7 space-y-5 text-[#52525B] font-light leading-relaxed">
             <p>
-              A <strong>Beatriz Rocha Sociedade Individual de Advocacia</strong> (OAB/SP 463.673) foi concebida sob o compromisso de que demandas jurídicas de alta complexidade — especialmente aquelas que envolvem a integridade física de entes queridos e o patrimônio da família — demandam condução direta, sem terceirizações ou respostas padronizadas.
+              A <strong>Beatriz Rocha Sociedade Individual de Advocacia</strong> foi concebida sob o compromisso de que demandas jurídicas de alta complexidade — especialmente aquelas que envolvem a integridade física de entes queridos e o patrimônio da família — demandam condução direta, sem terceirizações ou respostas padronizadas.
             </p>
             <p>
               Localizado no Edifício Torre Nova York, na Avenida das Esmeraldas em Marília/SP, o escritório une o conforto de instalações modernas e privativas com sistemas digitais seguros para atendimento em comarcas de todo o território nacional, assegurando agilidade no protocolo de tutelas de urgência.
@@ -666,128 +659,24 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </section>
 
-      {/* SEÇÃO NOVA: AVALIAÇÕES & REPUTAÇÃO DO ESCRITÓRIO (Conforme Provimento 205/2021 da OAB) */}
-      <section id="reputacao" className="py-24 bg-[#FAF7F2] border-b border-[#E6E1D6]">
-        <div className="max-w-6xl mx-auto px-6">
-          
-          <div className="max-w-3xl mb-14">
-            <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
-              Reputação & Compromisso Ético • OAB/SP 463.673
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#18181B] font-normal leading-tight">
-              Excelência no Atendimento, Transparência e Rigor Técnico
-            </h2>
-            <p className="mt-4 text-[#52525B] font-light leading-relaxed">
-              Atuação fundada na ética, discrição e acolhimento humano. Conheça os pilares que sustentam a credibilidade da Beatriz Rocha Sociedade Individual de Advocacia perante seus clientes e a comunidade jurídica.
-            </p>
+      {/* Indicador Discreto de Avaliação e Satisfação */}
+      <div className="py-6 border-b border-[#E6E1D6] bg-white">
+        <div className="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-xs">
+          <div className="flex items-center gap-3">
+            <div className="flex text-[#8C7355] text-sm tracking-widest">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <span className="font-medium text-[#18181B]">5.0 no Google</span>
+            <span className="text-[#D6CFC2]">•</span>
+            <span className="text-[#52525B] font-light">Atendimento humanizado, discrição e rigor técnico</span>
           </div>
-
-          {/* Destaque de Reputação & Indicadores */}
-          <div className="grid md:grid-cols-12 gap-8 mb-14">
-            
-            {/* Card Google Avaliações */}
-            <div className="md:col-span-5 bg-white border border-[#E6E1D6] p-8 flex flex-col justify-between shadow-xs">
-              <div>
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#F0ECE1]">
-                  <span className="text-xs uppercase tracking-wider text-[#71717A]">Google Meu Negócio</span>
-                  <span className="text-xs text-[#8C7355] font-medium">Avaliações Verificadas</span>
-                </div>
-
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="font-serif text-5xl text-[#18181B] font-normal">5.0</span>
-                  <div className="flex text-[#8C7355] text-lg">
-                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                  </div>
-                </div>
-
-                <p className="text-xs text-[#52525B] font-light leading-relaxed mt-2">
-                  Classificação máxima em satisfação de atendimento, clareza e dedicação em causas delicadas de saúde, autismo e direito patrimonial.
-                </p>
-              </div>
-
-              <div className="pt-6 border-t border-[#F0ECE1] mt-6 flex items-center justify-between text-xs text-[#71717A]">
-                <span>Sede: Torre Nova York • Marília/SP</span>
-                <span className="text-[#8C7355] font-medium">Atendimento Nacional</span>
-              </div>
-            </div>
-
-            {/* 4 Pilares de Excelência Avaliados */}
-            <div className="md:col-span-7 grid sm:grid-cols-2 gap-4">
-              <div className="bg-white border border-[#E6E1D6] p-6 shadow-xs">
-                <span className="text-[#8C7355] text-lg font-serif block mb-2">01</span>
-                <h4 className="font-serif text-lg text-[#18181B] mb-1 font-medium">Acolhimento Humanizado</h4>
-                <p className="text-xs text-[#52525B] font-light leading-relaxed">
-                  Atenção direta da advogada titular em cada etapa, com escuta atenta às particularidades de cada família.
-                </p>
-              </div>
-
-              <div className="bg-white border border-[#E6E1D6] p-6 shadow-xs">
-                <span className="text-[#8C7355] text-lg font-serif block mb-2">02</span>
-                <h4 className="font-serif text-lg text-[#18181B] mb-1 font-medium">Clareza sem "Juridiquês"</h4>
-                <p className="text-xs text-[#52525B] font-light leading-relaxed">
-                  Comunicação acessível sobre riscos, possibilidades reais e andamento processual sem termos herméticos.
-                </p>
-              </div>
-
-              <div className="bg-white border border-[#E6E1D6] p-6 shadow-xs">
-                <span className="text-[#8C7355] text-lg font-serif block mb-2">03</span>
-                <h4 className="font-serif text-lg text-[#18181B] mb-1 font-medium">Agilidade em Urgências</h4>
-                <p className="text-xs text-[#52525B] font-light leading-relaxed">
-                  Protocolo ágil de tutelas provisórias de urgência e acompanhamento ostensivo de liminares.
-                </p>
-              </div>
-
-              <div className="bg-white border border-[#E6E1D6] p-6 shadow-xs">
-                <span className="text-[#8C7355] text-lg font-serif block mb-2">04</span>
-                <h4 className="font-serif text-lg text-[#18181B] mb-1 font-medium">Sigilo Profissional</h4>
-                <p className="text-xs text-[#52525B] font-light leading-relaxed">
-                  Proteção integral e tratamento estritamente sigiloso de prontuários médicos e dados patrimoniais.
-                </p>
-              </div>
-            </div>
-
+          <div className="text-[#71717A] text-[11px] font-light flex items-center gap-2">
+            <span>Edifício Torre Nova York • Marília/SP</span>
+            <span className="text-[#D6CFC2]">•</span>
+            <span>Atendimento com hora marcada</span>
           </div>
-
-          {/* Relatos Institucionais Éticos de Experiência (Conforme Provimento 205/2021 OAB) */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white border border-[#E6E1D6] p-7 shadow-xs flex flex-col justify-between">
-              <p className="text-xs text-[#52525B] font-light italic leading-relaxed mb-4">
-                "O acolhimento que recebemos no momento em que o plano negou as terapias multidisciplinares foi essencial. A clareza e dedicação da Dra. Beatriz nos trouxeram a tranquilidade e segurança que precisávamos."
-              </p>
-              <div className="pt-3 border-t border-[#F0ECE1] text-[11px] text-[#71717A]">
-                <span className="font-medium text-[#18181B] block">Família M. S.</span>
-                <span>Atendimento em Direito à Saúde • Marília/SP</span>
-              </div>
-            </div>
-
-            <div className="bg-white border border-[#E6E1D6] p-7 shadow-xs flex flex-col justify-between">
-              <p className="text-xs text-[#52525B] font-light italic leading-relaxed mb-4">
-                "Atendimento impecável no processo de inventário em cartório. Toda a condução foi rápida, transparente e com respeito absoluto à história e aos interesses da nossa família."
-              </p>
-              <div className="pt-3 border-t border-[#F0ECE1] text-[11px] text-[#71717A]">
-                <span className="font-medium text-[#18181B] block">R. F.</span>
-                <span>Atendimento Sucessório • São Paulo/SP</span>
-              </div>
-            </div>
-
-            <div className="bg-white border border-[#E6E1D6] p-7 shadow-xs flex flex-col justify-between">
-              <p className="text-xs text-[#52525B] font-light italic leading-relaxed mb-4">
-                "Profissionalismo exemplar e orientação técnica precisa. O atendimento presencial na Torre Nova York é de alto padrão e a comunicação digital sempre ágil e pontual."
-              </p>
-              <div className="pt-3 border-t border-[#F0ECE1] text-[11px] text-[#71717A]">
-                <span className="font-medium text-[#18181B] block">C. A.</span>
-                <span>Assessoria Consultiva • Assis/SP</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Nota Ética Institucional OAB */}
-          <div className="text-center p-4 bg-white/70 border border-[#E6E1D6] text-[11px] text-[#71717A] max-w-4xl mx-auto font-light">
-            Em estrita observância ao art. 3º do Provimento nº 205/2021 do Conselho Federal da OAB, os relatos expressam a experiência de acolhimento e qualidade no atendimento, sem configurar promessa de resultado, garantia de êxito ou mercantilização dos serviços jurídicos.
-          </div>
-
         </div>
-      </section>
+      </div>
 
       {/* SEÇÃO 1: NOTÍCIAS E ATUALIDADES JURÍDICAS (Conteúdos Reais, Verificados e com Links Diretos) */}
       <section id="noticias" className="py-24 bg-white border-b border-[#E6E1D6]">
@@ -959,7 +848,7 @@ export default function BeatrizRochaAdvocacia() {
               </div>
               <div>
                 <span className="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">E-mail Institucional</span>
-                <p className="text-[#18181B] mt-1">beatrizrochaf@adv.oabsp.org.br</p>
+                <p className="text-[#18181B] mt-1">contato@beatrizrocha.adv.br</p>
               </div>
               <div>
                 <span className="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">Expediente</span>
@@ -1052,8 +941,8 @@ export default function BeatrizRochaAdvocacia() {
       {/* Rodapé Minimalista */}
       <footer className="border-t border-[#E6E1D6] bg-white py-10 text-xs text-[#71717A]">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p>© {new Date().getFullYear()} Beatriz Rocha Sociedade Individual de Advocacia • OAB/SP 463.673.</p>
-          <p>Conteúdo informativo nos termos do Provimento nº 205/2021 da OAB.</p>
+          <p>© {new Date().getFullYear()} Beatriz Rocha Sociedade Individual de Advocacia. Todos os direitos reservados.</p>
+          <p>Edifício Torre Nova York • Marília/SP</p>
         </div>
       </footer>
 
