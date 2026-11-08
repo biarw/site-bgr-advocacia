@@ -1,6 +1,6 @@
 // ==========================================================================
 // Beatriz Rocha Sociedade Individual de Advocacia (OAB/SP 463.673)
-// Scripts de Interatividade, Validação, Máscara e Encaminhamento WhatsApp
+// Scripts de Interatividade, Filtros de Notícias, Menu Mobile e WhatsApp
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,9 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // 2. Menu Mobile Drawer
+  // 2. Menu Mobile Drawer & Accordion de Áreas
   const mobileBtn = document.getElementById('mobile-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileAreasToggle = document.getElementById('mobile-areas-toggle');
+  const mobileAreasSubmenu = document.getElementById('mobile-areas-submenu');
+  const mobileAreasIcon = document.getElementById('mobile-areas-icon');
 
   if (mobileBtn && mobileMenu) {
     mobileBtn.addEventListener('click', () => {
@@ -34,7 +37,69 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Máscara de Telefone / WhatsApp: (DD) 00000-0000
+  if (mobileAreasToggle && mobileAreasSubmenu) {
+    mobileAreasToggle.addEventListener('click', () => {
+      const isHidden = mobileAreasSubmenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileAreasSubmenu.classList.remove('hidden');
+        if (mobileAreasIcon) mobileAreasIcon.textContent = '▴';
+      } else {
+        mobileAreasSubmenu.classList.add('hidden');
+        if (mobileAreasIcon) mobileAreasIcon.textContent = '▾';
+      }
+    });
+  }
+
+  // 3. Filtros e Busca Rápida na Seção de Notícias
+  const filterBtns = document.querySelectorAll('.news-filter-btn');
+  const searchInput = document.getElementById('news-search');
+  const newsCards = document.querySelectorAll('.news-card');
+
+  let activeCategory = 'Todas';
+  let searchTerm = '';
+
+  function applyNewsFilters() {
+    newsCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      const cardKeywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+      const cardText = card.innerText.toLowerCase();
+
+      const matchesCat = (activeCategory === 'Todas') || (cardCategory === activeCategory);
+      const matchesSearch = !searchTerm || cardKeywords.includes(searchTerm) || cardText.includes(searchTerm);
+
+      if (matchesCat && matchesSearch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  if (filterBtns.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-[#8C7355]', 'text-white', 'font-medium', 'shadow-xs');
+          b.classList.add('bg-white', 'border', 'border-[#E6E1D6]', 'text-[#52525B]');
+        });
+
+        btn.classList.remove('bg-white', 'border', 'border-[#E6E1D6]', 'text-[#52525B]');
+        btn.classList.add('bg-[#8C7355]', 'text-white', 'font-medium', 'shadow-xs');
+
+        activeCategory = btn.getAttribute('data-cat');
+        applyNewsFilters();
+      });
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchTerm = e.target.value.trim().toLowerCase();
+      applyNewsFilters();
+    });
+  }
+
+  // 4. Máscara de Telefone / WhatsApp: (DD) 00000-0000
   const phoneInput = document.getElementById('telefone');
   if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
@@ -55,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Envio do Formulário Estruturado para o WhatsApp
+  // 5. Envio do Formulário Estruturado para o WhatsApp
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
