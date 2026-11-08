@@ -1375,7 +1375,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* CONTATO E AGENDAMENTO */}
-      <section id="contato" className="section-spacing bg-white border-t border-[#D2B48C]/25" style={{ padding: '100px 0' }}>
+      <section id="contato" className="section-spacing bg-white border-t border-[#D2B48C]/30 relative" style={{ padding: '100px 0' }}>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
           <div className="max-w-2xl mb-12">
@@ -1390,11 +1390,11 @@ export default function BeatrizRochaAdvocacia() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-14 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-start" style={{ gap: '3rem' }}>
             {/* Coluna Esquerda: Informações, Fotos Reais da Torre Nova York e Mapa Monocromático */}
             <div className="space-y-8">
               {/* Cartão Institucional de Expediente & Contato */}
-              <div className="bg-[#FAF7F2]/60 border border-[#E5E0DA] p-7 rounded-[4px] shadow-2xs space-y-5 text-sm">
+              <div className="bg-[#FAF7F2]/60 border border-[rgba(210,180,140,0.4)] p-7 rounded-[6px] shadow-2xs space-y-5 text-sm">
                 <div>
                   <span className="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold block mb-1">
                     Sede Corporativa
@@ -1435,7 +1435,7 @@ export default function BeatrizRochaAdvocacia() {
 
               {/* Fotografias da Torre Nova York / Praça Capital */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#FAF7F2] border border-[#E5E0DA] shadow-2xs group">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[6px] bg-[#FAF7F2] border border-[rgba(210,180,140,0.4)] shadow-2xs group">
                   <img
                     src="/assets/complexo-esmeraldas.jpg"
                     alt="Complexo Praça Capital e Edifício Torre Nova York na Avenida das Esmeraldas em Marília/SP"
@@ -1443,12 +1443,12 @@ export default function BeatrizRochaAdvocacia() {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
-                  <span className="absolute bottom-2.5 left-2.5 text-[9px] uppercase tracking-wider text-white bg-black/50 px-2 py-0.5 backdrop-blur-xs font-medium rounded-[2px]">
+                  <span className="absolute bottom-2.5 left-2.5 text-[9px] uppercase tracking-wider text-white bg-black/50 px-2 py-0.5 backdrop-blur-xs font-medium rounded-[3px]">
                     Fachada • Torre Nova York
                   </span>
                 </div>
 
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#FAF7F2] border border-[#E5E0DA] shadow-2xs group">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[6px] bg-[#FAF7F2] border border-[rgba(210,180,140,0.4)] shadow-2xs group">
                   <img
                     src="/assets/recepcao-corporativa.jpg"
                     alt="Lobby e recepção corporativa da Torre Nova York"
@@ -1456,7 +1456,7 @@ export default function BeatrizRochaAdvocacia() {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
-                  <span className="absolute bottom-2.5 left-2.5 text-[9px] uppercase tracking-wider text-white bg-black/50 px-2 py-0.5 backdrop-blur-xs font-medium rounded-[2px]">
+                  <span className="absolute bottom-2.5 left-2.5 text-[9px] uppercase tracking-wider text-white bg-black/50 px-2 py-0.5 backdrop-blur-xs font-medium rounded-[3px]">
                     Recepção Privativa
                   </span>
                 </div>
@@ -1464,7 +1464,7 @@ export default function BeatrizRochaAdvocacia() {
 
               {/* Mapa Monocromático Limpo com Botões de Navegação */}
               <div className="space-y-3">
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[4px] border border-[#E5E0DA] bg-[#FAF7F2] shadow-2xs">
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[6px] border border-[rgba(210,180,140,0.4)] bg-[#FAF7F2] shadow-2xs">
                   <iframe
                     title="Localização Torre Nova York - Google Maps"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.3644917657156!2d-49.93988632386345!3d-22.226297379739504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bfd71d34c19c99%3A0x6b44a30e8c7c91d4!2sAv.%20das%20Esmeraldas%2C%203895%20-%20Jardim%20Maringa%2C%20Mar%C3%ADlia%20-%20SP%2C%2017516-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
@@ -1479,7 +1479,7 @@ export default function BeatrizRochaAdvocacia() {
                     href="https://www.google.com/maps/search/?api=1&query=Av.+das+Esmeraldas%2C+3895+-+Mar%C3%ADlia%2C+SP"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[#E5E0DA] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[3px] shadow-2xs"
+                    className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[rgba(210,180,140,0.4)] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-all duration-200 rounded-[6px] shadow-2xs"
                   >
                     <span>Google Maps ↗</span>
                   </a>
@@ -1487,7 +1487,7 @@ export default function BeatrizRochaAdvocacia() {
                     href="https://waze.com/ul?q=Av.+das+Esmeraldas+3895+Marilia"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[#E5E0DA] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[3px] shadow-2xs"
+                    className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[rgba(210,180,140,0.4)] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-all duration-200 rounded-[6px] shadow-2xs"
                   >
                     <span>Abrir no Waze ↗</span>
                   </a>
@@ -1496,7 +1496,7 @@ export default function BeatrizRochaAdvocacia() {
             </div>
 
             {/* Coluna Direita: Formulário de Solicitação de Orientação Jurídica */}
-            <div className="bg-[#FAF7F2]/40 border border-[#E5E0DA] p-8 md:p-10 rounded-[4px] shadow-2xs">
+            <div className="bg-[#FAF7F2]/40 border border-[rgba(210,180,140,0.4)] p-8 md:p-10 rounded-[6px] shadow-2xs">
               <div className="mb-7">
                 <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] font-semibold block mb-1">
                   Canal Confidencial
@@ -1524,7 +1524,7 @@ export default function BeatrizRochaAdvocacia() {
                       placeholder="Informe seu nome completo"
                       value={formData.nome}
                       onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                      className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                      className="w-full px-4 py-3 bg-[#FAF7F2]/50 border border-[rgba(210,180,140,0.4)] focus:border-[#8C7355] focus:bg-white focus:ring-2 focus:ring-[#8C7355]/20 text-sm text-[#18181B] rounded-[6px] transition-all duration-200 outline-none"
                     />
                   </div>
                   <div>
@@ -1541,7 +1541,7 @@ export default function BeatrizRochaAdvocacia() {
                       value={formData.telefone}
                       onChange={handlePhoneChange}
                       maxLength={15}
-                      className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                      className="w-full px-4 py-3 bg-[#FAF7F2]/50 border border-[rgba(210,180,140,0.4)] focus:border-[#8C7355] focus:bg-white focus:ring-2 focus:ring-[#8C7355]/20 text-sm text-[#18181B] rounded-[6px] transition-all duration-200 outline-none"
                     />
                   </div>
                 </div>
@@ -1558,7 +1558,7 @@ export default function BeatrizRochaAdvocacia() {
                     placeholder="seuemail@exemplo.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#FAF7F2]/50 border border-[rgba(210,180,140,0.4)] focus:border-[#8C7355] focus:bg-white focus:ring-2 focus:ring-[#8C7355]/20 text-sm text-[#18181B] rounded-[6px] transition-all duration-200 outline-none"
                   />
                 </div>
 
@@ -1571,13 +1571,14 @@ export default function BeatrizRochaAdvocacia() {
                     name="area"
                     value={formData.area}
                     onChange={(e) => setFormData({ ...formData, area: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                    className="w-full px-4 py-3 bg-[#FAF7F2]/50 border border-[rgba(210,180,140,0.4)] focus:border-[#8C7355] focus:bg-white focus:ring-2 focus:ring-[#8C7355]/20 text-sm text-[#18181B] rounded-[6px] transition-all duration-200 outline-none"
                   >
                     <option value="">Selecione a área correspondente</option>
                     <option value="Direito à Saúde & Autismo / TEA">Direito à Saúde & Autismo / TEA (Liminares, Terapias, Medicamentos)</option>
                     <option value="Família e Sucessões">Família e Sucessões (Inventário em Cartório, Partilha, Divórcio)</option>
                     <option value="Direito Tributário">Direito Tributário (Isenção de IPVA PCD/TEA e Recuperação Fiscal)</option>
                     <option value="Direito Cível e Contratos">Direito Cível, Contratos e Indenizações</option>
+                    <option value="Outros / Outros Assuntos Jurídicos (Análise Preliminar)">Outros / Outros Assuntos Jurídicos (Análise Preliminar)</option>
                   </select>
                 </div>
 
@@ -1592,7 +1593,7 @@ export default function BeatrizRochaAdvocacia() {
                     placeholder="Descreva brevemente o caso ou se há urgência médica/prazo processual em andamento..."
                     value={formData.relato}
                     onChange={(e) => setFormData({ ...formData, relato: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none leading-relaxed"
+                    className="w-full px-4 py-3 bg-[#FAF7F2]/50 border border-[rgba(210,180,140,0.4)] focus:border-[#8C7355] focus:bg-white focus:ring-2 focus:ring-[#8C7355]/20 text-sm text-[#18181B] rounded-[6px] transition-all duration-200 outline-none leading-relaxed"
                   ></textarea>
                 </div>
 
@@ -1609,9 +1610,12 @@ export default function BeatrizRochaAdvocacia() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#18181B] text-white text-xs tracking-[0.14em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8C7355]"
+                  className="w-full py-4 px-6 bg-[#18181B] hover:bg-[#8C7355] text-white text-xs tracking-[0.16em] uppercase font-medium transition-all duration-300 rounded-[6px] shadow-sm hover:shadow-md cursor-pointer flex items-center justify-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8C7355]"
                 >
-                  Enviar para Análise Confidencial
+                  <svg className="w-4 h-4 text-[#D2B48C] group-hover:text-white transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                  </svg>
+                  <span>Enviar para Análise Confidencial</span>
                 </button>
                 <p className="text-[11px] text-[#71717A] text-center font-light">
                   Seus dados serão encaminhados diretamente via canal criptografado para a banca da Dra. Beatriz Rocha.
