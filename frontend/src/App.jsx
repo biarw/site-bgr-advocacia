@@ -23,19 +23,45 @@ export default function BeatrizRochaAdvocacia() {
   const newsDatabase = [
     {
       id: 1,
-      title: "Segunda Seção do STJ veda limitação de sessões de terapia multidisciplinar para tratamento de autismo (Tema 1.295)",
-      source: "Superior Tribunal de Justiça (STJ) & Migalhas",
-      sourceBadge: "STJ • Tema 1.295",
-      date: "Março de 2026",
+      title: "Plano de saúde deve aceitar criança autista após recusar adesão por \"ausência de interesse comercial\"",
+      source: "Portal Migalhas & Justiça Estadual",
+      sourceBadge: "Migalhas • Seleção de Risco em TEA",
+      date: "Jurisprudência Atual",
       category: "Direito à Saúde & Autismo (TEA)",
-      summary: "Sob o rito dos recursos repetitivos (Tema 1.295 – REsp 2.153.672 e REsp 2.167.050), a Segunda Seção fixou a tese vinculante de que é abusiva qualquer imposição de tetos ou limites anuais ao número de sessões de terapia multidisciplinar (psicologia/Método ABA, fonoaudiologia, fisioterapia e terapia ocupacional) prescritas ao paciente com TEA.",
-      officialUrl: "https://www.stj.jus.br",
-      partnerUrl: "https://www.migalhas.com.br",
-      partnerLabel: "Migalhas ↗",
+      summary: "Decisão da Justiça reforça que a recusa de contratação de plano de saúde sob justificativas comerciais genéricas logo após a ciência do diagnóstico de TEA é ilegal e configura prática abusiva de seleção de risco.",
+      officialUrl: "https://www.migalhas.com.br/quentes/466978/plano-de-saude-deve-aceitar-crianca-autista-apos-recusar-adesao",
+      partnerUrl: "https://www.tjsp.jus.br",
+      partnerLabel: "TJSP ↗",
       verified: true
     },
     {
       id: 2,
+      title: "Justiça garante custeio de tratamento multidisciplinar fora da rede credenciada para crianças com TEA",
+      source: "Portal Migalhas & Tribunais de Justiça",
+      sourceBadge: "Migalhas • Reembolso Integral",
+      date: "Jurisprudência Atual",
+      category: "Direito à Saúde & Autismo (TEA)",
+      summary: "Diante da ausência ou inaptidão de profissionais especializados devidamente certificados na rede própria da operadora, o judiciário assegura o direito ao reembolso integral ou custeio direto de terapias particulares (como método ABA).",
+      officialUrl: "https://www.migalhas.com.br/quentes/430648/plano-indenizara-crianca-com-tea-apos-negar-tratamento-fora-da-rede",
+      partnerUrl: "https://www.gov.br/ans",
+      partnerLabel: "Portal ANS ↗",
+      verified: true
+    },
+    {
+      id: 3,
+      title: "STF e STJ definem parâmetros para cobertura de tratamentos e fármacos não previstos no rol da ANS",
+      source: "Portal Migalhas • STF & STJ",
+      sourceBadge: "Migalhas • STF & STJ Extra-Rol",
+      date: "ADIn 7.265 / Tema STJ",
+      category: "Direito à Saúde & Autismo (TEA)",
+      summary: "Com base nos parâmetros fixados pelo Supremo Tribunal Federal (ADIn 7.265) e nas diretrizes dos tribunais, pacientes com prescrição fundamentada e respaldo científico obtêm tutelas de urgência para tratamentos de alto custo.",
+      officialUrl: "https://www.migalhas.com.br/quentes/461400/toffoli-manda-stj-reanalisar-cobertura-de-remedio-fora-do-rol-da-ans",
+      partnerUrl: "https://portal.stf.jus.br",
+      partnerLabel: "Portal STF ↗",
+      verified: true
+    },
+    {
+      id: 4,
       title: "Resolução CNJ nº 571/2024 autoriza inventário e partilha extrajudiciais em cartório mesmo com menores e incapazes",
       source: "Conselho Nacional de Justiça (CNJ)",
       sourceBadge: "CNJ • Resolução 571/2024",
@@ -45,32 +71,6 @@ export default function BeatrizRochaAdvocacia() {
       officialUrl: "https://www.cnj.jus.br",
       partnerUrl: "https://www.conjur.com.br",
       partnerLabel: "ConJur ↗",
-      verified: true
-    },
-    {
-      id: 3,
-      title: "Justiça paulista assegura reembolso integral de terapias ABA quando rede credenciada não dispõe de especialista habilitado",
-      source: "Consultor Jurídico (ConJur) & TJSP",
-      sourceBadge: "ConJur & TJSP",
-      date: "Fevereiro de 2025",
-      category: "Direito à Saúde & Autismo (TEA)",
-      summary: "Com base na Resolução Normativa nº 566/2022 da ANS e na jurisprudência das Câmaras de Direito Privado do TJSP, comprovada a inaptidão técnica ou indisponibilidade de profissionais com certificação específica no método prescrito na rede própria, a operadora deve custear integralmente a clínica particular.",
-      officialUrl: "https://www.gov.br/ans",
-      partnerUrl: "https://www.conjur.com.br",
-      partnerLabel: "ConJur ↗",
-      verified: true
-    },
-    {
-      id: 4,
-      title: "Lei Federal nº 14.454/2022 consolida rol exemplificativo da ANS e orienta tutelas de urgência no TJSP",
-      source: "Tribunal de Justiça de São Paulo (TJSP)",
-      sourceBadge: "TJSP • Lei 14.454/2022",
-      date: "Jurisprudência Atual",
-      category: "Direito à Saúde & Autismo (TEA)",
-      summary: "Prevalência da indicação do médico assistente para fornecimento de medicamentos de alto custo, imunobiológicos e tratamentos oncológicos negados sob a justificativa de não constarem na Diretriz de Utilização da ANS, assegurando a concessão célere de liminares com fixação de multa diária.",
-      officialUrl: "https://www.tjsp.jus.br",
-      partnerUrl: "https://www.migalhas.com.br",
-      partnerLabel: "Migalhas ↗",
       verified: true
     },
     {
@@ -542,6 +542,118 @@ export default function BeatrizRochaAdvocacia() {
               </div>
             </div>
 
+          </div>
+
+          {/* Sub-bloco de Informativos & Julgados Reais (Portal Migalhas) */}
+          <div className="mb-14">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-4 border-b border-[#E6E1D6]">
+              <div>
+                <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block font-medium mb-1">
+                  Informativos & Julgados Reais • Portal Migalhas
+                </span>
+                <h3 className="font-serif text-2xl md:text-3xl text-[#18181B] font-normal">
+                  Decisões dos Tribunais em Direito à Saúde & TEA
+                </h3>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-[#E6E1D6] text-[11px] text-[#52525B]">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                <span>Links Reais de Conferência Externa</span>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              
+              {/* Notícia 1: Recusa de Adesão / Seleção de Risco */}
+              <div className="bg-white border border-[#E6E1D6] p-7 flex flex-col justify-between hover:border-[#8C7355] transition-all shadow-xs">
+                <div>
+                  <div className="flex items-center justify-between text-[11px] mb-3 pb-2.5 border-b border-[#F0ECE1]">
+                    <span className="font-semibold text-[#8C7355] uppercase tracking-wider">
+                      Migalhas • Seleção de Risco
+                    </span>
+                    <span className="text-[10px] text-emerald-800 font-medium">✓ Verificado</span>
+                  </div>
+                  <h4 className="font-serif text-lg text-[#18181B] font-normal leading-snug mb-3">
+                    Plano de saúde deve aceitar criança autista após recusar adesão por "ausência de interesse comercial"
+                  </h4>
+                  <p className="text-xs text-[#52525B] font-light leading-relaxed mb-6">
+                    Decisão da Justiça reforça que a recusa de contratação de plano de saúde sob justificativas comerciais genéricas logo após a ciência do diagnóstico de TEA é ilegal e configura prática abusiva de seleção de risco.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#F0ECE1] flex items-center justify-between">
+                  <a
+                    href="https://www.migalhas.com.br/quentes/466978/plano-de-saude-deve-aceitar-crianca-autista-apos-recusar-adesao"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-[#8C7355] font-medium hover:text-[#18181B] transition-colors"
+                  >
+                    <span>Notícia no Migalhas</span>
+                    <span>↗</span>
+                  </a>
+                  <span className="text-[11px] text-[#71717A]">Justiça Estadual</span>
+                </div>
+              </div>
+
+              {/* Notícia 2: Tratamento Fora da Rede / Reembolso Integral */}
+              <div className="bg-white border border-[#E6E1D6] p-7 flex flex-col justify-between hover:border-[#8C7355] transition-all shadow-xs">
+                <div>
+                  <div className="flex items-center justify-between text-[11px] mb-3 pb-2.5 border-b border-[#F0ECE1]">
+                    <span className="font-semibold text-[#8C7355] uppercase tracking-wider">
+                      Migalhas • Tratamento Fora da Rede
+                    </span>
+                    <span className="text-[10px] text-emerald-800 font-medium">✓ Verificado</span>
+                  </div>
+                  <h4 className="font-serif text-lg text-[#18181B] font-normal leading-snug mb-3">
+                    Justiça garante custeio de tratamento multidisciplinar fora da rede credenciada para crianças com TEA
+                  </h4>
+                  <p className="text-xs text-[#52525B] font-light leading-relaxed mb-6">
+                    Diante da ausência ou inaptidão de profissionais especializados devidamente certificados na rede própria da operadora, o judiciário assegura o direito ao reembolso integral ou custeio direto de terapias particulares (como método ABA).
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#F0ECE1] flex items-center justify-between">
+                  <a
+                    href="https://www.migalhas.com.br/quentes/430648/plano-indenizara-crianca-com-tea-apos-negar-tratamento-fora-da-rede"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-[#8C7355] font-medium hover:text-[#18181B] transition-colors"
+                  >
+                    <span>Notícia no Migalhas</span>
+                    <span>↗</span>
+                  </a>
+                  <span className="text-[11px] text-[#71717A]">Tribunal de Justiça</span>
+                </div>
+              </div>
+
+              {/* Notícia 3: Entendimento do STF e STJ sobre Tratamentos Extra-Rol */}
+              <div className="bg-white border border-[#E6E1D6] p-7 flex flex-col justify-between hover:border-[#8C7355] transition-all shadow-xs">
+                <div>
+                  <div className="flex items-center justify-between text-[11px] mb-3 pb-2.5 border-b border-[#F0ECE1]">
+                    <span className="font-semibold text-[#8C7355] uppercase tracking-wider">
+                      Migalhas • STF & STJ Extra-Rol
+                    </span>
+                    <span className="text-[10px] text-emerald-800 font-medium">✓ Verificado</span>
+                  </div>
+                  <h4 className="font-serif text-lg text-[#18181B] font-normal leading-snug mb-3">
+                    STF e STJ definem parâmetros para cobertura de tratamentos e fármacos não previstos no rol da ANS
+                  </h4>
+                  <p className="text-xs text-[#52525B] font-light leading-relaxed mb-6">
+                    Com base nos parâmetros fixados pelo Supremo Tribunal Federal (ADIn 7.265) e nas diretrizes dos tribunais, pacientes com prescrição fundamentada e respaldo científico obtêm tutelas de urgência para tratamentos de alto custo.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#F0ECE1] flex items-center justify-between">
+                  <a
+                    href="https://www.migalhas.com.br/quentes/461400/toffoli-manda-stj-reanalisar-cobertura-de-remedio-fora-do-rol-da-ans"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-[#8C7355] font-medium hover:text-[#18181B] transition-colors"
+                  >
+                    <span>Notícia no Migalhas</span>
+                    <span>↗</span>
+                  </a>
+                  <span className="text-[11px] text-[#71717A]">STF • ADIn 7.265</span>
+                </div>
+              </div>
+
+            </div>
           </div>
 
           {/* Bloco de Ação / Gatilhos de Conversão Éticos */}
