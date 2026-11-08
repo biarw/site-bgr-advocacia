@@ -71,14 +71,12 @@
 <body class="min-h-screen bg-[#FAF7F2] text-[#18181B]">
 
   <!-- Topbar Editorial Minimalista -->
-  <aside class="border-b border-[#E6E1D6] bg-[#F4EFE6]/60 text-[11px] tracking-[0.06em] text-[#52525B] uppercase" aria-label="Informações Institucionais">
+  <aside class="border-b border-[#E6E1D6] bg-[#F4EFE6]/60 text-[11px] tracking-[0.08em] text-[#52525B] uppercase" aria-label="Informações Institucionais">
     <div class="max-w-6xl mx-auto px-6 py-2 flex flex-wrap justify-between items-center gap-3">
-      <span class="font-normal">
-        Edifício Torre Nova York • Av. das Esmeraldas, 3895, Salas 305/306 • Marília/SP
+      <span class="font-normal whitespace-nowrap">
+        EDIFÍCIO TORRE NOVA YORK • MARÍLIA/SP | OAB/SP 463.673
       </span>
-      <div class="flex items-center gap-3 sm:gap-4 flex-wrap text-[10.5px]">
-        <span class="text-[#18181B] font-medium tracking-wider">OAB/SP 463.673</span>
-        <span class="text-[#D6CFC2]">|</span>
+      <div class="flex items-center gap-3 sm:gap-4 whitespace-nowrap text-[10.5px]">
         <span>Seg. a Sex. 08h30 às 18h00</span>
         <span class="text-[#D6CFC2]">•</span>
         <a 
@@ -98,34 +96,34 @@
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
       
       <!-- Monograma BR + Identidade -->
-      <a href="#inicio" class="flex items-center gap-3.5 group">
+      <a href="#inicio" class="flex items-center gap-3.5 group shrink-0">
         <div class="w-10 h-10 border border-[#8C7355]/40 flex items-center justify-center bg-white shadow-2xs group-hover:border-[#8C7355] transition-colors shrink-0">
           <span class="font-serif text-lg tracking-tight text-[#18181B]">BR</span>
         </div>
         <div class="flex flex-col justify-center">
-          <span class="font-serif text-[17px] tracking-[0.14em] text-[#18181B] uppercase leading-none font-normal">
+          <span class="font-serif text-[17px] tracking-[0.14em] text-[#18181B] uppercase leading-none font-normal whitespace-nowrap">
             Beatriz Rocha
           </span>
-          <span class="text-[8.5px] sm:text-[9px] tracking-[0.2em] text-[#8C7355] uppercase font-sans font-medium mt-1.5 leading-none">
+          <span class="text-[8.5px] sm:text-[9px] tracking-[0.2em] text-[#8C7355] uppercase font-sans font-medium mt-1.5 leading-none whitespace-nowrap">
             Sociedade Individual de Advocacia
           </span>
         </div>
       </a>
 
       <!-- Menu Principal Fluido & Rigorosamente Alinhado -->
-      <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-xs lg:text-[13px] tracking-[0.04em] uppercase text-[#52525B]">
-        <a href="#escritorio" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-          Institucional
+      <nav class="hidden md:flex items-center gap-7 text-[11px] lg:text-[11.5px] font-medium tracking-[0.12em] uppercase text-[#52525B]">
+        <a href="#institucional" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
+          O Escritório
         </a>
 
         <a href="#saude-tea" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-          Saúde & Autismo
+          Saúde & TEA
         </a>
 
-        <!-- Dropdown Organizado de Áreas de Atuação -->
+        <!-- Dropdown Organizado de Especialidades -->
         <div class="relative group-dropdown py-2">
-          <a href="#atuacao" class="flex items-center gap-1 hover:text-[#18181B] transition-colors">
-            <span>Áreas de Atuação</span>
+          <a href="#areas-atuacao" class="flex items-center gap-1.5 hover:text-[#18181B] transition-colors whitespace-nowrap">
+            <span>Especialidades</span>
             <span class="text-[10px] text-[#8C7355] font-serif">▾</span>
           </a>
 
@@ -140,7 +138,7 @@
               </span>
             </a>
 
-            <a href="#atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1]">
+            <a href="#areas-atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1]">
               <span class="text-xs font-medium text-[#18181B] block">
                 Família e Sucessões
               </span>
@@ -149,7 +147,7 @@
               </span>
             </a>
 
-            <a href="#atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1]">
+            <a href="#areas-atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1]">
               <span class="text-xs font-medium text-[#18181B] block">
                 Tributário & Isenções
               </span>
@@ -158,7 +156,7 @@
               </span>
             </a>
 
-            <a href="#atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2]">
+            <a href="#areas-atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2]">
               <span class="text-xs font-medium text-[#18181B] block">
                 Direito Cível e Contratos
               </span>
@@ -169,7 +167,7 @@
           </div>
         </div>
 
-        <a href="#noticias" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
+        <a href="#informativos" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
           Informativos
         </a>
 
@@ -179,18 +177,18 @@
       </nav>
 
       <!-- CTA Discreto e Fino + Botão Mobile -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center ml-6 shrink-0">
         <a
           href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
           target="_blank"
           rel="noreferrer"
-          class="px-5 py-2.5 bg-[#8C7355] text-white text-xs tracking-[0.08em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap"
+          class="px-5 py-2.5 bg-[#8C7355] text-white text-[11px] tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap"
         >
           Agendar Consulta
         </a>
         <button
           id="mobile-btn"
-          class="md:hidden p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase"
+          class="md:hidden ml-3 p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase"
           aria-label="Abrir Menu"
         >
           ☰
@@ -201,24 +199,24 @@
     <!-- Menu Mobile Responsivo e Estruturado -->
     <div id="mobile-menu" class="hidden md:hidden border-b border-[#E6E1D6] bg-[#FAF7F2] px-6 py-4 flex flex-col gap-3 text-sm">
       <a href="#inicio" class="py-1 hover:text-[#8C7355] mobile-nav-link">Início</a>
-      <a href="#escritorio" class="py-1 hover:text-[#8C7355] mobile-nav-link">Institucional</a>
-      <a href="#saude-tea" class="py-1 hover:text-[#8C7355] mobile-nav-link">Saúde & Autismo (TEA)</a>
+      <a href="#institucional" class="py-1 hover:text-[#8C7355] mobile-nav-link">O Escritório</a>
+      <a href="#saude-tea" class="py-1 hover:text-[#8C7355] mobile-nav-link">Saúde & TEA</a>
       
       <!-- Accordion Áreas no Mobile -->
       <div>
         <button id="mobile-areas-toggle" class="w-full text-left py-1 flex items-center justify-between font-medium text-[#18181B]">
-          <span>Áreas de Atuação</span>
+          <span>Especialidades</span>
           <span id="mobile-areas-icon">▾</span>
         </button>
         <div id="mobile-areas-submenu" class="hidden pl-4 py-2 flex flex-col gap-2 text-xs border-l border-[#E6E1D6] my-1">
           <a href="#saude-tea" class="text-[#8C7355] font-semibold mobile-nav-link">• Direito à Saúde & Autismo (TEA)</a>
-          <a href="#atuacao" class="text-[#52525B] mobile-nav-link">• Família e Sucessões (Inventários)</a>
-          <a href="#atuacao" class="text-[#52525B] mobile-nav-link">• Tributário & Isenção de IPVA</a>
-          <a href="#atuacao" class="text-[#52525B] mobile-nav-link">• Direito Cível e Contratos</a>
+          <a href="#areas-atuacao" class="text-[#52525B] mobile-nav-link">• Família e Sucessões (Inventários)</a>
+          <a href="#areas-atuacao" class="text-[#52525B] mobile-nav-link">• Tributário & Isenção de IPVA</a>
+          <a href="#areas-atuacao" class="text-[#52525B] mobile-nav-link">• Direito Cível e Contratos</a>
         </div>
       </div>
 
-      <a href="#noticias" class="py-1 hover:text-[#8C7355] mobile-nav-link">Informativos</a>
+      <a href="#informativos" class="py-1 hover:text-[#8C7355] mobile-nav-link">Informativos</a>
       <a href="#contato" class="py-1 hover:text-[#8C7355] mobile-nav-link">Contato</a>
     </div>
   </header>
@@ -300,7 +298,8 @@
   </section>
 
   <!-- O Escritório / Institucional Humanizado -->
-  <section id="escritorio" class="py-24 md:py-32 bg-white border-b border-[#E6E1D6]">
+  <section id="institucional" class="py-24 md:py-32 bg-white border-b border-[#E6E1D6] relative">
+    <div id="escritorio" class="absolute -top-24"></div>
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
         
@@ -672,8 +671,9 @@
     </div>
   </section>
 
-  <!-- ÁREAS DE ATUAÇÃO (Família, Tributário & Cível) -->
-  <section id="atuacao" class="py-24 bg-white border-b border-[#E6E1D6]">
+  <!-- ÁREAS DE ATUAÇÃO / Especialidades (Família, Tributário & Cível) -->
+  <section id="areas-atuacao" class="py-24 bg-white border-b border-[#E6E1D6] relative">
+    <div id="atuacao" class="absolute -top-24"></div>
     <div class="max-w-6xl mx-auto px-6">
       <div class="max-w-2xl mb-16">
         <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
@@ -871,8 +871,9 @@
     </div>
   </section>
 
-  <!-- SEÇÃO 1: NOTÍCIAS E ATUALIDADES JURÍDICAS (Conteúdos Reais, Verificados e com Links Diretos) -->
-  <section id="noticias" class="py-24 bg-white border-b border-[#E6E1D6]">
+  <!-- SEÇÃO 1: INFORMATIVOS E ATUALIDADES JURÍDICAS (Conteúdos Reais, Verificados e com Links Diretos) -->
+  <section id="informativos" class="py-24 bg-white border-b border-[#E6E1D6] relative">
+    <div id="noticias" class="absolute -top-24"></div>
     <div class="max-w-6xl mx-auto px-6">
       
       <div class="max-w-3xl mb-10">

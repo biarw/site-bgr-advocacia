@@ -167,14 +167,12 @@ export default function BeatrizRochaAdvocacia() {
     <div className="min-h-screen bg-[#FAF7F2] text-[#18181B] font-sans antialiased selection:bg-[#8C7355]/20">
 
       {/* Topbar Editorial Minimalista */}
-      <aside className="border-b border-[#E6E1D6] bg-[#F4EFE6]/60 text-[11px] tracking-[0.06em] text-[#52525B] uppercase" aria-label="Informações Institucionais">
+      <aside className="border-b border-[#E6E1D6] bg-[#F4EFE6]/60 text-[11px] tracking-[0.08em] text-[#52525B] uppercase" aria-label="Informações Institucionais">
         <div className="max-w-6xl mx-auto px-6 py-2 flex flex-wrap justify-between items-center gap-3">
-          <span className="font-normal">
-            Edifício Torre Nova York • Av. das Esmeraldas, 3895, Salas 305/306 • Marília/SP
+          <span className="font-normal whitespace-nowrap">
+            EDIFÍCIO TORRE NOVA YORK • MARÍLIA/SP | OAB/SP 463.673
           </span>
-          <div className="flex items-center gap-3 sm:gap-4 flex-wrap text-[10.5px]">
-            <span className="text-[#18181B] font-medium tracking-wider">OAB/SP 463.673</span>
-            <span className="text-[#D6CFC2]">|</span>
+          <div className="flex items-center gap-3 sm:gap-4 whitespace-nowrap text-[10.5px]">
             <span>Seg. a Sex. 08h30 às 18h00</span>
             <span className="text-[#D6CFC2]">•</span>
             <a 
@@ -194,41 +192,41 @@ export default function BeatrizRochaAdvocacia() {
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
 
           {/* Monograma BR + Identidade */}
-          <a href="#inicio" className="flex items-center gap-3.5 group">
+          <a href="#inicio" className="flex items-center gap-3.5 group shrink-0">
             <div className="w-10 h-10 border border-[#8C7355]/40 flex items-center justify-center bg-white shadow-2xs group-hover:border-[#8C7355] transition-colors shrink-0">
               <span className="font-serif text-lg tracking-tight text-[#18181B]">BR</span>
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-serif text-[17px] tracking-[0.14em] text-[#18181B] uppercase leading-none font-normal">
+              <span className="font-serif text-[17px] tracking-[0.14em] text-[#18181B] uppercase leading-none font-normal whitespace-nowrap">
                 Beatriz Rocha
               </span>
-              <span className="text-[8.5px] sm:text-[9px] tracking-[0.2em] text-[#8C7355] uppercase font-sans font-medium mt-1.5 leading-none">
+              <span className="text-[8.5px] sm:text-[9px] tracking-[0.2em] text-[#8C7355] uppercase font-sans font-medium mt-1.5 leading-none whitespace-nowrap">
                 Sociedade Individual de Advocacia
               </span>
             </div>
           </a>
 
           {/* Menu Principal Fluido & Rigorosamente Alinhado */}
-          <nav className="hidden md:flex items-center gap-5 lg:gap-7 text-xs lg:text-[13px] tracking-[0.04em] uppercase text-[#52525B]">
-            <a href="#escritorio" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-              Institucional
+          <nav className="hidden md:flex items-center gap-7 text-[11px] lg:text-[11.5px] font-medium tracking-[0.12em] uppercase text-[#52525B]">
+            <a href="#institucional" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
+              O Escritório
             </a>
 
             <a href="#saude-tea" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-              Saúde & Autismo
+              Saúde & TEA
             </a>
 
-            {/* Dropdown Organizado de Áreas de Atuação */}
+            {/* Dropdown Organizado de Especialidades */}
             <div
               className="relative py-2"
               onMouseEnter={() => setAreasDropdownOpen(true)}
               onMouseLeave={() => setAreasDropdownOpen(false)}
             >
               <a
-                href="#atuacao"
-                className="flex items-center gap-1 hover:text-[#18181B] transition-colors"
+                href="#areas-atuacao"
+                className="flex items-center gap-1.5 hover:text-[#18181B] transition-colors whitespace-nowrap"
               >
-                <span>Áreas de Atuação</span>
+                <span>Especialidades</span>
                 <span className="text-[10px] text-[#8C7355] font-serif">▾</span>
               </a>
 
@@ -249,7 +247,7 @@ export default function BeatrizRochaAdvocacia() {
                   </a>
 
                   <a
-                    href="#atuacao"
+                    href="#areas-atuacao"
                     onClick={() => setAreasDropdownOpen(false)}
                     className="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1] group/item"
                   >
@@ -262,7 +260,7 @@ export default function BeatrizRochaAdvocacia() {
                   </a>
 
                   <a
-                    href="#atuacao"
+                    href="#areas-atuacao"
                     onClick={() => setAreasDropdownOpen(false)}
                     className="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1] group/item"
                   >
@@ -275,7 +273,7 @@ export default function BeatrizRochaAdvocacia() {
                   </a>
 
                   <a
-                    href="#atuacao"
+                    href="#areas-atuacao"
                     onClick={() => setAreasDropdownOpen(false)}
                     className="block px-5 py-3 hover:bg-[#FAF7F2] group/item"
                   >
@@ -290,7 +288,7 @@ export default function BeatrizRochaAdvocacia() {
               )}
             </div>
 
-            <a href="#noticias" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
+            <a href="#informativos" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
               Informativos
             </a>
 
@@ -300,18 +298,18 @@ export default function BeatrizRochaAdvocacia() {
           </nav>
 
           {/* CTA Discreto e Fino + Botão Mobile */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center ml-6 shrink-0">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-2.5 bg-[#8C7355] text-white text-xs tracking-[0.08em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap"
+              className="px-5 py-2.5 bg-[#8C7355] text-white text-[11px] tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap"
             >
               Agendar Consulta
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase"
+              className="md:hidden ml-3 p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase"
               aria-label="Abrir Menu"
             >
               {mobileMenuOpen ? '✕' : '☰'}
@@ -323,8 +321,8 @@ export default function BeatrizRochaAdvocacia() {
         {mobileMenuOpen && (
           <div className="md:hidden border-b border-[#E6E1D6] bg-[#FAF7F2] px-6 py-4 flex flex-col gap-3 text-sm">
             <a href="#inicio" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Início</a>
-            <a href="#escritorio" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Institucional</a>
-            <a href="#saude-tea" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Saúde & Autismo (TEA)</a>
+            <a href="#institucional" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">O Escritório</a>
+            <a href="#saude-tea" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Saúde & TEA</a>
 
             {/* Accordion Áreas no Mobile */}
             <div>
@@ -332,7 +330,7 @@ export default function BeatrizRochaAdvocacia() {
                 onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
                 className="w-full text-left py-1 flex items-center justify-between font-medium text-[#18181B]"
               >
-                <span>Áreas de Atuação</span>
+                <span>Especialidades</span>
                 <span>{mobileAreasOpen ? '▴' : '▾'}</span>
               </button>
               {mobileAreasOpen && (
@@ -340,20 +338,20 @@ export default function BeatrizRochaAdvocacia() {
                   <a href="#saude-tea" onClick={() => setMobileMenuOpen(false)} className="text-[#8C7355] font-semibold">
                     • Direito à Saúde & Autismo (TEA)
                   </a>
-                  <a href="#atuacao" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
+                  <a href="#areas-atuacao" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
                     • Família e Sucessões (Inventários)
                   </a>
-                  <a href="#atuacao" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
+                  <a href="#areas-atuacao" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
                     • Tributário & Isenção de IPVA
                   </a>
-                  <a href="#atuacao" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
+                  <a href="#areas-atuacao" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
                     • Direito Cível e Contratos
                   </a>
                 </div>
               )}
             </div>
 
-            <a href="#noticias" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Informativos</a>
+            <a href="#informativos" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Informativos</a>
             <a href="#contato" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Contato</a>
           </div>
         )}
@@ -436,7 +434,8 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* O Escritório / Institucional Humanizado */}
-      <section id="escritorio" className="py-24 md:py-32 bg-white border-b border-[#E6E1D6]">
+      <section id="institucional" className="py-24 md:py-32 bg-white border-b border-[#E6E1D6] relative">
+        <div id="escritorio" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
 
@@ -808,8 +807,9 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </section>
 
-      {/* ÁREAS DE ATUAÇÃO (Família, Tributário & Cível) */}
-      <section id="atuacao" className="py-24 bg-white border-b border-[#E6E1D6]">
+      {/* ÁREAS DE ATUAÇÃO / Especialidades (Família, Tributário & Cível) */}
+      <section id="areas-atuacao" className="py-24 bg-white border-b border-[#E6E1D6] relative">
+        <div id="atuacao" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
             <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
@@ -966,8 +966,9 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </section>
 
-      {/* SEÇÃO 1: NOTÍCIAS E ATUALIDADES JURÍDICAS (Conteúdos Reais, Verificados e com Links Diretos) */}
-      <section id="noticias" className="py-24 bg-white border-b border-[#E6E1D6]">
+      {/* SEÇÃO: INFORMATIVOS E ATUALIDADES JURÍDICAS */}
+      <section id="informativos" className="py-24 bg-white border-b border-[#E6E1D6] relative">
+        <div id="noticias" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
 
           <div className="max-w-3xl mb-10">
