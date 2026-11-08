@@ -439,7 +439,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* O Escritório / Institucional Humanizado */}
-      <section id="institucional" className="py-24 md:py-32 bg-white border-b border-[#E6E1D6] relative">
+      <section id="institucional" className="py-28 md:py-36 bg-white border-b border-[#E6E1D6] relative">
         <div id="escritorio" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
@@ -530,7 +530,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* NÚCLEO EXCLUSIVO EM DESTAQUE: Direito à Saúde & Autismo (TEA) */}
-      <section id="saude-tea" className="py-24 bg-[#FAF7F2] border-b border-[#E6E1D6]">
+      <section id="saude-tea" className="py-28 md:py-36 bg-[#FAF7F2] border-b border-[#E6E1D6]">
         <div className="max-w-6xl mx-auto px-6">
 
           <div className="max-w-3xl mb-14">
@@ -749,7 +749,7 @@ export default function BeatrizRochaAdvocacia() {
                 rel="noreferrer"
                 className="w-full sm:w-auto px-7 py-3.5 border border-[#18181B] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:bg-[#18181B] hover:text-white transition-colors text-center whitespace-nowrap"
               >
-                Atendimento via WhatsApp
+                Falar com a Advogada no WhatsApp ↗
               </a>
             </div>
           </div>
@@ -758,7 +758,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* ÁREAS DE ATUAÇÃO / Especialidades (Família, Tributário & Cível) */}
-      <section id="areas-atuacao" className="py-24 bg-white border-b border-[#E6E1D6] relative">
+      <section id="areas-atuacao" className="py-28 md:py-36 bg-white border-b border-[#E6E1D6] relative">
         <div id="atuacao" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
@@ -855,19 +855,19 @@ export default function BeatrizRochaAdvocacia() {
       </div>
 
       {/* SEÇÃO: INFORMATIVOS E ATUALIDADES JURÍDICAS */}
-      <section id="informativos" className="py-24 bg-[#FAF7F2] border-b border-[#E6E1D6] relative">
+      <section id="informativos" className="py-28 md:py-36 bg-[#FAF7F2] border-b border-[#E6E1D6] relative">
         <div id="noticias" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
 
-          <div className="max-w-3xl mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10px] text-[#8C7355] uppercase tracking-wider mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-[#E6E1D6] text-[10px] text-[#8C7355] uppercase tracking-wider mb-4 shadow-2xs rounded-[2px]">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
               Fontes Oficiais Verificadas • Atualização Jurídica
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#18181B] font-normal leading-tight">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[42px] text-[#18181B] font-normal leading-tight tracking-tight">
               Notícias e Entendimentos dos Tribunais Superiores
             </h2>
-            <p className="mt-3 text-[#52525B] font-light leading-relaxed">
+            <p className="mt-4 text-[#52525B] font-light leading-relaxed text-sm md:text-base">
               Espaço informativo com precedentes vinculantes, resoluções e notícias jurídicas autênticas publicadas por órgãos oficiais (STJ, TJSP, CNJ, ANS) e portais jurídicos de referência (Migalhas e ConJur).
             </p>
           </div>
@@ -910,38 +910,38 @@ export default function BeatrizRochaAdvocacia() {
               Nenhum conteúdo jurídico validado encontrado para o termo pesquisado.
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-14">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {filteredNews.map((news) => (
                 <article
                   key={news.id}
-                  className="bg-white border border-[#E6E1D6] p-7 flex flex-col justify-between hover:border-[#8C7355] transition-all shadow-xs"
+                  className="bg-white border border-[#E6E1D6] border-l-4 border-l-[#D2B48C] p-7 sm:p-8 flex flex-col justify-between hover:border-[#8C7355] hover:border-l-[#8C7355] hover:shadow-md transition-all duration-300 shadow-2xs rounded-[2px] group"
                 >
                   <div>
-                    {/* Cabeçalho do Card */}
-                    <div className="flex items-center justify-between text-[11px] mb-4 pb-3 border-b border-[#E6E1D6]">
-                      <span className="font-semibold text-[#8C7355] uppercase tracking-wider">
+                    {/* Cabeçalho do Card com Badge em Evidência */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] mb-4 pb-3.5 border-b border-[#E6E1D6]">
+                      <span className="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10px] font-semibold tracking-wider text-[#8C7355] uppercase rounded-[2px]">
                         {news.sourceBadge}
                       </span>
-                      <span className="text-[#71717A] text-[10px]">
+                      <span className="text-[#71717A] text-[10.5px] font-mono tracking-wide">
                         {news.date}
                       </span>
                     </div>
 
                     {/* Título Original e Fiel */}
-                    <h3 className="font-serif text-lg text-[#18181B] font-normal leading-snug mb-3">
+                    <h3 className="font-serif text-lg sm:text-xl text-[#18181B] font-normal leading-snug mb-3 group-hover:text-[#8C7355] transition-colors">
                       {news.title}
                     </h3>
 
                     {/* Resumo Técnico e Verídico */}
-                    <p className="text-xs text-[#52525B] font-light leading-relaxed mb-6">
+                    <p className="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-6">
                       {news.summary}
                     </p>
                   </div>
 
                   {/* Rodapé com Links Oficiais de Conferência Direta */}
                   <div className="pt-4 border-t border-[#E6E1D6]">
-                    <div className="text-[10px] text-emerald-800 flex items-center gap-1.5 mb-2 font-medium">
-                      <span>✓</span>
+                    <div className="text-[10px] text-emerald-800 flex items-center gap-1.5 mb-2.5 font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
                       <span>Fonte Oficial Verificada</span>
                     </div>
 
@@ -950,9 +950,10 @@ export default function BeatrizRochaAdvocacia() {
                         href={news.officialUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1"
+                        className="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider"
                       >
-                        Acessar Fonte Oficial ↗
+                        <span>Acessar Publicação</span>
+                        <span>↗</span>
                       </a>
 
                       {news.partnerUrl && (
@@ -960,7 +961,7 @@ export default function BeatrizRochaAdvocacia() {
                           href={news.partnerUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-[#71717A] hover:text-[#18181B] transition-colors"
+                          className="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]"
                         >
                           {news.partnerLabel}
                         </a>
@@ -973,12 +974,12 @@ export default function BeatrizRochaAdvocacia() {
           )}
 
           {/* Chamada Ética no Fechamento das Notícias (Provimento 205/2021) */}
-          <div className="border border-[#E6E1D6] bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[2px] shadow-2xs">
-            <div className="space-y-1">
-              <h4 className="font-serif text-xl text-[#18181B] font-normal">
+          <div className="border border-[#E6E1D6] bg-white p-7 sm:p-9 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[2px] shadow-2xs">
+            <div className="space-y-1.5 text-center sm:text-left">
+              <h4 className="font-serif text-xl sm:text-2xl text-[#18181B] font-normal">
                 Dúvidas sobre a aplicação desses precedentes ao seu caso?
               </h4>
-              <p className="text-xs text-[#52525B] font-light">
+              <p className="text-xs sm:text-sm text-[#52525B] font-light">
                 Solicite uma avaliação jurídica individualizada e confidencial com nossa banca.
               </p>
             </div>
@@ -986,9 +987,9 @@ export default function BeatrizRochaAdvocacia() {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-3 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#8C7355] transition-colors whitespace-nowrap shadow-xs"
+              className="px-7 py-3.5 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#8C7355] transition-colors whitespace-nowrap shadow-xs font-medium rounded-[2px]"
             >
-              Atendimento no WhatsApp: (14) 99711-8732
+              Consultar Especialista via WhatsApp
             </a>
           </div>
 
@@ -996,7 +997,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* CONTATO E AGENDAMENTO */}
-      <section id="contato" className="py-24 bg-white border-b border-[#E6E1D6]">
+      <section id="contato" className="py-28 md:py-36 bg-white border-b border-[#E6E1D6]">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12">
 
           {/* Dados de Contato Institucionais */}
@@ -1180,7 +1181,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* SEÇÃO: FAQ EM ACORDEÃO (Perguntas Frequentes Interativas) */}
-      <section id="faq" className="py-24 md:py-32 bg-[#FAF7F2] border-b border-[#E6E1D6]">
+      <section id="faq" className="py-28 md:py-36 bg-[#FAF7F2] border-b border-[#E6E1D6]">
         <div className="max-w-4xl mx-auto px-6">
 
           <div className="text-center max-w-2xl mx-auto mb-14">
