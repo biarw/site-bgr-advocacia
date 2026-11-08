@@ -6,6 +6,7 @@ export default function BeatrizRochaAdvocacia() {
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('Todas');
   const [searchQuery, setSearchQuery] = useState('');
+  const [openFaq, setOpenFaq] = useState(null);
 
   const [formData, setFormData] = useState({
     nome: '',
@@ -18,6 +19,30 @@ export default function BeatrizRochaAdvocacia() {
   const whatsappBaseUrl = "https://wa.me/5514997118732";
   const whatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica.`;
   const whatsappUrgenciaUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Preciso%20de%20uma%20an%C3%A1lise%20de%20urg%C3%AAncia%20para%20uma%20negativa%20de%20sa%C3%BAde%20%2F%20terapias%20TEA.`;
+
+  // Base de FAQ (Perguntas Frequentes Interativas)
+  const faqDatabase = [
+    {
+      id: 1,
+      question: "Quanto tempo demora para sair uma liminar contra o plano de saúde?",
+      answer: "Por se tratar de pedido de tutela provisória de urgência fundamentado no art. 300 do CPC (com comprovação do perigo de dano irreparável à saúde ou interrupção do neurodesenvolvimento no autismo), a análise pelo magistrado costuma ocorrer entre 24 a 72 horas após a distribuição. Em casos gravíssimos ou que envolvam risco de morte, a apreciação pode ocorrer em poucas horas através do plantão judiciário."
+    },
+    {
+      id: 2,
+      question: "Quais documentos são necessários para exigir terapias ABA ou medicamentos negados?",
+      answer: "Os documentos essenciais incluem: (1) Relatório médico circunstanciado emitido pelo médico assistente, indicando o diagnóstico (com CID), a metodologia prescrita (ex: Método ABA) e a carga horária semanal; (2) Negativa formal por escrito da operadora ou número de protocolo com prazo extrapolado; (3) Cópia da carteirinha do plano e comprovante de quitação; e (4) Documentos pessoais do paciente e de seus responsáveis."
+    },
+    {
+      id: 3,
+      question: "O plano de saúde pode cancelar o contrato ou retaliar se eu entrar com ação judicial?",
+      answer: "Não. O cancelamento unilateral ou qualquer tipo de represália pelo ajuizamento de ação judicial é terminantemente proibido pela lei e pela jurisprudência pacificada do Superior Tribunal de Justiça (Tema 1082 do STJ). A continuidade do vínculo contratual é resguardada por ordem judicial sob cominação de pesadas multas diárias e responsabilização por danos morais."
+    },
+    {
+      id: 4,
+      question: "Como funciona o atendimento telepresencial para clientes fora de Marília/SP?",
+      answer: "Toda a tramitação processual no Brasil ocorre por meio de processos 100% eletrônicos (PJe, e-SAJ, Projudi). Realizamos o atendimento inicial por videoconferência com total privacidade, a análise de documentos é feita por canal seguro e as procurações são assinadas digitalmente via Gov.br ou plataformas certificadas (ICP-Brasil), assegurando a mesma proximidade e agilidade do atendimento presencial."
+    }
+  ];
 
   // Base de Notícias Reais e Verificadas
   const newsDatabase = [
@@ -117,20 +142,25 @@ export default function BeatrizRochaAdvocacia() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.nome || !formData.telefone) {
-      alert('Por favor, informe ao menos seu nome e telefone/WhatsApp.');
+      alert('Por favor, informe ao menos seu nome e WhatsApp/telefone para contato.');
       return;
     }
 
-    let text = `*SOLICITAÇÃO DE ORIENTAÇÃO JURÍDICA*\n`;
-    text += `*Beatriz Rocha Sociedade Individual de Advocacia*\n\n`;
-    text += `• *Nome:* ${formData.nome}\n`;
-    text += `• *Telefone/WhatsApp:* ${formData.telefone}\n`;
-    if (formData.email) text += `• *E-mail:* ${formData.email}\n`;
-    if (formData.area) text += `• *Área:* ${formData.area}\n`;
-    if (formData.relato) text += `• *Resumo:* ${formData.relato}\n\n`;
-    text += `_Mensagem enviada através do site oficial do escritório._`;
+    const lines = [
+      `*SOLICITAÇÃO DE ORIENTAÇÃO JURÍDICA CONFIDENCIAL*`,
+      `*Beatriz Rocha Sociedade Individual de Advocacia*`,
+      ``,
+      `• *Nome:* ${formData.nome}`,
+      `• *WhatsApp/Telefone:* ${formData.telefone}`,
+      formData.email ? `• *E-mail:* ${formData.email}` : null,
+      formData.area ? `• *Matéria da Demanda:* ${formData.area}` : null,
+      formData.relato ? `• *Resumo da Situação:* ${formData.relato}` : null,
+      ``,
+      `_Mensagem encaminhada diretamente pelo formulário oficial do site._`
+    ].filter(Boolean);
 
-    window.open(`${whatsappBaseUrl}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+    const message = lines.join('\n');
+    window.open(`${whatsappBaseUrl}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -169,14 +199,14 @@ export default function BeatrizRochaAdvocacia() {
             </div>
           </a>
 
-          {/* Menu Principal Higienizado & Objetivo (Sem Seção de Avaliação) */}
-          <nav className="hidden lg:flex items-center gap-8 text-[13px] tracking-[0.02em] text-[#52525B]">
-            <a href="#inicio" className="hover:text-[#18181B] transition-colors">
-              Início
+          {/* Menu Principal Fluido & Direto */}
+          <nav className="hidden md:flex items-center gap-5 lg:gap-7 text-xs lg:text-[13px] tracking-[0.03em] text-[#52525B]">
+            <a href="#escritorio" className="hover:text-[#18181B] transition-colors whitespace-nowrap">
+              Institucional
             </a>
 
-            <a href="#escritorio" className="hover:text-[#18181B] transition-colors">
-              O Escritório
+            <a href="#saude-tea" className="hover:text-[#18181B] transition-colors whitespace-nowrap">
+              Saúde & Autismo
             </a>
 
             {/* Dropdown Organizado de Áreas de Atuação */}
@@ -251,11 +281,11 @@ export default function BeatrizRochaAdvocacia() {
               )}
             </div>
 
-            <a href="#noticias" className="hover:text-[#18181B] transition-colors">
-              Notícias
+            <a href="#noticias" className="hover:text-[#18181B] transition-colors whitespace-nowrap">
+              Informativos
             </a>
 
-            <a href="#contato" className="hover:text-[#18181B] transition-colors">
+            <a href="#contato" className="hover:text-[#18181B] transition-colors whitespace-nowrap">
               Contato
             </a>
           </nav>
@@ -266,13 +296,13 @@ export default function BeatrizRochaAdvocacia() {
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-2.5 bg-[#8C7355] text-white text-xs tracking-[0.08em] uppercase font-medium hover:bg-[#735D43] transition-colors shadow-sm"
+              className="px-5 py-2.5 bg-[#8C7355] text-white text-xs tracking-[0.08em] uppercase font-medium hover:bg-[#735D43] transition-colors shadow-sm whitespace-nowrap"
             >
               Agendar Consulta
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase"
+              className="md:hidden p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase"
               aria-label="Abrir Menu"
             >
               {mobileMenuOpen ? '✕' : '☰'}
@@ -282,9 +312,10 @@ export default function BeatrizRochaAdvocacia() {
 
         {/* Menu Mobile Responsivo e Estruturado */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-b border-[#E6E1D6] bg-[#FAF7F2] px-6 py-4 flex flex-col gap-3 text-sm">
+          <div className="md:hidden border-b border-[#E6E1D6] bg-[#FAF7F2] px-6 py-4 flex flex-col gap-3 text-sm">
             <a href="#inicio" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Início</a>
-            <a href="#escritorio" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">O Escritório</a>
+            <a href="#escritorio" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Institucional</a>
+            <a href="#saude-tea" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Saúde & Autismo (TEA)</a>
             
             {/* Accordion Áreas no Mobile */}
             <div>
@@ -313,7 +344,7 @@ export default function BeatrizRochaAdvocacia() {
               )}
             </div>
 
-            <a href="#noticias" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Notícias</a>
+            <a href="#noticias" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Informativos</a>
             <a href="#contato" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Contato</a>
           </div>
         )}
@@ -395,31 +426,66 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </section>
 
-      {/* O Escritório */}
-      <section id="escritorio" className="py-24 bg-white border-b border-[#E6E1D6]">
+      {/* O Escritório / Institucional Humanizado */}
+      <section id="escritorio" className="py-24 md:py-32 bg-white border-b border-[#E6E1D6]">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-12 gap-12 items-start mb-12">
-            <div className="md:col-span-5">
-              <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
-                Institucional
+          <div className="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
+            
+            {/* Coluna 1: Texto Institucional & Assinatura Estilizada */}
+            <div className="md:col-span-7 space-y-6">
+              <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block font-medium">
+                Institucional & Condução Direta
               </span>
               <h2 className="font-serif text-3xl md:text-4xl text-[#18181B] font-normal leading-tight">
                 Atendimento artesanal, rigor técnico e transparência inegociável.
               </h2>
+              <div className="space-y-4 text-sm md:text-base text-[#52525B] font-light leading-relaxed">
+                <p>
+                  A <strong>Beatriz Rocha Sociedade Individual de Advocacia</strong> foi concebida sob o compromisso inegociável de que demandas jurídicas de alta complexidade — especialmente aquelas que envolvem a integridade física de entes queridos e o patrimônio da família — demandam condução direta, sem terceirizações ou respostas padronizadas.
+                </p>
+                <p>
+                  Sediada no Edifício Torre Nova York, no complexo corporativo Praça Capital na Avenida das Esmeraldas em Marília/SP, nossa banca alia a sofisticação e o acolhimento de instalações modernas à agilidade do processo eletrônico nacional, assegurando resposta célere e medidas liminares efetivas perante qualquer tribunal do país.
+                </p>
+              </div>
+
+              {/* Assinatura Estilizada da Advogada Titular */}
+              <div className="pt-6 border-t border-[#E6E1D6] mt-8 flex flex-col">
+                <span className="font-serif italic text-3xl text-[#18181B] tracking-wide">
+                  Beatriz Guilherme Rocha
+                </span>
+                <span className="text-xs uppercase tracking-[0.16em] text-[#8C7355] font-medium mt-1">
+                  Advogada Titular • OAB/SP 463.673
+                </span>
+                <p className="text-xs text-[#71717A] font-light mt-1">
+                  Condução pessoal de cada demanda com proximidade, rigor técnico e confidencialidade irrestrita.
+                </p>
+              </div>
             </div>
-            <div className="md:col-span-7 space-y-5 text-[#52525B] font-light leading-relaxed">
-              <p>
-                A <strong>Beatriz Rocha Sociedade Individual de Advocacia</strong> foi concebida sob o compromisso de que demandas jurídicas de alta complexidade — especialmente aquelas que envolvem a integridade física de entes queridos e o patrimônio da família — demandam condução direta, sem terceirizações ou respostas padronizadas.
-              </p>
-              <p>
-                Localizado no Edifício Torre Nova York, no complexo empresarial Praça Capital na Avenida das Esmeraldas em Marília/SP, o escritório une o conforto e a privacidade de instalações contemporâneas com sistemas digitais seguros para atendimento em comarcas de todo o território nacional, assegurando agilidade no protocolo de tutelas de urgência.
-              </p>
+
+            {/* Coluna 2: Moldura Elegante e Sóbria da Sede / Advogada */}
+            <div className="md:col-span-5">
+              <div className="border border-[#E6E1D6] p-3.5 bg-[#FAF7F2] rounded-[4px] shadow-sm">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-white border border-[#E6E1D6] group">
+                  <img
+                    src="/assets/recepcao-corporativa.jpg"
+                    alt="Ambiente interno privativo da Torre Nova York em Marília/SP"
+                    className="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Torre Nova York • Marília/SP</span>
+                    <p className="font-serif text-sm font-normal mt-0.5">Espaço Privativo para Atendimento Humanizado</p>
+                  </div>
+                </div>
+              </div>
             </div>
+
           </div>
 
           {/* Galeria Arquitetônica do Complexo */}
-          <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-[#E6E1D6]">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] border border-[#E6E1D6] bg-[#FAF7F2] group shadow-xs">
+          <div className="grid md:grid-cols-2 gap-6 pt-10 border-t border-[#E6E1D6]">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-[4px] border border-[#E6E1D6] bg-[#FAF7F2] group shadow-xs">
               <img
                 src="/assets/complexo-esmeraldas.jpg"
                 alt="Avenida das Esmeraldas e fachada integrada do complexo Praça Capital"
@@ -433,17 +499,17 @@ export default function BeatrizRochaAdvocacia() {
               </div>
             </div>
 
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] border border-[#E6E1D6] bg-[#FAF7F2] group shadow-xs">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-[4px] border border-[#E6E1D6] bg-[#FAF7F2] group shadow-xs">
               <img
-                src="/assets/recepcao-corporativa.jpg"
-                alt="Lobby e recepção corporativa de alto padrão da Torre Nova York"
+                src="/assets/portaria-seguranca.jpg"
+                alt="Controle de acesso e segurança corporativa 24 horas"
                 className="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Estrutura Privativa e Segura</span>
-                <p className="font-serif text-base font-normal mt-0.5">Recepção e Ambientes Corporativos de Alto Padrão</p>
+                <span className="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Acesso e Privacidade</span>
+                <p className="font-serif text-base font-normal mt-0.5">Portaria 24 Horas e Segurança Integrada</p>
               </div>
             </div>
           </div>
@@ -591,6 +657,110 @@ export default function BeatrizRochaAdvocacia() {
               </div>
             </div>
 
+          </div>
+
+          {/* SEÇÃO: COMO FUNCIONA A ATUAÇÃO DE URGÊNCIA (Passo a Passo Visual e Humanizado) */}
+          <div className="mb-16 bg-white border border-[#E6E1D6] p-8 md:p-12 shadow-xs rounded-[4px]">
+            <div className="max-w-2xl mb-10">
+              <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block font-medium mb-2">
+                Jornada do Paciente • Resposta Rápida e Previsibilidade
+              </span>
+              <h3 className="font-serif text-2xl md:text-3xl text-[#18181B] font-normal leading-tight">
+                Como Funciona a Atuação em Medidas de Urgência
+              </h3>
+              <p className="mt-3 text-xs md:text-sm text-[#52525B] font-light leading-relaxed">
+                Entenda o passo a passo transparente de condução do caso, estruturado para acolher a família e agir com a máxima rapidez perante o Poder Judiciário.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+              {/* Linha conectora visual no desktop */}
+              <div className="hidden lg:block absolute top-10 left-12 right-12 h-px bg-[#E6E1D6] -z-0"></div>
+
+              {/* Passo 01 */}
+              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+                <div>
+                  <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+                    <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">01</span>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
+                    Passo 01
+                  </span>
+                  <h4 className="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
+                    Triagem Documental
+                  </h4>
+                  <p className="text-xs text-[#52525B] font-light leading-relaxed">
+                    Análise técnica imediata da negativa formal do plano de saúde e do relatório médico circunstanciado com indicação da metodologia.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#F0ECE1] mt-5">
+                  <span className="text-[10px] text-[#71717A] tracking-wider uppercase font-medium">Análise Imediata</span>
+                </div>
+              </div>
+
+              {/* Passo 02 */}
+              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+                <div>
+                  <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+                    <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">02</span>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
+                    Passo 02
+                  </span>
+                  <h4 className="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
+                    Estratégia e Protocolo
+                  </h4>
+                  <p className="text-xs text-[#52525B] font-light leading-relaxed">
+                    Elaboração célere da petição inicial com pedido de Tutela Provisória de Urgência (liminar inaudita altera parte).
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#F0ECE1] mt-5">
+                  <span className="text-[10px] text-[#71717A] tracking-wider uppercase font-medium">Ação Customizada</span>
+                </div>
+              </div>
+
+              {/* Passo 03 */}
+              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+                <div>
+                  <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+                    <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">03</span>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
+                    Passo 03
+                  </span>
+                  <h4 className="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
+                    Acompanhamento da Liminar
+                  </h4>
+                  <p className="text-xs text-[#52525B] font-light leading-relaxed">
+                    Despacho direto com o magistrado da causa ou no plantão judiciário e monitoramento ostensivo da decisão em 24h a 72h.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#F0ECE1] mt-5">
+                  <span className="text-[10px] text-emerald-800 tracking-wider uppercase font-medium">Decisão em 24h a 72h</span>
+                </div>
+              </div>
+
+              {/* Passo 04 */}
+              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+                <div>
+                  <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+                    <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">04</span>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
+                    Passo 04
+                  </span>
+                  <h4 className="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
+                    Efetivação do Direito
+                  </h4>
+                  <p className="text-xs text-[#52525B] font-light leading-relaxed">
+                    Intimação da operadora sob pena de multa diária, assegurando o início das terapias, fornecimento do fármaco ou reembolso integral.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#F0ECE1] mt-5">
+                  <span className="text-[10px] text-[#8C7355] tracking-wider uppercase font-medium">Tratamento Garantido</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Sub-bloco de Informativos & Julgados Reais (Portal Migalhas) */}
@@ -839,6 +1009,68 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </div>
 
+      {/* SEÇÃO: FAQ EM ACORDEÃO (Perguntas Frequentes Interativas) */}
+      <section id="faq" className="py-24 md:py-32 bg-[#FAF7F2] border-b border-[#E6E1D6]">
+        <div className="max-w-4xl mx-auto px-6">
+          
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
+              Esclarecimentos Jurídicos
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#18181B] font-normal leading-tight">
+              Perguntas Frequentes
+            </h2>
+            <p className="mt-3 text-xs md:text-sm text-[#52525B] font-light leading-relaxed">
+              Respostas claras e transparentes para as dúvidas mais comuns sobre liminares de saúde, autismo (TEA) e condução de inventários.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqDatabase.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div 
+                  key={faq.id} 
+                  className="bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="font-serif text-base sm:text-lg text-[#18181B] font-normal leading-snug">
+                      {faq.question}
+                    </span>
+                    <span className={`w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-45 bg-[#8C7355] text-white border-[#8C7355]' : 'bg-[#FAF7F2] text-[#8C7355]'}`}>
+                      +
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1] animate-fadeIn">
+                      <p>{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-10 p-6 bg-white border border-[#E6E1D6] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#52525B] rounded-[4px]">
+            <span>Possui uma dúvida específica sobre seu contrato ou laudo médico?</span>
+            <a 
+              href={whatsappUrl} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors whitespace-nowrap uppercase tracking-wider"
+            >
+              Consultar Advogada via WhatsApp ↗
+            </a>
+          </div>
+
+        </div>
+      </section>
+
       {/* SEÇÃO 1: NOTÍCIAS E ATUALIDADES JURÍDICAS (Conteúdos Reais, Verificados e com Links Diretos) */}
       <section id="noticias" className="py-24 bg-white border-b border-[#E6E1D6]">
         <div className="max-w-6xl mx-auto px-6">
@@ -1017,7 +1249,7 @@ export default function BeatrizRochaAdvocacia() {
               </div>
             </div>
 
-            {/* Bloco Visual de Localização com Fotografias Reais */}
+            {/* Bloco Visual de Localização & Mapa Interativo */}
             <div className="border border-[#E6E1D6] bg-white p-5 rounded-[4px] shadow-xs space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[2px] bg-[#FAF7F2] border border-[#E6E1D6] group">
@@ -1045,20 +1277,40 @@ export default function BeatrizRochaAdvocacia() {
                 </div>
               </div>
 
-              <div className="space-y-3">
+              {/* Mapa Interativo com Filtro Sépia/Monocromático Suave */}
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[2px] border border-[#E6E1D6] bg-[#FAF7F2]">
+                <iframe
+                  title="Localização Torre Nova York - Google Maps"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.3644917657156!2d-49.93988632386345!3d-22.226297379739504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bfd71d34c19c99%3A0x6b44a30e8c7c91d4!2sAv.%20das%20Esmeraldas%2C%203895%20-%20Jardim%20Maringa%2C%20Mar%C3%ADlia%20-%20SP%2C%2017516-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                  className="w-full h-full border-0 filter grayscale-[50%] sepia-[20%] contrast-[1.05]"
+                  loading="lazy"
+                  allowFullScreen=""
+                ></iframe>
+              </div>
+
+              <div className="space-y-3 pt-1">
                 <p className="text-[11px] text-[#52525B] font-light leading-relaxed">
                   <strong className="font-medium text-[#18181B]">Sede Corporativa:</strong> Edifício Torre Nova York — Complexo Praça Capital, Avenida das Esmeraldas, Marília/SP
                 </p>
 
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Av.+das+Esmeraldas%2C+3895+-+Mar%C3%ADlia%2C+SP"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[#FAF7F2] border border-[#D6CFC2] text-xs text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors shadow-2xs"
-                >
-                  <span>Traçar Rota no Google Maps</span>
-                  <span>↗</span>
-                </a>
+                <div className="grid grid-cols-2 gap-2.5">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Av.+das+Esmeraldas%2C+3895+-+Mar%C3%ADlia%2C+SP"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 py-2 px-3 bg-[#FAF7F2] border border-[#D6CFC2] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.06em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[2px]"
+                  >
+                    <span>Google Maps ↗</span>
+                  </a>
+                  <a
+                    href="https://waze.com/ul?q=Av.+das+Esmeraldas+3895+Marilia"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 py-2 px-3 bg-[#FAF7F2] border border-[#D6CFC2] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.06em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[2px]"
+                  >
+                    <span>Abrir no Waze ↗</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

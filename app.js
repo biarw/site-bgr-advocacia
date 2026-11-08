@@ -50,7 +50,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Filtros e Busca Rápida na Seção de Notícias
+  // 3. FAQ em Acordeão Interativo
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  if (faqQuestions.length > 0) {
+    faqQuestions.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector('.faq-icon');
+        const isCurrentlyOpen = answer && !answer.classList.contains('hidden');
+
+        // Fecha todos os itens
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+        document.querySelectorAll('.faq-icon').forEach(ic => {
+          ic.classList.remove('rotate-45', 'bg-[#8C7355]', 'text-white', 'border-[#8C7355]');
+          ic.classList.add('bg-[#FAF7F2]', 'text-[#8C7355]');
+        });
+
+        // Se não estava aberto, abre o clicado
+        if (!isCurrentlyOpen && answer && icon) {
+          answer.classList.remove('hidden');
+          icon.classList.add('rotate-45', 'bg-[#8C7355]', 'text-white', 'border-[#8C7355]');
+          icon.classList.remove('bg-[#FAF7F2]', 'text-[#8C7355]');
+        }
+      });
+    });
+  }
+
+  // 4. Filtros e Busca Rápida na Seção de Notícias
   const filterBtns = document.querySelectorAll('.news-filter-btn');
   const searchInput = document.getElementById('news-search');
   const newsCards = document.querySelectorAll('.news-card');
@@ -99,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Máscara de Telefone / WhatsApp: (DD) 00000-0000
+  // 5. Máscara de Telefone / WhatsApp: (DD) 00000-0000
   const phoneInput = document.getElementById('telefone');
   if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
@@ -120,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Envio do Formulário Estruturado para o WhatsApp
+  // 6. Envio do Formulário Estruturado para o WhatsApp
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
