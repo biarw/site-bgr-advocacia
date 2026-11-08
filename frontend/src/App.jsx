@@ -207,7 +207,7 @@ export default function BeatrizRochaAdvocacia() {
           </a>
 
           {/* Menu Principal Fluido & Rigorosamente Alinhado */}
-          <nav className="hidden md:flex items-center gap-7 text-[11px] lg:text-[11.5px] font-medium tracking-[0.12em] uppercase text-[#52525B]">
+          <nav className="hidden md:flex items-center gap-6 text-[11px] lg:text-[11.5px] font-medium tracking-[0.12em] uppercase text-[#52525B]">
             <a href="#institucional" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
               O Escritório
             </a>
@@ -218,7 +218,7 @@ export default function BeatrizRochaAdvocacia() {
 
             {/* Dropdown Organizado de Especialidades */}
             <div
-              className="relative py-2"
+              className="relative py-2 whitespace-nowrap"
               onMouseEnter={() => setAreasDropdownOpen(true)}
               onMouseLeave={() => setAreasDropdownOpen(false)}
             >
@@ -541,61 +541,6 @@ export default function BeatrizRochaAdvocacia() {
             <p className="mt-4 text-[#52525B] font-light leading-relaxed text-base">
               Nossa banca atua com foco em <strong>medidas liminares de urgência</strong> para restabelecer imediatamente a assistência devida, com base na premissa soberana de que a indicação do médico assistente prevalece sobre qualquer cláusula restritiva da operadora.
             </p>
-          </div>
-
-          {/* Destaque para os Marcos Jurídicos Consolidados */}
-          <div className="mb-16 p-8 border border-[#E6E1D6] bg-white rounded-none">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-[#E6E1D6]">
-              <div>
-                <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block font-medium">
-                  Fundamentação Técnica Inafastável
-                </span>
-                <h3 className="font-serif text-2xl text-[#18181B] font-normal mt-1">
-                  Marcos Jurídicos e Precedentes que Protegem o Paciente
-                </h3>
-              </div>
-              <span className="text-xs text-[#71717A] bg-[#FAF7F2] border border-[#E6E1D6] px-3.5 py-1.5 self-start md:self-auto">
-                Jurisprudência Vinculante
-              </span>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-[#FAF7F2]/60 p-6 border border-[#E6E1D6]">
-                <span className="text-xs font-semibold text-[#8C7355] block mb-2 uppercase tracking-wider">
-                  Lei Federal nº 14.454/2022
-                </span>
-                <h4 className="font-serif text-lg text-[#18181B] mb-2 font-medium">
-                  Rol Exemplificativo da ANS
-                </h4>
-                <p className="text-xs text-[#52525B] font-light leading-relaxed">
-                  Superação legislativa definitiva da tese do rol taxativo. O plano de saúde é obrigado a custear procedimentos e tratamentos prescritos que possuam respaldo técnico-científico e recomendação do médico assistente.
-                </p>
-              </div>
-
-              <div className="bg-[#FAF7F2]/60 p-6 border border-[#E6E1D6]">
-                <span className="text-xs font-semibold text-[#8C7355] block mb-2 uppercase tracking-wider">
-                  Tema 1.295 do STJ
-                </span>
-                <h4 className="font-serif text-lg text-[#18181B] mb-2 font-medium">
-                  Terapias Ilimitadas no TEA
-                </h4>
-                <p className="text-xs text-[#52525B] font-light leading-relaxed">
-                  Tese repetitiva vinculante do STJ declarando abusiva qualquer limitação ao número de sessões de psicologia (Método ABA), fonoaudiologia, terapia ocupacional e fisioterapia.
-                </p>
-              </div>
-
-              <div className="bg-[#FAF7F2]/60 p-6 border border-[#E6E1D6]">
-                <span className="text-xs font-semibold text-[#8C7355] block mb-2 uppercase tracking-wider">
-                  RN nº 566/2022 da ANS
-                </span>
-                <h4 className="font-serif text-lg text-[#18181B] mb-2 font-medium">
-                  Reembolso Integral em Falha de Rede
-                </h4>
-                <p className="text-xs text-[#52525B] font-light leading-relaxed">
-                  Garantia de custeio 100% integral dos honorários particulares caso a operadora não disponha de clínica credenciada capacitada na metodologia prescrita na comarca.
-                </p>
-              </div>
-            </div>
           </div>
 
           {/* Cards de Atuação Especializada em Saúde */}

@@ -41,3 +41,8 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px -4px rgba(24, 24, 27, 0.06);
 }
+
+/* Header & Navigation Single-Line Guarantee */
+header nav a, header nav span, .header-nav-link {
+  white-space: nowrap !important;
+}
