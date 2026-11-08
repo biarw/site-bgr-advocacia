@@ -284,7 +284,8 @@ document.addEventListener('DOMContentLoaded', () => {
       fullTitle: "Análise Técnica e Imediata do Laudo e da Negativa",
       phaseBadge: "Fase 01 • Análise Preliminar",
       timeEstimate: "Até 2h úteis",
-      timeBadge: "Tempo estimado: Análise preliminar em até 2h úteis",
+      timeSelo: "⏱️ Prazo estimado: Análise imediata (até 2h úteis)",
+      timeBadge: "⏱️ Prazo estimado: Análise imediata (até 2h úteis)",
       description: "Avaliamos minuciosamente o relatório do médico assistente e a justificativa da recusa pelo plano de saúde. Em demandas de neurodesenvolvimento (TEA) ou risco iminente de descontinuidade clínica, a indicação médica fundamentada prevalece juridicamente sobre restrições administrativas da operadora.",
       legalThesis: "Lei Federal nº 14.454/2022 (Superação do rol taxativo da ANS), Súmula 102 do TJSP e dever de assistência integral à saúde.",
       deliverable: "Diagnóstico inicial de viabilidade jurídica para ingresso imediato com o pedido de tutela provisória de urgência.",
@@ -296,7 +297,8 @@ document.addEventListener('DOMContentLoaded', () => {
       fullTitle: "Petição Inicial com Pedido de Tutela Provisória de Urgência",
       phaseBadge: "Fase 02 • Ajuizamento Eletrônico",
       timeEstimate: "4h a 12h",
-      timeBadge: "Tempo estimado: Distribuição em 4h a 12h após conferência",
+      timeSelo: "⚡ Protocolo célere: 4h a 12h",
+      timeBadge: "⚡ Protocolo célere: 4h a 12h",
       description: "Redação artesanal e ajuizamento eletrônico do pedido liminar inaudita altera parte, demonstrando a probabilidade do direito (fumus boni iuris) e o perigo de dano irreparável ao neurodesenvolvimento ou à integridade do paciente (periculum in mora).",
       legalThesis: "Artigo 300 do Código de Processo Civil (CPC), Princípio da Dignidade da Pessoa Humana e Artigo 196 da CF/88.",
       deliverable: "Comprovante formal de distribuição no tribunal competente com número de protocolo CNJ e chave de acesso aos autos.",
@@ -308,7 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
       fullTitle: "Despacho Direto com o Magistrado e Monitoramento Ostensivo",
       phaseBadge: "Fase 03 • Decisão Judicial",
       timeEstimate: "24h a 72h",
-      timeBadge: "Tempo estimado: Decisão judicial costumeira em 24h a 72h (ou regime de plantão)",
+      timeSelo: "⚡ Decisão em 24h a 72h (regime de plantão)",
+      timeBadge: "⚡ Decisão em 24h a 72h (regime de plantão)",
       description: "Interlocução direta e despacho com o magistrado da causa ou no plantão judiciário de saúde. Monitoramento ostensivo do processo para assegurar que a prescrição médica seja apreciada com a máxima celeridade, antes de qualquer prejuízo clínico.",
       legalThesis: "Tema 1.295 do Superior Tribunal de Justiça (STJ - cobertura ilimitada no TEA) e Resoluções do CNJ sobre plantão em saúde.",
       deliverable: "Cópia da decisão interlocutória concessiva da tutela de urgência contendo a ordem judicial de custeio/fornecimento.",
@@ -320,7 +323,8 @@ document.addEventListener('DOMContentLoaded', () => {
       fullTitle: "Intimação Obrigatória e Início do Atendimento",
       phaseBadge: "Fase 04 • Cumprimento Imediato",
       timeEstimate: "Até 24h",
-      timeBadge: "Tempo estimado: Intimação urgente em até 24h sob pena de multa diária",
+      timeSelo: "⏱️ Intimação imediata: até 24h sob pena de multa",
+      timeBadge: "⏱️ Intimação imediata: até 24h sob pena de multa",
       description: "Intimação imediata da operadora para emissão das guias de autorização ou custeio em clínica especializada (com reembolso integral em caso de falha de rede credenciada), fixando-se multa cominatória diária (astreintes) em caso de mora ou recusa de cumprimento.",
       legalThesis: "Artigos 536 e 537 do CPC (Medidas Indutivas e Coercitivas), Tema 1.082 do STJ e RN 566/2022 da ANS.",
       deliverable: "Comprovante de autorização emitido pela operadora, início das terapias e assessoria contínua durante todo o processo.",
@@ -361,11 +365,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.checklist-item').forEach(item => {
       const input = item.querySelector('input[type="checkbox"]');
       if (input && input.checked) {
-        item.classList.add('bg-[#FAF7F2]', 'border-[#8C7355]', 'shadow-2xs');
-        item.classList.remove('bg-white', 'border-[#E6E1D6]');
+        item.classList.add('bg-[#FAF7F2]', 'border-[#8C7355]', 'ring-1', 'ring-[#8C7355]/30', 'shadow-xs');
+        item.classList.remove('bg-white', 'border-[rgba(210,180,140,0.4)]');
       } else {
-        item.classList.remove('bg-[#FAF7F2]', 'border-[#8C7355]', 'shadow-2xs');
-        item.classList.add('bg-white', 'border-[#E6E1D6]');
+        item.classList.remove('bg-[#FAF7F2]', 'border-[#8C7355]', 'ring-1', 'ring-[#8C7355]/30', 'shadow-xs');
+        item.classList.add('bg-white', 'border-[rgba(210,180,140,0.4)]');
       }
     });
 
@@ -430,17 +434,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const barSpan = tab.querySelector('.urgency-tab-bar');
 
       if (isAct) {
-        tab.className = 'urgency-tab relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between bg-white border border-[#D2B48C] shadow-xs';
+        tab.className = 'urgency-tab relative p-3.5 sm:p-4 text-left rounded-[4px] transition-all duration-300 cursor-pointer flex flex-col justify-between min-w-[210px] md:min-w-0 flex-1 shrink-0 bg-[#D2B48C]/20 border-2 border-[#8C7355] text-[#18181B] shadow-xs';
         if (numSpan) numSpan.className = 'urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#8C7355] text-white shadow-xs';
-        if (timeSpan) timeSpan.className = 'urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#8C7355]';
-        if (titleH4) titleH4.className = 'urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#18181B]';
-        if (barSpan) barSpan.classList.remove('hidden');
+        if (timeSpan) timeSpan.className = 'urgency-tab-time text-[10px] uppercase tracking-wider font-semibold text-[#8C7355] bg-white border border-[#D2B48C]/50 px-2 py-0.5 rounded-[3px]';
+        if (titleH4) titleH4.className = 'urgency-tab-title text-xs sm:text-sm font-serif font-semibold leading-tight text-[#18181B]';
+        if (barSpan) {
+          barSpan.className = 'urgency-tab-bar absolute bottom-0 left-3 right-3 h-[3px] bg-[#8C7355] rounded-full';
+        }
       } else {
-        tab.className = 'urgency-tab relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between bg-transparent border border-transparent hover:bg-white/60 hover:border-[#E6E1D6]';
-        if (numSpan) numSpan.className = 'urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#EAE5DC] text-[#71717A]';
-        if (timeSpan) timeSpan.className = 'urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA]';
+        tab.className = 'urgency-tab relative p-3.5 sm:p-4 text-left rounded-[4px] transition-all duration-300 cursor-pointer flex flex-col justify-between min-w-[210px] md:min-w-0 flex-1 shrink-0 bg-white/80 border border-[#E6E1D6] hover:bg-white hover:border-[#D2B48C] text-[#52525B]';
+        if (numSpan) numSpan.className = 'urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#FAF7F2] border border-[#E6E1D6] text-[#71717A]';
+        if (timeSpan) timeSpan.className = 'urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA] px-0 py-0.5';
         if (titleH4) titleH4.className = 'urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]';
-        if (barSpan) barSpan.classList.add('hidden');
+        if (barSpan) {
+          barSpan.className = 'urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[3px] bg-[#8C7355] rounded-full';
+        }
       }
     });
 
@@ -456,7 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Atualiza Conteúdo
     if (phaseBadge) phaseBadge.textContent = data.phaseBadge;
     if (stepCounter) stepCounter.textContent = `Etapa ${stepIdx + 1} de ${urgencyStepsData.length}`;
-    if (timeBadge) timeBadge.textContent = data.timeBadge;
+    if (timeBadge) timeBadge.textContent = data.timeSelo || data.timeBadge;
     if (stepTitle) stepTitle.textContent = data.fullTitle;
     if (stepDesc) stepDesc.textContent = data.description;
     if (legalThesis) legalThesis.textContent = data.legalThesis;

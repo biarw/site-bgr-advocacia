@@ -146,7 +146,8 @@ export default function BeatrizRochaAdvocacia() {
       fullTitle: "Análise Técnica e Imediata do Laudo e da Negativa",
       phaseBadge: "Fase 01 • Análise Preliminar",
       timeEstimate: "Até 2h úteis",
-      timeBadge: "Tempo estimado: Análise preliminar em até 2h úteis",
+      timeSelo: "⏱️ Prazo estimado: Análise imediata (até 2h úteis)",
+      timeBadge: "Tempo estimado: Análise imediata (até 2h úteis)",
       description: "Avaliamos minuciosamente o relatório do médico assistente e a justificativa da recusa pelo plano de saúde. Em demandas de neurodesenvolvimento (TEA) ou risco iminente de descontinuidade clínica, a indicação médica fundamentada prevalece juridicamente sobre restrições administrativas da operadora.",
       legalThesis: "Lei Federal nº 14.454/2022 (Superação do rol taxativo da ANS), Súmula 102 do TJSP e dever de assistência integral à saúde.",
       deliverable: "Diagnóstico inicial de viabilidade jurídica para ingresso imediato com o pedido de tutela provisória de urgência.",
@@ -159,6 +160,7 @@ export default function BeatrizRochaAdvocacia() {
       fullTitle: "Petição Inicial com Pedido de Tutela Provisória de Urgência",
       phaseBadge: "Fase 02 • Ajuizamento Eletrônico",
       timeEstimate: "4h a 12h",
+      timeSelo: "⚡ Protocolo célere: Distribuição em 4h a 12h",
       timeBadge: "Tempo estimado: Distribuição em 4h a 12h após conferência",
       description: "Redação artesanal e ajuizamento eletrônico do pedido liminar inaudita altera parte, demonstrando a probabilidade do direito (fumus boni iuris) e o perigo de dano irreparável ao neurodesenvolvimento ou à integridade do paciente (periculum in mora).",
       legalThesis: "Artigo 300 do Código de Processo Civil (CPC), Princípio da Dignidade da Pessoa Humana e Artigo 196 da CF/88.",
@@ -172,6 +174,7 @@ export default function BeatrizRochaAdvocacia() {
       fullTitle: "Despacho Direto com o Magistrado e Monitoramento Ostensivo",
       phaseBadge: "Fase 03 • Decisão Judicial",
       timeEstimate: "24h a 72h",
+      timeSelo: "⚡ Decisão em 24h a 72h (regime de plantão)",
       timeBadge: "Tempo estimado: Decisão judicial costumeira em 24h a 72h (ou regime de plantão)",
       description: "Interlocução direta e despacho com o magistrado da causa ou no plantão judiciário de saúde. Monitoramento ostensivo do processo para assegurar que a prescrição médica seja apreciada com a máxima celeridade, antes de qualquer prejuízo clínico.",
       legalThesis: "Tema 1.295 do Superior Tribunal de Justiça (STJ - cobertura ilimitada no TEA) e Resoluções do CNJ sobre plantão em saúde.",
@@ -185,6 +188,7 @@ export default function BeatrizRochaAdvocacia() {
       fullTitle: "Intimação Obrigatória e Início do Atendimento",
       phaseBadge: "Fase 04 • Cumprimento Imediato",
       timeEstimate: "Até 24h",
+      timeSelo: "⏱️ Intimação imediata em até 24h sob pena de multa",
       timeBadge: "Tempo estimado: Intimação urgente em até 24h sob pena de multa diária",
       description: "Intimação imediata da operadora para emissão das guias de autorização ou custeio em clínica especializada (com reembolso integral em caso de falha de rede credenciada), fixando-se multa cominatória diária (astreintes) em caso de mora ou recusa de cumprimento.",
       legalThesis: "Artigos 536 e 537 do CPC (Medidas Indutivas e Coercitivas), Tema 1.082 do STJ e RN 566/2022 da ANS.",
@@ -853,7 +857,7 @@ export default function BeatrizRochaAdvocacia() {
             </div>
 
             {/* Stepper / Abas Horizontais Clicáveis */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 mb-8 p-1.5 bg-[#FAF7F2] border border-[#E6E1D6] rounded-[4px]" role="tablist" aria-label="Etapas da atuação de urgência">
+            <div className="flex md:grid md:grid-cols-4 overflow-x-auto no-scrollbar scroll-smooth gap-2 sm:gap-3 mb-8 p-1.5 bg-[#FAF7F2] border border-[#E6E1D6] rounded-[6px]" role="tablist" aria-label="Etapas da atuação de urgência">
               {urgencyStepsData.map((step, idx) => {
                 const isActive = activeUrgencyStep === idx;
                 return (
@@ -863,33 +867,35 @@ export default function BeatrizRochaAdvocacia() {
                     role="tab"
                     aria-selected={isActive}
                     onClick={() => setActiveUrgencyStep(idx)}
-                    className={`relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between ${isActive
-                        ? 'bg-white border border-[#D2B48C] shadow-xs'
-                        : 'bg-transparent border border-transparent hover:bg-white/60 hover:border-[#E6E1D6]'
+                    className={`relative p-3.5 sm:p-4 text-left rounded-[4px] transition-all duration-300 cursor-pointer flex flex-col justify-between min-w-[210px] md:min-w-0 flex-1 shrink-0 ${isActive
+                        ? 'bg-[#D2B48C]/20 border-2 border-[#8C7355] text-[#18181B] shadow-xs'
+                        : 'bg-white/80 border border-[#E6E1D6] hover:bg-white hover:border-[#D2B48C] text-[#52525B]'
                       }`}
                   >
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center justify-between mb-2.5">
                       <span
                         className={`w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors ${isActive
                             ? 'bg-[#8C7355] text-white shadow-xs'
-                            : 'bg-[#EAE5DC] text-[#71717A]'
+                            : 'bg-[#FAF7F2] border border-[#E6E1D6] text-[#71717A]'
                           }`}
                       >
                         {step.stepNumber}
                       </span>
-                      <span className={`text-[10px] uppercase tracking-wider font-medium ${isActive ? 'text-[#8C7355]' : 'text-[#A1A1AA]'
+                      <span className={`text-[10px] uppercase tracking-wider ${isActive
+                          ? 'font-semibold text-[#8C7355] bg-white border border-[#D2B48C]/50 px-2 py-0.5 rounded-[3px]'
+                          : 'font-medium text-[#A1A1AA] px-0 py-0.5'
                         }`}>
                         {step.timeEstimate}
                       </span>
                     </div>
                     <div>
-                      <h4 className={`text-xs sm:text-sm font-serif font-medium leading-tight ${isActive ? 'text-[#18181B]' : 'text-[#52525B]'
+                      <h4 className={`text-xs sm:text-sm font-serif leading-tight ${isActive ? 'text-[#18181B] font-semibold' : 'text-[#52525B] font-medium'
                         }`}>
-                        {step.shortTitle}
+                        {step.stepNumber}. {step.shortTitle}
                       </h4>
                     </div>
                     {isActive && (
-                      <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#8C7355] rounded-full"></span>
+                      <span className="absolute bottom-0 left-3 right-3 h-[3px] bg-[#8C7355] rounded-full"></span>
                     )}
                   </button>
                 );
@@ -904,19 +910,15 @@ export default function BeatrizRochaAdvocacia() {
               {/* Header do Card Ativo */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-5 border-b border-[#E6E1D6]">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="px-2.5 py-1 text-[11px] font-semibold tracking-wider uppercase bg-white border border-[#D2B48C] text-[#8C7355] rounded-[2px] shadow-2xs">
+                  <span className="px-2.5 py-1 text-[11px] font-semibold tracking-wider uppercase bg-white border border-[#D2B48C] text-[#8C7355] rounded-[3px] shadow-2xs">
                     {urgencyStepsData[activeUrgencyStep].phaseBadge}
                   </span>
                   <span className="text-xs text-[#71717A]">
                     Etapa {activeUrgencyStep + 1} de {urgencyStepsData.length}
                   </span>
                 </div>
-                <div className="inline-flex items-center gap-2 text-xs font-medium text-emerald-900 bg-emerald-50 border border-emerald-200/80 px-3 py-1.5 rounded-[2px] self-start sm:self-auto shadow-2xs">
-                  <svg className="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" strokeWidth="2"></circle>
-                    <polyline points="12 6 12 12 16 14" strokeWidth="2"></polyline>
-                  </svg>
-                  <span>{urgencyStepsData[activeUrgencyStep].timeBadge}</span>
+                <div className="inline-flex items-center gap-2 text-xs font-medium text-emerald-950 bg-emerald-50/90 border border-emerald-300/80 px-3 py-1.5 rounded-[4px] self-start sm:self-auto shadow-2xs">
+                  <span>{urgencyStepsData[activeUrgencyStep].timeSelo}</span>
                 </div>
               </div>
 
@@ -959,7 +961,7 @@ export default function BeatrizRochaAdvocacia() {
 
               {/* CHECKLIST PRÁTICO INTEGRADO (Exclusivo na Etapa 01: Triagem Documental) */}
               {urgencyStepsData[activeUrgencyStep].isChecklistStep && (
-                <div className="mt-8 pt-6 border-t border-[#E6E1D6] bg-white border border-[#D2B48C]/60 p-6 md:p-7 rounded-[4px] shadow-xs">
+                <div className="mt-8 pt-6 border-t border-[#E6E1D6] bg-white border border-[#D2B48C]/50 p-6 md:p-8 rounded-[6px] shadow-xs">
                   <div className="flex items-center gap-2.5 mb-2">
                     <div className="w-6 h-6 rounded-full bg-[#FAF7F2] border border-[#D2B48C] flex items-center justify-center text-[#8C7355]">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -978,20 +980,20 @@ export default function BeatrizRochaAdvocacia() {
                     {/* Item 1 */}
                     <label
                       onClick={() => toggleChecklistItem('negativa')}
-                      className={`flex items-start gap-3 p-3.5 rounded-[3px] border transition-all cursor-pointer select-none ${checklistItems.negativa
-                          ? 'bg-[#FAF7F2] border-[#8C7355] shadow-2xs'
-                          : 'bg-white border-[#E6E1D6] hover:border-[#D2B48C]'
+                      className={`flex items-start gap-3.5 p-4 rounded-[6px] border transition-all cursor-pointer select-none ${checklistItems.negativa
+                          ? 'bg-[#FAF7F2] border-[#8C7355] ring-1 ring-[#8C7355]/30 shadow-xs'
+                          : 'bg-white border-[rgba(210,180,140,0.4)] hover:border-[#8C7355] hover:bg-[#FAF7F2]/40'
                         }`}
                     >
                       <input
                         type="checkbox"
                         checked={checklistItems.negativa}
                         onChange={() => { }} // Controlled by label onClick
-                        className="mt-0.5 w-4 h-4 rounded text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
+                        className="mt-0.5 w-4 h-4 rounded-[3px] text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
                       />
                       <div className="flex-1">
                         <span className="text-xs sm:text-sm font-medium text-[#18181B] block">
-                          Negativa formal do plano de saúde por escrito
+                          Negativa formal do plano por escrito
                         </span>
                         <span className="text-[11px] text-[#71717A] font-light">
                           Documento de recusa, e-mail da operadora ou número de protocolo SAC com prazo extrapolado.
@@ -1002,16 +1004,16 @@ export default function BeatrizRochaAdvocacia() {
                     {/* Item 2 */}
                     <label
                       onClick={() => toggleChecklistItem('laudo')}
-                      className={`flex items-start gap-3 p-3.5 rounded-[3px] border transition-all cursor-pointer select-none ${checklistItems.laudo
-                          ? 'bg-[#FAF7F2] border-[#8C7355] shadow-2xs'
-                          : 'bg-white border-[#E6E1D6] hover:border-[#D2B48C]'
+                      className={`flex items-start gap-3.5 p-4 rounded-[6px] border transition-all cursor-pointer select-none ${checklistItems.laudo
+                          ? 'bg-[#FAF7F2] border-[#8C7355] ring-1 ring-[#8C7355]/30 shadow-xs'
+                          : 'bg-white border-[rgba(210,180,140,0.4)] hover:border-[#8C7355] hover:bg-[#FAF7F2]/40'
                         }`}
                     >
                       <input
                         type="checkbox"
                         checked={checklistItems.laudo}
                         onChange={() => { }}
-                        className="mt-0.5 w-4 h-4 rounded text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
+                        className="mt-0.5 w-4 h-4 rounded-[3px] text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
                       />
                       <div className="flex-1">
                         <span className="text-xs sm:text-sm font-medium text-[#18181B] block">
@@ -1026,16 +1028,16 @@ export default function BeatrizRochaAdvocacia() {
                     {/* Item 3 */}
                     <label
                       onClick={() => toggleChecklistItem('comprovantes')}
-                      className={`flex items-start gap-3 p-3.5 rounded-[3px] border transition-all cursor-pointer select-none ${checklistItems.comprovantes
-                          ? 'bg-[#FAF7F2] border-[#8C7355] shadow-2xs'
-                          : 'bg-white border-[#E6E1D6] hover:border-[#D2B48C]'
+                      className={`flex items-start gap-3.5 p-4 rounded-[6px] border transition-all cursor-pointer select-none ${checklistItems.comprovantes
+                          ? 'bg-[#FAF7F2] border-[#8C7355] ring-1 ring-[#8C7355]/30 shadow-xs'
+                          : 'bg-white border-[rgba(210,180,140,0.4)] hover:border-[#8C7355] hover:bg-[#FAF7F2]/40'
                         }`}
                     >
                       <input
                         type="checkbox"
                         checked={checklistItems.comprovantes}
                         onChange={() => { }}
-                        className="mt-0.5 w-4 h-4 rounded text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
+                        className="mt-0.5 w-4 h-4 rounded-[3px] text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
                       />
                       <div className="flex-1">
                         <span className="text-xs sm:text-sm font-medium text-[#18181B] block">
@@ -1050,7 +1052,7 @@ export default function BeatrizRochaAdvocacia() {
 
                   {/* Botão Dinâmico de Envio do Checklist */}
                   {hasAnyChecklistSelected ? (
-                    <div className="mt-5 p-4 bg-[#FAF7F2] border border-[#8C7355]/40 rounded-[3px] flex flex-col sm:flex-row items-center justify-between gap-4 animate-fadeIn">
+                    <div className="mt-5 p-4 bg-[#FAF7F2] border border-[#8C7355]/40 rounded-[6px] flex flex-col sm:flex-row items-center justify-between gap-4 animate-fadeIn">
                       <div className="text-left w-full sm:w-auto">
                         <span className="text-xs font-semibold text-[#8C7355] block">
                           ✓ Documentos assinalados prontos para envio
@@ -1063,7 +1065,7 @@ export default function BeatrizRochaAdvocacia() {
                         href={getChecklistWhatsAppUrl()}
                         target="_blank"
                         rel="noreferrer"
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#18181B] hover:bg-[#8C7355] text-white text-xs font-medium tracking-wider uppercase transition-all duration-300 rounded-[2px] shadow-sm whitespace-nowrap cursor-pointer"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#18181B] hover:bg-[#8C7355] text-white text-xs font-medium tracking-wider uppercase transition-all duration-300 rounded-[4px] shadow-sm whitespace-nowrap cursor-pointer"
                       >
                         <svg className="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
                           <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
@@ -1072,7 +1074,7 @@ export default function BeatrizRochaAdvocacia() {
                       </a>
                     </div>
                   ) : (
-                    <div className="mt-4 p-3.5 bg-[#FAF7F2]/80 border border-dashed border-[#E6E1D6] rounded-[3px] text-xs text-[#71717A] flex items-center gap-2">
+                    <div className="mt-4 p-3.5 bg-[#FAF7F2]/80 border border-dashed border-[#E6E1D6] rounded-[4px] text-xs text-[#71717A] flex items-center gap-2">
                       <span className="text-[#8C7355] text-sm">💡</span>
                       <span>Selecione ao menos um dos itens acima para desbloquear o envio direto da sua lista para triagem no WhatsApp.</span>
                     </div>

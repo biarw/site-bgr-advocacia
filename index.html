@@ -798,22 +798,22 @@
         </div>
 
         <!-- Stepper / Abas Horizontais Clicáveis -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 mb-8 p-1.5 bg-[#FAF7F2] border border-[#E6E1D6] rounded-[4px]" role="tablist" aria-label="Etapas da atuação de urgência" id="urgency-tabs">
+        <div class="flex md:grid md:grid-cols-4 overflow-x-auto no-scrollbar scroll-smooth gap-2 sm:gap-3 mb-8 p-1.5 bg-[#FAF7F2] border border-[#E6E1D6] rounded-[6px]" role="tablist" aria-label="Etapas da atuação de urgência" id="urgency-tabs">
           <button
             type="button"
             role="tab"
             aria-selected="true"
             data-step-index="0"
-            class="urgency-tab relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between bg-white border border-[#D2B48C] shadow-xs"
+            class="urgency-tab relative p-3.5 sm:p-4 text-left rounded-[4px] transition-all duration-300 cursor-pointer flex flex-col justify-between min-w-[210px] md:min-w-0 flex-1 shrink-0 bg-[#D2B48C]/20 border-2 border-[#8C7355] text-[#18181B] shadow-xs"
           >
-            <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center justify-between mb-2.5">
               <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#8C7355] text-white shadow-xs">01</span>
-              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#8C7355]">Até 2h úteis</span>
+              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-semibold text-[#8C7355] bg-white border border-[#D2B48C]/50 px-2 py-0.5 rounded-[3px]">Até 2h úteis</span>
             </div>
             <div>
-              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#18181B]">Triagem Documental</h4>
+              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-semibold leading-tight text-[#18181B]">01. Triagem Documental</h4>
             </div>
-            <span class="urgency-tab-bar absolute bottom-0 left-3 right-3 h-[2px] bg-[#8C7355] rounded-full"></span>
+            <span class="urgency-tab-bar absolute bottom-0 left-3 right-3 h-[3px] bg-[#8C7355] rounded-full"></span>
           </button>
 
           <button
@@ -821,16 +821,16 @@
             role="tab"
             aria-selected="false"
             data-step-index="1"
-            class="urgency-tab relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between bg-transparent border border-transparent hover:bg-white/60 hover:border-[#E6E1D6]"
+            class="urgency-tab relative p-3.5 sm:p-4 text-left rounded-[4px] transition-all duration-300 cursor-pointer flex flex-col justify-between min-w-[210px] md:min-w-0 flex-1 shrink-0 bg-white/80 border border-[#E6E1D6] hover:bg-white hover:border-[#D2B48C] text-[#52525B]"
           >
-            <div class="flex items-center justify-between mb-2">
-              <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#EAE5DC] text-[#71717A]">02</span>
-              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA]">4h a 12h</span>
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#FAF7F2] border border-[#E6E1D6] text-[#71717A]">02</span>
+              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA] px-0 py-0.5">4h a 12h</span>
             </div>
             <div>
-              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]">Estratégia e Protocolo</h4>
+              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]">02. Estratégia e Protocolo</h4>
             </div>
-            <span class="urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[2px] bg-[#8C7355] rounded-full"></span>
+            <span class="urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[3px] bg-[#8C7355] rounded-full"></span>
           </button>
 
           <button
@@ -838,16 +838,16 @@
             role="tab"
             aria-selected="false"
             data-step-index="2"
-            class="urgency-tab relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between bg-transparent border border-transparent hover:bg-white/60 hover:border-[#E6E1D6]"
+            class="urgency-tab relative p-3.5 sm:p-4 text-left rounded-[4px] transition-all duration-300 cursor-pointer flex flex-col justify-between min-w-[210px] md:min-w-0 flex-1 shrink-0 bg-white/80 border border-[#E6E1D6] hover:bg-white hover:border-[#D2B48C] text-[#52525B]"
           >
-            <div class="flex items-center justify-between mb-2">
-              <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#EAE5DC] text-[#71717A]">03</span>
-              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA]">24h a 72h</span>
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#FAF7F2] border border-[#E6E1D6] text-[#71717A]">03</span>
+              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA] px-0 py-0.5">24h a 72h</span>
             </div>
             <div>
-              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]">Acompanhamento</h4>
+              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]">03. Acompanhamento da Liminar</h4>
             </div>
-            <span class="urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[2px] bg-[#8C7355] rounded-full"></span>
+            <span class="urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[3px] bg-[#8C7355] rounded-full"></span>
           </button>
 
           <button
@@ -855,16 +855,16 @@
             role="tab"
             aria-selected="false"
             data-step-index="3"
-            class="urgency-tab relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between bg-transparent border border-transparent hover:bg-white/60 hover:border-[#E6E1D6]"
+            class="urgency-tab relative p-3.5 sm:p-4 text-left rounded-[4px] transition-all duration-300 cursor-pointer flex flex-col justify-between min-w-[210px] md:min-w-0 flex-1 shrink-0 bg-white/80 border border-[#E6E1D6] hover:bg-white hover:border-[#D2B48C] text-[#52525B]"
           >
-            <div class="flex items-center justify-between mb-2">
-              <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#EAE5DC] text-[#71717A]">04</span>
-              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA]">Até 24h</span>
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#FAF7F2] border border-[#E6E1D6] text-[#71717A]">04</span>
+              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA] px-0 py-0.5">Até 24h</span>
             </div>
             <div>
-              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]">Efetivação do Direito</h4>
+              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]">04. Efetivação do Direito</h4>
             </div>
-            <span class="urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[2px] bg-[#8C7355] rounded-full"></span>
+            <span class="urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[3px] bg-[#8C7355] rounded-full"></span>
           </button>
         </div>
 
@@ -873,19 +873,15 @@
           <!-- Header do Card Ativo -->
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-5 border-b border-[#E6E1D6]">
             <div class="flex items-center gap-2 flex-wrap">
-              <span id="urgency-phase-badge" class="px-2.5 py-1 text-[11px] font-semibold tracking-wider uppercase bg-white border border-[#D2B48C] text-[#8C7355] rounded-[2px] shadow-2xs">
+              <span id="urgency-phase-badge" class="px-2.5 py-1 text-[11px] font-semibold tracking-wider uppercase bg-white border border-[#D2B48C] text-[#8C7355] rounded-[3px] shadow-2xs">
                 Fase 01 • Análise Preliminar
               </span>
               <span id="urgency-step-counter" class="text-xs text-[#71717A]">
                 Etapa 1 de 4
               </span>
             </div>
-            <div class="inline-flex items-center gap-2 text-xs font-medium text-emerald-900 bg-emerald-50 border border-emerald-200/80 px-3 py-1.5 rounded-[2px] self-start sm:self-auto shadow-2xs">
-              <svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" stroke-width="2"></circle>
-                <polyline points="12 6 12 12 16 14" stroke-width="2"></polyline>
-              </svg>
-              <span id="urgency-time-badge">Tempo estimado: Análise preliminar em até 2h úteis</span>
+            <div class="inline-flex items-center gap-2 text-xs font-medium text-emerald-950 bg-emerald-50/90 border border-emerald-300/80 px-3 py-1.5 rounded-[4px] self-start sm:self-auto shadow-2xs">
+              <span id="urgency-time-badge">⏱️ Prazo estimado: Análise imediata (até 2h úteis)</span>
             </div>
           </div>
 
@@ -927,7 +923,7 @@
           </div>
 
           <!-- CHECKLIST PRÁTICO INTEGRADO (Exclusivo na Etapa 01: Triagem Documental) -->
-          <div id="urgency-checklist-wrapper" class="mt-8 pt-6 border-t border-[#E6E1D6] bg-white border border-[#D2B48C]/60 p-6 md:p-7 rounded-[4px] shadow-xs">
+          <div id="urgency-checklist-wrapper" class="mt-8 pt-6 border-t border-[#E6E1D6] bg-white border border-[#D2B48C]/50 p-6 md:p-8 rounded-[6px] shadow-xs">
             <div class="flex items-center gap-2.5 mb-2">
               <div class="w-6 h-6 rounded-full bg-[#FAF7F2] border border-[#D2B48C] flex items-center justify-center text-[#8C7355]">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -944,15 +940,15 @@
 
             <div class="space-y-3">
               <!-- Item 1 -->
-              <label class="checklist-item flex items-start gap-3 p-3.5 rounded-[3px] border border-[#E6E1D6] hover:border-[#D2B48C] bg-white transition-all cursor-pointer select-none">
+              <label class="checklist-item flex items-start gap-3.5 p-4 rounded-[6px] border border-[rgba(210,180,140,0.4)] hover:border-[#8C7355] hover:bg-[#FAF7F2]/40 bg-white transition-all cursor-pointer select-none">
                 <input
                   type="checkbox"
                   id="chk-negativa"
-                  class="mt-0.5 w-4 h-4 rounded text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
+                  class="mt-0.5 w-4 h-4 rounded-[3px] text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
                 />
                 <div class="flex-1">
                   <span class="text-xs sm:text-sm font-medium text-[#18181B] block">
-                    Negativa formal do plano de saúde por escrito
+                    Negativa formal do plano por escrito
                   </span>
                   <span class="text-[11px] text-[#71717A] font-light">
                     Documento de recusa, e-mail da operadora ou número de protocolo SAC com prazo extrapolado.
@@ -961,11 +957,11 @@
               </label>
 
               <!-- Item 2 -->
-              <label class="checklist-item flex items-start gap-3 p-3.5 rounded-[3px] border border-[#E6E1D6] hover:border-[#D2B48C] bg-white transition-all cursor-pointer select-none">
+              <label class="checklist-item flex items-start gap-3.5 p-4 rounded-[6px] border border-[rgba(210,180,140,0.4)] hover:border-[#8C7355] hover:bg-[#FAF7F2]/40 bg-white transition-all cursor-pointer select-none">
                 <input
                   type="checkbox"
                   id="chk-laudo"
-                  class="mt-0.5 w-4 h-4 rounded text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
+                  class="mt-0.5 w-4 h-4 rounded-[3px] text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
                 />
                 <div class="flex-1">
                   <span class="text-xs sm:text-sm font-medium text-[#18181B] block">
@@ -978,11 +974,11 @@
               </label>
 
               <!-- Item 3 -->
-              <label class="checklist-item flex items-start gap-3 p-3.5 rounded-[3px] border border-[#E6E1D6] hover:border-[#D2B48C] bg-white transition-all cursor-pointer select-none">
+              <label class="checklist-item flex items-start gap-3.5 p-4 rounded-[6px] border border-[rgba(210,180,140,0.4)] hover:border-[#8C7355] hover:bg-[#FAF7F2]/40 bg-white transition-all cursor-pointer select-none">
                 <input
                   type="checkbox"
                   id="chk-comprovantes"
-                  class="mt-0.5 w-4 h-4 rounded text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
+                  class="mt-0.5 w-4 h-4 rounded-[3px] text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
                 />
                 <div class="flex-1">
                   <span class="text-xs sm:text-sm font-medium text-[#18181B] block">
@@ -996,7 +992,7 @@
             </div>
 
             <!-- Botão Dinâmico de Envio do Checklist -->
-            <div id="checklist-whatsapp-box" class="hidden mt-5 p-4 bg-[#FAF7F2] border border-[#8C7355]/40 rounded-[3px] flex flex-col sm:flex-row items-center justify-between gap-4 animate-fadeIn">
+            <div id="checklist-whatsapp-box" class="hidden mt-5 p-4 bg-[#FAF7F2] border border-[#8C7355]/40 rounded-[6px] flex flex-col sm:flex-row items-center justify-between gap-4 animate-fadeIn">
               <div class="text-left w-full sm:w-auto">
                 <span class="text-xs font-semibold text-[#8C7355] block">
                   ✓ Documentos assinalados prontos para envio
@@ -1010,7 +1006,7 @@
                 href="https://wa.me/5514997118732"
                 target="_blank"
                 rel="noreferrer"
-                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#18181B] hover:bg-[#8C7355] text-white text-xs font-medium tracking-wider uppercase transition-all duration-300 rounded-[2px] shadow-sm whitespace-nowrap cursor-pointer"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#18181B] hover:bg-[#8C7355] text-white text-xs font-medium tracking-wider uppercase transition-all duration-300 rounded-[4px] shadow-sm whitespace-nowrap cursor-pointer"
               >
                 <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
@@ -1019,7 +1015,7 @@
               </a>
             </div>
 
-            <div id="checklist-placeholder" class="mt-4 p-3.5 bg-[#FAF7F2]/80 border border-dashed border-[#E6E1D6] rounded-[3px] text-xs text-[#71717A] flex items-center gap-2">
+            <div id="checklist-placeholder" class="mt-4 p-3.5 bg-[#FAF7F2]/80 border border-dashed border-[#E6E1D6] rounded-[4px] text-xs text-[#71717A] flex items-center gap-2">
               <span class="text-[#8C7355] text-sm">💡</span>
               <span>Selecione ao menos um dos itens acima para desbloquear o envio direto da sua lista para triagem no WhatsApp.</span>
             </div>
