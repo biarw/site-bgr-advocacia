@@ -789,9 +789,9 @@
 
       </div>
 
-      <!-- SEÇÃO: COMO FUNCIONA A ATUAÇÃO DE URGÊNCIA (Passo a Passo Visual e Humanizado) -->
-      <div class="mb-16 bg-white border border-[#E6E1D6] p-8 md:p-12 shadow-xs rounded-[4px]">
-        <div class="max-w-2xl mb-10">
+      <!-- SEÇÃO: COMO FUNCIONA A ATUAÇÃO DE URGÊNCIA (Componente Interativo em Abas / Stepper Dinâmico) -->
+      <div class="mb-16 bg-white border border-[#E6E1D6] p-6 sm:p-8 md:p-12 shadow-xs rounded-[4px]" id="urgency-stepper-section">
+        <div class="max-w-2xl mb-8">
           <span class="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block font-medium mb-2">
             Jornada do Paciente • Resposta Rápida e Previsibilidade
           </span>
@@ -799,109 +799,276 @@
             Como Funciona a Atuação em Medidas de Urgência
           </h3>
           <p class="mt-3 text-xs md:text-sm text-[#52525B] font-light leading-relaxed">
-            Entenda o passo a passo transparente de condução do caso, estruturado para acolher a família e agir com a
-            máxima rapidez perante o Poder Judiciário.
+            Navegue pelas etapas interativas abaixo para entender o rito técnico, os prazos estimados e os documentos necessários para a obtenção de liminar contra o plano de saúde.
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-          <!-- Linha conectora visual no desktop -->
-          <div class="hidden lg:block absolute top-10 left-12 right-12 h-px bg-[#E6E1D6] -z-0"></div>
-
-          <!-- Passo 01 -->
-          <div
-            class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
-            <div>
-              <div
-                class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
-                <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">01</span>
-              </div>
-              <span class="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
-                Passo 01
-              </span>
-              <h4 class="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
-                Triagem Documental
-              </h4>
-              <p class="text-xs text-[#52525B] font-light leading-relaxed">
-                Análise técnica imediata da negativa formal do plano de saúde e do relatório médico circunstanciado com
-                indicação da metodologia.
-              </p>
+        <!-- Stepper / Abas Horizontais Clicáveis -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 mb-8 p-1.5 bg-[#FAF7F2] border border-[#E6E1D6] rounded-[4px]" role="tablist" aria-label="Etapas da atuação de urgência" id="urgency-tabs">
+          <button
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-step-index="0"
+            class="urgency-tab relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between bg-white border border-[#D2B48C] shadow-xs"
+          >
+            <div class="flex items-center justify-between mb-2">
+              <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#8C7355] text-white shadow-xs">01</span>
+              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#8C7355]">Até 2h úteis</span>
             </div>
-            <div class="pt-4 border-t border-[#F0ECE1] mt-5">
-              <span class="text-[10px] text-[#71717A] tracking-wider uppercase font-medium">Análise Imediata</span>
+            <div>
+              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#18181B]">Triagem Documental</h4>
+            </div>
+            <span class="urgency-tab-bar absolute bottom-0 left-3 right-3 h-[2px] bg-[#8C7355] rounded-full"></span>
+          </button>
+
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-step-index="1"
+            class="urgency-tab relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between bg-transparent border border-transparent hover:bg-white/60 hover:border-[#E6E1D6]"
+          >
+            <div class="flex items-center justify-between mb-2">
+              <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#EAE5DC] text-[#71717A]">02</span>
+              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA]">4h a 12h</span>
+            </div>
+            <div>
+              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]">Estratégia e Protocolo</h4>
+            </div>
+            <span class="urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[2px] bg-[#8C7355] rounded-full"></span>
+          </button>
+
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-step-index="2"
+            class="urgency-tab relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between bg-transparent border border-transparent hover:bg-white/60 hover:border-[#E6E1D6]"
+          >
+            <div class="flex items-center justify-between mb-2">
+              <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#EAE5DC] text-[#71717A]">03</span>
+              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA]">24h a 72h</span>
+            </div>
+            <div>
+              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]">Acompanhamento</h4>
+            </div>
+            <span class="urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[2px] bg-[#8C7355] rounded-full"></span>
+          </button>
+
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-step-index="3"
+            class="urgency-tab relative p-3 sm:p-4 text-left rounded-[3px] transition-all duration-200 cursor-pointer flex flex-col justify-between bg-transparent border border-transparent hover:bg-white/60 hover:border-[#E6E1D6]"
+          >
+            <div class="flex items-center justify-between mb-2">
+              <span class="urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#EAE5DC] text-[#71717A]">04</span>
+              <span class="urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA]">Até 24h</span>
+            </div>
+            <div>
+              <h4 class="urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]">Efetivação do Direito</h4>
+            </div>
+            <span class="urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[2px] bg-[#8C7355] rounded-full"></span>
+          </button>
+        </div>
+
+        <!-- Card Principal da Etapa Ativa (Com Transição Fade-In Suave) -->
+        <div id="urgency-step-card" class="animate-fadeIn bg-[#FAF7F2]/50 border border-[#E6E1D6] p-6 sm:p-8 md:p-10 rounded-[4px]">
+          <!-- Header do Card Ativo -->
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-5 border-b border-[#E6E1D6]">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="urgency-phase-badge" class="px-2.5 py-1 text-[11px] font-semibold tracking-wider uppercase bg-white border border-[#D2B48C] text-[#8C7355] rounded-[2px] shadow-2xs">
+                Fase 01 • Análise Preliminar
+              </span>
+              <span id="urgency-step-counter" class="text-xs text-[#71717A]">
+                Etapa 1 de 4
+              </span>
+            </div>
+            <div class="inline-flex items-center gap-2 text-xs font-medium text-emerald-900 bg-emerald-50 border border-emerald-200/80 px-3 py-1.5 rounded-[2px] self-start sm:self-auto shadow-2xs">
+              <svg class="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke-width="2"></circle>
+                <polyline points="12 6 12 12 16 14" stroke-width="2"></polyline>
+              </svg>
+              <span id="urgency-time-badge">Tempo estimado: Análise preliminar em até 2h úteis</span>
             </div>
           </div>
 
-          <!-- Passo 02 -->
-          <div
-            class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
-            <div>
-              <div
-                class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
-                <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">02</span>
+          <!-- Título & Descrição Detalhada -->
+          <div class="mt-6 mb-6">
+            <h4 id="urgency-step-title" class="font-serif text-xl sm:text-2xl md:text-3xl text-[#18181B] font-normal leading-snug">
+              Análise Técnica e Imediata do Laudo e da Negativa
+            </h4>
+            <p id="urgency-step-desc" class="mt-3 text-sm md:text-base text-[#52525B] font-light leading-relaxed max-w-3xl">
+              Avaliamos minuciosamente o relatório do médico assistente e a justificativa da recusa pelo plano de saúde. Em demandas de neurodesenvolvimento (TEA) ou risco iminente de descontinuidade clínica, a indicação médica fundamentada prevalece juridicamente sobre restrições administrativas da operadora.
+            </p>
+          </div>
+
+          <!-- Grid Técnico: Tese Jurídica & Entrega / Provimento -->
+          <div class="grid md:grid-cols-2 gap-4 sm:gap-6 my-6">
+            <div class="bg-white border border-[#E6E1D6] p-5 rounded-[3px] shadow-2xs">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
+                <span class="text-[10.5px] uppercase tracking-wider text-[#8C7355] font-semibold">
+                  Tese Jurídica Aplicada
+                </span>
               </div>
-              <span class="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
-                Passo 02
-              </span>
-              <h4 class="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
-                Estratégia e Protocolo
-              </h4>
-              <p class="text-xs text-[#52525B] font-light leading-relaxed">
-                Elaboração célere da petição inicial com pedido de Tutela Provisória de Urgência (liminar inaudita
-                altera parte).
+              <p id="urgency-legal-thesis" class="text-xs sm:text-sm text-[#3F3F46] font-light leading-relaxed">
+                Lei Federal nº 14.454/2022 (Superação do rol taxativo da ANS), Súmula 102 do TJSP e dever de assistência integral à saúde.
               </p>
             </div>
-            <div class="pt-4 border-t border-[#F0ECE1] mt-5">
-              <span class="text-[10px] text-[#71717A] tracking-wider uppercase font-medium">Ação Customizada</span>
+
+            <div class="bg-white border border-[#E6E1D6] p-5 rounded-[3px] shadow-2xs">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
+                <span class="text-[10.5px] uppercase tracking-wider text-[#8C7355] font-semibold">
+                  Entrega & Provimento Esperado
+                </span>
+              </div>
+              <p id="urgency-deliverable" class="text-xs sm:text-sm text-[#3F3F46] font-light leading-relaxed">
+                Diagnóstico inicial de viabilidade jurídica para ingresso imediato com o pedido de tutela provisória de urgência.
+              </p>
             </div>
           </div>
 
-          <!-- Passo 03 -->
-          <div
-            class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
-            <div>
-              <div
-                class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
-                <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">03</span>
+          <!-- CHECKLIST PRÁTICO INTEGRADO (Exclusivo na Etapa 01: Triagem Documental) -->
+          <div id="urgency-checklist-wrapper" class="mt-8 pt-6 border-t border-[#E6E1D6] bg-white border border-[#D2B48C]/60 p-6 md:p-7 rounded-[4px] shadow-xs">
+            <div class="flex items-center gap-2.5 mb-2">
+              <div class="w-6 h-6 rounded-full bg-[#FAF7F2] border border-[#D2B48C] flex items-center justify-center text-[#8C7355]">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                </svg>
               </div>
-              <span class="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
-                Passo 03
-              </span>
-              <h4 class="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
-                Acompanhamento da Liminar
-              </h4>
-              <p class="text-xs text-[#52525B] font-light leading-relaxed">
-                Despacho direto com o magistrado da causa ou no plantão judiciário e monitoramento ostensivo da decisão
-                em 24h a 72h.
-              </p>
+              <h5 class="font-serif text-lg text-[#18181B] font-medium">
+                Checklist Prático para Triagem Imediata
+              </h5>
             </div>
-            <div class="pt-4 border-t border-[#F0ECE1] mt-5">
-              <span class="text-[10px] text-emerald-800 tracking-wider uppercase font-medium">Decisão em 24h a
-                72h</span>
+            <p class="text-xs text-[#52525B] font-light mb-4">
+              Assinale abaixo os documentos que você já tem em mãos para agilizar a verificação prévia de viabilidade:
+            </p>
+
+            <div class="space-y-3">
+              <!-- Item 1 -->
+              <label class="checklist-item flex items-start gap-3 p-3.5 rounded-[3px] border border-[#E6E1D6] hover:border-[#D2B48C] bg-white transition-all cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  id="chk-negativa"
+                  class="mt-0.5 w-4 h-4 rounded text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
+                />
+                <div class="flex-1">
+                  <span class="text-xs sm:text-sm font-medium text-[#18181B] block">
+                    Negativa formal do plano de saúde por escrito
+                  </span>
+                  <span class="text-[11px] text-[#71717A] font-light">
+                    Documento de recusa, e-mail da operadora ou número de protocolo SAC com prazo extrapolado.
+                  </span>
+                </div>
+              </label>
+
+              <!-- Item 2 -->
+              <label class="checklist-item flex items-start gap-3 p-3.5 rounded-[3px] border border-[#E6E1D6] hover:border-[#D2B48C] bg-white transition-all cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  id="chk-laudo"
+                  class="mt-0.5 w-4 h-4 rounded text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
+                />
+                <div class="flex-1">
+                  <span class="text-xs sm:text-sm font-medium text-[#18181B] block">
+                    Relatório médico circunstanciado com a CID e indicação terapêutica
+                  </span>
+                  <span class="text-[11px] text-[#71717A] font-light">
+                    Prescrição do médico assistente justificando a urgência, método recomendado (ex: ABA) e carga horária.
+                  </span>
+                </div>
+              </label>
+
+              <!-- Item 3 -->
+              <label class="checklist-item flex items-start gap-3 p-3.5 rounded-[3px] border border-[#E6E1D6] hover:border-[#D2B48C] bg-white transition-all cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  id="chk-comprovantes"
+                  class="mt-0.5 w-4 h-4 rounded text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
+                />
+                <div class="flex-1">
+                  <span class="text-xs sm:text-sm font-medium text-[#18181B] block">
+                    Carteirinha do plano e comprovantes de pagamento recentes
+                  </span>
+                  <span class="text-[11px] text-[#71717A] font-light">
+                    Cópia da identificação do beneficiário e boletos/comprovantes dos últimos 3 meses que atestem adimplência.
+                  </span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Botão Dinâmico de Envio do Checklist -->
+            <div id="checklist-whatsapp-box" class="hidden mt-5 p-4 bg-[#FAF7F2] border border-[#8C7355]/40 rounded-[3px] flex flex-col sm:flex-row items-center justify-between gap-4 animate-fadeIn">
+              <div class="text-left w-full sm:w-auto">
+                <span class="text-xs font-semibold text-[#8C7355] block">
+                  ✓ Documentos assinalados prontos para envio
+                </span>
+                <span class="text-[11px] text-[#52525B] font-light">
+                  Inicie o contato direto para a conferência inicial sem custo ou compromisso.
+                </span>
+              </div>
+              <a
+                id="checklist-whatsapp-btn"
+                href="https://wa.me/5514997118732"
+                target="_blank"
+                rel="noreferrer"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#18181B] hover:bg-[#8C7355] text-white text-xs font-medium tracking-wider uppercase transition-all duration-300 rounded-[2px] shadow-sm whitespace-nowrap cursor-pointer"
+              >
+                <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span>Enviar Documentos Selecionados para Análise Preliminar no WhatsApp</span>
+              </a>
+            </div>
+
+            <div id="checklist-placeholder" class="mt-4 p-3.5 bg-[#FAF7F2]/80 border border-dashed border-[#E6E1D6] rounded-[3px] text-xs text-[#71717A] flex items-center gap-2">
+              <span class="text-[#8C7355] text-sm">💡</span>
+              <span>Selecione ao menos um dos itens acima para desbloquear o envio direto da sua lista para triagem no WhatsApp.</span>
             </div>
           </div>
 
-          <!-- Passo 04 -->
-          <div
-            class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
+          <!-- Barra de Navegação do Stepper (Anterior / Próximo) -->
+          <div class="mt-8 pt-6 border-t border-[#E6E1D6] flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <div
-                class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
-                <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">04</span>
-              </div>
-              <span class="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
-                Passo 04
-              </span>
-              <h4 class="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
-                Efetivação do Direito
-              </h4>
-              <p class="text-xs text-[#52525B] font-light leading-relaxed">
-                Garantia do início das terapias, fornecimento do fármaco ou reembolso mediante intimação e cumprimento
-                da ordem judicial.
-              </p>
+              <button
+                type="button"
+                id="urgency-prev-btn"
+                class="hidden inline-flex items-center gap-2 px-4 py-2 border border-[#E6E1D6] bg-white hover:bg-[#FAF7F2] text-[#18181B] text-xs font-medium rounded-[2px] transition-colors cursor-pointer"
+              >
+                ← Etapa Anterior
+              </button>
+              <span id="urgency-start-note" class="text-xs text-[#A1A1AA] italic">Início da jornada de urgência</span>
             </div>
-            <div class="pt-4 border-t border-[#F0ECE1] mt-5">
-              <span class="text-[10px] text-[#8C7355] tracking-wider uppercase font-medium">Efetivação do Direito</span>
+
+            <!-- Marcadores de Etapa (Dots) -->
+            <div class="flex items-center gap-2" id="urgency-step-dots">
+              <button type="button" data-dot-index="0" aria-label="Ir para etapa 1" class="h-2.5 rounded-full transition-all cursor-pointer w-6 bg-[#8C7355]"></button>
+              <button type="button" data-dot-index="1" aria-label="Ir para etapa 2" class="h-2.5 rounded-full transition-all cursor-pointer w-2.5 bg-[#D4CEB2] hover:bg-[#8C7355]/60"></button>
+              <button type="button" data-dot-index="2" aria-label="Ir para etapa 3" class="h-2.5 rounded-full transition-all cursor-pointer w-2.5 bg-[#D4CEB2] hover:bg-[#8C7355]/60"></button>
+              <button type="button" data-dot-index="3" aria-label="Ir para etapa 4" class="h-2.5 rounded-full transition-all cursor-pointer w-2.5 bg-[#D4CEB2] hover:bg-[#8C7355]/60"></button>
+            </div>
+
+            <div>
+              <button
+                type="button"
+                id="urgency-next-btn"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-[#18181B] hover:bg-[#8C7355] text-white text-xs font-medium rounded-[2px] transition-colors cursor-pointer shadow-2xs"
+              >
+                Próxima Etapa: Estratégia e Protocolo →
+              </button>
+              <a
+                id="urgency-final-cta"
+                href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Preciso%20de%20uma%20an%C3%A1lise%20de%20urg%C3%AAncia%20para%20uma%20negativa%20de%20sa%C3%BAde%20%2F%20terapias%20TEA."
+                target="_blank"
+                rel="noreferrer"
+                class="hidden inline-flex items-center gap-2 px-4 py-2 bg-[#8C7355] hover:bg-[#735D43] text-white text-xs font-medium rounded-[2px] transition-colors shadow-2xs cursor-pointer"
+              >
+                Solicitar Orientação Jurídica Imediata →
+              </a>
             </div>
           </div>
         </div>
