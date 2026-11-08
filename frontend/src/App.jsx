@@ -841,30 +841,13 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </section>
 
-      {/* Selo Institucional de Compromisso Ético e Atendimento (Provimento 205/2021 OAB) */}
-      <div className="py-5 border-t border-[#D2B48C]/25 bg-white">
-        <div className="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-xs">
-          <div className="flex items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
-            <span className="font-medium text-[#18181B] tracking-wide uppercase text-[10px]">Compromisso Ético & Rigor Técnico</span>
-            <span className="text-[#D6CFC2]">•</span>
-            <span className="text-[#52525B] font-light">Atuação pautada pelo Provimento 205/2021 da OAB e Sigilo Profissional</span>
-          </div>
-          <div className="text-[#71717A] text-[11px] font-light flex items-center gap-3">
-            <span>Edifício Torre Nova York • Marília/SP</span>
-            <span className="text-[#D6CFC2]">•</span>
-            <span>Atendimento Presencial e Telepresencial Nacional</span>
-          </div>
-        </div>
-      </div>
-
       {/* SEÇÃO: INFORMATIVOS E ATUALIDADES JURÍDICAS */}
       <section id="informativos" className="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative">
         <div id="noticias" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
 
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-[#E6E1D6] text-[10px] text-[#8C7355] uppercase tracking-wider mb-4 shadow-2xs rounded-[2px]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-[#E5E0DA] text-[10px] text-[#8C7355] uppercase tracking-wider mb-4 shadow-2xs rounded-[2px] whitespace-nowrap">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
               Fontes Oficiais Verificadas • Atualização Jurídica
             </div>
