@@ -307,7 +307,7 @@ export default function BeatrizRochaAdvocacia() {
               rel="noreferrer"
               className="px-5 py-2.5 bg-[#8C7355] text-white text-xs tracking-[0.08em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap"
             >
-              Agendar Atendimento
+              Agendar Consulta
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -602,7 +602,7 @@ export default function BeatrizRochaAdvocacia() {
           {/* Cards de Atuação Especializada em Saúde */}
           <div className="grid md:grid-cols-2 gap-8 mb-14">
 
-            <div className="p-8 border border-[#E6E1D6] bg-white hover:border-[#8C7355] transition-colors shadow-xs">
+            <div className="p-8 border border-[#E6E1D6] bg-white card-hover shadow-xs rounded-[2px]">
               <span className="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
                 Autismo e Desenvolvimento Atípico
               </span>
@@ -618,7 +618,7 @@ export default function BeatrizRochaAdvocacia() {
               </div>
             </div>
 
-            <div className="p-8 border border-[#E6E1D6] bg-white hover:border-[#8C7355] transition-colors shadow-xs">
+            <div className="p-8 border border-[#E6E1D6] bg-white card-hover shadow-xs rounded-[2px]">
               <span className="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
                 Fármacos Especiais e Oncologia
               </span>
@@ -634,7 +634,7 @@ export default function BeatrizRochaAdvocacia() {
               </div>
             </div>
 
-            <div className="p-8 border border-[#E6E1D6] bg-white hover:border-[#8C7355] transition-colors shadow-xs">
+            <div className="p-8 border border-[#E6E1D6] bg-white card-hover shadow-xs rounded-[2px]">
               <span className="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
                 Cirurgias e Cuidados Críticos
               </span>
@@ -650,7 +650,7 @@ export default function BeatrizRochaAdvocacia() {
               </div>
             </div>
 
-            <div className="p-8 border border-[#E6E1D6] bg-white hover:border-[#8C7355] transition-colors shadow-xs">
+            <div className="p-8 border border-[#E6E1D6] bg-white card-hover shadow-xs rounded-[2px]">
               <span className="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
                 Equilíbrio Contratual
               </span>
@@ -687,7 +687,7 @@ export default function BeatrizRochaAdvocacia() {
               <div className="hidden lg:block absolute top-10 left-12 right-12 h-px bg-[#E6E1D6] -z-0"></div>
 
               {/* Passo 01 */}
-              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+              <div className="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
                 <div>
                   <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                     <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">01</span>
@@ -708,7 +708,7 @@ export default function BeatrizRochaAdvocacia() {
               </div>
 
               {/* Passo 02 */}
-              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+              <div className="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
                 <div>
                   <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                     <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">02</span>
@@ -729,7 +729,7 @@ export default function BeatrizRochaAdvocacia() {
               </div>
 
               {/* Passo 03 */}
-              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+              <div className="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
                 <div>
                   <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                     <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">03</span>
@@ -750,7 +750,7 @@ export default function BeatrizRochaAdvocacia() {
               </div>
 
               {/* Passo 04 */}
-              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+              <div className="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
                 <div>
                   <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                     <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">04</span>
@@ -759,14 +759,14 @@ export default function BeatrizRochaAdvocacia() {
                     Passo 04
                   </span>
                   <h4 className="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
-                    Efetivação da Tutela
+                    Efetivação do Direito
                   </h4>
                   <p className="text-xs text-[#52525B] font-light leading-relaxed">
-                    Intimação formal da operadora sob pena de multa diária, pleiteando o início imediato das terapias, fornecimento do fármaco ou ressarcimento legal.
+                    Garantia do início das terapias, fornecimento do fármaco ou reembolso mediante intimação e cumprimento da ordem judicial.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-[#F0ECE1] mt-5">
-                  <span className="text-[10px] text-[#8C7355] tracking-wider uppercase font-medium">Cumprimento Judicial</span>
+                  <span className="text-[10px] text-[#8C7355] tracking-wider uppercase font-medium">Efetivação do Direito</span>
                 </div>
               </div>
             </div>

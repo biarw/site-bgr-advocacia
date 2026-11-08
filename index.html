@@ -45,6 +45,27 @@
     .group-dropdown:hover .dropdown-menu {
       display: block;
     }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .card-hover {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      border-color: #D2B48C !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -4px rgba(24, 24, 27, 0.06);
+    }
   </style>
 </head>
 <body class="min-h-screen bg-[#FAF7F2] text-[#18181B]">
@@ -165,7 +186,7 @@
           rel="noreferrer"
           class="px-5 py-2.5 bg-[#8C7355] text-white text-xs tracking-[0.08em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap"
         >
-          Agendar Atendimento
+          Agendar Consulta
         </a>
         <button
           id="mobile-btn"
@@ -445,7 +466,7 @@
       <!-- Cards de Atuação Especializada em Saúde -->
       <div class="grid md:grid-cols-2 gap-8 mb-14">
         
-        <div class="p-8 border border-[#E6E1D6] bg-white hover:border-[#8C7355] transition-colors shadow-xs">
+        <div class="p-8 border border-[#E6E1D6] bg-white card-hover shadow-xs rounded-[2px]">
           <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
             Autismo e Desenvolvimento Atípico
           </span>
@@ -461,7 +482,7 @@
           </div>
         </div>
 
-        <div class="p-8 border border-[#E6E1D6] bg-white hover:border-[#8C7355] transition-colors shadow-xs">
+        <div class="p-8 border border-[#E6E1D6] bg-white card-hover shadow-xs rounded-[2px]">
           <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
             Fármacos Especiais e Oncologia
           </span>
@@ -477,7 +498,7 @@
           </div>
         </div>
 
-        <div class="p-8 border border-[#E6E1D6] bg-white hover:border-[#8C7355] transition-colors shadow-xs">
+        <div class="p-8 border border-[#E6E1D6] bg-white card-hover shadow-xs rounded-[2px]">
           <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
             Cirurgias e Cuidados Críticos
           </span>
@@ -493,7 +514,7 @@
           </div>
         </div>
 
-        <div class="p-8 border border-[#E6E1D6] bg-white hover:border-[#8C7355] transition-colors shadow-xs">
+        <div class="p-8 border border-[#E6E1D6] bg-white card-hover shadow-xs rounded-[2px]">
           <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
             Equilíbrio Contratual
           </span>
@@ -530,7 +551,7 @@
           <div class="hidden lg:block absolute top-10 left-12 right-12 h-px bg-[#E6E1D6] -z-0"></div>
 
           <!-- Passo 01 -->
-          <div class="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+          <div class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
             <div>
               <div class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                 <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">01</span>
@@ -551,7 +572,7 @@
           </div>
 
           <!-- Passo 02 -->
-          <div class="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+          <div class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
             <div>
               <div class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                 <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">02</span>
@@ -572,7 +593,7 @@
           </div>
 
           <!-- Passo 03 -->
-          <div class="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+          <div class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
             <div>
               <div class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                 <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">03</span>
@@ -593,7 +614,7 @@
           </div>
 
           <!-- Passo 04 -->
-          <div class="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs">
+          <div class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
             <div>
               <div class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                 <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">04</span>
@@ -602,14 +623,14 @@
                 Passo 04
               </span>
               <h4 class="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
-                Efetivação da Tutela
+                Efetivação do Direito
               </h4>
               <p class="text-xs text-[#52525B] font-light leading-relaxed">
-                Intimação formal da operadora sob pena de multa diária, pleiteando o início imediato das terapias, fornecimento do fármaco ou ressarcimento legal.
+                Garantia do início das terapias, fornecimento do fármaco ou reembolso mediante intimação e cumprimento da ordem judicial.
               </p>
             </div>
             <div class="pt-4 border-t border-[#F0ECE1] mt-5">
-              <span class="text-[10px] text-[#8C7355] tracking-wider uppercase font-medium">Cumprimento Judicial</span>
+              <span class="text-[10px] text-[#8C7355] tracking-wider uppercase font-medium">Efetivação do Direito</span>
             </div>
           </div>
         </div>
