@@ -62,3 +62,12 @@ header nav a, header nav span, .header-nav-link {
 .section-divider {
   border-top: 1px solid rgba(210, 180, 140, 0.25);
 }
+
+/* Hide native scrollbar for carousel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

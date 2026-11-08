@@ -76,53 +76,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Filtros e Busca Rápida na Seção de Notícias
-  const filterBtns = document.querySelectorAll('.news-filter-btn');
-  const searchInput = document.getElementById('news-search');
-  const newsCards = document.querySelectorAll('.news-card');
+  // 4. Carrossel Horizontal de Notícias (Drag & Scroll + Setas de Navegação)
+  const newsCarousel = document.getElementById('news-carousel');
+  const newsPrev = document.getElementById('news-prev');
+  const newsNext = document.getElementById('news-next');
 
-  let activeCategory = 'Todas';
-  let searchTerm = '';
+  if (newsCarousel) {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
 
-  function applyNewsFilters() {
-    newsCards.forEach(card => {
-      const cardCategory = card.getAttribute('data-category');
-      const cardKeywords = (card.getAttribute('data-keywords') || '').toLowerCase();
-      const cardText = card.innerText.toLowerCase();
-
-      const matchesCat = (activeCategory === 'Todas') || (cardCategory === activeCategory);
-      const matchesSearch = !searchTerm || cardKeywords.includes(searchTerm) || cardText.includes(searchTerm);
-
-      if (matchesCat && matchesSearch) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
+    newsCarousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      newsCarousel.classList.add('cursor-grabbing');
+      newsCarousel.classList.remove('cursor-grab');
+      startX = e.pageX - newsCarousel.offsetLeft;
+      scrollLeft = newsCarousel.scrollLeft;
     });
-  }
 
-  if (filterBtns.length > 0) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => {
-          b.classList.remove('bg-[#8C7355]', 'text-white', 'font-medium', 'shadow-xs');
-          b.classList.add('bg-white', 'border', 'border-[#E6E1D6]', 'text-[#52525B]');
-        });
+    newsCarousel.addEventListener('mouseleave', () => {
+      isDown = false;
+      newsCarousel.classList.remove('cursor-grabbing');
+      newsCarousel.classList.add('cursor-grab');
+    });
 
-        btn.classList.remove('bg-white', 'border', 'border-[#E6E1D6]', 'text-[#52525B]');
-        btn.classList.add('bg-[#8C7355]', 'text-white', 'font-medium', 'shadow-xs');
+    newsCarousel.addEventListener('mouseup', () => {
+      isDown = false;
+      newsCarousel.classList.remove('cursor-grabbing');
+      newsCarousel.classList.add('cursor-grab');
+    });
 
-        activeCategory = btn.getAttribute('data-cat');
-        applyNewsFilters();
+    newsCarousel.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - newsCarousel.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      newsCarousel.scrollLeft = scrollLeft - walk;
+    });
+
+    if (newsPrev) {
+      newsPrev.addEventListener('click', () => {
+        newsCarousel.scrollBy({ left: -390, behavior: 'smooth' });
       });
-    });
-  }
+    }
 
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      searchTerm = e.target.value.trim().toLowerCase();
-      applyNewsFilters();
-    });
+    if (newsNext) {
+      newsNext.addEventListener('click', () => {
+        newsCarousel.scrollBy({ left: 390, behavior: 'smooth' });
+      });
+    }
   }
 
   // 5. Máscara de Telefone / WhatsApp: (DD) 00000-0000

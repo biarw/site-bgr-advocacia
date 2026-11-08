@@ -1,12 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 export default function BeatrizRochaAdvocacia() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [areasDropdownOpen, setAreasDropdownOpen] = useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('Todas');
-  const [searchQuery, setSearchQuery] = useState('');
   const [openFaq, setOpenFaq] = useState(null);
+
+  // Estados e controle do Carrossel de Notícias (Drag & Scroll)
+  const carouselRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const scrollNews = (direction) => {
+    if (carouselRef.current) {
+      const scrollAmount = 390;
+      carouselRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const [formData, setFormData] = useState({
     nome: '',
@@ -112,15 +148,6 @@ export default function BeatrizRochaAdvocacia() {
       verified: true
     }
   ];
-
-  const filteredNews = newsDatabase.filter(news => {
-    const matchesCategory = selectedCategory === 'Todas' || news.category === selectedCategory;
-    const matchesQuery = searchQuery === '' ||
-      news.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      news.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      news.source.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesQuery;
-  });
 
   const handlePhoneChange = (e) => {
     let value = e.target.value.replace(/\D/g, '');
@@ -841,127 +868,112 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </section>
 
-      {/* SEÇÃO: INFORMATIVOS E ATUALIDADES JURÍDICAS */}
+      {/* SEÇÃO: INFORMATIVOS E ATUALIDADES JURÍDICAS (Carrossel Horizontal Editorial) */}
       <section id="informativos" className="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative">
         <div id="noticias" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
 
-          <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-[#E5E0DA] text-[10px] text-[#8C7355] uppercase tracking-wider mb-4 shadow-2xs rounded-[2px] whitespace-nowrap">
-              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-              Fontes Oficiais Verificadas • Atualização Jurídica
-            </div>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-[42px] text-[#18181B] font-normal leading-tight tracking-tight">
-              Notícias e Entendimentos dos Tribunais Superiores
-            </h2>
-            <p className="mt-4 text-[#52525B] font-light leading-relaxed text-sm md:text-base">
-              Espaço informativo com precedentes vinculantes, resoluções e notícias jurídicas autênticas publicadas por órgãos oficiais (STJ, TJSP, CNJ, ANS) e portais jurídicos de referência (Migalhas e ConJur).
-            </p>
-          </div>
-
-          {/* Barra de Filtros e Busca de Notícias */}
-          <div className="bg-white p-5 border border-[#E6E1D6] mb-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 shadow-2xs">
-
-            {/* Filtro por Categorias */}
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs text-[#71717A] mr-1 hidden sm:inline">Filtrar:</span>
-              {['Todas', 'Direito à Saúde & Autismo (TEA)', 'Família e Sucessões', 'Tributário & Isenções'].map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-1.5 text-xs transition-colors ${selectedCategory === cat
-                      ? 'bg-[#8C7355] text-white font-medium shadow-xs'
-                      : 'bg-[#FAF7F2] border border-[#E6E1D6] text-[#52525B] hover:text-[#18181B]'
-                    }`}
-                >
-                  {cat}
-                </button>
-              ))}
+          {/* Topo Editorial Simplificado com Título, Subtítulo e Setas de Navegação */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+            <div>
+              <h2 className="font-serif text-3xl md:text-4xl text-[#18181B] font-normal tracking-tight">
+                Informativos & Jurisprudência
+              </h2>
+              <p className="mt-2 text-sm text-[#52525B] font-light leading-relaxed max-w-xl">
+                Precedentes vinculantes, resoluções e atualizações dos tribunais superiores.
+              </p>
             </div>
 
-            {/* Campo de Busca Rápida */}
-            <div className="w-full md:w-64">
-              <input
-                type="text"
-                placeholder="Buscar por palavra-chave..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-3.5 py-1.5 text-xs bg-[#FAF7F2] border border-[#E6E1D6] focus:outline-none focus:border-[#8C7355]"
-              />
+            {/* Setas Discretas de Navegação */}
+            <div className="flex items-center gap-2.5 shrink-0">
+              <button
+                onClick={() => scrollNews('left')}
+                aria-label="Avançar para notícia anterior"
+                className="w-10 h-10 rounded-full border border-[#D2B48C]/40 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer text-sm"
+              >
+                ←
+              </button>
+              <button
+                onClick={() => scrollNews('right')}
+                aria-label="Avançar para próxima notícia"
+                className="w-10 h-10 rounded-full border border-[#D2B48C]/40 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer text-sm"
+              >
+                →
+              </button>
             </div>
           </div>
 
-          {/* Grade de Cards de Notícias Reais */}
-          {filteredNews.length === 0 ? (
-            <div className="p-12 text-center border border-[#E6E1D6] bg-white text-sm text-[#71717A]">
-              Nenhum conteúdo jurídico validado encontrado para o termo pesquisado.
-            </div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-              {filteredNews.map((news) => (
-                <article
-                  key={news.id}
-                  className="bg-white border border-[#E6E1D6] border-l-4 border-l-[#D2B48C] p-7 sm:p-8 flex flex-col justify-between hover:border-[#8C7355] hover:border-l-[#8C7355] hover:shadow-md transition-all duration-300 shadow-2xs rounded-[2px] group"
-                >
-                  <div>
-                    {/* Cabeçalho do Card com Badge em Evidência */}
-                    <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] mb-4 pb-3.5 border-b border-[#E6E1D6]">
-                      <span className="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10px] font-semibold tracking-wider text-[#8C7355] uppercase rounded-[2px]">
-                        {news.sourceBadge}
-                      </span>
-                      <span className="text-[#71717A] text-[10.5px] font-mono tracking-wide">
-                        {news.date}
-                      </span>
-                    </div>
-
-                    {/* Título Original e Fiel */}
-                    <h3 className="font-serif text-lg sm:text-xl text-[#18181B] font-normal leading-snug mb-3 group-hover:text-[#8C7355] transition-colors">
-                      {news.title}
-                    </h3>
-
-                    {/* Resumo Técnico e Verídico */}
-                    <p className="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-6">
-                      {news.summary}
-                    </p>
+          {/* Carrossel Horizontal Drag & Scroll */}
+          <div
+            ref={carouselRef}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing pb-8 select-none"
+            style={{
+              scrollSnapType: isDragging ? 'none' : 'x mandatory',
+              WebkitOverflowScrolling: 'touch',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
+          >
+            {newsDatabase.map((news) => (
+              <article
+                key={news.id}
+                className="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start"
+              >
+                <div>
+                  {/* Tag de Origem no Topo */}
+                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
+                    <span className="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">
+                      {news.sourceBadge.split('•')[0].trim()}
+                    </span>
+                    <span className="text-[10.5px] text-[#71717A] font-mono tracking-wide">
+                      {news.date}
+                    </span>
                   </div>
 
-                  {/* Rodapé com Links Oficiais de Conferência Direta */}
-                  <div className="pt-4 border-t border-[#E6E1D6]">
-                    <div className="text-[10px] text-emerald-800 flex items-center gap-1.5 mb-2.5 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-                      <span>Fonte Oficial Verificada</span>
-                    </div>
+                  {/* Título da Notícia */}
+                  <h3 className="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
+                    {news.title}
+                  </h3>
 
-                    <div className="flex items-center justify-between text-xs pt-1">
-                      <a
-                        href={news.officialUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider"
-                      >
-                        <span>Acessar Publicação</span>
-                        <span>↗</span>
-                      </a>
+                  {/* Breve Resumo */}
+                  <p className="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-6">
+                    {news.summary}
+                  </p>
+                </div>
 
-                      {news.partnerUrl && (
-                        <a
-                          href={news.partnerUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]"
-                        >
-                          {news.partnerLabel}
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          )}
+                {/* Rodapé com Link de Conferência Oficial */}
+                <div className="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
+                  <a
+                    href={news.officialUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider"
+                  >
+                    <span>Acessar Publicação</span>
+                    <span>↗</span>
+                  </a>
+
+                  {news.partnerUrl && (
+                    <a
+                      href={news.partnerUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]"
+                    >
+                      {news.partnerLabel}
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
 
           {/* Chamada Ética no Fechamento das Notícias (Provimento 205/2021) */}
-          <div className="border border-[#E6E1D6] bg-white p-7 sm:p-9 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[2px] shadow-2xs">
+          <div className="border border-[#E5E0DA] bg-white p-7 sm:p-9 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[4px] shadow-2xs mt-4">
             <div className="space-y-1.5 text-center sm:text-left">
               <h4 className="font-serif text-xl sm:text-2xl text-[#18181B] font-normal">
                 Dúvidas sobre a aplicação desses precedentes ao seu caso?

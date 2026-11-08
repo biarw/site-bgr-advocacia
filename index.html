@@ -719,59 +719,56 @@
     </div>
   </section>
 
-  <!-- SEÇÃO 1: INFORMATIVOS E ATUALIDADES JURÍDICAS (Conteúdos Reais, Verificados e com Links Diretos) -->
+  <!-- SEÇÃO 1: INFORMATIVOS E ATUALIDADES JURÍDICAS (Carrossel Horizontal Editorial) -->
   <section id="informativos" class="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative">
     <div id="noticias" class="absolute -top-24"></div>
     <div class="max-w-6xl mx-auto px-6">
       
-      <div class="max-w-3xl mb-12">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-[#E5E0DA] text-[10px] text-[#8C7355] uppercase tracking-wider mb-4 shadow-2xs rounded-[2px] whitespace-nowrap">
-          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-          Fontes Oficiais Verificadas • Atualização Jurídica
-        </div>
-        <h2 class="font-serif text-3xl md:text-4xl lg:text-[42px] text-[#18181B] font-normal leading-tight tracking-tight">
-          Notícias e Entendimentos dos Tribunais Superiores
-        </h2>
-        <p class="mt-4 text-[#52525B] font-light leading-relaxed text-sm md:text-base">
-          Espaço informativo com precedentes vinculantes, resoluções e notícias jurídicas autênticas publicadas por órgãos oficiais (STJ, TJSP, CNJ, ANS) e portais jurídicos de referência (Migalhas e ConJur).
-        </p>
-      </div>
-
-      <!-- Barra de Filtros e Busca de Notícias -->
-      <div class="bg-white p-5 border border-[#E6E1D6] mb-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 shadow-2xs">
-        
-        <!-- Filtro por Categorias -->
-        <div class="flex flex-wrap items-center gap-2" id="news-filter-buttons">
-          <span class="text-xs text-[#71717A] mr-1 hidden sm:inline">Filtrar:</span>
-          <button data-cat="Todas" class="news-filter-btn px-3 py-1.5 text-xs bg-[#8C7355] text-white font-medium shadow-xs">Todas</button>
-          <button data-cat="Saude" class="news-filter-btn px-3 py-1.5 text-xs bg-[#FAF7F2] border border-[#E6E1D6] text-[#52525B] hover:text-[#18181B]">Direito à Saúde & Autismo (TEA)</button>
-          <button data-cat="Familia" class="news-filter-btn px-3 py-1.5 text-xs bg-[#FAF7F2] border border-[#E6E1D6] text-[#52525B] hover:text-[#18181B]">Família e Sucessões</button>
-          <button data-cat="Tributario" class="news-filter-btn px-3 py-1.5 text-xs bg-[#FAF7F2] border border-[#E6E1D6] text-[#52525B] hover:text-[#18181B]">Tributário & Isenções</button>
+      <!-- Topo Editorial Simplificado com Título, Subtítulo e Setas de Navegação -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+        <div>
+          <h2 class="font-serif text-3xl md:text-4xl text-[#18181B] font-normal tracking-tight">
+            Informativos & Jurisprudência
+          </h2>
+          <p class="mt-2 text-sm text-[#52525B] font-light leading-relaxed max-w-xl">
+            Precedentes vinculantes, resoluções e atualizações dos tribunais superiores.
+          </p>
         </div>
 
-        <!-- Campo de Busca Rápida -->
-        <div class="w-full md:w-64">
-          <input
-            type="text"
-            id="news-search"
-            placeholder="Buscar por palavra-chave..."
-            class="w-full px-3.5 py-1.5 text-xs bg-[#FAF7F2] border border-[#E6E1D6] focus:outline-none focus:border-[#8C7355]"
+        <!-- Setas Discretas de Navegação -->
+        <div class="flex items-center gap-2.5 shrink-0">
+          <button
+            id="news-prev"
+            aria-label="Avançar para notícia anterior"
+            class="w-10 h-10 rounded-full border border-[#D2B48C]/40 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer text-sm"
           >
+            ←
+          </button>
+          <button
+            id="news-next"
+            aria-label="Avançar para próxima notícia"
+            class="w-10 h-10 rounded-full border border-[#D2B48C]/40 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer text-sm"
+          >
+            →
+          </button>
         </div>
       </div>
 
-      <!-- Grade de Cards de Notícias Reais -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" id="news-grid">
-        
-        <!-- Notícia 1: Recusa de Adesão / Seleção de Risco em TEA (Migalhas) -->
-        <article class="news-card bg-white border border-[#E6E1D6] border-l-4 border-l-[#D2B48C] p-7 sm:p-8 flex flex-col justify-between hover:border-[#8C7355] hover:border-l-[#8C7355] hover:shadow-md transition-all duration-300 shadow-2xs rounded-[2px] group" data-category="Saude" data-keywords="recusa adesao plano de saude crianca autista tea migalhas ausencia interesse comercial selecao risco">
+      <!-- Carrossel Horizontal Drag & Scroll -->
+      <div
+        id="news-carousel"
+        class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth cursor-grab pb-8 select-none"
+        style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none;"
+      >
+        <!-- Card 1: Recusa de Adesão / Seleção de Risco em TEA (Migalhas) -->
+        <article class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
           <div>
-            <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] mb-4 pb-3.5 border-b border-[#E6E1D6]">
-              <span class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10px] font-semibold tracking-wider text-[#8C7355] uppercase rounded-[2px]">Migalhas • Seleção de Risco em TEA</span>
-              <span class="text-[#71717A] text-[10.5px] font-mono tracking-wide">Jurisprudência Atual</span>
+            <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
+              <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">Migalhas</span>
+              <span class="text-[10.5px] text-[#71717A] font-mono tracking-wide">Jurisprudência Atual</span>
             </div>
 
-            <h3 class="font-serif text-lg sm:text-xl text-[#18181B] font-normal leading-snug mb-3 group-hover:text-[#8C7355] transition-colors">
+            <h3 class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
               Plano de saúde deve aceitar criança autista após recusar adesão por "ausência de interesse comercial"
             </h3>
 
@@ -780,32 +777,26 @@
             </p>
           </div>
 
-          <div class="pt-4 border-t border-[#E6E1D6]">
-            <div class="text-[10px] text-emerald-800 flex items-center gap-1.5 mb-2.5 font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-              <span>Fonte Oficial Verificada</span>
-            </div>
-            <div class="flex items-center justify-between text-xs pt-1">
-              <a href="https://www.migalhas.com.br/quentes/466978/plano-de-saude-deve-aceitar-crianca-autista-apos-recusar-adesao" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
-                <span>Acessar Publicação</span>
-                <span>↗</span>
-              </a>
-              <a href="https://www.tjsp.jus.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
-                TJSP ↗
-              </a>
-            </div>
+          <div class="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
+            <a href="https://www.migalhas.com.br/quentes/466978/plano-de-saude-deve-aceitar-crianca-autista-apos-recusar-adesao" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
+              <span>Acessar Publicação</span>
+              <span>↗</span>
+            </a>
+            <a href="https://www.tjsp.jus.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
+              TJSP ↗
+            </a>
           </div>
         </article>
 
-        <!-- Notícia 2: Resolução CNJ 571/2024 -->
-        <article class="news-card bg-white border border-[#E6E1D6] border-l-4 border-l-[#D2B48C] p-7 sm:p-8 flex flex-col justify-between hover:border-[#8C7355] hover:border-l-[#8C7355] hover:shadow-md transition-all duration-300 shadow-2xs rounded-[2px] group" data-category="Familia" data-keywords="cnj resolucao 571 2024 inventario partilha cartorio menores testamento">
+        <!-- Card 2: Resolução CNJ 571/2024 -->
+        <article class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
           <div>
-            <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] mb-4 pb-3.5 border-b border-[#E6E1D6]">
-              <span class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10px] font-semibold tracking-wider text-[#8C7355] uppercase rounded-[2px]">CNJ • Resolução 571/2024</span>
-              <span class="text-[#71717A] text-[10.5px] font-mono tracking-wide">26 de agosto de 2024</span>
+            <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
+              <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">CNJ</span>
+              <span class="text-[10.5px] text-[#71717A] font-mono tracking-wide">26 de agosto de 2024</span>
             </div>
 
-            <h3 class="font-serif text-lg sm:text-xl text-[#18181B] font-normal leading-snug mb-3 group-hover:text-[#8C7355] transition-colors">
+            <h3 class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
               Resolução CNJ nº 571/2024 autoriza inventário e partilha extrajudiciais em cartório mesmo com menores e incapazes
             </h3>
 
@@ -814,32 +805,26 @@
             </p>
           </div>
 
-          <div class="pt-4 border-t border-[#E6E1D6]">
-            <div class="text-[10px] text-emerald-800 flex items-center gap-1.5 mb-2.5 font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-              <span>Fonte Oficial Verificada</span>
-            </div>
-            <div class="flex items-center justify-between text-xs pt-1">
-              <a href="https://www.cnj.jus.br" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
-                <span>Acessar Publicação</span>
-                <span>↗</span>
-              </a>
-              <a href="https://www.conjur.com.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
-                ConJur ↗
-              </a>
-            </div>
+          <div class="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
+            <a href="https://www.cnj.jus.br" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
+              <span>Acessar Publicação</span>
+              <span>↗</span>
+            </a>
+            <a href="https://www.conjur.com.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
+              ConJur ↗
+            </a>
           </div>
         </article>
 
-        <!-- Notícia 3: Tratamento Fora da Rede / Reembolso Integral (Migalhas) -->
-        <article class="news-card bg-white border border-[#E6E1D6] border-l-4 border-l-[#D2B48C] p-7 sm:p-8 flex flex-col justify-between hover:border-[#8C7355] hover:border-l-[#8C7355] hover:shadow-md transition-all duration-300 shadow-2xs rounded-[2px] group" data-category="Saude" data-keywords="tratamento fora da rede reembolso integral crianca tea migalhas metodo aba clinica particular especialista">
+        <!-- Card 3: Tratamento Fora da Rede / Reembolso Integral (Migalhas) -->
+        <article class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
           <div>
-            <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] mb-4 pb-3.5 border-b border-[#E6E1D6]">
-              <span class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10px] font-semibold tracking-wider text-[#8C7355] uppercase rounded-[2px]">Migalhas • Tratamento Fora da Rede</span>
-              <span class="text-[#71717A] text-[10.5px] font-mono tracking-wide">Jurisprudência Atual</span>
+            <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
+              <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">Migalhas</span>
+              <span class="text-[10.5px] text-[#71717A] font-mono tracking-wide">Jurisprudência Atual</span>
             </div>
 
-            <h3 class="font-serif text-lg sm:text-xl text-[#18181B] font-normal leading-snug mb-3 group-hover:text-[#8C7355] transition-colors">
+            <h3 class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
               Justiça garante custeio de tratamento multidisciplinar fora da rede credenciada para crianças com TEA
             </h3>
 
@@ -848,32 +833,26 @@
             </p>
           </div>
 
-          <div class="pt-4 border-t border-[#E6E1D6]">
-            <div class="text-[10px] text-emerald-800 flex items-center gap-1.5 mb-2.5 font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-              <span>Fonte Oficial Verificada</span>
-            </div>
-            <div class="flex items-center justify-between text-xs pt-1">
-              <a href="https://www.migalhas.com.br/quentes/430648/plano-indenizara-crianca-com-tea-apos-negar-tratamento-fora-da-rede" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
-                <span>Acessar Publicação</span>
-                <span>↗</span>
-              </a>
-              <a href="https://www.gov.br/ans" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
-                Portal ANS ↗
-              </a>
-            </div>
+          <div class="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
+            <a href="https://www.migalhas.com.br/quentes/430648/plano-indenizara-crianca-com-tea-apos-negar-tratamento-fora-da-rede" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
+              <span>Acessar Publicação</span>
+              <span>↗</span>
+            </a>
+            <a href="https://www.gov.br/ans" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
+              Portal ANS ↗
+            </a>
           </div>
         </article>
 
-        <!-- Notícia 4: Entendimento STF e STJ Tratamentos Extra-Rol (Migalhas) -->
-        <article class="news-card bg-white border border-[#E6E1D6] border-l-4 border-l-[#D2B48C] p-7 sm:p-8 flex flex-col justify-between hover:border-[#8C7355] hover:border-l-[#8C7355] hover:shadow-md transition-all duration-300 shadow-2xs rounded-[2px] group" data-category="Saude" data-keywords="stf stj parametros cobertura tratamentos farmacos fora do rol ans migalhas adin 7265 alto custo">
+        <!-- Card 4: Entendimento STF e STJ Tratamentos Extra-Rol (Migalhas) -->
+        <article class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
           <div>
-            <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] mb-4 pb-3.5 border-b border-[#E6E1D6]">
-              <span class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10px] font-semibold tracking-wider text-[#8C7355] uppercase rounded-[2px]">Migalhas • STF & STJ Extra-Rol</span>
-              <span class="text-[#71717A] text-[10.5px] font-mono tracking-wide">ADIn 7.265 / Tema STJ</span>
+            <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
+              <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">STF & STJ</span>
+              <span class="text-[10.5px] text-[#71717A] font-mono tracking-wide">ADIn 7.265 / Tema STJ</span>
             </div>
 
-            <h3 class="font-serif text-lg sm:text-xl text-[#18181B] font-normal leading-snug mb-3 group-hover:text-[#8C7355] transition-colors">
+            <h3 class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
               STF e STJ definem parâmetros para cobertura de tratamentos e fármacos não previstos no rol da ANS
             </h3>
 
@@ -882,32 +861,26 @@
             </p>
           </div>
 
-          <div class="pt-4 border-t border-[#E6E1D6]">
-            <div class="text-[10px] text-emerald-800 flex items-center gap-1.5 mb-2.5 font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-              <span>Fonte Oficial Verificada</span>
-            </div>
-            <div class="flex items-center justify-between text-xs pt-1">
-              <a href="https://www.migalhas.com.br/quentes/461400/toffoli-manda-stj-reanalisar-cobertura-de-remedio-fora-do-rol-da-ans" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
-                <span>Acessar Publicação</span>
-                <span>↗</span>
-              </a>
-              <a href="https://portal.stf.jus.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
-                Portal STF ↗
-              </a>
-            </div>
+          <div class="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
+            <a href="https://www.migalhas.com.br/quentes/461400/toffoli-manda-stj-reanalisar-cobertura-de-remedio-fora-do-rol-da-ans" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
+              <span>Acessar Publicação</span>
+              <span>↗</span>
+            </a>
+            <a href="https://portal.stf.jus.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
+              Portal STF ↗
+            </a>
           </div>
         </article>
 
-        <!-- Notícia 5: Isenção de IPVA TJSP -->
-        <article class="news-card bg-white border border-[#E6E1D6] border-l-4 border-l-[#D2B48C] p-7 sm:p-8 flex flex-col justify-between hover:border-[#8C7355] hover:border-l-[#8C7355] hover:shadow-md transition-all duration-300 shadow-2xs rounded-[2px] group" data-category="Tributario" data-keywords="isencao ipva pcd autismo tea tjsp sefaz sp restituicao laudo imesc">
+        <!-- Card 5: Isenção de IPVA TJSP -->
+        <article class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
           <div>
-            <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] mb-4 pb-3.5 border-b border-[#E6E1D6]">
-              <span class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10px] font-semibold tracking-wider text-[#8C7355] uppercase rounded-[2px]">TJSP • Fazenda Pública</span>
-              <span class="text-[#71717A] text-[10.5px] font-mono tracking-wide">Jurisprudência Consolidada</span>
+            <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
+              <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">TJSP</span>
+              <span class="text-[10.5px] text-[#71717A] font-mono tracking-wide">Jurisprudência Consolidada</span>
             </div>
 
-            <h3 class="font-serif text-lg sm:text-xl text-[#18181B] font-normal leading-snug mb-3 group-hover:text-[#8C7355] transition-colors">
+            <h3 class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
               TJSP consolida direito à isenção de IPVA e restituição de valores pagos para PCD e pessoas com TEA
             </h3>
 
@@ -916,27 +889,20 @@
             </p>
           </div>
 
-          <div class="pt-4 border-t border-[#E6E1D6]">
-            <div class="text-[10px] text-emerald-800 flex items-center gap-1.5 mb-2.5 font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-              <span>Fonte Oficial Verificada</span>
-            </div>
-            <div class="flex items-center justify-between text-xs pt-1">
-              <a href="https://www.tjsp.jus.br" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
-                <span>Acessar Publicação</span>
-                <span>↗</span>
-              </a>
-              <a href="https://www.conjur.com.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E6E1D6] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
-                ConJur ↗
-              </a>
-            </div>
+          <div class="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
+            <a href="https://www.tjsp.jus.br" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
+              <span>Acessar Publicação</span>
+              <span>↗</span>
+            </a>
+            <a href="https://www.conjur.com.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
+              ConJur ↗
+            </a>
           </div>
         </article>
-
       </div>
 
       <!-- Chamada Ética no Fechamento das Notícias (Provimento 205/2021) -->
-      <div class="border border-[#E6E1D6] bg-white p-7 sm:p-9 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[2px] shadow-2xs">
+      <div class="border border-[#E5E0DA] bg-white p-7 sm:p-9 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[4px] shadow-2xs mt-4">
         <div class="space-y-1.5 text-center sm:text-left">
           <h4 class="font-serif text-xl sm:text-2xl text-[#18181B] font-normal">
             Dúvidas sobre a aplicação desses precedentes ao seu caso?
