@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -9,8 +10,10 @@
 
   <!-- Título & Metadados Principais de SEO -->
   <title>Beatriz Rocha Sociedade Individual de Advocacia | Marília/SP (OAB/SP 463.673)</title>
-  <meta name="description" content="Beatriz Rocha Sociedade Individual de Advocacia (OAB/SP 463.673). Advocacia especializada em Direito à Saúde, liminares no autismo (TEA), método ABA, inventários em cartório e contratos. Edifício Torre Nova York, Marília/SP. Atendimento em todo o Brasil.">
-  <meta name="keywords" content="advocacia marilia, advogada marilia, direito a saude marilia, advogado autismo tea, liminar plano de saude, metodo aba liminar, inventario em cartorio marilia, beatriz rocha advocacia, oab sp 463673, torre nova york marilia">
+  <meta name="description"
+    content="Beatriz Rocha Sociedade Individual de Advocacia (OAB/SP 463.673). Advocacia especializada em Direito à Saúde, liminares no autismo (TEA), método ABA, inventários em cartório e contratos. Edifício Torre Nova York, Marília/SP. Atendimento em todo o Brasil.">
+  <meta name="keywords"
+    content="advocacia marilia, advogada marilia, direito a saude marilia, advogado autismo tea, liminar plano de saude, metodo aba liminar, inventario em cartorio marilia, beatriz rocha advocacia, oab sp 463673, torre nova york marilia">
   <meta name="author" content="Beatriz Guilherme Rocha - OAB/SP 463.673">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://beatrizrocha.adv.br/">
@@ -24,7 +27,8 @@
   <!-- Open Graph / Redes Sociais -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Beatriz Rocha Sociedade Individual de Advocacia | Marília/SP">
-  <meta property="og:description" content="Assessoria jurídica artesanal e estratégica. Especialidade em Direito à Saúde, Autismo (TEA), Sucessões e Contratos. Edifício Torre Nova York • Marília/SP.">
+  <meta property="og:description"
+    content="Assessoria jurídica artesanal e estratégica. Especialidade em Direito à Saúde, Autismo (TEA), Sucessões e Contratos. Edifício Torre Nova York • Marília/SP.">
   <meta property="og:url" content="https://beatrizrocha.adv.br/">
   <meta property="og:site_name" content="Beatriz Rocha Advocacia">
   <meta property="og:locale" content="pt_BR">
@@ -34,13 +38,16 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Beatriz Rocha Sociedade Individual de Advocacia | Marília/SP">
-  <meta name="twitter:description" content="Assessoria jurídica artesanal e estratégica. Direito à Saúde, Autismo (TEA), Sucessões e Contratos. OAB/SP 463.673.">
+  <meta name="twitter:description"
+    content="Assessoria jurídica artesanal e estratégica. Direito à Saúde, Autismo (TEA), Sucessões e Contratos. OAB/SP 463.673.">
   <meta name="twitter:image" content="https://beatrizrocha.adv.br/assets/torre-fachada.jpg">
 
   <!-- Google Fonts com Pré-conexão Otimizada -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -106,86 +113,153 @@
     html {
       scroll-behavior: smooth;
     }
+
     body {
       background-color: #FAF7F2;
       color: #18181B;
       font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
+
     ::selection {
       background-color: rgba(140, 115, 85, 0.2);
     }
+
     .dropdown-menu {
       display: none;
     }
+
     .group-dropdown:hover .dropdown-menu {
       display: block;
     }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
         transform: translateY(8px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
+
     .animate-fadeIn {
       animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
+
     p {
       color: #4A4A4A;
     }
+
     .card-hover {
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
     }
+
     .card-hover:hover {
       border-color: #D2B48C !important;
       transform: translateY(-2px);
       box-shadow: 0 8px 24px -4px rgba(24, 24, 27, 0.06);
     }
+
     /* Header Glassmorphism & Visual Polish */
     .header-glass {
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       background-color: rgba(255, 255, 255, 0.92);
     }
-    /* Header & Navigation Single-Line Guarantee */
-    header nav a, header nav span, .header-nav-link {
-      white-space: nowrap !important;
+
+    /* Standard 1280px Container System */
+    .site-container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
+
+    /* Topbar Fixed Alignment */
+    .topbar-container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Header Flex Container */
+    .header-container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Header & Navigation Single-Line Guarantee & Spacing */
+    header nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem !important;
+    }
+
+    header nav a,
+    header nav span,
+    .header-nav-link {
+      white-space: nowrap !important;
+      font-size: 12.5px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.1em;
+    }
+
+    /* Consultation CTA Button Separation & Proportions */
+    .header-cta-btn {
+      margin-left: 1.5rem !important;
+      padding: 0.6rem 1.2rem !important;
+      white-space: nowrap !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* Subtle Tan Section Divider */
     .section-divider {
       border-top: 1px solid rgba(210, 180, 140, 0.25);
     }
+
     /* Esconde barra de rolagem nativa mantendo funcionalidade */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
+
     .no-scrollbar {
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
   </style>
 </head>
+
 <body class="min-h-screen bg-[#FAF7F2] text-[#18181B]">
 
   <!-- Topbar Editorial Minimalista -->
-  <aside class="border-b border-[#E6E1D6] bg-[#F4EFE6]/60 text-[11px] tracking-[0.08em] text-[#52525B] uppercase" aria-label="Informações Institucionais">
-    <div class="max-w-6xl mx-auto px-6 py-2 flex flex-wrap justify-between items-center gap-3">
+  <aside class="border-b border-[#E6E1D6] bg-[#F4EFE6]/60 text-[11px] tracking-[0.08em] text-[#52525B] uppercase"
+    aria-label="Informações Institucionais">
+    <div
+      class="topbar-container max-w-[1280px] mx-auto px-4 sm:px-8 py-2 flex justify-between items-center w-full"
+      style="max-width: 1280px; margin: 0 auto; padding: 0.5rem 2rem; display: flex; justify-content: space-between; align-items: center; width: 100%;">
       <span class="font-normal whitespace-nowrap">
         EDIFÍCIO TORRE NOVA YORK • MARÍLIA/SP | OAB/SP 463.673
       </span>
       <div class="flex items-center gap-3 sm:gap-4 whitespace-nowrap text-[10.5px]">
         <span>Seg. a Sex. 08h30 às 18h00</span>
         <span class="text-[#D6CFC2]">•</span>
-        <a 
-          href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica." 
-          target="_blank" 
-          rel="noreferrer" 
-          class="text-[#18181B] font-medium hover:text-[#8C7355] transition-colors tracking-normal inline-flex items-center gap-1.5"
-        >
+        <a href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
+          target="_blank" rel="noreferrer"
+          class="text-[#18181B] font-medium hover:text-[#8C7355] transition-colors tracking-normal inline-flex items-center gap-1.5">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span>
           Falar no WhatsApp
         </a>
@@ -194,128 +268,147 @@
   </aside>
 
   <!-- Header com Alinhamento Editorial Rigoroso, Logo Harmonizado & CTA -->
-  <header class="sticky top-0 z-50 header-glass border-b border-[#E5E0DA]" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.92);">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-      
+  <header class="sticky top-0 z-50 header-glass border-b border-[#E5E0DA]"
+    style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.92);">
+    <div
+      class="header-container max-w-[1280px] mx-auto px-4 sm:px-8 h-20 flex items-center justify-between w-full"
+      style="max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+
       <!-- Monograma BR + Identidade -->
       <a href="#inicio" class="flex items-center gap-3.5 group shrink-0">
-        <div class="w-10 h-10 border border-[#8C7355]/40 flex items-center justify-center bg-white shadow-2xs group-hover:border-[#8C7355] transition-colors shrink-0">
+        <div
+          class="w-10 h-10 border border-[#8C7355]/40 flex items-center justify-center bg-white shadow-2xs group-hover:border-[#8C7355] transition-colors shrink-0">
           <span class="font-serif text-lg tracking-tight text-[#18181B]">BR</span>
         </div>
         <div class="flex flex-col justify-center">
-          <span class="font-serif text-[17px] tracking-[0.14em] text-[#18181B] uppercase leading-none font-normal whitespace-nowrap">
+          <span
+            class="font-serif text-[17px] tracking-[0.14em] text-[#18181B] uppercase leading-none font-normal whitespace-nowrap">
             Beatriz Rocha
           </span>
-          <span class="text-[8.5px] sm:text-[9px] tracking-[0.2em] text-[#8C7355] uppercase font-sans font-medium mt-1.5 leading-none whitespace-nowrap">
+          <span
+            class="text-[8.5px] sm:text-[9px] tracking-[0.2em] text-[#8C7355] uppercase font-sans font-medium mt-1.5 leading-none whitespace-nowrap">
             Sociedade Individual de Advocacia
           </span>
         </div>
       </a>
 
-      <!-- Menu Principal Fluido & Rigorosamente Alinhado -->
-      <nav class="hidden md:flex items-center gap-6 text-[11px] lg:text-[11.5px] font-medium tracking-[0.12em] uppercase text-[#52525B]">
-        <a href="#institucional" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-          O Escritório
-        </a>
-
-        <a href="#saude-tea" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-          Saúde & TEA
-        </a>
-
-        <!-- Dropdown Organizado de Especialidades -->
-        <div class="relative group-dropdown py-2 whitespace-nowrap">
-          <a href="#areas-atuacao" class="flex items-center gap-1.5 hover:text-[#18181B] transition-colors whitespace-nowrap">
-            <span>Especialidades</span>
-            <span class="text-[10px] text-[#8C7355] font-serif">▾</span>
+      <!-- Navegação Desktop Fluida & Botão Agendar Consulta -->
+      <div class="hidden lg:flex items-center">
+        <nav
+          class="flex items-center text-[12.5px] font-medium tracking-[0.1em] uppercase text-[#52525B]"
+          style="gap: 2rem;">
+          <a href="#institucional" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style="white-space: nowrap;">
+            O Escritório
           </a>
 
-          <!-- Submenu Dropdown Elegante -->
-          <div class="dropdown-menu absolute left-0 top-full w-72 bg-white border border-[#E6E1D6] shadow-lg py-2 z-50 normal-case">
-            <a href="#saude-tea" class="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1]">
-              <span class="text-xs font-semibold text-[#8C7355] block">
-                Direito à Saúde & Autismo (TEA)
-              </span>
-              <span class="text-[11px] text-[#71717A] block font-light mt-0.5">
-                Método ABA, medicamentos e tutelas urgentes
-              </span>
+          <a href="#saude-tea" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style="white-space: nowrap;">
+            Saúde & TEA
+          </a>
+
+          <!-- Dropdown Organizado de Especialidades -->
+          <div class="relative group-dropdown py-2 whitespace-nowrap" style="white-space: nowrap;">
+            <a href="#areas-atuacao"
+              class="flex items-center gap-1.5 hover:text-[#18181B] transition-colors whitespace-nowrap" style="white-space: nowrap;">
+              <span>Especialidades</span>
+              <span class="text-[10px] text-[#8C7355] font-serif">▾</span>
             </a>
 
-            <a href="#areas-atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1]">
-              <span class="text-xs font-medium text-[#18181B] block">
-                Família e Sucessões
-              </span>
-              <span class="text-[11px] text-[#71717A] block font-light mt-0.5">
-                Inventários em cartório (Res. 571/24) e partilhas
-              </span>
-            </a>
+            <!-- Submenu Dropdown Elegante -->
+            <div
+              class="dropdown-menu absolute left-0 top-full w-72 bg-white border border-[#E6E1D6] shadow-lg py-2 z-50 normal-case">
+              <a href="#saude-tea" class="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1]">
+                <span class="text-xs font-semibold text-[#8C7355] block">
+                  Direito à Saúde & Autismo (TEA)
+                </span>
+                <span class="text-[11px] text-[#71717A] block font-light mt-0.5">
+                  Método ABA, medicamentos e tutelas urgentes
+                </span>
+              </a>
 
-            <a href="#areas-atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1]">
-              <span class="text-xs font-medium text-[#18181B] block">
-                Tributário & Isenções
-              </span>
-              <span class="text-[11px] text-[#71717A] block font-light mt-0.5">
-                Isenção de IPVA PCD/TEA e recuperação fiscal
-              </span>
-            </a>
+              <a href="#areas-atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1]">
+                <span class="text-xs font-medium text-[#18181B] block">
+                  Família e Sucessões
+                </span>
+                <span class="text-[11px] text-[#71717A] block font-light mt-0.5">
+                  Inventários em cartório (Res. 571/24) e partilhas
+                </span>
+              </a>
 
-            <a href="#areas-atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2]">
-              <span class="text-xs font-medium text-[#18181B] block">
-                Direito Cível e Contratos
-              </span>
-              <span class="text-[11px] text-[#71717A] block font-light mt-0.5">
-                Segurança jurídica patrimonial e obrigações
-              </span>
-            </a>
+              <a href="#areas-atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1]">
+                <span class="text-xs font-medium text-[#18181B] block">
+                  Tributário & Isenções
+                </span>
+                <span class="text-[11px] text-[#71717A] block font-light mt-0.5">
+                  Isenção de IPVA PCD/TEA e recuperação fiscal
+                </span>
+              </a>
+
+              <a href="#areas-atuacao" class="block px-5 py-3 hover:bg-[#FAF7F2]">
+                <span class="text-xs font-medium text-[#18181B] block">
+                  Direito Cível e Contratos
+                </span>
+                <span class="text-[11px] text-[#71717A] block font-light mt-0.5">
+                  Segurança jurídica patrimonial e obrigações
+                </span>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <a href="#informativos" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-          Informativos
-        </a>
+          <a href="#informativos" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style="white-space: nowrap;">
+            Informativos
+          </a>
 
-        <a href="#contato" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-          Contato
-        </a>
+          <a href="#contato" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style="white-space: nowrap;">
+            Contato
+          </a>
 
-        <a href="#faq" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-          FAQ
-        </a>
-      </nav>
+          <a href="#faq" class="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style="white-space: nowrap;">
+            FAQ
+          </a>
+        </nav>
 
-      <!-- CTA Discreto e Fino + Botão Mobile -->
-      <div class="flex items-center ml-8 shrink-0">
-        <a
-          href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
-          target="_blank"
-          rel="noreferrer"
-          class="px-5 py-2.5 bg-[#8C7355] text-white text-[11px] tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap"
-        >
+        <!-- Botão AGENDAR CONSULTA Proporcional e com Margem Fixa -->
+        <a href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
+          target="_blank" rel="noreferrer"
+          class="header-cta-btn bg-[#8C7355] text-white text-[11.5px] tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap inline-flex items-center justify-center shrink-0"
+          style="margin-left: 1.5rem; padding: 0.6rem 1.2rem; white-space: nowrap;">
           Agendar Consulta
         </a>
-        <button
-          id="mobile-btn"
-          class="md:hidden ml-3 p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase"
-          aria-label="Abrir Menu"
-        >
+      </div>
+
+      <!-- Botão e CTA Mobile (< 1024px) -->
+      <div class="lg:hidden flex items-center gap-3 shrink-0">
+        <a href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
+          target="_blank" rel="noreferrer"
+          class="px-3.5 py-1.5 bg-[#8C7355] text-white text-[11px] tracking-[0.08em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap">
+          Agendar
+        </a>
+        <button id="mobile-btn"
+          class="p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase cursor-pointer"
+          aria-label="Abrir Menu">
           ☰
         </button>
       </div>
     </div>
 
     <!-- Menu Mobile Responsivo e Estruturado -->
-    <div id="mobile-menu" class="hidden md:hidden border-b border-[#E6E1D6] bg-[#FAF7F2] px-6 py-4 flex flex-col gap-3 text-sm">
+    <div id="mobile-menu"
+      class="hidden lg:hidden border-b border-[#E6E1D6] bg-[#FAF7F2] px-6 py-4 flex flex-col gap-3 text-sm">
       <a href="#inicio" class="py-1 hover:text-[#8C7355] mobile-nav-link">Início</a>
       <a href="#institucional" class="py-1 hover:text-[#8C7355] mobile-nav-link">O Escritório</a>
       <a href="#saude-tea" class="py-1 hover:text-[#8C7355] mobile-nav-link">Saúde & TEA</a>
-      
+
       <!-- Accordion Áreas no Mobile -->
       <div>
-        <button id="mobile-areas-toggle" class="w-full text-left py-1 flex items-center justify-between font-medium text-[#18181B]">
+        <button id="mobile-areas-toggle"
+          class="w-full text-left py-1 flex items-center justify-between font-medium text-[#18181B]">
           <span>Especialidades</span>
           <span id="mobile-areas-icon">▾</span>
         </button>
-        <div id="mobile-areas-submenu" class="hidden pl-4 py-2 flex flex-col gap-2 text-xs border-l border-[#E6E1D6] my-1">
-          <a href="#saude-tea" class="text-[#8C7355] font-semibold mobile-nav-link">• Direito à Saúde & Autismo (TEA)</a>
+        <div id="mobile-areas-submenu"
+          class="hidden pl-4 py-2 flex flex-col gap-2 text-xs border-l border-[#E6E1D6] my-1">
+          <a href="#saude-tea" class="text-[#8C7355] font-semibold mobile-nav-link">• Direito à Saúde & Autismo
+            (TEA)</a>
           <a href="#areas-atuacao" class="text-[#52525B] mobile-nav-link">• Família e Sucessões (Inventários)</a>
           <a href="#areas-atuacao" class="text-[#52525B] mobile-nav-link">• Tributário & Isenção de IPVA</a>
           <a href="#areas-atuacao" class="text-[#52525B] mobile-nav-link">• Direito Cível e Contratos</a>
@@ -330,7 +423,7 @@
 
   <!-- Hero Section Editorial (Início) -->
   <section id="inicio" class="py-20 md:py-28 border-b border-[#E6E1D6]">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-8 grid md:grid-cols-12 gap-12 items-center">
       <div class="md:col-span-8">
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#E6E1D6] bg-white mb-8">
           <span class="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
@@ -338,26 +431,25 @@
             Assessoria Jurídica Especializada
           </span>
         </div>
-        
-        <h1 class="font-serif text-4xl sm:text-5xl md:text-[54px] text-[#18181B] leading-[1.12] tracking-tight font-normal">
-          Orientação jurídica precisa e condução estratégica para proteger seus direitos com <span className="italic text-[#8C7355]">segurança e discrição.</span>
+
+        <h1
+          class="font-serif text-4xl sm:text-5xl md:text-[54px] text-[#18181B] leading-[1.12] tracking-tight font-normal">
+          Orientação jurídica precisa e condução estratégica para proteger seus direitos com <span
+            className="italic text-[#8C7355]">segurança e discrição.</span>
         </h1>
-        
+
         <p class="mt-7 text-base md:text-lg text-[#52525B] font-light leading-relaxed max-w-2xl">
-          Atuação consultiva e contenciosa pautada pelo rigor técnico, atendimento humanizado e confidencialidade irrestrita em demandas de Direito à Saúde, Proteção no Autismo (TEA), Sucessões e Contratos.
+          Atuação consultiva e contenciosa pautada pelo rigor técnico, atendimento humanizado e confidencialidade
+          irrestrita em demandas de Direito à Saúde, Proteção no Autismo (TEA), Sucessões e Contratos.
         </p>
 
         <div class="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href="#saude-tea"
-            class="px-7 py-3.5 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#735D43] transition-colors"
-          >
+          <a href="#saude-tea"
+            class="px-7 py-3.5 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#735D43] transition-colors">
             Núcleo de Direito à Saúde & TEA
           </a>
-          <a
-            href="#contato"
-            class="px-7 py-3.5 border border-[#D6CFC2] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:border-[#8C7355] transition-colors"
-          >
+          <a href="#contato"
+            class="px-7 py-3.5 border border-[#D6CFC2] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:border-[#8C7355] transition-colors">
             Solicitar Análise de Urgência
           </a>
         </div>
@@ -366,14 +458,13 @@
       <!-- Sede Corporativa com Fotografia Real da Torre Nova York -->
       <div class="md:col-span-4 border border-[#E6E1D6] bg-white overflow-hidden shadow-xs rounded-[4px] flex flex-col">
         <div class="relative aspect-[16/11] overflow-hidden bg-[#FAF7F2] border-b border-[#E6E1D6] group">
-          <img
-            src="assets/torre-fachada.jpg"
+          <img src="assets/torre-fachada.jpg"
             alt="Fachada do Edifício Torre Nova York no Complexo Praça Capital na Avenida das Esmeraldas em Marília/SP"
             class="w-full h-full object-cover object-center filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
-            loading="eager"
-          >
+            loading="eager">
           <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
-          <span class="absolute bottom-3 left-3 text-[10px] tracking-[0.16em] uppercase text-white font-medium bg-black/40 px-2.5 py-1 backdrop-blur-xs border border-white/20">
+          <span
+            class="absolute bottom-3 left-3 text-[10px] tracking-[0.16em] uppercase text-white font-medium bg-black/40 px-2.5 py-1 backdrop-blur-xs border border-white/20">
             Torre Nova York • Praça Capital
           </span>
         </div>
@@ -386,9 +477,10 @@
             Edifício Torre Nova York
           </h2>
           <p class="text-xs text-[#52525B] font-light leading-relaxed mb-5">
-            Av. das Esmeraldas, nº 3895, Salas 305 e 306 — Marília/SP. Instalações de alto padrão preparadas para atendimento presencial privativo e condução estratégica em todo o Brasil.
+            Av. das Esmeraldas, nº 3895, Salas 305 e 306 — Marília/SP. Instalações de alto padrão preparadas para
+            atendimento presencial privativo e condução estratégica em todo o Brasil.
           </p>
-          
+
           <div class="pt-4 border-t border-[#F0ECE1] space-y-2 text-xs text-[#52525B]">
             <div class="flex justify-between">
               <span class="text-[#71717A]">Complexo</span>
@@ -407,9 +499,9 @@
   <!-- O Escritório / Institucional Humanizado -->
   <section id="institucional" class="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25 relative">
     <div id="escritorio" class="absolute -top-24"></div>
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-8">
       <div class="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
-        
+
         <!-- Coluna 1: Texto Institucional & Assinatura Estilizada -->
         <div class="md:col-span-7 space-y-6">
           <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block font-medium">
@@ -420,10 +512,16 @@
           </h2>
           <div class="space-y-4 text-sm md:text-base text-[#52525B] font-light leading-relaxed">
             <p>
-              A <strong>Beatriz Rocha Sociedade Individual de Advocacia</strong> foi concebida sob o compromisso inegociável de que demandas jurídicas de alta complexidade — especialmente aquelas que envolvem a integridade física de entes queridos e o patrimônio da família — demandam condução direta, sem terceirizações ou respostas padronizadas.
+              A <strong>Beatriz Rocha Sociedade Individual de Advocacia</strong> foi concebida sob o compromisso
+              inegociável de que demandas jurídicas de alta complexidade — especialmente aquelas que envolvem a
+              integridade física de entes queridos e o patrimônio da família — demandam condução direta, sem
+              terceirizações ou respostas padronizadas.
             </p>
             <p>
-              Sediada no Edifício Torre Nova York, no complexo corporativo Praça Capital na Avenida das Esmeraldas em Marília/SP, nossa banca alia a sofisticação e o acolhimento de instalações modernas à agilidade do processo eletrônico nacional, assegurando resposta célere e medidas liminares efetivas perante qualquer tribunal do país.
+              Sediada no Edifício Torre Nova York, no complexo corporativo Praça Capital na Avenida das Esmeraldas em
+              Marília/SP, nossa banca alia a sofisticação e o acolhimento de instalações modernas à agilidade do
+              processo eletrônico nacional, assegurando resposta célere e medidas liminares efetivas perante qualquer
+              tribunal do país.
             </p>
           </div>
 
@@ -445,15 +543,14 @@
         <div class="md:col-span-5">
           <div class="border border-[#E6E1D6] p-3.5 bg-[#FAF7F2] rounded-[4px] shadow-sm">
             <div class="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-white border border-[#E6E1D6] group">
-              <img
-                src="assets/recepcao-corporativa.jpg"
+              <img src="assets/recepcao-corporativa.jpg"
                 alt="Ambiente interno privativo da Torre Nova York em Marília/SP"
                 class="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
-                loading="lazy"
-              >
+                loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4 text-white">
-                <span class="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Torre Nova York • Marília/SP</span>
+                <span class="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Torre Nova York •
+                  Marília/SP</span>
                 <p class="font-serif text-sm font-normal mt-0.5">Espaço Privativo para Atendimento Humanizado</p>
               </div>
             </div>
@@ -464,30 +561,29 @@
 
       <!-- Galeria Arquitetônica do Complexo -->
       <div class="grid md:grid-cols-2 gap-6 pt-10 border-t border-[#E6E1D6]">
-        <div class="relative aspect-[16/9] overflow-hidden rounded-[4px] border border-[#E6E1D6] bg-[#FAF7F2] group shadow-xs">
-          <img
-            src="assets/complexo-esmeraldas.jpg"
+        <div
+          class="relative aspect-[16/9] overflow-hidden rounded-[4px] border border-[#E6E1D6] bg-[#FAF7F2] group shadow-xs">
+          <img src="assets/complexo-esmeraldas.jpg"
             alt="Avenida das Esmeraldas e fachada integrada do complexo Praça Capital"
             class="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          >
+            loading="lazy">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
           <div class="absolute bottom-4 left-4 right-4 text-white">
-            <span class="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Avenida das Esmeraldas • Marília/SP</span>
+            <span class="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Avenida das Esmeraldas •
+              Marília/SP</span>
             <p class="font-serif text-base font-normal mt-0.5">Complexo Empresarial Praça Capital</p>
           </div>
         </div>
 
-        <div class="relative aspect-[16/9] overflow-hidden rounded-[4px] border border-[#E6E1D6] bg-[#FAF7F2] group shadow-xs">
-          <img
-            src="assets/portaria-seguranca.jpg"
-            alt="Controle de acesso e segurança corporativa 24 horas"
+        <div
+          class="relative aspect-[16/9] overflow-hidden rounded-[4px] border border-[#E6E1D6] bg-[#FAF7F2] group shadow-xs">
+          <img src="assets/portaria-seguranca.jpg" alt="Controle de acesso e segurança corporativa 24 horas"
             class="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          >
+            loading="lazy">
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
           <div class="absolute bottom-4 left-4 right-4 text-white">
-            <span class="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Acesso e Privacidade</span>
+            <span class="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Acesso e
+              Privacidade</span>
             <p class="font-serif text-base font-normal mt-0.5">Portaria 24 Horas e Segurança Integrada</p>
           </div>
         </div>
@@ -497,8 +593,8 @@
 
   <!-- NÚCLEO EXCLUSIVO EM DESTAQUE: Direito à Saúde & Autismo (TEA) -->
   <section id="saude-tea" class="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25">
-    <div class="max-w-6xl mx-auto px-6">
-      
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-8">
+
       <div class="max-w-3xl mb-14">
         <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
           Núcleo Especializado • Tutela Provisória de Urgência
@@ -507,16 +603,21 @@
           Proteção Jurídica contra Negativas de Planos de Saúde e Garantia de Tratamento Integral no Autismo (TEA)
         </h2>
         <p class="mt-5 text-[#52525B] font-light leading-relaxed text-base md:text-lg">
-          Receber a recusa de cobertura de um tratamento prescrito pelo médico ou ter o fornecimento de medicamentos de alto custo negado é um momento de extrema angústia para qualquer família. No caso do <strong>Transtorno do Espectro Autista (TEA)</strong>, a intervenção precoce é uma corrida contra o tempo: cada semana de atraso compromete a janela neurológica de desenvolvimento da criança.
+          Receber a recusa de cobertura de um tratamento prescrito pelo médico ou ter o fornecimento de medicamentos de
+          alto custo negado é um momento de extrema angústia para qualquer família. No caso do <strong>Transtorno do
+            Espectro Autista (TEA)</strong>, a intervenção precoce é uma corrida contra o tempo: cada semana de atraso
+          compromete a janela neurológica de desenvolvimento da criança.
         </p>
         <p class="mt-4 text-[#52525B] font-light leading-relaxed text-base">
-          Nossa banca atua com foco em <strong>medidas liminares de urgência</strong> para restabelecer imediatamente a assistência devida, com base na premissa soberana de que a indicação do médico assistente prevalece sobre qualquer cláusula restritiva da operadora.
+          Nossa banca atua com foco em <strong>medidas liminares de urgência</strong> para restabelecer imediatamente a
+          assistência devida, com base na premissa soberana de que a indicação do médico assistente prevalece sobre
+          qualquer cláusula restritiva da operadora.
         </p>
       </div>
 
       <!-- Cards de Atuação Especializada em Saúde -->
       <div class="grid md:grid-cols-2 gap-8 mb-14">
-        
+
         <div class="p-8 border border-[#E6E1D6] bg-white card-hover shadow-xs rounded-[2px]">
           <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-medium block mb-2">
             Autismo e Desenvolvimento Atípico
@@ -525,7 +626,10 @@
             Terapias Multidisciplinares pelo Método ABA sem Limite de Sessões
           </h3>
           <p class="text-sm text-[#52525B] font-light leading-relaxed mb-4">
-            Garantia de custeio integral para todas as especialidades terapêuticas prescritas: <strong>Psicologia Comportamental (Método ABA)</strong>, Fonoaudiologia, Terapia Ocupacional com Integração Sensorial, Psicopedagogia e Musicoterapia. Ação voltada à derrubada de tetos anuais de sessões, coparticipações excessivas e obtenção de reembolso integral.
+            Garantia de custeio integral para todas as especialidades terapêuticas prescritas: <strong>Psicologia
+              Comportamental (Método ABA)</strong>, Fonoaudiologia, Terapia Ocupacional com Integração Sensorial,
+            Psicopedagogia e Musicoterapia. Ação voltada à derrubada de tetos anuais de sessões, coparticipações
+            excessivas e obtenção de reembolso integral.
           </p>
           <div class="pt-4 border-t border-[#E6E1D6]/70 flex items-center justify-between text-xs text-[#8C7355]">
             <span>Lei 14.454/2022 • Tema 1.295 STJ</span>
@@ -541,7 +645,9 @@
             Medicamentos de Alto Custo, Biológicos e Tratamentos Oncológicos
           </h3>
           <p class="text-sm text-[#52525B] font-light leading-relaxed mb-4">
-            Medidas jurídicas com pedido de tutela antecipada (liminar deferida em 24h a 48h) para fornecimento de medicamentos importados, imunobiológicos e quimioterápicos de uso oral ou ambulatorial recusados sob alegações de ausência na Diretriz de Utilização da ANS.
+            Medidas jurídicas com pedido de tutela antecipada (liminar deferida em 24h a 48h) para fornecimento de
+            medicamentos importados, imunobiológicos e quimioterápicos de uso oral ou ambulatorial recusados sob
+            alegações de ausência na Diretriz de Utilização da ANS.
           </p>
           <div class="pt-4 border-t border-[#E6E1D6]/70 flex items-center justify-between text-xs text-[#8C7355]">
             <span>Lei 14.454/22 • TJSP</span>
@@ -557,7 +663,9 @@
             Cirurgias de Urgência, Órteses, Próteses e Home Care
           </h3>
           <p class="text-sm text-[#52525B] font-light leading-relaxed mb-4">
-            Atuação célere contra recusas de materiais cirúrgicos essenciais (próteses, stents, marca-passos) e obtenção de liminar para implantação de estrutura completa de internação domiciliar (<em>Home Care</em>) com enfermagem contínua e fisioterapia para pacientes dependentes de suporte.
+            Atuação célere contra recusas de materiais cirúrgicos essenciais (próteses, stents, marca-passos) e obtenção
+            de liminar para implantação de estrutura completa de internação domiciliar (<em>Home Care</em>) com
+            enfermagem contínua e fisioterapia para pacientes dependentes de suporte.
           </p>
           <div class="pt-4 border-t border-[#E6E1D6]/70 flex items-center justify-between text-xs text-[#8C7355]">
             <span>Atendimento Plantonista</span>
@@ -573,7 +681,9 @@
             Cancelamentos Unilaterais e Reajustes Abusivos de Mensalidade
           </h3>
           <p class="text-sm text-[#52525B] font-light leading-relaxed mb-4">
-            Restabelecimento judicial de contratos individuais e coletivos rescindidos de forma arbitrária durante internações ou tratamentos contínuos de saúde, bem como a revisão de reajustes desproporcionais por mudança de faixa etária aos 59 anos ou sinistralidade sem base atuarial comprovada.
+            Restabelecimento judicial de contratos individuais e coletivos rescindidos de forma arbitrária durante
+            internações ou tratamentos contínuos de saúde, bem como a revisão de reajustes desproporcionais por mudança
+            de faixa etária aos 59 anos ou sinistralidade sem base atuarial comprovada.
           </p>
           <div class="pt-4 border-t border-[#E6E1D6]/70 flex items-center justify-between text-xs text-[#8C7355]">
             <span>Tema 1082 STJ • Manutenção Obrigatória</span>
@@ -593,7 +703,8 @@
             Como Funciona a Atuação em Medidas de Urgência
           </h3>
           <p class="mt-3 text-xs md:text-sm text-[#52525B] font-light leading-relaxed">
-            Entenda o passo a passo transparente de condução do caso, estruturado para acolher a família e agir com a máxima rapidez perante o Poder Judiciário.
+            Entenda o passo a passo transparente de condução do caso, estruturado para acolher a família e agir com a
+            máxima rapidez perante o Poder Judiciário.
           </p>
         </div>
 
@@ -602,9 +713,11 @@
           <div class="hidden lg:block absolute top-10 left-12 right-12 h-px bg-[#E6E1D6] -z-0"></div>
 
           <!-- Passo 01 -->
-          <div class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
+          <div
+            class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
             <div>
-              <div class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+              <div
+                class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                 <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">01</span>
               </div>
               <span class="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
@@ -614,7 +727,8 @@
                 Triagem Documental
               </h4>
               <p class="text-xs text-[#52525B] font-light leading-relaxed">
-                Análise técnica imediata da negativa formal do plano de saúde e do relatório médico circunstanciado com indicação da metodologia.
+                Análise técnica imediata da negativa formal do plano de saúde e do relatório médico circunstanciado com
+                indicação da metodologia.
               </p>
             </div>
             <div class="pt-4 border-t border-[#F0ECE1] mt-5">
@@ -623,9 +737,11 @@
           </div>
 
           <!-- Passo 02 -->
-          <div class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
+          <div
+            class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
             <div>
-              <div class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+              <div
+                class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                 <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">02</span>
               </div>
               <span class="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
@@ -635,7 +751,8 @@
                 Estratégia e Protocolo
               </h4>
               <p class="text-xs text-[#52525B] font-light leading-relaxed">
-                Elaboração célere da petição inicial com pedido de Tutela Provisória de Urgência (liminar inaudita altera parte).
+                Elaboração célere da petição inicial com pedido de Tutela Provisória de Urgência (liminar inaudita
+                altera parte).
               </p>
             </div>
             <div class="pt-4 border-t border-[#F0ECE1] mt-5">
@@ -644,9 +761,11 @@
           </div>
 
           <!-- Passo 03 -->
-          <div class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
+          <div
+            class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
             <div>
-              <div class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+              <div
+                class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                 <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">03</span>
               </div>
               <span class="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
@@ -656,18 +775,22 @@
                 Acompanhamento da Liminar
               </h4>
               <p class="text-xs text-[#52525B] font-light leading-relaxed">
-                Despacho direto com o magistrado da causa ou no plantão judiciário e monitoramento ostensivo da decisão em 24h a 72h.
+                Despacho direto com o magistrado da causa ou no plantão judiciário e monitoramento ostensivo da decisão
+                em 24h a 72h.
               </p>
             </div>
             <div class="pt-4 border-t border-[#F0ECE1] mt-5">
-              <span class="text-[10px] text-emerald-800 tracking-wider uppercase font-medium">Decisão em 24h a 72h</span>
+              <span class="text-[10px] text-emerald-800 tracking-wider uppercase font-medium">Decisão em 24h a
+                72h</span>
             </div>
           </div>
 
           <!-- Passo 04 -->
-          <div class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
+          <div
+            class="relative bg-white border border-[#E6E1D6] p-6 card-hover flex flex-col justify-between rounded-[2px] shadow-2xs">
             <div>
-              <div class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+              <div
+                class="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
                 <span class="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal">04</span>
               </div>
               <span class="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
@@ -677,7 +800,8 @@
                 Efetivação do Direito
               </h4>
               <p class="text-xs text-[#52525B] font-light leading-relaxed">
-                Garantia do início das terapias, fornecimento do fármaco ou reembolso mediante intimação e cumprimento da ordem judicial.
+                Garantia do início das terapias, fornecimento do fármaco ou reembolso mediante intimação e cumprimento
+                da ordem judicial.
               </p>
             </div>
             <div class="pt-4 border-t border-[#F0ECE1] mt-5">
@@ -688,7 +812,8 @@
       </div>
 
       <!-- Bloco de Orientação Jurídica & Triagem Ética (Provimento 205/2021) -->
-      <div class="p-8 md:p-10 border border-[#8C7355]/40 bg-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs rounded-[2px]">
+      <div
+        class="p-8 md:p-10 border border-[#8C7355]/40 bg-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs rounded-[2px]">
         <div class="max-w-xl">
           <span class="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] font-semibold block mb-1">
             Atendimento Especializado em Saúde
@@ -697,24 +822,19 @@
             Seu plano de saúde negou cobertura médica, terapias multidisciplinares ou medicamentos?
           </h3>
           <p class="text-sm text-[#52525B] font-light mt-2 leading-relaxed">
-            Analise a viabilidade técnica de pleitear uma tutela provisória de urgência para a continuidade do tratamento médico prescrito, com fundamentação técnica e estrita observância legal.
+            Analise a viabilidade técnica de pleitear uma tutela provisória de urgência para a continuidade do
+            tratamento médico prescrito, com fundamentação técnica e estrita observância legal.
           </p>
         </div>
         <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-          <a
-            href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Preciso%20de%20uma%20an%C3%A1lise%20de%20urg%C3%AAncia%20para%20uma%20negativa%20de%20sa%C3%BAde%20%2F%20terapias%20TEA."
-            target="_blank"
-            rel="noreferrer"
-            class="w-full sm:w-auto px-7 py-3.5 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors text-center whitespace-nowrap shadow-sm"
-          >
+          <a href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Preciso%20de%20uma%20an%C3%A1lise%20de%20urg%C3%AAncia%20para%20uma%20negativa%20de%20sa%C3%BAde%20%2F%20terapias%20TEA."
+            target="_blank" rel="noreferrer"
+            class="w-full sm:w-auto px-7 py-3.5 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors text-center whitespace-nowrap shadow-sm">
             Solicitar Análise Documental
           </a>
-          <a
-            href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
-            target="_blank"
-            rel="noreferrer"
-            class="w-full sm:w-auto px-7 py-3.5 border border-[#18181B] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:bg-[#18181B] hover:text-white transition-colors text-center whitespace-nowrap"
-          >
+          <a href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
+            target="_blank" rel="noreferrer"
+            class="w-full sm:w-auto px-7 py-3.5 border border-[#18181B] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:bg-[#18181B] hover:text-white transition-colors text-center whitespace-nowrap">
             Falar com a Advogada no WhatsApp ↗
           </a>
         </div>
@@ -726,7 +846,7 @@
   <!-- ÁREAS DE ATUAÇÃO / Especialidades (Família, Tributário & Cível) -->
   <section id="areas-atuacao" class="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25 relative">
     <div id="atuacao" class="absolute -top-24"></div>
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-8">
       <div class="max-w-2xl mb-16">
         <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
           Prática Jurídica Integrada
@@ -806,8 +926,8 @@
   <!-- SEÇÃO 1: INFORMATIVOS E ATUALIDADES JURÍDICAS (Carrossel Horizontal Editorial) -->
   <section id="informativos" class="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative">
     <div id="noticias" class="absolute -top-24"></div>
-    <div class="max-w-6xl mx-auto px-6">
-      
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-8">
+
       <!-- Topo Editorial Simplificado com Título, Subtítulo e Setas de Navegação -->
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
         <div>
@@ -821,164 +941,189 @@
 
         <!-- Setas Discretas de Navegação -->
         <div class="flex items-center gap-2.5 shrink-0">
-          <button
-            id="news-prev"
-            aria-label="Avançar para notícia anterior"
-            class="w-10 h-10 rounded-full border border-[#D2B48C]/40 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer text-sm"
-          >
+          <button id="news-prev" aria-label="Avançar para notícia anterior"
+            class="w-10 h-10 rounded-full border border-[#D2B48C]/40 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer text-sm">
             ←
           </button>
-          <button
-            id="news-next"
-            aria-label="Avançar para próxima notícia"
-            class="w-10 h-10 rounded-full border border-[#D2B48C]/40 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer text-sm"
-          >
+          <button id="news-next" aria-label="Avançar para próxima notícia"
+            class="w-10 h-10 rounded-full border border-[#D2B48C]/40 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer text-sm">
             →
           </button>
         </div>
       </div>
 
       <!-- Carrossel Horizontal Drag & Scroll -->
-      <div
-        id="news-carousel"
-        class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth cursor-grab pb-8 select-none"
-        style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none;"
-      >
+      <div id="news-carousel" class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth cursor-grab pb-8 select-none"
+        style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none;">
         <!-- Card 1: Recusa de Adesão / Seleção de Risco em TEA (Migalhas) -->
-        <article class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
+        <article
+          class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
           <div>
             <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
               <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">Migalhas</span>
               <span class="text-[10.5px] text-[#71717A] font-mono tracking-wide">Jurisprudência Atual</span>
             </div>
 
-            <h3 class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
+            <h3
+              class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
               Plano de saúde deve aceitar criança autista após recusar adesão por "ausência de interesse comercial"
             </h3>
 
             <p class="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-6">
-              Decisão da Justiça reforça que a recusa de contratação de plano de saúde sob justificativas comerciais genéricas logo após a ciência do diagnóstico de TEA é ilegal e configura prática abusiva de seleção de risco.
+              Decisão da Justiça reforça que a recusa de contratação de plano de saúde sob justificativas comerciais
+              genéricas logo após a ciência do diagnóstico de TEA é ilegal e configura prática abusiva de seleção de
+              risco.
             </p>
           </div>
 
           <div class="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
-            <a href="https://www.migalhas.com.br/quentes/466978/plano-de-saude-deve-aceitar-crianca-autista-apos-recusar-adesao" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
+            <a href="https://www.migalhas.com.br/quentes/466978/plano-de-saude-deve-aceitar-crianca-autista-apos-recusar-adesao"
+              target="_blank" rel="noreferrer"
+              class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
               <span>Acessar Publicação</span>
               <span>↗</span>
             </a>
-            <a href="https://www.tjsp.jus.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
+            <a href="https://www.tjsp.jus.br" target="_blank" rel="noreferrer"
+              class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
               TJSP ↗
             </a>
           </div>
         </article>
 
         <!-- Card 2: Resolução CNJ 571/2024 -->
-        <article class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
+        <article
+          class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
           <div>
             <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
               <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">CNJ</span>
               <span class="text-[10.5px] text-[#71717A] font-mono tracking-wide">26 de agosto de 2024</span>
             </div>
 
-            <h3 class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
-              Resolução CNJ nº 571/2024 autoriza inventário e partilha extrajudiciais em cartório mesmo com menores e incapazes
+            <h3
+              class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
+              Resolução CNJ nº 571/2024 autoriza inventário e partilha extrajudiciais em cartório mesmo com menores e
+              incapazes
             </h3>
 
             <p class="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-6">
-              O CNJ alterou a Resolução nº 35/2007 para permitir a lavratura de escrituras públicas de inventário e partilha em cartório de notas havendo herdeiros menores de idade ou incapazes, desde que consensual e resguardado o quinhão legal com oitiva do Ministério Público, agilizando transmissões sucessórias.
+              O CNJ alterou a Resolução nº 35/2007 para permitir a lavratura de escrituras públicas de inventário e
+              partilha em cartório de notas havendo herdeiros menores de idade ou incapazes, desde que consensual e
+              resguardado o quinhão legal com oitiva do Ministério Público, agilizando transmissões sucessórias.
             </p>
           </div>
 
           <div class="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
-            <a href="https://www.cnj.jus.br" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
+            <a href="https://www.cnj.jus.br" target="_blank" rel="noreferrer"
+              class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
               <span>Acessar Publicação</span>
               <span>↗</span>
             </a>
-            <a href="https://www.conjur.com.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
+            <a href="https://www.conjur.com.br" target="_blank" rel="noreferrer"
+              class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
               ConJur ↗
             </a>
           </div>
         </article>
 
         <!-- Card 3: Tratamento Fora da Rede / Reembolso Integral (Migalhas) -->
-        <article class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
+        <article
+          class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
           <div>
             <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
               <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">Migalhas</span>
               <span class="text-[10.5px] text-[#71717A] font-mono tracking-wide">Jurisprudência Atual</span>
             </div>
 
-            <h3 class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
+            <h3
+              class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
               Justiça garante custeio de tratamento multidisciplinar fora da rede credenciada para crianças com TEA
             </h3>
 
             <p class="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-6">
-              Diante da ausência ou inaptidão de profissionais especializados devidamente certificados na rede própria da operadora, o judiciário assegura o direito ao reembolso integral ou custeio direto de terapias particulares (como método ABA).
+              Diante da ausência ou inaptidão de profissionais especializados devidamente certificados na rede própria
+              da operadora, o judiciário assegura o direito ao reembolso integral ou custeio direto de terapias
+              particulares (como método ABA).
             </p>
           </div>
 
           <div class="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
-            <a href="https://www.migalhas.com.br/quentes/430648/plano-indenizara-crianca-com-tea-apos-negar-tratamento-fora-da-rede" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
+            <a href="https://www.migalhas.com.br/quentes/430648/plano-indenizara-crianca-com-tea-apos-negar-tratamento-fora-da-rede"
+              target="_blank" rel="noreferrer"
+              class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
               <span>Acessar Publicação</span>
               <span>↗</span>
             </a>
-            <a href="https://www.gov.br/ans" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
+            <a href="https://www.gov.br/ans" target="_blank" rel="noreferrer"
+              class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
               Portal ANS ↗
             </a>
           </div>
         </article>
 
         <!-- Card 4: Entendimento STF e STJ Tratamentos Extra-Rol (Migalhas) -->
-        <article class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
+        <article
+          class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
           <div>
             <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
               <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">STF & STJ</span>
               <span class="text-[10.5px] text-[#71717A] font-mono tracking-wide">ADIn 7.265 / Tema STJ</span>
             </div>
 
-            <h3 class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
+            <h3
+              class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
               STF e STJ definem parâmetros para cobertura de tratamentos e fármacos não previstos no rol da ANS
             </h3>
 
             <p class="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-6">
-              Com base nos parâmetros fixados pelo Supremo Tribunal Federal (ADIn 7.265) e nas diretrizes dos tribunais, pacientes com prescrição fundamentada e respaldo científico obtêm tutelas de urgência para tratamentos de alto custo.
+              Com base nos parâmetros fixados pelo Supremo Tribunal Federal (ADIn 7.265) e nas diretrizes dos tribunais,
+              pacientes com prescrição fundamentada e respaldo científico obtêm tutelas de urgência para tratamentos de
+              alto custo.
             </p>
           </div>
 
           <div class="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
-            <a href="https://www.migalhas.com.br/quentes/461400/toffoli-manda-stj-reanalisar-cobertura-de-remedio-fora-do-rol-da-ans" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
+            <a href="https://www.migalhas.com.br/quentes/461400/toffoli-manda-stj-reanalisar-cobertura-de-remedio-fora-do-rol-da-ans"
+              target="_blank" rel="noreferrer"
+              class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
               <span>Acessar Publicação</span>
               <span>↗</span>
             </a>
-            <a href="https://portal.stf.jus.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
+            <a href="https://portal.stf.jus.br" target="_blank" rel="noreferrer"
+              class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
               Portal STF ↗
             </a>
           </div>
         </article>
 
         <!-- Card 5: Isenção de IPVA TJSP -->
-        <article class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
+        <article
+          class="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start">
           <div>
             <div class="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
               <span class="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">TJSP</span>
               <span class="text-[10.5px] text-[#71717A] font-mono tracking-wide">Jurisprudência Consolidada</span>
             </div>
 
-            <h3 class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
+            <h3
+              class="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
               TJSP consolida direito à isenção de IPVA e restituição de valores pagos para PCD e pessoas com TEA
             </h3>
 
             <p class="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-6">
-              Órgão Especial e Câmaras de Direito Público do TJSP mantêm a suspensão de cobranças indevidas e garantem a isenção de IPVA e repetição de indébito para veículos de pessoas com deficiência ou autismo, rechaçando critérios discriminatórios e burocráticos do Estado.
+              Órgão Especial e Câmaras de Direito Público do TJSP mantêm a suspensão de cobranças indevidas e garantem a
+              isenção de IPVA e repetição de indébito para veículos de pessoas com deficiência ou autismo, rechaçando
+              critérios discriminatórios e burocráticos do Estado.
             </p>
           </div>
 
           <div class="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
-            <a href="https://www.tjsp.jus.br" target="_blank" rel="noreferrer" class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
+            <a href="https://www.tjsp.jus.br" target="_blank" rel="noreferrer"
+              class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider">
               <span>Acessar Publicação</span>
               <span>↗</span>
             </a>
-            <a href="https://www.conjur.com.br" target="_blank" rel="noreferrer" class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
+            <a href="https://www.conjur.com.br" target="_blank" rel="noreferrer"
+              class="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]">
               ConJur ↗
             </a>
           </div>
@@ -986,7 +1131,8 @@
       </div>
 
       <!-- Chamada Ética no Fechamento das Notícias (Provimento 205/2021) -->
-      <div class="border border-[#E5E0DA] bg-white p-7 sm:p-9 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[4px] shadow-2xs mt-4">
+      <div
+        class="border border-[#E5E0DA] bg-white p-7 sm:p-9 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[4px] shadow-2xs mt-4">
         <div class="space-y-1.5 text-center sm:text-left">
           <h4 class="font-serif text-xl sm:text-2xl text-[#18181B] font-normal">
             Dúvidas sobre a aplicação desses precedentes ao seu caso?
@@ -995,12 +1141,9 @@
             Solicite uma avaliação jurídica individualizada e confidencial com nossa banca.
           </p>
         </div>
-        <a
-          href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
-          target="_blank"
-          rel="noreferrer"
-          class="px-7 py-3.5 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#8C7355] transition-colors whitespace-nowrap shadow-xs font-medium rounded-[2px]"
-        >
+        <a href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
+          target="_blank" rel="noreferrer"
+          class="px-7 py-3.5 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#8C7355] transition-colors whitespace-nowrap shadow-xs font-medium rounded-[2px]">
           Consultar Especialista via WhatsApp
         </a>
       </div>
@@ -1010,7 +1153,7 @@
 
   <!-- CONTATO E AGENDAMENTO -->
   <section id="contato" class="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25">
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-8">
 
       <div class="max-w-2xl mb-12">
         <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
@@ -1020,7 +1163,8 @@
           Canais de Atendimento
         </h2>
         <p class="mt-3 text-sm md:text-base text-[#52525B] font-light leading-relaxed">
-          Atendimento presencial privativo na cidade de Marília/SP ou telepresencial para clientes de qualquer localidade do país.
+          Atendimento presencial privativo na cidade de Marília/SP ou telepresencial para clientes de qualquer
+          localidade do país.
         </p>
       </div>
 
@@ -1069,28 +1213,27 @@
 
           <!-- Fotografias da Torre Nova York / Praça Capital -->
           <div class="grid grid-cols-2 gap-4">
-            <div class="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#FAF7F2] border border-[#E5E0DA] shadow-2xs group">
-              <img
-                src="assets/complexo-esmeraldas.jpg"
+            <div
+              class="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#FAF7F2] border border-[#E5E0DA] shadow-2xs group">
+              <img src="assets/complexo-esmeraldas.jpg"
                 alt="Complexo Praça Capital e Edifício Torre Nova York na Avenida das Esmeraldas em Marília/SP"
                 class="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              >
+                loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
-              <span class="absolute bottom-2.5 left-2.5 text-[9px] uppercase tracking-wider text-white bg-black/50 px-2 py-0.5 backdrop-blur-xs font-medium rounded-[2px]">
+              <span
+                class="absolute bottom-2.5 left-2.5 text-[9px] uppercase tracking-wider text-white bg-black/50 px-2 py-0.5 backdrop-blur-xs font-medium rounded-[2px]">
                 Fachada • Torre Nova York
               </span>
             </div>
 
-            <div class="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#FAF7F2] border border-[#E5E0DA] shadow-2xs group">
-              <img
-                src="assets/recepcao-corporativa.jpg"
-                alt="Lobby e recepção corporativa da Torre Nova York"
+            <div
+              class="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#FAF7F2] border border-[#E5E0DA] shadow-2xs group">
+              <img src="assets/recepcao-corporativa.jpg" alt="Lobby e recepção corporativa da Torre Nova York"
                 class="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              >
+                loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
-              <span class="absolute bottom-2.5 left-2.5 text-[9px] uppercase tracking-wider text-white bg-black/50 px-2 py-0.5 backdrop-blur-xs font-medium rounded-[2px]">
+              <span
+                class="absolute bottom-2.5 left-2.5 text-[9px] uppercase tracking-wider text-white bg-black/50 px-2 py-0.5 backdrop-blur-xs font-medium rounded-[2px]">
                 Recepção Privativa
               </span>
             </div>
@@ -1098,31 +1241,22 @@
 
           <!-- Mapa Monocromático Limpo com Botões de Navegação -->
           <div class="space-y-3">
-            <div class="relative aspect-[16/9] w-full overflow-hidden rounded-[4px] border border-[#E5E0DA] bg-[#FAF7F2] shadow-2xs">
-              <iframe
-                title="Localização Torre Nova York - Google Maps"
+            <div
+              class="relative aspect-[16/9] w-full overflow-hidden rounded-[4px] border border-[#E5E0DA] bg-[#FAF7F2] shadow-2xs">
+              <iframe title="Localização Torre Nova York - Google Maps"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.3644917657156!2d-49.93988632386345!3d-22.226297379739504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bfd71d34c19c99%3A0x6b44a30e8c7c91d4!2sAv.%20das%20Esmeraldas%2C%203895%20-%20Jardim%20Maringa%2C%20Mar%C3%ADlia%20-%20SP%2C%2017516-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
-                class="w-full h-full border-0 filter grayscale-[80%] contrast-[105%]"
-                loading="lazy"
-                allowfullscreen=""
-              ></iframe>
+                class="w-full h-full border-0 filter grayscale-[80%] contrast-[105%]" loading="lazy"
+                allowfullscreen=""></iframe>
             </div>
 
             <div class="grid grid-cols-2 gap-3 pt-1">
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Av.+das+Esmeraldas%2C+3895+-+Mar%C3%ADlia%2C+SP"
-                target="_blank"
-                rel="noreferrer"
-                class="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[#E5E0DA] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[3px] shadow-2xs"
-              >
+              <a href="https://www.google.com/maps/search/?api=1&query=Av.+das+Esmeraldas%2C+3895+-+Mar%C3%ADlia%2C+SP"
+                target="_blank" rel="noreferrer"
+                class="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[#E5E0DA] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[3px] shadow-2xs">
                 <span>Google Maps ↗</span>
               </a>
-              <a
-                href="https://waze.com/ul?q=Av.+das+Esmeraldas+3895+Marilia"
-                target="_blank"
-                rel="noreferrer"
-                class="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[#E5E0DA] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[3px] shadow-2xs"
-              >
+              <a href="https://waze.com/ul?q=Av.+das+Esmeraldas+3895+Marilia" target="_blank" rel="noreferrer"
+                class="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[#E5E0DA] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[3px] shadow-2xs">
                 <span>Abrir no Waze ↗</span>
               </a>
             </div>
@@ -1139,7 +1273,8 @@
               Solicitar Orientação Jurídica
             </h3>
             <p class="mt-2 text-xs md:text-sm text-[#52525B] font-light leading-relaxed">
-              Preencha os campos abaixo para submeter sua demanda diretamente à banca. Seus dados e relatos são protegidos por sigilo profissional inegociável.
+              Preencha os campos abaixo para submeter sua demanda diretamente à banca. Seus dados e relatos são
+              protegidos por sigilo profissional inegociável.
             </p>
           </div>
 
@@ -1149,28 +1284,16 @@
                 <label for="nome" class="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
                   Nome Completo *
                 </label>
-                <input
-                  type="text"
-                  id="nome"
-                  name="nome"
-                  required
-                  placeholder="Informe seu nome"
-                  class="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
-                >
+                <input type="text" id="nome" name="nome" required placeholder="Informe seu nome"
+                  class="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none">
               </div>
               <div>
-                <label for="telefone" class="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                <label for="telefone"
+                  class="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
                   WhatsApp / Telefone *
                 </label>
-                <input
-                  type="tel"
-                  id="telefone"
-                  name="telefone"
-                  required
-                  placeholder="(14) 99999-9999"
-                  maxlength="15"
-                  class="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
-                >
+                <input type="tel" id="telefone" name="telefone" required placeholder="(14) 99999-9999" maxlength="15"
+                  class="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none">
               </div>
             </div>
 
@@ -1178,28 +1301,23 @@
               <label for="email" class="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
                 E-mail Institucional ou Pessoal
               </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="seuemail@exemplo.com"
-                class="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
-              >
+              <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com"
+                class="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none">
             </div>
 
             <div>
               <label for="area" class="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
                 Matéria da Demanda
               </label>
-              <select 
-                id="area"
-                name="area"
-                class="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
-              >
+              <select id="area" name="area"
+                class="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none">
                 <option value="">Selecione a área correspondente</option>
-                <option value="Direito à Saúde & Autismo / TEA">Direito à Saúde & Autismo / TEA (Liminares, Terapias, Medicamentos)</option>
-                <option value="Família e Sucessões">Família e Sucessões (Inventário em Cartório, Partilha, Divórcio)</option>
-                <option value="Direito Tributário">Direito Tributário (Isenção de IPVA PCD/TEA e Recuperação Fiscal)</option>
+                <option value="Direito à Saúde & Autismo / TEA">Direito à Saúde & Autismo / TEA (Liminares, Terapias,
+                  Medicamentos)</option>
+                <option value="Família e Sucessões">Família e Sucessões (Inventário em Cartório, Partilha, Divórcio)
+                </option>
+                <option value="Direito Tributário">Direito Tributário (Isenção de IPVA PCD/TEA e Recuperação Fiscal)
+                </option>
                 <option value="Direito Cível e Contratos">Direito Cível, Contratos e Indenizações</option>
               </select>
             </div>
@@ -1208,30 +1326,22 @@
               <label for="relato" class="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
                 Resumo da Situação ou Urgência Médica
               </label>
-              <textarea
-                id="relato"
-                name="relato"
-                rows="4"
+              <textarea id="relato" name="relato" rows="4"
                 placeholder="Descreva brevemente o caso ou se há urgência médica/prazo processual em andamento..."
-                class="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none leading-relaxed"
-              ></textarea>
+                class="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none leading-relaxed"></textarea>
             </div>
 
             <div class="text-[11px] text-[#71717A] leading-relaxed">
-              Ao enviar, seus dados são protegidos por sigilo profissional e tratados exclusivamente para triagem pré-jurídica, em estrita conformidade com a nossa 
-              <button
-                type="button"
-                data-open-modal="privacy"
-                class="text-[#8C7355] hover:text-[#18181B] underline font-medium focus:outline-none cursor-pointer"
-              >
+              Ao enviar, seus dados são protegidos por sigilo profissional e tratados exclusivamente para triagem
+              pré-jurídica, em estrita conformidade com a nossa
+              <button type="button" data-open-modal="privacy"
+                class="text-[#8C7355] hover:text-[#18181B] underline font-medium focus:outline-none cursor-pointer">
                 Política de Privacidade (LGPD)
               </button>.
             </div>
 
-            <button
-              type="submit"
-              class="w-full py-4 bg-[#18181B] text-white text-xs tracking-[0.14em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8C7355]"
-            >
+            <button type="submit"
+              class="w-full py-4 bg-[#18181B] text-white text-xs tracking-[0.14em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8C7355]">
               Enviar para Análise Confidencial
             </button>
             <p class="text-[11px] text-[#71717A] text-center font-light">
@@ -1247,7 +1357,7 @@
   <!-- SEÇÃO: FAQ EM ACORDEÃO (Perguntas Frequentes Interativas) -->
   <section id="faq" class="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25">
     <div class="max-w-4xl mx-auto px-6">
-      
+
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
           Esclarecimentos Jurídicos
@@ -1256,90 +1366,116 @@
           Perguntas Frequentes
         </h2>
         <p class="mt-3 text-xs md:text-sm text-[#52525B] font-light leading-relaxed">
-          Respostas claras e transparentes para as dúvidas mais comuns sobre liminares de saúde, autismo (TEA) e condução de inventários.
+          Respostas claras e transparentes para as dúvidas mais comuns sobre liminares de saúde, autismo (TEA) e
+          condução de inventários.
         </p>
       </div>
 
       <div class="space-y-4" id="faq-accordion">
-        
+
         <!-- FAQ 1 -->
-        <div class="faq-item bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]">
-          <button class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none">
+        <div
+          class="faq-item bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]">
+          <button
+            class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none">
             <span class="font-serif text-base sm:text-lg text-[#18181B] font-normal leading-snug">
               Quanto tempo demora para sair uma decisão liminar contra o plano de saúde?
             </span>
-            <span class="faq-icon w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 bg-[#FAF7F2] text-[#8C7355]">
+            <span
+              class="faq-icon w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 bg-[#FAF7F2] text-[#8C7355]">
               +
             </span>
           </button>
-          <div class="faq-answer hidden px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1]">
+          <div
+            class="faq-answer hidden px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1]">
             <p>
-              Em razão da natureza de urgência e do risco de dano irreparável à saúde ou descontinuidade de tratamentos essenciais (especialmente no autismo / TEA), os pedidos de tutela provisória de urgência são analisados pelo Poder Judiciário costumeiramente entre <strong>24 a 72 horas</strong> após o protocolo. Em situações de emergência médica com risco de morte, o pedido é apreciado no plantão judiciário em regime de horas.
+              Em razão da natureza de urgência e do risco de dano irreparável à saúde ou descontinuidade de tratamentos
+              essenciais (especialmente no autismo / TEA), os pedidos de tutela provisória de urgência são analisados
+              pelo Poder Judiciário costumeiramente entre <strong>24 a 72 horas</strong> após o protocolo. Em situações
+              de emergência médica com risco de morte, o pedido é apreciado no plantão judiciário em regime de horas.
             </p>
           </div>
         </div>
 
         <!-- FAQ 2 -->
-        <div class="faq-item bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]">
-          <button class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none">
+        <div
+          class="faq-item bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]">
+          <button
+            class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none">
             <span class="font-serif text-base sm:text-lg text-[#18181B] font-normal leading-snug">
               Quais documentos são fundamentais para viabilizar a ação judicial de saúde?
             </span>
-            <span class="faq-icon w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 bg-[#FAF7F2] text-[#8C7355]">
+            <span
+              class="faq-icon w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 bg-[#FAF7F2] text-[#8C7355]">
               +
             </span>
           </button>
-          <div class="faq-answer hidden px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1]">
+          <div
+            class="faq-answer hidden px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1]">
             <p>
-              Os documentos essenciais consistem em: (1) <em>Relatório médico circunstanciado</em> emitido pelo especialista assistente com justificativa da indicação terapêutica e riscos da não realização; (2) <em>Negativa formal por escrito da operadora</em> ou número de protocolo com prazo esgotado; e (3) Comprovante de contratação ou carteirinha do plano e documentos pessoais do paciente.
+              Os documentos essenciais consistem em: (1) <em>Relatório médico circunstanciado</em> emitido pelo
+              especialista assistente com justificativa da indicação terapêutica e riscos da não realização; (2)
+              <em>Negativa formal por escrito da operadora</em> ou número de protocolo com prazo esgotado; e (3)
+              Comprovante de contratação ou carteirinha do plano e documentos pessoais do paciente.
             </p>
           </div>
         </div>
 
         <!-- FAQ 3 -->
-        <div class="faq-item bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]">
-          <button class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none">
+        <div
+          class="faq-item bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]">
+          <button
+            class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none">
             <span class="font-serif text-base sm:text-lg text-[#18181B] font-normal leading-snug">
               O plano de saúde pode cancelar meu contrato ou me punir por ingressar com a ação?
             </span>
-            <span class="faq-icon w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 bg-[#FAF7F2] text-[#8C7355]">
+            <span
+              class="faq-icon w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 bg-[#FAF7F2] text-[#8C7355]">
               +
             </span>
           </button>
-          <div class="faq-answer hidden px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1]">
+          <div
+            class="faq-answer hidden px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1]">
             <p>
-              Não. O ordenamento jurídico e a jurisprudência pacificada do Superior Tribunal de Justiça (inclusive Tema 1082) vedam categoricamente a rescisão unilateral abusiva ou represálias contra o consumidor que busca o Judiciário. A continuidade do plano é resguardada por força de lei e sob pena de multa diária.
+              Não. O ordenamento jurídico e a jurisprudência pacificada do Superior Tribunal de Justiça (inclusive Tema
+              1082) vedam categoricamente a rescisão unilateral abusiva ou represálias contra o consumidor que busca o
+              Judiciário. A continuidade do plano é resguardada por força de lei e sob pena de multa diária.
             </p>
           </div>
         </div>
 
         <!-- FAQ 4 -->
-        <div class="faq-item bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]">
-          <button class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none">
+        <div
+          class="faq-item bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]">
+          <button
+            class="faq-question w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none">
             <span class="font-serif text-base sm:text-lg text-[#18181B] font-normal leading-snug">
               Como funciona o atendimento se eu estiver em outra cidade ou estado?
             </span>
-            <span class="faq-icon w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 bg-[#FAF7F2] text-[#8C7355]">
+            <span
+              class="faq-icon w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 bg-[#FAF7F2] text-[#8C7355]">
               +
             </span>
           </button>
-          <div class="faq-answer hidden px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1]">
+          <div
+            class="faq-answer hidden px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1]">
             <p>
-              O Poder Judiciário brasileiro opera 100% de forma digital (PJe, e-SAJ, Eproc). Nosso escritório conta com infraestrutura segura para atendimento telepresencial privativo (videoconferência, assinatura digital de documentos via Gov.br ou certificado digital), permitindo representação estratégica e ágil em qualquer tribunal do país.
+              O Poder Judiciário brasileiro opera 100% de forma digital (PJe, e-SAJ, Eproc). Nosso escritório conta com
+              infraestrutura segura para atendimento telepresencial privativo (videoconferência, assinatura digital de
+              documentos via Gov.br ou certificado digital), permitindo representação estratégica e ágil em qualquer
+              tribunal do país.
             </p>
           </div>
         </div>
 
       </div>
 
-      <div class="mt-10 p-6 bg-white border border-[#E6E1D6] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#52525B] rounded-[4px]">
+      <div
+        class="mt-10 p-6 bg-white border border-[#E6E1D6] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#52525B] rounded-[4px]">
         <span>Possui uma dúvida específica sobre seu contrato ou laudo médico?</span>
-        <a 
-          href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica." 
-          target="_blank" 
-          rel="noreferrer" 
-          class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors whitespace-nowrap uppercase tracking-wider"
-        >
+        <a href="https://wa.me/5514997118732?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica."
+          target="_blank" rel="noreferrer"
+          class="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors whitespace-nowrap uppercase tracking-wider">
           Consultar Advogada via WhatsApp ↗
         </a>
       </div>
@@ -1349,8 +1485,9 @@
 
   <!-- Rodapé Minimalista com Conformidade Ética e Links Institucionais -->
   <footer class="border-t border-[#D2B48C]/25 bg-white py-12 text-xs text-[#71717A]">
-    <div class="max-w-6xl mx-auto px-6 space-y-6">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-[#F0ECE1] pb-6">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-8 space-y-6">
+      <div
+        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-[#F0ECE1] pb-6">
         <div>
           <p class="font-serif text-[15px] text-[#18181B] tracking-[0.1em] uppercase font-normal">
             Beatriz Rocha Sociedade Individual de Advocacia
@@ -1360,26 +1497,15 @@
           </p>
         </div>
         <div class="flex flex-wrap items-center gap-5 text-[11px] uppercase tracking-wider font-medium text-[#52525B]">
-          <button
-            type="button"
-            data-open-modal="privacy"
-            class="hover:text-[#8C7355] transition-colors cursor-pointer"
-          >
+          <button type="button" data-open-modal="privacy" class="hover:text-[#8C7355] transition-colors cursor-pointer">
             Política de Privacidade (LGPD)
           </button>
           <span class="text-[#D6CFC2]">•</span>
-          <button
-            type="button"
-            data-open-modal="terms"
-            class="hover:text-[#8C7355] transition-colors cursor-pointer"
-          >
+          <button type="button" data-open-modal="terms" class="hover:text-[#8C7355] transition-colors cursor-pointer">
             Termos de Uso & Aviso Legal
           </button>
           <span class="text-[#D6CFC2]">•</span>
-          <a
-            href="#inicio"
-            class="hover:text-[#8C7355] transition-colors"
-          >
+          <a href="#inicio" class="hover:text-[#8C7355] transition-colors">
             Voltar ao Topo ↑
           </a>
         </div>
@@ -1387,26 +1513,22 @@
 
       <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] font-light text-[#71717A]">
         <p>
-          © <span id="current-year"></span> Beatriz Rocha Sociedade Individual de Advocacia. Todos os direitos reservados.
+          © <span id="current-year"></span> Beatriz Rocha Sociedade Individual de Advocacia. Todos os direitos
+          reservados.
         </p>
         <p class="text-[10.5px]">
-          Conteúdo de caráter exclusivamente informativo, pautado pelo Provimento nº 205/2021 do Conselho Federal da OAB.
+          Conteúdo de caráter exclusivamente informativo, pautado pelo Provimento nº 205/2021 do Conselho Federal da
+          OAB.
         </p>
       </div>
     </div>
   </footer>
 
   <!-- Modal: Política de Privacidade e Proteção de Dados (LGPD) -->
-  <div
-    id="privacy-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="privacy-modal-title"
-    class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden items-center justify-center p-4 overflow-y-auto animate-fadeIn"
-  >
+  <div id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title"
+    class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden items-center justify-center p-4 overflow-y-auto animate-fadeIn">
     <div
-      class="relative bg-white border border-[#E5E0DA] w-full max-w-3xl my-8 p-6 sm:p-10 rounded-[4px] shadow-2xl max-h-[90vh] flex flex-col modal-container"
-    >
+      class="relative bg-white border border-[#E5E0DA] w-full max-w-3xl my-8 p-6 sm:p-10 rounded-[4px] shadow-2xl max-h-[90vh] flex flex-col modal-container">
       <div class="flex items-start justify-between border-b border-[#F0ECE1] pb-4 mb-5">
         <div>
           <span class="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] font-semibold block mb-1">
@@ -1419,26 +1541,31 @@
             Beatriz Rocha Sociedade Individual de Advocacia • OAB/SP 463.673
           </p>
         </div>
-        <button
-          type="button"
-          data-close-modal
+        <button type="button" data-close-modal
           class="w-8 h-8 rounded-full border border-[#E5E0DA] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center text-sm font-mono cursor-pointer transition-colors focus:outline-none"
-          aria-label="Fechar modal de privacidade"
-        >
+          aria-label="Fechar modal de privacidade">
           ✕
         </button>
       </div>
 
       <div class="overflow-y-auto pr-2 text-xs sm:text-sm text-[#52525B] space-y-4 leading-relaxed font-light">
         <p>
-          A <strong class="font-medium text-[#18181B]">Beatriz Rocha Sociedade Individual de Advocacia</strong> (OAB/SP 463.673), sediada no Edifício Torre Nova York, Salas 305 e 306, Complexo Praça Capital, Av. das Esmeraldas, 3895, Marília/SP, preza pela máxima confidencialidade e segurança no tratamento de dados pessoais, em estrita consonância com a <strong class="font-medium text-[#18181B]">Lei Geral de Proteção de Dados Pessoais (Lei Federal nº 13.709/2018 - LGPD)</strong>, o Estatuto da Advocacia (Lei Federal nº 8.906/1994) e o Código de Ética e Disciplina da OAB.
+          A <strong class="font-medium text-[#18181B]">Beatriz Rocha Sociedade Individual de Advocacia</strong> (OAB/SP
+          463.673), sediada no Edifício Torre Nova York, Salas 305 e 306, Complexo Praça Capital, Av. das Esmeraldas,
+          3895, Marília/SP, preza pela máxima confidencialidade e segurança no tratamento de dados pessoais, em estrita
+          consonância com a <strong class="font-medium text-[#18181B]">Lei Geral de Proteção de Dados Pessoais (Lei
+            Federal nº 13.709/2018 - LGPD)</strong>, o Estatuto da Advocacia (Lei Federal nº 8.906/1994) e o Código de
+          Ética e Disciplina da OAB.
         </p>
 
         <h4 class="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
           1. Princípio da Minimização e Coleta de Dados
         </h4>
         <p>
-          Coletamos exclusivamente os dados fornecidos voluntariamente pelo usuário através de nossos canais oficiais de contato (formulário do site e WhatsApp): nome completo, número de telefone/WhatsApp, endereço de e-mail e síntese fática da demanda jurídica. Não coletamos dados de forma oculta nem utilizamos cookies invasivos de rastreamento de perfil comercial.
+          Coletamos exclusivamente os dados fornecidos voluntariamente pelo usuário através de nossos canais oficiais de
+          contato (formulário do site e WhatsApp): nome completo, número de telefone/WhatsApp, endereço de e-mail e
+          síntese fática da demanda jurídica. Não coletamos dados de forma oculta nem utilizamos cookies invasivos de
+          rastreamento de perfil comercial.
         </p>
 
         <h4 class="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
@@ -1448,39 +1575,50 @@
           O tratamento dos dados pessoais fundamenta-se nas seguintes bases legais do Artigo 7º da LGPD:
         </p>
         <ul class="list-disc pl-5 space-y-1.5">
-          <li><strong class="font-medium text-[#18181B]">Art. 7º, V:</strong> Procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados (triagem técnica inicial de casos);</li>
-          <li><strong class="font-medium text-[#18181B]">Art. 7º, IX:</strong> Atendimento aos interesses legítimos do controlador, resguardados os direitos e liberdades fundamentais do titular;</li>
-          <li><strong class="font-medium text-[#18181B]">Art. 11, II, 'e':</strong> Em demandas de Direito à Saúde envolvendo laudos médicos e diagnóstico de autismo (TEA), o tratamento de dados sensíveis destina-se estritamente ao exercício regular de direitos em processos judiciais e extrajudiciais.</li>
+          <li><strong class="font-medium text-[#18181B]">Art. 7º, V:</strong> Procedimentos preliminares relacionados a
+            contrato do qual seja parte o titular, a pedido do titular dos dados (triagem técnica inicial de casos);
+          </li>
+          <li><strong class="font-medium text-[#18181B]">Art. 7º, IX:</strong> Atendimento aos interesses legítimos do
+            controlador, resguardados os direitos e liberdades fundamentais do titular;</li>
+          <li><strong class="font-medium text-[#18181B]">Art. 11, II, 'e':</strong> Em demandas de Direito à Saúde
+            envolvendo laudos médicos e diagnóstico de autismo (TEA), o tratamento de dados sensíveis destina-se
+            estritamente ao exercício regular de direitos em processos judiciais e extrajudiciais.</li>
         </ul>
 
         <h4 class="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
           3. Inviolabilidade do Sigilo Profissional da Advocacia
         </h4>
         <p>
-          Todas as informações, documentos, relatórios médicos e relatos compartilhados conosco são protegidos pelo <strong class="font-medium text-[#18181B]">sigilo profissional inegociável da advocacia</strong> (Art. 7º, II e Art. 34, VII do Estatuto da OAB). Nenhuma informação é vendida, alugada ou compartilhada com terceiros para fins comerciais ou publicitários.
+          Todas as informações, documentos, relatórios médicos e relatos compartilhados conosco são protegidos pelo
+          <strong class="font-medium text-[#18181B]">sigilo profissional inegociável da advocacia</strong> (Art. 7º, II
+          e Art. 34, VII do Estatuto da OAB). Nenhuma informação é vendida, alugada ou compartilhada com terceiros para
+          fins comerciais ou publicitários.
         </p>
 
         <h4 class="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
           4. Direitos do Titular (Art. 18 da LGPD)
         </h4>
         <p>
-          O titular dos dados tem o direito de solicitar a qualquer momento: (I) confirmação da existência de tratamento; (II) acesso aos dados; (III) correção de dados incompletos, inexatos ou desatualizados; (IV) anonimização, bloqueio ou eliminação de dados desnecessários; e (V) revogação do consentimento, ressalvadas as hipóteses de guarda obrigatória por dever legal ou regulatório.
+          O titular dos dados tem o direito de solicitar a qualquer momento: (I) confirmação da existência de
+          tratamento; (II) acesso aos dados; (III) correção de dados incompletos, inexatos ou desatualizados; (IV)
+          anonimização, bloqueio ou eliminação de dados desnecessários; e (V) revogação do consentimento, ressalvadas as
+          hipóteses de guarda obrigatória por dever legal ou regulatório.
         </p>
 
         <h4 class="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
           5. Canal do Encarregado pelo Tratamento de Dados (DPO)
         </h4>
         <p>
-          Para exercer seus direitos ou esclarecer qualquer dúvida a respeito do tratamento de seus dados pessoais, entre em contato diretamente com nossa banca através do e-mail oficial: <strong class="font-medium text-[#18181B]">contato@beatrizrocha.adv.br</strong> ou pelo telefone/WhatsApp: <strong class="font-medium text-[#18181B]">(14) 99711-8732</strong>.
+          Para exercer seus direitos ou esclarecer qualquer dúvida a respeito do tratamento de seus dados pessoais,
+          entre em contato diretamente com nossa banca através do e-mail oficial: <strong
+            class="font-medium text-[#18181B]">contato@beatrizrocha.adv.br</strong> ou pelo telefone/WhatsApp: <strong
+            class="font-medium text-[#18181B]">(14) 99711-8732</strong>.
         </p>
       </div>
 
       <div class="mt-6 pt-4 border-t border-[#F0ECE1] flex justify-end">
-        <button
-          type="button"
-          data-close-modal
-          class="px-6 py-2.5 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] cursor-pointer focus:outline-none"
-        >
+        <button type="button" data-close-modal
+          class="px-6 py-2.5 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] cursor-pointer focus:outline-none">
           Compreendi e Fechar
         </button>
       </div>
@@ -1488,16 +1626,10 @@
   </div>
 
   <!-- Modal: Termos de Uso e Aviso Legal Ético -->
-  <div
-    id="terms-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="terms-modal-title"
-    class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden items-center justify-center p-4 overflow-y-auto animate-fadeIn"
-  >
+  <div id="terms-modal" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title"
+    class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden items-center justify-center p-4 overflow-y-auto animate-fadeIn">
     <div
-      class="relative bg-white border border-[#E5E0DA] w-full max-w-3xl my-8 p-6 sm:p-10 rounded-[4px] shadow-2xl max-h-[90vh] flex flex-col modal-container"
-    >
+      class="relative bg-white border border-[#E5E0DA] w-full max-w-3xl my-8 p-6 sm:p-10 rounded-[4px] shadow-2xl max-h-[90vh] flex flex-col modal-container">
       <div class="flex items-start justify-between border-b border-[#F0ECE1] pb-4 mb-5">
         <div>
           <span class="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] font-semibold block mb-1">
@@ -1510,12 +1642,9 @@
             Provimento nº 205/2021 do Conselho Federal da OAB
           </p>
         </div>
-        <button
-          type="button"
-          data-close-modal
+        <button type="button" data-close-modal
           class="w-8 h-8 rounded-full border border-[#E5E0DA] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center text-sm font-mono cursor-pointer transition-colors focus:outline-none"
-          aria-label="Fechar modal de termos de uso"
-        >
+          aria-label="Fechar modal de termos de uso">
           ✕
         </button>
       </div>
@@ -1525,44 +1654,55 @@
           1. Caráter Exclusivamente Informativo e Educativo
         </h4>
         <p>
-          Este sítio eletrônico é mantido pela <strong class="font-medium text-[#18181B]">Beatriz Rocha Sociedade Individual de Advocacia</strong> (OAB/SP 463.673) com finalidade estritamente informativa, pedagógica e institucional, nos exatos moldes disciplinados pelo <strong class="font-medium text-[#18181B]">Provimento nº 205/2021 do Conselho Federal da OAB</strong> e pelo Código de Ética e Disciplina da Advocacia. Nenhum conteúdo publicado constitui publicidade mercantil ou captação indevida de clientela.
+          Este sítio eletrônico é mantido pela <strong class="font-medium text-[#18181B]">Beatriz Rocha Sociedade
+            Individual de Advocacia</strong> (OAB/SP 463.673) com finalidade estritamente informativa, pedagógica e
+          institucional, nos exatos moldes disciplinados pelo <strong class="font-medium text-[#18181B]">Provimento nº
+            205/2021 do Conselho Federal da OAB</strong> e pelo Código de Ética e Disciplina da Advocacia. Nenhum
+          conteúdo publicado constitui publicidade mercantil ou captação indevida de clientela.
         </p>
 
         <h4 class="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
           2. Inexistência de Consulta Vinculante ou Contratação Automática
         </h4>
         <p>
-          A navegação no website, a leitura de artigos jurisprudenciais ou o encaminhamento de mensagens via formulário/WhatsApp não caracterizam, por si sós, a formalização de contrato de prestação de serviços advocatícios ou a constituição de mandato judicial. A outorga de poderes processuais depende impreterivelmente de instrumento procuratório específico e celebração expressa de contrato de honorários advocatícios.
+          A navegação no website, a leitura de artigos jurisprudenciais ou o encaminhamento de mensagens via
+          formulário/WhatsApp não caracterizam, por si sós, a formalização de contrato de prestação de serviços
+          advocatícios ou a constituição de mandato judicial. A outorga de poderes processuais depende impreterivelmente
+          de instrumento procuratório específico e celebração expressa de contrato de honorários advocatícios.
         </p>
 
         <h4 class="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
           3. Propriedade Intelectual e Direitos Autorais
         </h4>
         <p>
-          Todos os textos, análises jurídicas, fotografias, marcas, logotipos e códigos-fonte presentes neste portal são protegidos pela legislação de direitos autorais e propriedade industrial (Leis nº 9.610/98 e 9.279/96). É terminantemente vedada a reprodução total ou parcial para finalidades comerciais sem prévia autorização por escrito.
+          Todos os textos, análises jurídicas, fotografias, marcas, logotipos e códigos-fonte presentes neste portal são
+          protegidos pela legislação de direitos autorais e propriedade industrial (Leis nº 9.610/98 e 9.279/96). É
+          terminantemente vedada a reprodução total ou parcial para finalidades comerciais sem prévia autorização por
+          escrito.
         </p>
 
         <h4 class="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
           4. Links Oficiais para Tribunais e Fontes Públicas
         </h4>
         <p>
-          Os hiperlinks presentes na seção de informativos direcionam o usuário diretamente para as fontes institucionais oficiais (Supremo Tribunal Federal, Superior Tribunal de Justiça, Tribunal de Justiça de São Paulo, Conselho Nacional de Justiça e Agência Nacional de Saúde Suplementar). O escritório não se responsabiliza pela disponibilidade ou alterações de conteúdo em portais de terceiros.
+          Os hiperlinks presentes na seção de informativos direcionam o usuário diretamente para as fontes
+          institucionais oficiais (Supremo Tribunal Federal, Superior Tribunal de Justiça, Tribunal de Justiça de São
+          Paulo, Conselho Nacional de Justiça e Agência Nacional de Saúde Suplementar). O escritório não se
+          responsabiliza pela disponibilidade ou alterações de conteúdo em portais de terceiros.
         </p>
 
         <h4 class="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
           5. Foro de Eleição
         </h4>
         <p>
-          Eventuais controvérsias decorrentes do uso deste portal serão dirimidas pelo Foro da Comarca de Marília, Estado de São Paulo, com expressa renúncia a qualquer outro, por mais privilegiado que seja.
+          Eventuais controvérsias decorrentes do uso deste portal serão dirimidas pelo Foro da Comarca de Marília,
+          Estado de São Paulo, com expressa renúncia a qualquer outro, por mais privilegiado que seja.
         </p>
       </div>
 
       <div class="mt-6 pt-4 border-t border-[#F0ECE1] flex justify-end">
-        <button
-          type="button"
-          data-close-modal
-          class="px-6 py-2.5 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] cursor-pointer focus:outline-none"
-        >
+        <button type="button" data-close-modal
+          class="px-6 py-2.5 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] cursor-pointer focus:outline-none">
           Compreendi e Fechar
         </button>
       </div>
@@ -1570,33 +1710,24 @@
   </div>
 
   <!-- Banner Flutuante de Consentimento LGPD -->
-  <aside
-    id="lgpd-banner"
-    role="region"
-    aria-label="Consentimento de Privacidade e Cookies"
-    class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-40 bg-white/95 backdrop-blur-md border border-[#E5E0DA] shadow-2xl p-5 rounded-[4px] animate-fadeIn text-[#18181B] hidden"
-  >
+  <aside id="lgpd-banner" role="region" aria-label="Consentimento de Privacidade e Cookies"
+    class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-40 bg-white/95 backdrop-blur-md border border-[#E5E0DA] shadow-2xl p-5 rounded-[4px] animate-fadeIn text-[#18181B] hidden">
     <div class="flex items-start justify-between gap-3 mb-2">
       <span class="text-[10px] tracking-[0.18em] uppercase text-[#8C7355] font-semibold">
         Privacidade & Proteção de Dados (LGPD)
       </span>
     </div>
     <p class="text-xs text-[#52525B] leading-relaxed font-light mb-4">
-      Utilizamos cookies essenciais estritamente para garantir o correto funcionamento e a segurança deste canal, em consonância com a Lei nº 13.709/2018 (LGPD) e o Provimento nº 205/2021 da OAB.
+      Utilizamos cookies essenciais estritamente para garantir o correto funcionamento e a segurança deste canal, em
+      consonância com a Lei nº 13.709/2018 (LGPD) e o Provimento nº 205/2021 da OAB.
     </p>
     <div class="flex items-center justify-between gap-3 pt-2 border-t border-[#F0ECE1]">
-      <button
-        type="button"
-        data-open-modal="privacy"
-        class="text-[11px] text-[#8C7355] hover:text-[#18181B] underline font-medium cursor-pointer"
-      >
+      <button type="button" data-open-modal="privacy"
+        class="text-[11px] text-[#8C7355] hover:text-[#18181B] underline font-medium cursor-pointer">
         Ler Política Completa
       </button>
-      <button
-        type="button"
-        id="lgpd-accept-btn"
-        class="px-4 py-2 bg-[#18181B] text-white text-xs tracking-wider uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] cursor-pointer shadow-2xs"
-      >
+      <button type="button" id="lgpd-accept-btn"
+        class="px-4 py-2 bg-[#18181B] text-white text-xs tracking-wider uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] cursor-pointer shadow-2xs">
         Prosseguir
       </button>
     </div>
@@ -1604,4 +1735,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>

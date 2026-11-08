@@ -249,7 +249,10 @@ export default function BeatrizRochaAdvocacia() {
 
       {/* Topbar Editorial Minimalista */}
       <aside className="border-b border-[#E6E1D6] bg-[#F4EFE6]/60 text-[11px] tracking-[0.08em] text-[#52525B] uppercase" aria-label="Informações Institucionais">
-        <div className="max-w-6xl mx-auto px-6 py-2 flex flex-wrap justify-between items-center gap-3">
+        <div
+          className="topbar-container max-w-[1280px] mx-auto px-4 sm:px-8 py-2 flex justify-between items-center w-full"
+          style={{ maxWidth: '1280px', margin: '0 auto', padding: '0.5rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
+        >
           <span className="font-normal whitespace-nowrap">
             EDIFÍCIO TORRE NOVA YORK • MARÍLIA/SP | OAB/SP 463.673
           </span>
@@ -274,7 +277,10 @@ export default function BeatrizRochaAdvocacia() {
         className="sticky top-0 z-50 header-glass border-b border-[#E5E0DA]"
         style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.92)' }}
       >
-        <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div
+          className="header-container max-w-[1280px] mx-auto px-4 sm:px-8 h-20 flex items-center justify-between w-full"
+          style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}
+        >
 
           {/* Monograma BR + Identidade */}
           <a href="#inicio" className="flex items-center gap-3.5 group shrink-0">
@@ -291,115 +297,133 @@ export default function BeatrizRochaAdvocacia() {
             </div>
           </a>
 
-          {/* Menu Principal Fluido & Rigorosamente Alinhado */}
-          <nav className="hidden md:flex items-center gap-6 text-[11px] lg:text-[11.5px] font-medium tracking-[0.12em] uppercase text-[#52525B]">
-            <a href="#institucional" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-              O Escritório
-            </a>
-
-            <a href="#saude-tea" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-              Saúde & TEA
-            </a>
-
-            {/* Dropdown Organizado de Especialidades */}
-            <div
-              className="relative py-2 whitespace-nowrap"
-              onMouseEnter={() => setAreasDropdownOpen(true)}
-              onMouseLeave={() => setAreasDropdownOpen(false)}
+          {/* Navegação Desktop Fluida & Botão Agendar Consulta */}
+          <div className="hidden lg:flex items-center">
+            <nav
+              className="flex items-center text-[12.5px] font-medium tracking-[0.1em] uppercase text-[#52525B]"
+              style={{ gap: '2rem' }}
             >
-              <a
-                href="#areas-atuacao"
-                className="flex items-center gap-1.5 hover:text-[#18181B] transition-colors whitespace-nowrap"
-              >
-                <span>Especialidades</span>
-                <span className="text-[10px] text-[#8C7355] font-serif">▾</span>
+              <a href="#institucional" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
+                O Escritório
               </a>
 
-              {/* Submenu Dropdown Elegante */}
-              {areasDropdownOpen && (
-                <div className="absolute left-0 top-full w-72 bg-white border border-[#E6E1D6] shadow-lg py-2 z-50 animate-fadeIn normal-case">
-                  <a
-                    href="#saude-tea"
-                    onClick={() => setAreasDropdownOpen(false)}
-                    className="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1] group/item"
-                  >
-                    <span className="text-xs font-semibold text-[#8C7355] block group-hover/item:text-[#18181B]">
-                      Direito à Saúde & Autismo (TEA)
-                    </span>
-                    <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
-                      Método ABA, medicamentos e tutelas urgentes
-                    </span>
-                  </a>
+              <a href="#saude-tea" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
+                Saúde & TEA
+              </a>
 
-                  <a
-                    href="#areas-atuacao"
-                    onClick={() => setAreasDropdownOpen(false)}
-                    className="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1] group/item"
-                  >
-                    <span className="text-xs font-medium text-[#18181B] block group-hover/item:text-[#8C7355]">
-                      Família e Sucessões
-                    </span>
-                    <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
-                      Inventários em cartório (Res. 571/24) e partilhas
-                    </span>
-                  </a>
+              {/* Dropdown Organizado de Especialidades */}
+              <div
+                className="relative py-2 whitespace-nowrap"
+                style={{ whiteSpace: 'nowrap' }}
+                onMouseEnter={() => setAreasDropdownOpen(true)}
+                onMouseLeave={() => setAreasDropdownOpen(false)}
+              >
+                <a
+                  href="#areas-atuacao"
+                  className="flex items-center gap-1.5 hover:text-[#18181B] transition-colors whitespace-nowrap"
+                  style={{ whiteSpace: 'nowrap' }}
+                >
+                  <span>Especialidades</span>
+                  <span className="text-[10px] text-[#8C7355] font-serif">▾</span>
+                </a>
 
-                  <a
-                    href="#areas-atuacao"
-                    onClick={() => setAreasDropdownOpen(false)}
-                    className="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1] group/item"
-                  >
-                    <span className="text-xs font-medium text-[#18181B] block group-hover/item:text-[#8C7355]">
-                      Tributário & Isenções
-                    </span>
-                    <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
-                      Isenção de IPVA PCD/TEA e recuperação fiscal
-                    </span>
-                  </a>
+                {/* Submenu Dropdown Elegante */}
+                {areasDropdownOpen && (
+                  <div className="absolute left-0 top-full w-72 bg-white border border-[#E6E1D6] shadow-lg py-2 z-50 animate-fadeIn normal-case">
+                    <a
+                      href="#saude-tea"
+                      onClick={() => setAreasDropdownOpen(false)}
+                      className="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1] group/item"
+                    >
+                      <span className="text-xs font-semibold text-[#8C7355] block group-hover/item:text-[#18181B]">
+                        Direito à Saúde & Autismo (TEA)
+                      </span>
+                      <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
+                        Método ABA, medicamentos e tutelas urgentes
+                      </span>
+                    </a>
 
-                  <a
-                    href="#areas-atuacao"
-                    onClick={() => setAreasDropdownOpen(false)}
-                    className="block px-5 py-3 hover:bg-[#FAF7F2] group/item"
-                  >
-                    <span className="text-xs font-medium text-[#18181B] block group-hover/item:text-[#8C7355]">
-                      Direito Cível e Contratos
-                    </span>
-                    <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
-                      Segurança jurídica patrimonial e obrigações
-                    </span>
-                  </a>
-                </div>
-              )}
-            </div>
+                    <a
+                      href="#areas-atuacao"
+                      onClick={() => setAreasDropdownOpen(false)}
+                      className="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1] group/item"
+                    >
+                      <span className="text-xs font-medium text-[#18181B] block group-hover/item:text-[#8C7355]">
+                        Família e Sucessões
+                      </span>
+                      <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
+                        Inventários em cartório (Res. 571/24) e partilhas
+                      </span>
+                    </a>
 
-            <a href="#informativos" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-              Informativos
-            </a>
+                    <a
+                      href="#areas-atuacao"
+                      onClick={() => setAreasDropdownOpen(false)}
+                      className="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1] group/item"
+                    >
+                      <span className="text-xs font-medium text-[#18181B] block group-hover/item:text-[#8C7355]">
+                        Tributário & Isenções
+                      </span>
+                      <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
+                        Isenção de IPVA PCD/TEA e recuperação fiscal
+                      </span>
+                    </a>
 
-            <a href="#contato" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-              Contato
-            </a>
+                    <a
+                      href="#areas-atuacao"
+                      onClick={() => setAreasDropdownOpen(false)}
+                      className="block px-5 py-3 hover:bg-[#FAF7F2] group/item"
+                    >
+                      <span className="text-xs font-medium text-[#18181B] block group-hover/item:text-[#8C7355]">
+                        Direito Cível e Contratos
+                      </span>
+                      <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
+                        Segurança jurídica patrimonial e obrigações
+                      </span>
+                    </a>
+                  </div>
+                )}
+              </div>
 
-            <a href="#faq" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
-              FAQ
-            </a>
-          </nav>
+              <a href="#informativos" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
+                Informativos
+              </a>
 
-          {/* CTA Discreto e Fino + Botão Mobile */}
-          <div className="flex items-center ml-8 shrink-0">
+              <a href="#contato" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
+                Contato
+              </a>
+
+              <a href="#faq" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
+                FAQ
+              </a>
+            </nav>
+
+            {/* Botão AGENDAR CONSULTA Proporcional e com Margem Fixa */}
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-2.5 bg-[#8C7355] text-white text-[11px] tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap"
+              className="header-cta-btn bg-[#8C7355] text-white text-[11.5px] tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap inline-flex items-center justify-center shrink-0"
+              style={{ marginLeft: '1.5rem', padding: '0.6rem 1.2rem', whiteSpace: 'nowrap' }}
             >
               Agendar Consulta
             </a>
+          </div>
+
+          {/* Botão e CTA Mobile (< 1024px) */}
+          <div className="lg:hidden flex items-center gap-3 shrink-0">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="px-3.5 py-1.5 bg-[#8C7355] text-white text-[11px] tracking-[0.08em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap"
+            >
+              Agendar
+            </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden ml-3 p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase"
-              aria-label="Abrir Menu"
+              className="p-2 text-[#18181B] border border-[#E6E1D6] bg-white text-xs uppercase cursor-pointer"
+              aria-label="Abrir Menu de Navegação"
             >
               {mobileMenuOpen ? '✕' : '☰'}
             </button>
@@ -408,7 +432,7 @@ export default function BeatrizRochaAdvocacia() {
 
         {/* Menu Mobile Responsivo e Estruturado */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-b border-[#E6E1D6] bg-[#FAF7F2] px-6 py-4 flex flex-col gap-3 text-sm">
+          <div className="lg:hidden border-b border-[#E6E1D6] bg-[#FAF7F2] px-6 py-4 flex flex-col gap-3 text-sm">
             <a href="#inicio" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Início</a>
             <a href="#institucional" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">O Escritório</a>
             <a href="#saude-tea" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Saúde & TEA</a>
@@ -428,10 +452,10 @@ export default function BeatrizRochaAdvocacia() {
                     • Direito à Saúde & Autismo (TEA)
                   </a>
                   <a href="#areas-atuacao" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
-                    • Família e Sucessões (Inventários)
+                    • Família e Sucessões
                   </a>
                   <a href="#areas-atuacao" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
-                    • Tributário & Isenção de IPVA
+                    • Tributário & Isenções
                   </a>
                   <a href="#areas-atuacao" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
                     • Direito Cível e Contratos
@@ -449,7 +473,7 @@ export default function BeatrizRochaAdvocacia() {
 
       {/* Hero Section Editorial (Início) */}
       <section id="inicio" className="py-20 md:py-28 border-b border-[#E6E1D6]">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#E6E1D6] bg-white mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
@@ -526,7 +550,7 @@ export default function BeatrizRochaAdvocacia() {
       {/* O Escritório / Institucional Humanizado */}
       <section id="institucional" className="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25 relative">
         <div id="escritorio" className="absolute -top-24"></div>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
           <div className="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
 
             {/* Coluna 1: Texto Institucional & Assinatura Estilizada */}
@@ -616,7 +640,7 @@ export default function BeatrizRochaAdvocacia() {
 
       {/* NÚCLEO EXCLUSIVO EM DESTAQUE: Direito à Saúde & Autismo (TEA) */}
       <section id="saude-tea" className="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
           <div className="max-w-3xl mb-14">
             <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
@@ -845,7 +869,7 @@ export default function BeatrizRochaAdvocacia() {
       {/* ÁREAS DE ATUAÇÃO / Especialidades (Família, Tributário & Cível) */}
       <section id="areas-atuacao" className="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25 relative">
         <div id="atuacao" className="absolute -top-24"></div>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
           <div className="max-w-2xl mb-16">
             <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
               Prática Jurídica Integrada
@@ -925,7 +949,7 @@ export default function BeatrizRochaAdvocacia() {
       {/* SEÇÃO: INFORMATIVOS E ATUALIDADES JURÍDICAS (Carrossel Horizontal Editorial) */}
       <section id="informativos" className="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative">
         <div id="noticias" className="absolute -top-24"></div>
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
           {/* Topo Editorial Simplificado com Título, Subtítulo e Setas de Navegação */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
@@ -1051,7 +1075,7 @@ export default function BeatrizRochaAdvocacia() {
 
       {/* CONTATO E AGENDAMENTO */}
       <section id="contato" className="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
           <div className="max-w-2xl mb-12">
             <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
@@ -1362,7 +1386,7 @@ export default function BeatrizRochaAdvocacia() {
 
       {/* Rodapé Minimalista com Conformidade Ética e Links Institucionais */}
       <footer className="border-t border-[#D2B48C]/25 bg-white py-12 text-xs text-[#71717A]">
-        <div className="max-w-6xl mx-auto px-6 space-y-6">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 space-y-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-[#F0ECE1] pb-6">
             <div>
               <p className="font-serif text-[15px] text-[#18181B] tracking-[0.1em] uppercase font-normal">

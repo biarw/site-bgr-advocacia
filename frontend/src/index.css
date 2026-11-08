@@ -53,9 +53,60 @@ p {
   background-color: rgba(255, 255, 255, 0.92);
 }
 
-/* Header & Navigation Single-Line Guarantee */
-header nav a, header nav span, .header-nav-link {
+/* Standard 1280px Container System */
+.site-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Topbar Fixed Alignment */
+.topbar-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Header Flex Container */
+.header-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Header & Navigation Single-Line Guarantee & Spacing */
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem !important;
+}
+
+header nav a,
+header nav span,
+.header-nav-link {
   white-space: nowrap !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em;
+}
+
+/* Consultation CTA Button Separation & Proportions */
+.header-cta-btn {
+  margin-left: 1.5rem !important;
+  padding: 0.6rem 1.2rem !important;
+  white-space: nowrap !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Subtle Tan Section Divider */
