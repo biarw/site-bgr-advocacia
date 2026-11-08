@@ -354,25 +354,41 @@ export default function BeatrizRochaAdvocacia() {
             </div>
           </div>
 
-          {/* Quadro Institucional Minimalista */}
-          <div className="md:col-span-4 border border-[#E6E1D6] bg-white p-8 shadow-xs">
-            <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block mb-4 font-medium">
-              Sede Corporativa
-            </span>
-            <h2 className="font-serif text-2xl text-[#18181B] font-normal mb-2">
-              Edifício Torre Nova York
-            </h2>
-            <p className="text-sm text-[#52525B] font-light leading-relaxed mb-6">
-              Avenida das Esmeraldas, nº 3895, Salas 305 e 306 — Marília/SP. Estrutura privativa preparada para atendimento presencial e telepresencial em todo o país.
-            </p>
-            <div className="pt-6 border-t border-[#F0ECE1] space-y-3 text-xs text-[#52525B]">
-              <div className="flex justify-between">
-                <span className="text-[#71717A]">Atuação Processual</span>
-                <span className="text-[#18181B] font-medium">TJSP, TRFs, STJ e STF</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-[#71717A]">Atendimento</span>
-                <span className="text-[#18181B] font-medium">Com hora marcada</span>
+          {/* Sede Corporativa com Fotografia Real da Torre Nova York */}
+          <div className="md:col-span-4 border border-[#E6E1D6] bg-white overflow-hidden shadow-xs rounded-[4px] flex flex-col">
+            <div className="relative aspect-[16/11] overflow-hidden bg-[#FAF7F2] border-b border-[#E6E1D6] group">
+              <img
+                src="/assets/torre-fachada.jpg"
+                alt="Fachada do Edifício Torre Nova York no Complexo Praça Capital na Avenida das Esmeraldas em Marília/SP"
+                className="w-full h-full object-cover object-center filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"></div>
+              <span className="absolute bottom-3 left-3 text-[10px] tracking-[0.16em] uppercase text-white font-medium bg-black/40 px-2.5 py-1 backdrop-blur-xs border border-white/20">
+                Torre Nova York • Praça Capital
+              </span>
+            </div>
+
+            <div className="p-7">
+              <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block mb-2 font-medium">
+                Sede Corporativa
+              </span>
+              <h2 className="font-serif text-2xl text-[#18181B] font-normal mb-2">
+                Edifício Torre Nova York
+              </h2>
+              <p className="text-xs text-[#52525B] font-light leading-relaxed mb-5">
+                Av. das Esmeraldas, nº 3895, Salas 305 e 306 — Marília/SP. Instalações de alto padrão preparadas para atendimento presencial privativo e condução estratégica em todo o Brasil.
+              </p>
+              
+              <div className="pt-4 border-t border-[#F0ECE1] space-y-2 text-xs text-[#52525B]">
+                <div className="flex justify-between">
+                  <span className="text-[#71717A]">Complexo</span>
+                  <span className="text-[#18181B] font-medium">Praça Capital</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-[#71717A]">Atendimento</span>
+                  <span className="text-[#18181B] font-medium">Com hora marcada</span>
+                </div>
               </div>
             </div>
           </div>
@@ -381,22 +397,55 @@ export default function BeatrizRochaAdvocacia() {
 
       {/* O Escritório */}
       <section id="escritorio" className="py-24 bg-white border-b border-[#E6E1D6]">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-start">
-          <div className="md:col-span-5">
-            <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
-              Institucional
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#18181B] font-normal leading-tight">
-              Atendimento artesanal, rigor técnico e transparência inegociável.
-            </h2>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-12 gap-12 items-start mb-12">
+            <div className="md:col-span-5">
+              <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
+                Institucional
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl text-[#18181B] font-normal leading-tight">
+                Atendimento artesanal, rigor técnico e transparência inegociável.
+              </h2>
+            </div>
+            <div className="md:col-span-7 space-y-5 text-[#52525B] font-light leading-relaxed">
+              <p>
+                A <strong>Beatriz Rocha Sociedade Individual de Advocacia</strong> foi concebida sob o compromisso de que demandas jurídicas de alta complexidade — especialmente aquelas que envolvem a integridade física de entes queridos e o patrimônio da família — demandam condução direta, sem terceirizações ou respostas padronizadas.
+              </p>
+              <p>
+                Localizado no Edifício Torre Nova York, no complexo empresarial Praça Capital na Avenida das Esmeraldas em Marília/SP, o escritório une o conforto e a privacidade de instalações contemporâneas com sistemas digitais seguros para atendimento em comarcas de todo o território nacional, assegurando agilidade no protocolo de tutelas de urgência.
+              </p>
+            </div>
           </div>
-          <div className="md:col-span-7 space-y-5 text-[#52525B] font-light leading-relaxed">
-            <p>
-              A <strong>Beatriz Rocha Sociedade Individual de Advocacia</strong> foi concebida sob o compromisso de que demandas jurídicas de alta complexidade — especialmente aquelas que envolvem a integridade física de entes queridos e o patrimônio da família — demandam condução direta, sem terceirizações ou respostas padronizadas.
-            </p>
-            <p>
-              Localizado no Edifício Torre Nova York, na Avenida das Esmeraldas em Marília/SP, o escritório une o conforto de instalações modernas e privativas com sistemas digitais seguros para atendimento em comarcas de todo o território nacional, assegurando agilidade no protocolo de tutelas de urgência.
-            </p>
+
+          {/* Galeria Arquitetônica do Complexo */}
+          <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-[#E6E1D6]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] border border-[#E6E1D6] bg-[#FAF7F2] group shadow-xs">
+              <img
+                src="/assets/complexo-esmeraldas.jpg"
+                alt="Avenida das Esmeraldas e fachada integrada do complexo Praça Capital"
+                className="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Avenida das Esmeraldas • Marília/SP</span>
+                <p className="font-serif text-base font-normal mt-0.5">Complexo Empresarial Praça Capital</p>
+              </div>
+            </div>
+
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] border border-[#E6E1D6] bg-[#FAF7F2] group shadow-xs">
+              <img
+                src="/assets/recepcao-corporativa.jpg"
+                alt="Lobby e recepção corporativa de alto padrão da Torre Nova York"
+                className="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="text-[10px] uppercase tracking-wider text-[#D6CFC2] block font-medium">Estrutura Privativa e Segura</span>
+                <p className="font-serif text-base font-normal mt-0.5">Recepção e Ambientes Corporativos de Alto Padrão</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -965,6 +1014,51 @@ export default function BeatrizRochaAdvocacia() {
               <div>
                 <span className="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">Expediente</span>
                 <p className="text-[#18181B] mt-1">Segunda a Sexta-feira, das 08h30 às 18h00</p>
+              </div>
+            </div>
+
+            {/* Bloco Visual de Localização com Fotografias Reais */}
+            <div className="border border-[#E6E1D6] bg-white p-5 rounded-[4px] shadow-xs space-y-4">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[2px] bg-[#FAF7F2] border border-[#E6E1D6] group">
+                  <img
+                    src="/assets/complexo-esmeraldas.jpg"
+                    alt="Complexo Praça Capital e Edifício Torre Nova York na Avenida das Esmeraldas"
+                    className="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <span className="absolute bottom-1.5 left-1.5 text-[9px] uppercase tracking-wider text-white bg-black/60 px-1.5 py-0.5 backdrop-blur-xs font-medium">
+                    Fachada
+                  </span>
+                </div>
+
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[2px] bg-[#FAF7F2] border border-[#E6E1D6] group">
+                  <img
+                    src="/assets/recepcao-corporativa.jpg"
+                    alt="Recepção e lobby corporativo da Torre Nova York"
+                    className="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <span className="absolute bottom-1.5 left-1.5 text-[9px] uppercase tracking-wider text-white bg-black/60 px-1.5 py-0.5 backdrop-blur-xs font-medium">
+                    Recepção
+                  </span>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-[11px] text-[#52525B] font-light leading-relaxed">
+                  <strong className="font-medium text-[#18181B]">Sede Corporativa:</strong> Edifício Torre Nova York — Complexo Praça Capital, Avenida das Esmeraldas, Marília/SP
+                </p>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Av.+das+Esmeraldas%2C+3895+-+Mar%C3%ADlia%2C+SP"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[#FAF7F2] border border-[#D6CFC2] text-xs text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors shadow-2xs"
+                >
+                  <span>Traçar Rota no Google Maps</span>
+                  <span>↗</span>
+                </a>
               </div>
             </div>
           </div>
