@@ -109,6 +109,93 @@ header nav span,
   justify-content: center;
 }
 
+/* Hero Grid Simétrico & Cirúrgico */
+.hero-grid {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 380px;
+  }
+}
+
+/* Card Lateral Sede Corporativa Refinado */
+.card-sede-corporativa {
+  border-radius: 8px;
+  border: 1px solid rgba(210, 180, 140, 0.3);
+  background-color: #FFFFFF;
+  overflow: hidden;
+  box-shadow: 0 4px 20px -2px rgba(24, 24, 27, 0.04);
+}
+
+.card-sede-corporativa .card-body {
+  padding: 1.5rem;
+}
+
+/* Padronização dos Botões de Chamada (CTAs) */
+.btn-cta-primary,
+.btn-cta-secondary {
+  height: 48px;
+  min-height: 48px;
+  padding: 0 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.btn-cta-primary {
+  background-color: #8C7355;
+  color: #FFFFFF;
+  border: 1px solid #8C7355;
+}
+
+.btn-cta-primary:hover {
+  background-color: #735D43;
+  border-color: #735D43;
+  color: #FFFFFF;
+}
+
+.btn-cta-secondary {
+  background-color: #FFFFFF;
+  color: #18181B;
+  border: 1px solid #D6CFC2;
+}
+
+.btn-cta-secondary:hover {
+  border-color: #8C7355;
+  color: #8C7355;
+}
+
+/* Espaçamento Vertical Padronizado entre Seções (100px) */
+.section-spacing,
+#institucional,
+#saude-tea,
+#areas-atuacao,
+#informativos,
+#contato,
+#faq {
+  padding-top: 100px !important;
+  padding-bottom: 100px !important;
+}
+
 /* Subtle Tan Section Divider */
 .section-divider {
   border-top: 1px solid rgba(210, 180, 140, 0.25);

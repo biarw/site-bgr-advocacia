@@ -472,9 +472,13 @@ export default function BeatrizRochaAdvocacia() {
       </header>
 
       {/* Hero Section Editorial (Início) */}
-      <section id="inicio" className="py-20 md:py-28 border-b border-[#E6E1D6]">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 grid md:grid-cols-12 gap-12 items-center">
-          <div className="md:col-span-8">
+      <section id="inicio" className="border-b border-[#E6E1D6] bg-[#FAF7F2]" style={{ padding: '80px 0' }}>
+        <div
+          className="hero-grid w-full mx-auto"
+          style={{ maxWidth: '1240px', margin: '0 auto', padding: '2rem', gap: '3rem', alignItems: 'center' }}
+        >
+          {/* Coluna Esquerda: Texto e CTAs */}
+          <div className="w-full">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#E6E1D6] bg-white mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
               <span className="text-[10px] tracking-[0.16em] uppercase text-[#52525B]">
@@ -493,13 +497,15 @@ export default function BeatrizRochaAdvocacia() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
                 href="#saude-tea"
-                className="px-7 py-3.5 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#735D43] transition-colors"
+                className="btn-cta-primary inline-flex items-center justify-center text-center h-12 px-7 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase font-medium border border-[#8C7355] hover:bg-[#735D43] hover:border-[#735D43] transition-all duration-300 rounded-[2px] shadow-2xs whitespace-nowrap"
+                style={{ transition: 'all 0.3s ease' }}
               >
                 Núcleo de Direito à Saúde & TEA
               </a>
               <a
                 href="#contato"
-                className="px-7 py-3.5 border border-[#D6CFC2] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:border-[#8C7355] transition-colors"
+                className="btn-cta-secondary inline-flex items-center justify-center text-center h-12 px-7 bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase font-medium border border-[#D6CFC2] hover:border-[#8C7355] hover:text-[#8C7355] transition-all duration-300 rounded-[2px] shadow-2xs whitespace-nowrap"
+                style={{ transition: 'all 0.3s ease' }}
               >
                 Solicitar Análise de Urgência
               </a>
@@ -507,8 +513,11 @@ export default function BeatrizRochaAdvocacia() {
           </div>
 
           {/* Sede Corporativa com Fotografia Real da Torre Nova York */}
-          <div className="md:col-span-4 border border-[#E6E1D6] bg-white overflow-hidden shadow-xs rounded-[4px] flex flex-col">
-            <div className="relative aspect-[16/11] overflow-hidden bg-[#FAF7F2] border-b border-[#E6E1D6] group">
+          <div
+            className="card-sede-corporativa w-full max-w-[380px] mx-auto lg:max-w-none flex flex-col"
+            style={{ borderRadius: '8px', border: '1px solid rgba(210, 180, 140, 0.3)' }}
+          >
+            <div className="relative aspect-[16/11] overflow-hidden bg-[#FAF7F2] border-b border-[#D2B48C]/25 group">
               <img
                 src="/assets/torre-fachada.jpg"
                 alt="Fachada do Edifício Torre Nova York no Complexo Praça Capital na Avenida das Esmeraldas em Marília/SP"
@@ -521,7 +530,7 @@ export default function BeatrizRochaAdvocacia() {
               </span>
             </div>
 
-            <div className="p-7">
+            <div className="card-body p-6" style={{ padding: '1.5rem' }}>
               <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block mb-2 font-medium">
                 Sede Corporativa
               </span>
@@ -532,13 +541,14 @@ export default function BeatrizRochaAdvocacia() {
                 Av. das Esmeraldas, nº 3895, Salas 305 e 306 — Marília/SP. Instalações de alto padrão preparadas para atendimento presencial privativo e condução estratégica em todo o Brasil.
               </p>
 
-              <div className="pt-4 border-t border-[#F0ECE1] space-y-2 text-xs text-[#52525B]">
-                <div className="flex justify-between">
-                  <span className="text-[#71717A]">Complexo</span>
+              {/* Metadados com respiro adequado */}
+              <div className="pt-5 mt-4 border-t border-[#F0ECE1] space-y-3 text-xs text-[#52525B]">
+                <div className="flex justify-between items-center py-0.5">
+                  <span className="text-[#71717A] tracking-wider uppercase text-[10.5px]">Complexo</span>
                   <span className="text-[#18181B] font-medium">Praça Capital</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-[#71717A]">Atendimento</span>
+                <div className="flex justify-between items-center py-0.5 border-t border-[#FAF7F2] pt-2">
+                  <span className="text-[#71717A] tracking-wider uppercase text-[10.5px]">Atendimento</span>
                   <span className="text-[#18181B] font-medium">Com hora marcada</span>
                 </div>
               </div>
@@ -548,7 +558,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* O Escritório / Institucional Humanizado */}
-      <section id="institucional" className="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25 relative">
+      <section id="institucional" className="section-spacing bg-white border-t border-[#D2B48C]/25 relative" style={{ padding: '100px 0' }}>
         <div id="escritorio" className="absolute -top-24"></div>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
           <div className="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
@@ -639,7 +649,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* NÚCLEO EXCLUSIVO EM DESTAQUE: Direito à Saúde & Autismo (TEA) */}
-      <section id="saude-tea" className="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25">
+      <section id="saude-tea" className="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25" style={{ padding: '100px 0' }}>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
           <div className="max-w-3xl mb-14">
@@ -867,7 +877,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* ÁREAS DE ATUAÇÃO / Especialidades (Família, Tributário & Cível) */}
-      <section id="areas-atuacao" className="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25 relative">
+      <section id="areas-atuacao" className="section-spacing bg-white border-t border-[#D2B48C]/25 relative" style={{ padding: '100px 0' }}>
         <div id="atuacao" className="absolute -top-24"></div>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
           <div className="max-w-2xl mb-16">
@@ -947,7 +957,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* SEÇÃO: INFORMATIVOS E ATUALIDADES JURÍDICAS (Carrossel Horizontal Editorial) */}
-      <section id="informativos" className="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative">
+      <section id="informativos" className="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative" style={{ padding: '100px 0' }}>
         <div id="noticias" className="absolute -top-24"></div>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
@@ -1074,7 +1084,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* CONTATO E AGENDAMENTO */}
-      <section id="contato" className="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25">
+      <section id="contato" className="section-spacing bg-white border-t border-[#D2B48C]/25" style={{ padding: '100px 0' }}>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
           <div className="max-w-2xl mb-12">
@@ -1323,7 +1333,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* SEÇÃO: FAQ EM ACORDEÃO (Perguntas Frequentes Interativas) */}
-      <section id="faq" className="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25">
+      <section id="faq" className="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25" style={{ padding: '100px 0' }}>
         <div className="max-w-4xl mx-auto px-6">
 
           <div className="text-center max-w-2xl mx-auto mb-14">

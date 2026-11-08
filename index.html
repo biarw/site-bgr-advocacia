@@ -226,6 +226,93 @@
       justify-content: center;
     }
 
+    /* Hero Grid Simétrico & Cirúrgico */
+    .hero-grid {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr 380px;
+      }
+    }
+
+    /* Card Lateral Sede Corporativa Refinado */
+    .card-sede-corporativa {
+      border-radius: 8px;
+      border: 1px solid rgba(210, 180, 140, 0.3);
+      background-color: #FFFFFF;
+      overflow: hidden;
+      box-shadow: 0 4px 20px -2px rgba(24, 24, 27, 0.04);
+    }
+
+    .card-sede-corporativa .card-body {
+      padding: 1.5rem;
+    }
+
+    /* Padronização dos Botões de Chamada (CTAs) */
+    .btn-cta-primary,
+    .btn-cta-secondary {
+      height: 48px;
+      min-height: 48px;
+      padding: 0 1.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+      text-decoration: none;
+    }
+
+    .btn-cta-primary {
+      background-color: #8C7355;
+      color: #FFFFFF;
+      border: 1px solid #8C7355;
+    }
+
+    .btn-cta-primary:hover {
+      background-color: #735D43;
+      border-color: #735D43;
+      color: #FFFFFF;
+    }
+
+    .btn-cta-secondary {
+      background-color: #FFFFFF;
+      color: #18181B;
+      border: 1px solid #D6CFC2;
+    }
+
+    .btn-cta-secondary:hover {
+      border-color: #8C7355;
+      color: #8C7355;
+    }
+
+    /* Espaçamento Vertical Padronizado entre Seções (100px) */
+    .section-spacing,
+    #institucional,
+    #saude-tea,
+    #areas-atuacao,
+    #informativos,
+    #contato,
+    #faq {
+      padding-top: 100px !important;
+      padding-bottom: 100px !important;
+    }
+
     /* Subtle Tan Section Divider */
     .section-divider {
       border-top: 1px solid rgba(210, 180, 140, 0.25);
@@ -422,9 +509,13 @@
   </header>
 
   <!-- Hero Section Editorial (Início) -->
-  <section id="inicio" class="py-20 md:py-28 border-b border-[#E6E1D6]">
-    <div class="max-w-[1280px] mx-auto px-4 sm:px-8 grid md:grid-cols-12 gap-12 items-center">
-      <div class="md:col-span-8">
+  <section id="inicio" class="border-b border-[#E6E1D6] bg-[#FAF7F2]" style="padding: 80px 0;">
+    <div
+      class="hero-grid w-full mx-auto"
+      style="max-width: 1240px; margin: 0 auto; padding: 2rem; gap: 3rem; align-items: center;">
+
+      <!-- Coluna Esquerda: Texto e CTAs -->
+      <div class="w-full">
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#E6E1D6] bg-white mb-8">
           <span class="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
           <span class="text-[10px] tracking-[0.16em] uppercase text-[#52525B]">
@@ -435,7 +526,7 @@
         <h1
           class="font-serif text-4xl sm:text-5xl md:text-[54px] text-[#18181B] leading-[1.12] tracking-tight font-normal">
           Orientação jurídica precisa e condução estratégica para proteger seus direitos com <span
-            className="italic text-[#8C7355]">segurança e discrição.</span>
+            class="italic text-[#8C7355]">segurança e discrição.</span>
         </h1>
 
         <p class="mt-7 text-base md:text-lg text-[#52525B] font-light leading-relaxed max-w-2xl">
@@ -445,19 +536,23 @@
 
         <div class="mt-10 flex flex-wrap items-center gap-4">
           <a href="#saude-tea"
-            class="px-7 py-3.5 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#735D43] transition-colors">
+            class="btn-cta-primary inline-flex items-center justify-center text-center h-12 px-7 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase font-medium border border-[#8C7355] hover:bg-[#735D43] hover:border-[#735D43] transition-all duration-300 rounded-[2px] shadow-2xs whitespace-nowrap"
+            style="transition: all 0.3s ease;">
             Núcleo de Direito à Saúde & TEA
           </a>
           <a href="#contato"
-            class="px-7 py-3.5 border border-[#D6CFC2] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:border-[#8C7355] transition-colors">
+            class="btn-cta-secondary inline-flex items-center justify-center text-center h-12 px-7 bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase font-medium border border-[#D6CFC2] hover:border-[#8C7355] hover:text-[#8C7355] transition-all duration-300 rounded-[2px] shadow-2xs whitespace-nowrap"
+            style="transition: all 0.3s ease;">
             Solicitar Análise de Urgência
           </a>
         </div>
       </div>
 
       <!-- Sede Corporativa com Fotografia Real da Torre Nova York -->
-      <div class="md:col-span-4 border border-[#E6E1D6] bg-white overflow-hidden shadow-xs rounded-[4px] flex flex-col">
-        <div class="relative aspect-[16/11] overflow-hidden bg-[#FAF7F2] border-b border-[#E6E1D6] group">
+      <div
+        class="card-sede-corporativa w-full max-w-[380px] mx-auto lg:max-w-none flex flex-col"
+        style="border-radius: 8px; border: 1px solid rgba(210, 180, 140, 0.3);">
+        <div class="relative aspect-[16/11] overflow-hidden bg-[#FAF7F2] border-b border-[#D2B48C]/25 group">
           <img src="assets/torre-fachada.jpg"
             alt="Fachada do Edifício Torre Nova York no Complexo Praça Capital na Avenida das Esmeraldas em Marília/SP"
             class="w-full h-full object-cover object-center filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
@@ -469,7 +564,7 @@
           </span>
         </div>
 
-        <div class="p-7">
+        <div class="card-body p-6" style="padding: 1.5rem;">
           <span class="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block mb-2 font-medium">
             Sede Corporativa
           </span>
@@ -481,13 +576,14 @@
             atendimento presencial privativo e condução estratégica em todo o Brasil.
           </p>
 
-          <div class="pt-4 border-t border-[#F0ECE1] space-y-2 text-xs text-[#52525B]">
-            <div class="flex justify-between">
-              <span class="text-[#71717A]">Complexo</span>
+          <!-- Metadados com respiro adequado -->
+          <div class="pt-5 mt-4 border-t border-[#F0ECE1] space-y-3 text-xs text-[#52525B]">
+            <div class="flex justify-between items-center py-0.5">
+              <span class="text-[#71717A] tracking-wider uppercase text-[10.5px]">Complexo</span>
               <span class="text-[#18181B] font-medium">Praça Capital</span>
             </div>
-            <div class="flex justify-between">
-              <span class="text-[#71717A]">Atendimento</span>
+            <div class="flex justify-between items-center py-0.5 border-t border-[#FAF7F2] pt-2">
+              <span class="text-[#71717A] tracking-wider uppercase text-[10.5px]">Atendimento</span>
               <span class="text-[#18181B] font-medium">Com hora marcada</span>
             </div>
           </div>
@@ -497,7 +593,7 @@
   </section>
 
   <!-- O Escritório / Institucional Humanizado -->
-  <section id="institucional" class="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25 relative">
+  <section id="institucional" class="section-spacing bg-white border-t border-[#D2B48C]/25 relative" style="padding: 100px 0;">
     <div id="escritorio" class="absolute -top-24"></div>
     <div class="max-w-[1280px] mx-auto px-4 sm:px-8">
       <div class="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
@@ -592,7 +688,7 @@
   </section>
 
   <!-- NÚCLEO EXCLUSIVO EM DESTAQUE: Direito à Saúde & Autismo (TEA) -->
-  <section id="saude-tea" class="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25">
+  <section id="saude-tea" class="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25" style="padding: 100px 0;">
     <div class="max-w-[1280px] mx-auto px-4 sm:px-8">
 
       <div class="max-w-3xl mb-14">
@@ -844,7 +940,7 @@
   </section>
 
   <!-- ÁREAS DE ATUAÇÃO / Especialidades (Família, Tributário & Cível) -->
-  <section id="areas-atuacao" class="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25 relative">
+  <section id="areas-atuacao" class="section-spacing bg-white border-t border-[#D2B48C]/25 relative" style="padding: 100px 0;">
     <div id="atuacao" class="absolute -top-24"></div>
     <div class="max-w-[1280px] mx-auto px-4 sm:px-8">
       <div class="max-w-2xl mb-16">
@@ -924,7 +1020,7 @@
   </section>
 
   <!-- SEÇÃO 1: INFORMATIVOS E ATUALIDADES JURÍDICAS (Carrossel Horizontal Editorial) -->
-  <section id="informativos" class="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative">
+  <section id="informativos" class="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative" style="padding: 100px 0;">
     <div id="noticias" class="absolute -top-24"></div>
     <div class="max-w-[1280px] mx-auto px-4 sm:px-8">
 
@@ -1152,7 +1248,7 @@
   </section>
 
   <!-- CONTATO E AGENDAMENTO -->
-  <section id="contato" class="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25">
+  <section id="contato" class="section-spacing bg-white border-t border-[#D2B48C]/25" style="padding: 100px 0;">
     <div class="max-w-[1280px] mx-auto px-4 sm:px-8">
 
       <div class="max-w-2xl mb-12">
@@ -1355,7 +1451,7 @@
   </section>
 
   <!-- SEÇÃO: FAQ EM ACORDEÃO (Perguntas Frequentes Interativas) -->
-  <section id="faq" class="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25">
+  <section id="faq" class="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25" style="padding: 100px 0;">
     <div class="max-w-4xl mx-auto px-6">
 
       <div class="text-center max-w-2xl mx-auto mb-14">
