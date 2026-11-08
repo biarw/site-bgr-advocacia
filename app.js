@@ -148,35 +148,131 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Envio do Formulário Estruturado para o WhatsApp
+  // 6. Higienização e Envio do Formulário Estruturado para o WhatsApp
+  const sanitize = (str) => {
+    if (!str) return '';
+    return str.replace(/[<>]/g, '').trim();
+  };
+
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const nome = document.getElementById('nome')?.value.trim();
-      const telefone = document.getElementById('telefone')?.value.trim();
-      const email = document.getElementById('email')?.value.trim();
-      const area = document.getElementById('area')?.value;
-      const relato = document.getElementById('relato')?.value.trim();
+      const rawNome = document.getElementById('nome')?.value || '';
+      const rawTelefone = document.getElementById('telefone')?.value || '';
+      const rawEmail = document.getElementById('email')?.value || '';
+      const rawArea = document.getElementById('area')?.value || '';
+      const rawRelato = document.getElementById('relato')?.value || '';
 
-      if (!nome || !telefone) {
-        alert('Por favor, preencha ao menos seu nome e telefone/WhatsApp.');
+      const nome = sanitize(rawNome);
+      const telefone = sanitize(rawTelefone);
+      const email = sanitize(rawEmail);
+      const area = sanitize(rawArea);
+      const relato = sanitize(rawRelato);
+
+      const digitsOnly = telefone.replace(/\D/g, '');
+
+      if (!nome || digitsOnly.length < 10) {
+        alert('Por favor, informe seu nome completo e um número válido de telefone/WhatsApp com DDD (mínimo 10 dígitos).');
         return;
       }
 
       const whatsappBaseUrl = "https://wa.me/5514997118732";
-      let text = `*SOLICITAÇÃO DE ORIENTAÇÃO JURÍDICA*\n`;
+      let text = `*SOLICITAÇÃO DE ORIENTAÇÃO JURÍDICA CONFIDENCIAL*\n`;
       text += `*Beatriz Rocha Sociedade Individual de Advocacia*\n\n`;
       text += `• *Nome:* ${nome}\n`;
-      text += `• *Telefone/WhatsApp:* ${telefone}\n`;
+      text += `• *WhatsApp/Telefone:* ${telefone}\n`;
       if (email) text += `• *E-mail:* ${email}\n`;
-      if (area) text += `• *Área:* ${area}\n`;
-      if (relato) text += `• *Resumo:* ${relato}\n\n`;
-      text += `_Mensagem enviada através do site oficial do escritório._`;
+      if (area) text += `• *Matéria da Demanda:* ${area}\n`;
+      if (relato) text += `• *Resumo da Situação:* ${relato}\n\n`;
+      text += `_Mensagem submetida espontaneamente pelo formulário do site com consentimento prévio nos termos da LGPD._`;
 
       const targetUrl = `${whatsappBaseUrl}?text=${encodeURIComponent(text)}`;
       window.open(targetUrl, '_blank', 'noopener,noreferrer');
     });
+  }
+
+  // 7. Modais Institucionais (LGPD e Termos de Uso)
+  const privacyModal = document.getElementById('privacy-modal');
+  const termsModal = document.getElementById('terms-modal');
+
+  const openModal = (modal) => {
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = (modal) => {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    if (
+      (!privacyModal || privacyModal.classList.contains('hidden')) &&
+      (!termsModal || termsModal.classList.contains('hidden'))
+    ) {
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Triggers de abertura
+  document.querySelectorAll('[data-open-modal="privacy"]').forEach(btn => {
+    btn.addEventListener('click', () => openModal(privacyModal));
+  });
+
+  document.querySelectorAll('[data-open-modal="terms"]').forEach(btn => {
+    btn.addEventListener('click', () => openModal(termsModal));
+  });
+
+  // Triggers de fechamento
+  document.querySelectorAll('[data-close-modal]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      closeModal(privacyModal);
+      closeModal(termsModal);
+    });
+  });
+
+  // Fechar ao clicar no backdrop escuro
+  [privacyModal, termsModal].forEach(modal => {
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (!e.target.closest('.modal-container')) {
+          closeModal(modal);
+        }
+      });
+    }
+  });
+
+  // Fechar com a tecla ESC
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal(privacyModal);
+      closeModal(termsModal);
+    }
+  });
+
+  // 8. Banner Flutuante de Consentimento LGPD
+  const lgpdBanner = document.getElementById('lgpd-banner');
+  const lgpdAcceptBtn = document.getElementById('lgpd-accept-btn');
+
+  if (lgpdBanner) {
+    try {
+      const hasConsent = localStorage.getItem('bgr_lgpd_consent') === 'true';
+      if (!hasConsent) {
+        lgpdBanner.classList.remove('hidden');
+      }
+    } catch {
+      lgpdBanner.classList.remove('hidden');
+    }
+
+    if (lgpdAcceptBtn) {
+      lgpdAcceptBtn.addEventListener('click', () => {
+        try {
+          localStorage.setItem('bgr_lgpd_consent', 'true');
+        } catch {}
+        lgpdBanner.classList.add('hidden');
+      });
+    }
   }
 });

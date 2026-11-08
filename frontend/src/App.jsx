@@ -1,10 +1,50 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export default function BeatrizRochaAdvocacia() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [areasDropdownOpen, setAreasDropdownOpen] = useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
+
+  // Estados dos Modais Institucionais e LGPD
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+  const [termsModalOpen, setTermsModalOpen] = useState(false);
+  const [cookieConsentAccepted, setCookieConsentAccepted] = useState(() => {
+    try {
+      return typeof window !== 'undefined' && localStorage.getItem('bgr_lgpd_consent') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const handleAcceptCookies = () => {
+    try {
+      localStorage.setItem('bgr_lgpd_consent', 'true');
+    } catch {
+      // Ignora restrições locais de cookies caso o navegador bloqueie
+    }
+    setCookieConsentAccepted(true);
+  };
+
+  // Trava o scroll da página e escuta a tecla ESC para acessibilidade dos modais
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setPrivacyModalOpen(false);
+        setTermsModalOpen(false);
+      }
+    };
+    if (privacyModalOpen || termsModalOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [privacyModalOpen, termsModalOpen]);
 
   // Estados e controle do Carrossel de Notícias (Drag & Scroll)
   const carouselRef = useRef(null);
@@ -166,24 +206,38 @@ export default function BeatrizRochaAdvocacia() {
     setFormData(prev => ({ ...prev, telefone: value }));
   };
 
+  // Higienização de strings para proteção contra injeção e XSS
+  const sanitizeInput = (str) => {
+    if (!str) return '';
+    return str.replace(/[<>]/g, '').trim();
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.nome || !formData.telefone) {
-      alert('Por favor, informe ao menos seu nome e WhatsApp/telefone para contato.');
+    const cleanNome = sanitizeInput(formData.nome);
+    const cleanTelefone = sanitizeInput(formData.telefone);
+    const digitsOnly = cleanTelefone.replace(/\D/g, '');
+
+    if (!cleanNome || digitsOnly.length < 10) {
+      alert('Por favor, informe seu nome completo e um número válido de telefone/WhatsApp com DDD (mínimo 10 dígitos).');
       return;
     }
+
+    const cleanEmail = sanitizeInput(formData.email);
+    const cleanArea = sanitizeInput(formData.area);
+    const cleanRelato = sanitizeInput(formData.relato);
 
     const lines = [
       `*SOLICITAÇÃO DE ORIENTAÇÃO JURÍDICA CONFIDENCIAL*`,
       `*Beatriz Rocha Sociedade Individual de Advocacia*`,
       ``,
-      `• *Nome:* ${formData.nome}`,
-      `• *WhatsApp/Telefone:* ${formData.telefone}`,
-      formData.email ? `• *E-mail:* ${formData.email}` : null,
-      formData.area ? `• *Matéria da Demanda:* ${formData.area}` : null,
-      formData.relato ? `• *Resumo da Situação:* ${formData.relato}` : null,
+      `• *Nome:* ${cleanNome}`,
+      `• *WhatsApp/Telefone:* ${cleanTelefone}`,
+      cleanEmail ? `• *E-mail:* ${cleanEmail}` : null,
+      cleanArea ? `• *Matéria da Demanda:* ${cleanArea}` : null,
+      cleanRelato ? `• *Resumo da Situação:* ${cleanRelato}` : null,
       ``,
-      `_Mensagem encaminhada diretamente pelo formulário oficial do site._`
+      `_Mensagem submetida espontaneamente pelo formulário do site com consentimento prévio nos termos da LGPD._`
     ].filter(Boolean);
 
     const message = lines.join('\n');
@@ -1130,58 +1184,69 @@ export default function BeatrizRochaAdvocacia() {
                 </p>
               </div>
 
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form className="space-y-6" onSubmit={handleSubmit} noValidate={false}>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                    <label htmlFor="form-nome" className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
                       Nome Completo *
                     </label>
                     <input
+                      id="form-nome"
+                      name="nome"
                       type="text"
                       required
-                      placeholder="Informe seu nome"
+                      autoComplete="name"
+                      placeholder="Informe seu nome completo"
                       value={formData.nome}
                       onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                      className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                      className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                    <label htmlFor="form-telefone" className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
                       WhatsApp / Telefone *
                     </label>
                     <input
+                      id="form-telefone"
+                      name="telefone"
                       type="tel"
                       required
+                      autoComplete="tel"
                       placeholder="(14) 99999-9999"
                       value={formData.telefone}
                       onChange={handlePhoneChange}
                       maxLength={15}
-                      className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                      className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                  <label htmlFor="form-email" className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
                     E-mail Institucional ou Pessoal
                   </label>
                   <input
+                    id="form-email"
+                    name="email"
                     type="email"
+                    autoComplete="email"
                     placeholder="seuemail@exemplo.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                  <label htmlFor="form-area" className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
                     Matéria da Demanda
                   </label>
                   <select
+                    id="form-area"
+                    name="area"
                     value={formData.area}
                     onChange={(e) => setFormData({ ...formData, area: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
                   >
                     <option value="">Selecione a área correspondente</option>
                     <option value="Direito à Saúde & Autismo / TEA">Direito à Saúde & Autismo / TEA (Liminares, Terapias, Medicamentos)</option>
@@ -1192,26 +1257,39 @@ export default function BeatrizRochaAdvocacia() {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                  <label htmlFor="form-relato" className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
                     Resumo da Situação ou Urgência Médica
                   </label>
                   <textarea
+                    id="form-relato"
+                    name="relato"
                     rows="4"
                     placeholder="Descreva brevemente o caso ou se há urgência médica/prazo processual em andamento..."
                     value={formData.relato}
                     onChange={(e) => setFormData({ ...formData, relato: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none leading-relaxed"
+                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#8C7355] focus:ring-1 focus:ring-[#8C7355] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none leading-relaxed"
                   ></textarea>
+                </div>
+
+                <div className="text-[11px] text-[#71717A] leading-relaxed">
+                  Ao enviar, seus dados são protegidos por sigilo profissional e tratados exclusivamente para triagem pré-jurídica, em estrita conformidade com a nossa{' '}
+                  <button
+                    type="button"
+                    onClick={() => setPrivacyModalOpen(true)}
+                    className="text-[#8C7355] hover:text-[#18181B] underline font-medium focus:outline-none cursor-pointer"
+                  >
+                    Política de Privacidade (LGPD)
+                  </button>.
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#18181B] text-white text-xs tracking-[0.14em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] shadow-sm cursor-pointer"
+                  className="w-full py-4 bg-[#18181B] text-white text-xs tracking-[0.14em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8C7355]"
                 >
                   Enviar para Análise Confidencial
                 </button>
                 <p className="text-[11px] text-[#71717A] text-center font-light">
-                  Seus dados serão encaminhados diretamente via WhatsApp criptografado para a banca da Dra. Beatriz Rocha.
+                  Seus dados serão encaminhados diretamente via canal criptografado para a banca da Dra. Beatriz Rocha.
                 </p>
               </form>
             </div>
@@ -1282,13 +1360,267 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </section>
 
-      {/* Rodapé Minimalista */}
-      <footer className="border-t border-[#D2B48C]/25 bg-white py-10 text-xs text-[#71717A]">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p>© {new Date().getFullYear()} Beatriz Rocha Sociedade Individual de Advocacia • OAB/SP 463.673. Todos os direitos reservados.</p>
-          <p>Edifício Torre Nova York • Marília/SP</p>
+      {/* Rodapé Minimalista com Conformidade Ética e Links Institucionais */}
+      <footer className="border-t border-[#D2B48C]/25 bg-white py-12 text-xs text-[#71717A]">
+        <div className="max-w-6xl mx-auto px-6 space-y-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-[#F0ECE1] pb-6">
+            <div>
+              <p className="font-serif text-[15px] text-[#18181B] tracking-[0.1em] uppercase font-normal">
+                Beatriz Rocha Sociedade Individual de Advocacia
+              </p>
+              <p className="text-[11px] text-[#8C7355] mt-0.5 tracking-wider uppercase font-medium">
+                OAB/SP 463.673 • Sede: Edifício Torre Nova York, Salas 305/306 • Marília/SP
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-5 text-[11px] uppercase tracking-wider font-medium text-[#52525B]">
+              <button
+                type="button"
+                onClick={() => setPrivacyModalOpen(true)}
+                className="hover:text-[#8C7355] transition-colors cursor-pointer"
+              >
+                Política de Privacidade (LGPD)
+              </button>
+              <span className="text-[#D6CFC2]">•</span>
+              <button
+                type="button"
+                onClick={() => setTermsModalOpen(true)}
+                className="hover:text-[#8C7355] transition-colors cursor-pointer"
+              >
+                Termos de Uso & Aviso Legal
+              </button>
+              <span className="text-[#D6CFC2]">•</span>
+              <a
+                href="#inicio"
+                className="hover:text-[#8C7355] transition-colors"
+              >
+                Voltar ao Topo ↑
+              </a>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] font-light text-[#71717A]">
+            <p>
+              © {new Date().getFullYear()} Beatriz Rocha Sociedade Individual de Advocacia. Todos os direitos reservados.
+            </p>
+            <p className="text-[10.5px]">
+              Conteúdo de caráter exclusivamente informativo, pautado pelo Provimento nº 205/2021 do Conselho Federal da OAB.
+            </p>
+          </div>
         </div>
       </footer>
+
+      {/* Modal: Política de Privacidade e Proteção de Dados (LGPD) */}
+      {privacyModalOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="privacy-modal-title"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-fadeIn"
+          onClick={() => setPrivacyModalOpen(false)}
+        >
+          <div
+            className="relative bg-white border border-[#E5E0DA] w-full max-w-3xl my-8 p-6 sm:p-10 rounded-[4px] shadow-2xl max-h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between border-b border-[#F0ECE1] pb-4 mb-5">
+              <div>
+                <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] font-semibold block mb-1">
+                  Proteção de Dados & Sigilo Profissional
+                </span>
+                <h3 id="privacy-modal-title" className="font-serif text-2xl text-[#18181B] font-normal">
+                  Política de Privacidade (LGPD)
+                </h3>
+                <p className="text-xs text-[#71717A] mt-1 font-light">
+                  Beatriz Rocha Sociedade Individual de Advocacia • OAB/SP 463.673
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setPrivacyModalOpen(false)}
+                className="w-8 h-8 rounded-full border border-[#E5E0DA] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center text-sm font-mono cursor-pointer transition-colors focus:outline-none"
+                aria-label="Fechar modal de privacidade"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="overflow-y-auto pr-2 text-xs sm:text-sm text-[#52525B] space-y-4 leading-relaxed font-light">
+              <p>
+                A <strong className="font-medium text-[#18181B]">Beatriz Rocha Sociedade Individual de Advocacia</strong> (OAB/SP 463.673), sediada no Edifício Torre Nova York, Salas 305 e 306, Complexo Praça Capital, Av. das Esmeraldas, 3895, Marília/SP, preza pela máxima confidencialidade e segurança no tratamento de dados pessoais, em estrita consonância com a <strong className="font-medium text-[#18181B]">Lei Geral de Proteção de Dados Pessoais (Lei Federal nº 13.709/2018 - LGPD)</strong>, o Estatuto da Advocacia (Lei Federal nº 8.906/1994) e o Código de Ética e Disciplina da OAB.
+              </p>
+
+              <h4 className="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
+                1. Princípio da Minimização e Coleta de Dados
+              </h4>
+              <p>
+                Coletamos exclusivamente os dados fornecidos voluntariamente pelo usuário através de nossos canais oficiais de contato (formulário do site e WhatsApp): nome completo, número de telefone/WhatsApp, endereço de e-mail e síntese fática da demanda jurídica. Não coletamos dados de forma oculta nem utilizamos cookies invasivos de rastreamento de perfil comercial.
+              </p>
+
+              <h4 className="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
+                2. Finalidade e Bases Legais do Tratamento
+              </h4>
+              <p>
+                O tratamento dos dados pessoais fundamenta-se nas seguintes bases legais do Artigo 7º da LGPD:
+              </p>
+              <ul className="list-disc pl-5 space-y-1.5">
+                <li><strong className="font-medium text-[#18181B]">Art. 7º, V:</strong> Procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados (triagem técnica inicial de casos);</li>
+                <li><strong className="font-medium text-[#18181B]">Art. 7º, IX:</strong> Atendimento aos interesses legítimos do controlador, resguardados os direitos e liberdades fundamentais do titular;</li>
+                <li><strong className="font-medium text-[#18181B]">Art. 11, II, 'e':</strong> Em demandas de Direito à Saúde envolvendo laudos médicos e diagnóstico de autismo (TEA), o tratamento de dados sensíveis destina-se estritamente ao exercício regular de direitos em processos judiciais e extrajudiciais.</li>
+              </ul>
+
+              <h4 className="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
+                3. Inviolabilidade do Sigilo Profissional da Advocacia
+              </h4>
+              <p>
+                Todas as informações, documentos, relatórios médicos e relatos compartilhados conosco são protegidos pelo <strong className="font-medium text-[#18181B]">sigilo profissional inegociável da advocacia</strong> (Art. 7º, II e Art. 34, VII do Estatuto da OAB). Nenhuma informação é vendida, alugada ou compartilhada com terceiros para fins comerciais ou publicitários.
+              </p>
+
+              <h4 className="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
+                4. Direitos do Titular (Art. 18 da LGPD)
+              </h4>
+              <p>
+                O titular dos dados tem o direito de solicitar a qualquer momento: (I) confirmação da existência de tratamento; (II) acesso aos dados; (III) correção de dados incompletos, inexatos ou desatualizados; (IV) anonimização, bloqueio ou eliminação de dados desnecessários; e (V) revogação do consentimento, ressalvadas as hipóteses de guarda obrigatória por dever legal ou regulatório.
+              </p>
+
+              <h4 className="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
+                5. Canal do Encarregado pelo Tratamento de Dados (DPO)
+              </h4>
+              <p>
+                Para exercer seus direitos ou esclarecer qualquer dúvida a respeito do tratamento de seus dados pessoais, entre em contato diretamente com nossa banca através do e-mail oficial: <strong className="font-medium text-[#18181B]">contato@beatrizrocha.adv.br</strong> ou pelo telefone/WhatsApp: <strong className="font-medium text-[#18181B]">(14) 99711-8732</strong>.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-[#F0ECE1] flex justify-end">
+              <button
+                type="button"
+                onClick={() => setPrivacyModalOpen(false)}
+                className="px-6 py-2.5 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] cursor-pointer focus:outline-none"
+              >
+                Compreendi e Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal: Termos de Uso e Aviso Legal Ético */}
+      {termsModalOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="terms-modal-title"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto animate-fadeIn"
+          onClick={() => setTermsModalOpen(false)}
+        >
+          <div
+            className="relative bg-white border border-[#E5E0DA] w-full max-w-3xl my-8 p-6 sm:p-10 rounded-[4px] shadow-2xl max-h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between border-b border-[#F0ECE1] pb-4 mb-5">
+              <div>
+                <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] font-semibold block mb-1">
+                  Transparência & Conformidade Ética
+                </span>
+                <h3 id="terms-modal-title" className="font-serif text-2xl text-[#18181B] font-normal">
+                  Termos de Uso & Aviso Legal
+                </h3>
+                <p className="text-xs text-[#71717A] mt-1 font-light">
+                  Provimento nº 205/2021 do Conselho Federal da OAB
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setTermsModalOpen(false)}
+                className="w-8 h-8 rounded-full border border-[#E5E0DA] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center text-sm font-mono cursor-pointer transition-colors focus:outline-none"
+                aria-label="Fechar modal de termos de uso"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="overflow-y-auto pr-2 text-xs sm:text-sm text-[#52525B] space-y-4 leading-relaxed font-light">
+              <h4 className="font-serif text-base text-[#18181B] font-normal">
+                1. Caráter Exclusivamente Informativo e Educativo
+              </h4>
+              <p>
+                Este sítio eletrônico é mantido pela <strong className="font-medium text-[#18181B]">Beatriz Rocha Sociedade Individual de Advocacia</strong> (OAB/SP 463.673) com finalidade estritamente informativa, pedagógica e institucional, nos exatos moldes disciplinados pelo <strong className="font-medium text-[#18181B]">Provimento nº 205/2021 do Conselho Federal da OAB</strong> e pelo Código de Ética e Disciplina da Advocacia. Nenhum conteúdo publicado constitui publicidade mercantil ou captação indevida de clientela.
+              </p>
+
+              <h4 className="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
+                2. Inexistência de Consulta Vinculante ou Contratação Automática
+              </h4>
+              <p>
+                A navegação no website, a leitura de artigos jurisprudenciais ou o encaminhamento de mensagens via formulário/WhatsApp não caracterizam, por si sós, a formalização de contrato de prestação de serviços advocatícios ou a constituição de mandato judicial. A outorga de poderes processuais depende impreterivelmente de instrumento procuratório específico e celebração expressa de contrato de honorários advocatícios.
+              </p>
+
+              <h4 className="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
+                3. Propriedade Intelectual e Direitos Autorais
+              </h4>
+              <p>
+                Todos os textos, análises jurídicas, fotografias, marcas, logotipos e códigos-fonte presentes neste portal são protegidos pela legislação de direitos autorais e propriedade industrial (Leis nº 9.610/98 e 9.279/96). É terminantemente vedada a reprodução total ou parcial para finalidades comerciais sem prévia autorização por escrito.
+              </p>
+
+              <h4 className="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
+                4. Links Oficiais para Tribunais e Fontes Públicas
+              </h4>
+              <p>
+                Os hiperlinks presentes na seção de informativos direcionam o usuário diretamente para as fontes institucionais oficiais (Supremo Tribunal Federal, Superior Tribunal de Justiça, Tribunal de Justiça de São Paulo, Conselho Nacional de Justiça e Agência Nacional de Saúde Suplementar). O escritório não se responsabiliza pela disponibilidade ou alterações de conteúdo em portais de terceiros.
+              </p>
+
+              <h4 className="font-serif text-base text-[#18181B] font-normal pt-2 border-t border-[#F0ECE1]">
+                5. Foro de Eleição
+              </h4>
+              <p>
+                Eventuais controvérsias decorrentes do uso deste portal serão dirimidas pelo Foro da Comarca de Marília, Estado de São Paulo, com expressa renúncia a qualquer outro, por mais privilegiado que seja.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-[#F0ECE1] flex justify-end">
+              <button
+                type="button"
+                onClick={() => setTermsModalOpen(false)}
+                className="px-6 py-2.5 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] cursor-pointer focus:outline-none"
+              >
+                Compreendi e Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Banner Flutuante de Consentimento LGPD */}
+      {!cookieConsentAccepted && (
+        <aside
+          role="region"
+          aria-label="Consentimento de Privacidade e Cookies"
+          className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-40 bg-white/95 backdrop-blur-md border border-[#E5E0DA] shadow-2xl p-5 rounded-[4px] animate-fadeIn text-[#18181B]"
+        >
+          <div className="flex items-start justify-between gap-3 mb-2">
+            <span className="text-[10px] tracking-[0.18em] uppercase text-[#8C7355] font-semibold">
+              Privacidade & Proteção de Dados (LGPD)
+            </span>
+          </div>
+          <p className="text-xs text-[#52525B] leading-relaxed font-light mb-4">
+            Utilizamos cookies essenciais estritamente para garantir o correto funcionamento e a segurança deste canal, em consonância com a Lei nº 13.709/2018 (LGPD) e o Provimento nº 205/2021 da OAB.
+          </p>
+          <div className="flex items-center justify-between gap-3 pt-2 border-t border-[#F0ECE1]">
+            <button
+              type="button"
+              onClick={() => setPrivacyModalOpen(true)}
+              className="text-[11px] text-[#8C7355] hover:text-[#18181B] underline font-medium cursor-pointer"
+            >
+              Ler Política Completa
+            </button>
+            <button
+              type="button"
+              onClick={handleAcceptCookies}
+              className="px-4 py-2 bg-[#18181B] text-white text-xs tracking-wider uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] cursor-pointer shadow-2xs"
+            >
+              Prosseguir
+            </button>
+          </div>
+        </aside>
+      )}
 
     </div>
   );
