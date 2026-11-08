@@ -295,6 +295,10 @@ export default function BeatrizRochaAdvocacia() {
             <a href="#contato" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
               Contato
             </a>
+
+            <a href="#faq" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap">
+              FAQ
+            </a>
           </nav>
 
           {/* CTA Discreto e Fino + Botão Mobile */}
@@ -353,6 +357,7 @@ export default function BeatrizRochaAdvocacia() {
 
             <a href="#informativos" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Informativos</a>
             <a href="#contato" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Contato</a>
+            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">FAQ</a>
           </div>
         )}
       </header>
@@ -849,70 +854,8 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </div>
 
-      {/* SEÇÃO: FAQ EM ACORDEÃO (Perguntas Frequentes Interativas) */}
-      <section id="faq" className="py-24 md:py-32 bg-[#FAF7F2] border-b border-[#E6E1D6]">
-        <div className="max-w-4xl mx-auto px-6">
-
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
-              Esclarecimentos Jurídicos
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl text-[#18181B] font-normal leading-tight">
-              Perguntas Frequentes
-            </h2>
-            <p className="mt-3 text-xs md:text-sm text-[#52525B] font-light leading-relaxed">
-              Respostas claras e transparentes para as dúvidas mais comuns sobre liminares de saúde, autismo (TEA) e condução de inventários.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {faqDatabase.map((faq, index) => {
-              const isOpen = openFaq === index;
-              return (
-                <div
-                  key={faq.id}
-                  className="bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]"
-                >
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
-                    aria-expanded={isOpen}
-                  >
-                    <span className="font-serif text-base sm:text-lg text-[#18181B] font-normal leading-snug">
-                      {faq.question}
-                    </span>
-                    <span className={`w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-45 bg-[#8C7355] text-white border-[#8C7355]' : 'bg-[#FAF7F2] text-[#8C7355]'}`}>
-                      +
-                    </span>
-                  </button>
-
-                  {isOpen && (
-                    <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1] animate-fadeIn">
-                      <p>{faq.answer}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="mt-10 p-6 bg-white border border-[#E6E1D6] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#52525B] rounded-[4px]">
-            <span>Possui uma dúvida específica sobre seu contrato ou laudo médico?</span>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors whitespace-nowrap uppercase tracking-wider"
-            >
-              Consultar Advogada via WhatsApp ↗
-            </a>
-          </div>
-
-        </div>
-      </section>
-
       {/* SEÇÃO: INFORMATIVOS E ATUALIDADES JURÍDICAS */}
-      <section id="informativos" className="py-24 bg-white border-b border-[#E6E1D6] relative">
+      <section id="informativos" className="py-24 bg-[#FAF7F2] border-b border-[#E6E1D6] relative">
         <div id="noticias" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
 
@@ -930,7 +873,7 @@ export default function BeatrizRochaAdvocacia() {
           </div>
 
           {/* Barra de Filtros e Busca de Notícias */}
-          <div className="bg-[#FAF7F2] p-5 border border-[#E6E1D6] mb-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+          <div className="bg-white p-5 border border-[#E6E1D6] mb-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 shadow-2xs">
 
             {/* Filtro por Categorias */}
             <div className="flex flex-wrap items-center gap-2">
@@ -941,7 +884,7 @@ export default function BeatrizRochaAdvocacia() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3 py-1.5 text-xs transition-colors ${selectedCategory === cat
                       ? 'bg-[#8C7355] text-white font-medium shadow-xs'
-                      : 'bg-white border border-[#E6E1D6] text-[#52525B] hover:text-[#18181B]'
+                      : 'bg-[#FAF7F2] border border-[#E6E1D6] text-[#52525B] hover:text-[#18181B]'
                     }`}
                 >
                   {cat}
@@ -956,14 +899,14 @@ export default function BeatrizRochaAdvocacia() {
                 placeholder="Buscar por palavra-chave..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-3.5 py-1.5 text-xs bg-white border border-[#E6E1D6] focus:outline-none focus:border-[#8C7355]"
+                className="w-full px-3.5 py-1.5 text-xs bg-[#FAF7F2] border border-[#E6E1D6] focus:outline-none focus:border-[#8C7355]"
               />
             </div>
           </div>
 
           {/* Grade de Cards de Notícias Reais */}
           {filteredNews.length === 0 ? (
-            <div className="p-12 text-center border border-[#E6E1D6] bg-[#FAF7F2] text-sm text-[#71717A]">
+            <div className="p-12 text-center border border-[#E6E1D6] bg-white text-sm text-[#71717A]">
               Nenhum conteúdo jurídico validado encontrado para o termo pesquisado.
             </div>
           ) : (
@@ -971,7 +914,7 @@ export default function BeatrizRochaAdvocacia() {
               {filteredNews.map((news) => (
                 <article
                   key={news.id}
-                  className="bg-[#FAF7F2]/40 border border-[#E6E1D6] p-7 flex flex-col justify-between hover:border-[#8C7355] hover:bg-white transition-all shadow-xs"
+                  className="bg-white border border-[#E6E1D6] p-7 flex flex-col justify-between hover:border-[#8C7355] transition-all shadow-xs"
                 >
                   <div>
                     {/* Cabeçalho do Card */}
@@ -1030,7 +973,7 @@ export default function BeatrizRochaAdvocacia() {
           )}
 
           {/* Chamada Ética no Fechamento das Notícias (Provimento 205/2021) */}
-          <div className="border border-[#E6E1D6] bg-[#FAF7F2] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[2px]">
+          <div className="border border-[#E6E1D6] bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-[2px] shadow-2xs">
             <div className="space-y-1">
               <h4 className="font-serif text-xl text-[#18181B] font-normal">
                 Dúvidas sobre a aplicação desses precedentes ao seu caso?
@@ -1053,7 +996,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* CONTATO E AGENDAMENTO */}
-      <section id="contato" className="py-24 bg-[#FAF7F2]">
+      <section id="contato" className="py-24 bg-white border-b border-[#E6E1D6]">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12">
 
           {/* Dados de Contato Institucionais */}
@@ -1231,6 +1174,68 @@ export default function BeatrizRochaAdvocacia() {
                 Enviar para Análise Confidencial
               </button>
             </form>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SEÇÃO: FAQ EM ACORDEÃO (Perguntas Frequentes Interativas) */}
+      <section id="faq" className="py-24 md:py-32 bg-[#FAF7F2] border-b border-[#E6E1D6]">
+        <div className="max-w-4xl mx-auto px-6">
+
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
+              Esclarecimentos Jurídicos
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#18181B] font-normal leading-tight">
+              Perguntas Frequentes
+            </h2>
+            <p className="mt-3 text-xs md:text-sm text-[#52525B] font-light leading-relaxed">
+              Respostas claras e transparentes para as dúvidas mais comuns sobre liminares de saúde, autismo (TEA) e condução de inventários.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqDatabase.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div
+                  key={faq.id}
+                  className="bg-white border border-[#E6E1D6] rounded-[4px] overflow-hidden transition-all duration-300 shadow-2xs hover:border-[#8C7355]"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="font-serif text-base sm:text-lg text-[#18181B] font-normal leading-snug">
+                      {faq.question}
+                    </span>
+                    <span className={`w-8 h-8 rounded-full border border-[#E6E1D6] flex items-center justify-center text-sm font-mono transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-45 bg-[#8C7355] text-white border-[#8C7355]' : 'bg-[#FAF7F2] text-[#8C7355]'}`}>
+                      +
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-[#52525B] font-light leading-relaxed border-t border-[#F0ECE1] animate-fadeIn">
+                      <p>{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-10 p-6 bg-white border border-[#E6E1D6] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#52525B] rounded-[4px]">
+            <span>Possui uma dúvida específica sobre seu contrato ou laudo médico?</span>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors whitespace-nowrap uppercase tracking-wider"
+            >
+              Consultar Advogada via WhatsApp ↗
+            </a>
           </div>
 
         </div>
