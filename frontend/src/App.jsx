@@ -179,16 +179,20 @@ export default function BeatrizRochaAdvocacia() {
               href={whatsappUrl} 
               target="_blank" 
               rel="noreferrer" 
-              className="text-[#18181B] font-medium hover:text-[#8C7355] transition-colors tracking-normal"
+              className="text-[#18181B] font-medium hover:text-[#8C7355] transition-colors tracking-normal inline-flex items-center gap-1.5"
             >
-              (14) 99711-8732
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span>
+              Falar no WhatsApp
             </a>
           </div>
         </div>
       </aside>
 
       {/* Header com Alinhamento Editorial Rigoroso, Logo Harmonizado & CTA */}
-      <header className="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#E6E1D6]">
+      <header
+        className="sticky top-0 z-50 header-glass border-b border-[#E5E0DA]"
+        style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.92)' }}
+      >
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
 
           {/* Monograma BR + Identidade */}
@@ -302,7 +306,7 @@ export default function BeatrizRochaAdvocacia() {
           </nav>
 
           {/* CTA Discreto e Fino + Botão Mobile */}
-          <div className="flex items-center ml-6 shrink-0">
+          <div className="flex items-center ml-8 shrink-0">
             <a
               href={whatsappUrl}
               target="_blank"
@@ -392,7 +396,7 @@ export default function BeatrizRochaAdvocacia() {
                 href="#contato"
                 className="px-7 py-3.5 border border-[#D6CFC2] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:border-[#8C7355] transition-colors"
               >
-                Solicitar Análise Confidencial
+                Solicitar Análise de Urgência
               </a>
             </div>
           </div>
@@ -439,7 +443,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* O Escritório / Institucional Humanizado */}
-      <section id="institucional" className="py-28 md:py-36 bg-white border-b border-[#E6E1D6] relative">
+      <section id="institucional" className="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25 relative">
         <div id="escritorio" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
@@ -530,7 +534,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* NÚCLEO EXCLUSIVO EM DESTAQUE: Direito à Saúde & Autismo (TEA) */}
-      <section id="saude-tea" className="py-28 md:py-36 bg-[#FAF7F2] border-b border-[#E6E1D6]">
+      <section id="saude-tea" className="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25">
         <div className="max-w-6xl mx-auto px-6">
 
           <div className="max-w-3xl mb-14">
@@ -758,7 +762,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* ÁREAS DE ATUAÇÃO / Especialidades (Família, Tributário & Cível) */}
-      <section id="areas-atuacao" className="py-28 md:py-36 bg-white border-b border-[#E6E1D6] relative">
+      <section id="areas-atuacao" className="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25 relative">
         <div id="atuacao" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
@@ -838,7 +842,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* Selo Institucional de Compromisso Ético e Atendimento (Provimento 205/2021 OAB) */}
-      <div className="py-5 border-b border-[#E6E1D6] bg-white">
+      <div className="py-5 border-t border-[#D2B48C]/25 bg-white">
         <div className="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
@@ -855,7 +859,7 @@ export default function BeatrizRochaAdvocacia() {
       </div>
 
       {/* SEÇÃO: INFORMATIVOS E ATUALIDADES JURÍDICAS */}
-      <section id="informativos" className="py-28 md:py-36 bg-[#FAF7F2] border-b border-[#E6E1D6] relative">
+      <section id="informativos" className="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative">
         <div id="noticias" className="absolute -top-24"></div>
         <div className="max-w-6xl mx-auto px-6">
 
@@ -997,92 +1001,111 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* CONTATO E AGENDAMENTO */}
-      <section id="contato" className="py-28 md:py-36 bg-white border-b border-[#E6E1D6]">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12">
+      <section id="contato" className="py-28 lg:py-32 bg-white border-t border-[#D2B48C]/25">
+        <div className="max-w-6xl mx-auto px-6">
 
-          {/* Dados de Contato Institucionais */}
-          <div className="md:col-span-5 space-y-8">
-            <div>
-              <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
-                Agendamento e Triagem
-              </span>
-              <h2 className="font-serif text-3xl text-[#18181B] font-normal">
-                Canais de Atendimento
-              </h2>
-              <p className="mt-3 text-sm text-[#52525B] font-light leading-relaxed">
-                Atendimento presencial privativo na cidade de Marília/SP ou telepresencial para clientes de qualquer localidade do Brasil.
-              </p>
-            </div>
+          <div className="max-w-2xl mb-12">
+            <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
+              Agendamento & Localização
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#18181B] font-normal">
+              Canais de Atendimento
+            </h2>
+            <p className="mt-3 text-sm md:text-base text-[#52525B] font-light leading-relaxed">
+              Atendimento presencial privativo na cidade de Marília/SP ou telepresencial para clientes de qualquer localidade do país.
+            </p>
+          </div>
 
-            <div className="space-y-5 text-sm border-t border-[#E6E1D6] pt-6">
-              <div>
-                <span className="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">Endereço</span>
-                <p className="text-[#18181B] mt-1">Av. das Esmeraldas, 3895 — Ed. Torre Nova York, Salas 305 e 306 • Marília/SP</p>
-              </div>
-              <div>
-                <span className="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">Telefone & WhatsApp</span>
-                <p className="text-[#18181B] mt-1 font-medium">(14) 99711-8732</p>
-              </div>
-              <div>
-                <span className="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">E-mail Institucional</span>
-                <p className="text-[#18181B] mt-1">contato@beatrizrocha.adv.br</p>
-              </div>
-              <div>
-                <span className="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block">Expediente</span>
-                <p className="text-[#18181B] mt-1">Segunda a Sexta-feira, das 08h30 às 18h00</p>
-              </div>
-            </div>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-14 items-start">
+            {/* Coluna Esquerda: Informações, Fotos Reais da Torre Nova York e Mapa Monocromático */}
+            <div className="space-y-8">
+              {/* Cartão Institucional de Expediente & Contato */}
+              <div className="bg-[#FAF7F2]/60 border border-[#E5E0DA] p-7 rounded-[4px] shadow-2xs space-y-5 text-sm">
+                <div>
+                  <span className="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold block mb-1">
+                    Sede Corporativa
+                  </span>
+                  <p className="text-[#18181B] font-serif text-lg font-normal leading-snug">
+                    Edifício Torre Nova York • Salas 305 e 306
+                  </p>
+                  <p className="text-xs text-[#52525B] font-light mt-0.5">
+                    Av. das Esmeraldas, 3895 — Complexo Praça Capital • Marília/SP
+                  </p>
+                </div>
 
-            {/* Bloco Visual de Localização & Mapa Interativo */}
-            <div className="border border-[#E6E1D6] bg-white p-5 rounded-[4px] shadow-xs space-y-4">
-              <div className="grid grid-cols-2 gap-3">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[2px] bg-[#FAF7F2] border border-[#E6E1D6] group">
+                <div className="grid sm:grid-cols-2 gap-4 pt-4 border-t border-[#E5E0DA]">
+                  <div>
+                    <span className="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block mb-0.5">
+                      Expediente
+                    </span>
+                    <p className="text-xs text-[#18181B] font-medium">
+                      Seg. a Sex. 08h30 às 18h00
+                    </p>
+                    <span className="text-[11px] text-[#71717A] font-light">
+                      Atendimento com hora marcada
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] tracking-[0.16em] uppercase text-[#71717A] block mb-0.5">
+                      Canal Direto
+                    </span>
+                    <p className="text-xs text-[#18181B] font-medium">
+                      (14) 99711-8732
+                    </p>
+                    <span className="text-[11px] text-[#71717A] font-light">
+                      contato@beatrizrocha.adv.br
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fotografias da Torre Nova York / Praça Capital */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#FAF7F2] border border-[#E5E0DA] shadow-2xs group">
                   <img
                     src="/assets/complexo-esmeraldas.jpg"
-                    alt="Complexo Praça Capital e Edifício Torre Nova York na Avenida das Esmeraldas"
+                    alt="Complexo Praça Capital e Edifício Torre Nova York na Avenida das Esmeraldas em Marília/SP"
                     className="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <span className="absolute bottom-1.5 left-1.5 text-[9px] uppercase tracking-wider text-white bg-black/60 px-1.5 py-0.5 backdrop-blur-xs font-medium">
-                    Fachada
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+                  <span className="absolute bottom-2.5 left-2.5 text-[9px] uppercase tracking-wider text-white bg-black/50 px-2 py-0.5 backdrop-blur-xs font-medium rounded-[2px]">
+                    Fachada • Torre Nova York
                   </span>
                 </div>
 
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[2px] bg-[#FAF7F2] border border-[#E6E1D6] group">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#FAF7F2] border border-[#E5E0DA] shadow-2xs group">
                   <img
                     src="/assets/recepcao-corporativa.jpg"
-                    alt="Recepção e lobby corporativo da Torre Nova York"
+                    alt="Lobby e recepção corporativa da Torre Nova York"
                     className="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <span className="absolute bottom-1.5 left-1.5 text-[9px] uppercase tracking-wider text-white bg-black/60 px-1.5 py-0.5 backdrop-blur-xs font-medium">
-                    Recepção
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+                  <span className="absolute bottom-2.5 left-2.5 text-[9px] uppercase tracking-wider text-white bg-black/50 px-2 py-0.5 backdrop-blur-xs font-medium rounded-[2px]">
+                    Recepção Privativa
                   </span>
                 </div>
               </div>
 
-              {/* Mapa Interativo com Filtro Sépia/Monocromático Suave */}
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[2px] border border-[#E6E1D6] bg-[#FAF7F2]">
-                <iframe
-                  title="Localização Torre Nova York - Google Maps"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.3644917657156!2d-49.93988632386345!3d-22.226297379739504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bfd71d34c19c99%3A0x6b44a30e8c7c91d4!2sAv.%20das%20Esmeraldas%2C%203895%20-%20Jardim%20Maringa%2C%20Mar%C3%ADlia%20-%20SP%2C%2017516-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
-                  className="w-full h-full border-0 filter grayscale-[50%] sepia-[20%] contrast-[1.05]"
-                  loading="lazy"
-                  allowFullScreen=""
-                ></iframe>
-              </div>
+              {/* Mapa Monocromático Limpo com Botões de Navegação */}
+              <div className="space-y-3">
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[4px] border border-[#E5E0DA] bg-[#FAF7F2] shadow-2xs">
+                  <iframe
+                    title="Localização Torre Nova York - Google Maps"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.3644917657156!2d-49.93988632386345!3d-22.226297379739504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bfd71d34c19c99%3A0x6b44a30e8c7c91d4!2sAv.%20das%20Esmeraldas%2C%203895%20-%20Jardim%20Maringa%2C%20Mar%C3%ADlia%20-%20SP%2C%2017516-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                    className="w-full h-full border-0 filter grayscale-[80%] contrast-[105%]"
+                    loading="lazy"
+                    allowFullScreen=""
+                  ></iframe>
+                </div>
 
-              <div className="space-y-3 pt-1">
-                <p className="text-[11px] text-[#52525B] font-light leading-relaxed">
-                  <strong className="font-medium text-[#18181B]">Sede Corporativa:</strong> Edifício Torre Nova York — Complexo Praça Capital, Avenida das Esmeraldas, Marília/SP
-                </p>
-
-                <div className="grid grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-2 gap-3 pt-1">
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=Av.+das+Esmeraldas%2C+3895+-+Mar%C3%ADlia%2C+SP"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 py-2 px-3 bg-[#FAF7F2] border border-[#D6CFC2] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.06em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[2px]"
+                    className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[#E5E0DA] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[3px] shadow-2xs"
                   >
                     <span>Google Maps ↗</span>
                   </a>
@@ -1090,98 +1113,120 @@ export default function BeatrizRochaAdvocacia() {
                     href="https://waze.com/ul?q=Av.+das+Esmeraldas+3895+Marilia"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 py-2 px-3 bg-[#FAF7F2] border border-[#D6CFC2] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.06em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[2px]"
+                    className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[#E5E0DA] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-colors rounded-[3px] shadow-2xs"
                   >
                     <span>Abrir no Waze ↗</span>
                   </a>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Formulário com Encaminhamento Direto */}
-          <div className="md:col-span-7 bg-white border border-[#E6E1D6] p-8 md:p-10 shadow-xs">
-            <h3 className="font-serif text-2xl text-[#18181B] font-normal mb-6">
-              Solicitar Orientação Jurídica
-            </h3>
-            <form className="space-y-5" onSubmit={handleSubmit}>
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-[#52525B] mb-2">Nome Completo *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Informe seu nome"
-                    value={formData.nome}
-                    onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                    className="w-full px-4 py-3 bg-[#FAF7F2] border border-[#E6E1D6] text-sm focus:outline-none focus:border-[#8C7355]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-[#52525B] mb-2">WhatsApp / Telefone *</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="(14) 99999-9999"
-                    value={formData.telefone}
-                    onChange={handlePhoneChange}
-                    maxLength={15}
-                    className="w-full px-4 py-3 bg-[#FAF7F2] border border-[#E6E1D6] text-sm focus:outline-none focus:border-[#8C7355]"
-                  />
-                </div>
+            {/* Coluna Direita: Formulário de Solicitação de Orientação Jurídica */}
+            <div className="bg-[#FAF7F2]/40 border border-[#E5E0DA] p-8 md:p-10 rounded-[4px] shadow-2xs">
+              <div className="mb-7">
+                <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] font-semibold block mb-1">
+                  Canal Confidencial
+                </span>
+                <h3 className="font-serif text-2xl md:text-[26px] text-[#18181B] font-normal">
+                  Solicitar Orientação Jurídica
+                </h3>
+                <p className="mt-2 text-xs md:text-sm text-[#52525B] font-light leading-relaxed">
+                  Preencha os campos abaixo para submeter sua demanda diretamente à banca. Seus dados e relatos são protegidos por sigilo profissional inegociável.
+                </p>
               </div>
 
-              <div>
-                <label className="block text-[11px] uppercase tracking-wider text-[#52525B] mb-2">E-mail (Opcional)</label>
-                <input
-                  type="email"
-                  placeholder="seuemail@exemplo.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-[#FAF7F2] border border-[#E6E1D6] text-sm focus:outline-none focus:border-[#8C7355]"
-                />
-              </div>
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                      Nome Completo *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Informe seu nome"
+                      value={formData.nome}
+                      onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+                      className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                      WhatsApp / Telefone *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="(14) 99999-9999"
+                      value={formData.telefone}
+                      onChange={handlePhoneChange}
+                      maxLength={15}
+                      className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                    />
+                  </div>
+                </div>
 
-              <div>
-                <label className="block text-[11px] uppercase tracking-wider text-[#52525B] mb-2">Matéria da Demanda</label>
-                <select
-                  value={formData.area}
-                  onChange={(e) => setFormData({ ...formData, area: e.target.value })}
-                  className="w-full px-4 py-3 bg-[#FAF7F2] border border-[#E6E1D6] text-sm text-[#18181B] focus:outline-none focus:border-[#8C7355]"
+                <div>
+                  <label className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                    E-mail Institucional ou Pessoal
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="seuemail@exemplo.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                    Matéria da Demanda
+                  </label>
+                  <select
+                    value={formData.area}
+                    onChange={(e) => setFormData({ ...formData, area: e.target.value })}
+                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none"
+                  >
+                    <option value="">Selecione a área correspondente</option>
+                    <option value="Direito à Saúde & Autismo / TEA">Direito à Saúde & Autismo / TEA (Liminares, Terapias, Medicamentos)</option>
+                    <option value="Família e Sucessões">Família e Sucessões (Inventário em Cartório, Partilha, Divórcio)</option>
+                    <option value="Direito Tributário">Direito Tributário (Isenção de IPVA PCD/TEA e Recuperação Fiscal)</option>
+                    <option value="Direito Cível e Contratos">Direito Cível, Contratos e Indenizações</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-[11px] uppercase tracking-wider text-[#52525B] font-medium mb-2">
+                    Resumo da Situação ou Urgência Médica
+                  </label>
+                  <textarea
+                    rows="4"
+                    placeholder="Descreva brevemente o caso ou se há urgência médica/prazo processual em andamento..."
+                    value={formData.relato}
+                    onChange={(e) => setFormData({ ...formData, relato: e.target.value })}
+                    className="w-full px-4 py-3 bg-white border border-[#E5E0DA] focus:border-[#D2B48C] text-sm text-[#18181B] rounded-[2px] transition-colors focus:outline-none leading-relaxed"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-4 bg-[#18181B] text-white text-xs tracking-[0.14em] uppercase font-medium hover:bg-[#8C7355] transition-colors rounded-[2px] shadow-sm cursor-pointer"
                 >
-                  <option value="">Selecione a área correspondente</option>
-                  <option value="Direito à Saúde & Autismo / TEA">Direito à Saúde & Autismo / TEA (Liminares, Terapias, Medicamentos)</option>
-                  <option value="Família e Sucessões">Família e Sucessões (Inventário em Cartório, Partilha, Divórcio)</option>
-                  <option value="Direito Tributário">Direito Tributário (Isenção de IPVA PCD/TEA e Recuperação Fiscal)</option>
-                  <option value="Direito Cível e Contratos">Direito Cível, Contratos e Indenizações</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[11px] uppercase tracking-wider text-[#52525B] mb-2">Resumo da Situação</label>
-                <textarea
-                  rows="4"
-                  placeholder="Descreva brevemente o caso ou se há urgência médica/prazo em andamento..."
-                  value={formData.relato}
-                  onChange={(e) => setFormData({ ...formData, relato: e.target.value })}
-                  className="w-full px-4 py-3 bg-[#FAF7F2] border border-[#E6E1D6] text-sm focus:outline-none focus:border-[#8C7355]"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-3.5 bg-[#18181B] text-white text-xs tracking-[0.12em] uppercase hover:bg-[#8C7355] transition-colors shadow-xs"
-              >
-                Enviar para Análise Confidencial
-              </button>
-            </form>
+                  Enviar para Análise Confidencial
+                </button>
+                <p className="text-[11px] text-[#71717A] text-center font-light">
+                  Seus dados serão encaminhados diretamente via WhatsApp criptografado para a banca da Dra. Beatriz Rocha.
+                </p>
+              </form>
+            </div>
           </div>
 
         </div>
       </section>
 
       {/* SEÇÃO: FAQ EM ACORDEÃO (Perguntas Frequentes Interativas) */}
-      <section id="faq" className="py-28 md:py-36 bg-[#FAF7F2] border-b border-[#E6E1D6]">
+      <section id="faq" className="py-28 lg:py-32 bg-[#FAF7F2] border-t border-[#D2B48C]/25">
         <div className="max-w-4xl mx-auto px-6">
 
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -1243,7 +1288,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* Rodapé Minimalista */}
-      <footer className="border-t border-[#E6E1D6] bg-white py-10 text-xs text-[#71717A]">
+      <footer className="border-t border-[#D2B48C]/25 bg-white py-10 text-xs text-[#71717A]">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p>© {new Date().getFullYear()} Beatriz Rocha Sociedade Individual de Advocacia • OAB/SP 463.673. Todos os direitos reservados.</p>
           <p>Edifício Torre Nova York • Marília/SP</p>
