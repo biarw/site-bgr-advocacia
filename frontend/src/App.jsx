@@ -217,16 +217,17 @@ export default function BeatrizRochaAdvocacia() {
     }
   ];
 
-  // Base de Notícias Reais e Verificadas
+  // Base de Notícias Reais e Verificadas (Redação Editorial de Alto Impacto)
   const newsDatabase = [
     {
       id: 1,
-      title: "Plano de saúde deve aceitar criança autista após recusar adesão por \"ausência de interesse comercial\"",
-      source: "Portal Migalhas & Justiça Estadual",
-      sourceBadge: "Migalhas • Seleção de Risco em TEA",
+      badge: "MIGALHAS",
+      scope: "Direito à Saúde",
       date: "Jurisprudência Atual",
-      category: "Direito à Saúde & Autismo (TEA)",
-      summary: "Decisão da Justiça reforça que a recusa de contratação de plano de saúde sob justificativas comerciais genéricas logo após a ciência do diagnóstico de TEA é ilegal e configura prática abusiva de seleção de risco.",
+      readTime: "1 min",
+      title: "Plano de saúde é proibido de recusar criança com autismo alegando \"falta de interesse comercial\"",
+      summary: "O que diz a decisão: o plano de saúde não pode alegar interesse comercial genérico após o diagnóstico. A recusa configura seleção de risco ilícita e gera dever de aceitação imediata da família.",
+      impact: "Garantia de adesão e manutenção no plano sem exclusões discriminatórias.",
       officialUrl: "https://www.migalhas.com.br/quentes/466978/plano-de-saude-deve-aceitar-crianca-autista-apos-recusar-adesao",
       partnerUrl: "https://www.tjsp.jus.br",
       partnerLabel: "TJSP ↗",
@@ -234,12 +235,13 @@ export default function BeatrizRochaAdvocacia() {
     },
     {
       id: 2,
-      title: "Justiça garante custeio de tratamento multidisciplinar fora da rede credenciada para crianças com TEA",
-      source: "Portal Migalhas & Tribunais de Justiça",
-      sourceBadge: "Migalhas • Reembolso Integral",
-      date: "Jurisprudência Atual",
-      category: "Direito à Saúde & Autismo (TEA)",
-      summary: "Diante da ausência ou inaptidão de profissionais especializados devidamente certificados na rede própria da operadora, o judiciário assegura o direito ao reembolso integral ou custeio direto de terapias particulares (como método ABA).",
+      badge: "STJ & TJSP",
+      scope: "Autismo & Terapias ABA",
+      date: "Tema 1.295 STJ",
+      readTime: "1 min",
+      title: "Justiça determina custeio total de terapia multidisciplinar (Método ABA) fora da rede credenciada",
+      summary: "O que diz a decisão: diante da inaptidão ou ausência de profissionais certificados na rede da operadora, o plano é obrigado a custear a clínica indicada ou ressarcir 100% dos valores particulares.",
+      impact: "Custeio integral e ininterrupto do tratamento prescrito pelo médico assistente.",
       officialUrl: "https://www.migalhas.com.br/quentes/430648/plano-indenizara-crianca-com-tea-apos-negar-tratamento-fora-da-rede",
       partnerUrl: "https://www.gov.br/ans",
       partnerLabel: "Portal ANS ↗",
@@ -247,12 +249,13 @@ export default function BeatrizRochaAdvocacia() {
     },
     {
       id: 3,
-      title: "STF e STJ definem parâmetros para cobertura de tratamentos e fármacos não previstos no rol da ANS",
-      source: "Portal Migalhas • STF & STJ",
-      sourceBadge: "Migalhas • STF & STJ Extra-Rol",
-      date: "ADIn 7.265 / Tema STJ",
-      category: "Direito à Saúde & Autismo (TEA)",
-      summary: "Com base nos parâmetros fixados pelo Supremo Tribunal Federal (ADIn 7.265) e nas diretrizes dos tribunais, pacientes com prescrição fundamentada e respaldo científico obtêm tutelas de urgência para tratamentos de alto custo.",
+      badge: "STF & STJ",
+      scope: "Rol da ANS",
+      date: "ADIn 7.265 / Extra-Rol",
+      readTime: "2 min",
+      title: "STF e STJ firmam critérios para fornecimento de medicamentos e procedimentos fora do rol da ANS",
+      summary: "O que diz a decisão: havendo recomendação médica fundamentada e comprovação científica, a ausência no rol da ANS não impede a concessão de liminar para fármacos e terapias de alto custo.",
+      impact: "Acesso viabilizado a tratamentos médicos essenciais mesmo fora da lista básica da ANS.",
       officialUrl: "https://www.migalhas.com.br/quentes/461400/toffoli-manda-stj-reanalisar-cobertura-de-remedio-fora-do-rol-da-ans",
       partnerUrl: "https://portal.stf.jus.br",
       partnerLabel: "Portal STF ↗",
@@ -260,12 +263,13 @@ export default function BeatrizRochaAdvocacia() {
     },
     {
       id: 4,
-      title: "Resolução CNJ nº 571/2024 autoriza inventário e partilha extrajudiciais em cartório mesmo com menores e incapazes",
-      source: "Conselho Nacional de Justiça (CNJ)",
-      sourceBadge: "CNJ • Resolução 571/2024",
-      date: "26 de agosto de 2024",
-      category: "Família e Sucessões",
-      summary: "O CNJ alterou a Resolução nº 35/2007 para permitir a lavratura de escrituras públicas de inventário e partilha em cartório de notas havendo herdeiros menores de idade ou incapazes, desde que consensual e resguardado o quinhão legal com oitiva do Ministério Público, agilizando transmissões sucessórias.",
+      badge: "CNJ",
+      scope: "Família e Sucessões",
+      date: "Resolução 571/2024",
+      readTime: "1 min",
+      title: "Resolução CNJ nº 571/2024 autoriza inventário e partilha em cartório mesmo havendo herdeiros menores",
+      summary: "O que diz a decisão: o CNJ dispensou a via judicial quando há consenso e quinhão legal preservado com oitiva do Ministério Público, agilizando transmissões sucessórias.",
+      impact: "Transmissão da herança em semanas perante cartório de notas, poupando anos de litígio.",
       officialUrl: "https://www.cnj.jus.br",
       partnerUrl: "https://www.conjur.com.br",
       partnerLabel: "ConJur ↗",
@@ -273,12 +277,13 @@ export default function BeatrizRochaAdvocacia() {
     },
     {
       id: 5,
-      title: "TJSP consolida direito à isenção de IPVA e restituição de valores pagos para PCD e pessoas com TEA",
-      source: "Tribunal de Justiça de SP & Sefaz/SP",
-      sourceBadge: "TJSP • Fazenda Pública",
+      badge: "TJSP",
+      scope: "Direito Tributário",
       date: "Jurisprudência Consolidada",
-      category: "Tributário & Isenções",
-      summary: "Órgão Especial e Câmaras de Direito Público do TJSP mantêm a suspensão de cobranças indevidas e garantem a isenção de IPVA e repetição de indébito para veículos de pessoas com deficiência ou autismo, rechaçando critérios discriminatórios e burocráticos do Estado.",
+      readTime: "1 min",
+      title: "TJSP consolida direito à isenção de IPVA e restituição dos últimos anos para pessoas com TEA e PCD",
+      summary: "O que diz a decisão: o Tribunal de Justiça afasta critérios discriminatórios impostos pelo Estado e garante a imunidade do IPVA, além da devolução corrigida dos valores pagos indevidamente.",
+      impact: "Cancelamento do imposto veicular e restituição financeira dos recolhimentos passados.",
       officialUrl: "https://www.tjsp.jus.br",
       partnerUrl: "https://www.conjur.com.br",
       partnerLabel: "ConJur ↗",
@@ -1264,18 +1269,18 @@ export default function BeatrizRochaAdvocacia() {
             </div>
 
             {/* Setas Discretas de Navegação */}
-            <div className="flex items-center gap-2.5 shrink-0">
+            <div className="flex items-center gap-3 shrink-0">
               <button
                 onClick={() => scrollNews('left')}
                 aria-label="Avançar para notícia anterior"
-                className="w-10 h-10 rounded-full border border-[#D2B48C]/40 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer text-sm"
+                className="w-11 h-11 rounded-full border border-[#D2B48C]/50 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] hover:text-[#8C7355] flex items-center justify-center transition-all duration-200 shadow-xs hover:shadow-sm cursor-pointer text-base active:scale-95"
               >
                 ←
               </button>
               <button
                 onClick={() => scrollNews('right')}
                 aria-label="Avançar para próxima notícia"
-                className="w-10 h-10 rounded-full border border-[#D2B48C]/40 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] flex items-center justify-center transition-colors shadow-2xs cursor-pointer text-sm"
+                className="w-11 h-11 rounded-full border border-[#D2B48C]/50 bg-white hover:border-[#8C7355] hover:bg-[#FAF7F2] text-[#18181B] hover:text-[#8C7355] flex items-center justify-center transition-all duration-200 shadow-xs hover:shadow-sm cursor-pointer text-base active:scale-95"
               >
                 →
               </button>
@@ -1300,40 +1305,52 @@ export default function BeatrizRochaAdvocacia() {
             {newsDatabase.map((news) => (
               <article
                 key={news.id}
-                className="w-[330px] sm:w-[370px] shrink-0 bg-white border border-[#D2B48C]/30 p-7 sm:p-8 flex flex-col justify-between rounded-[4px] shadow-2xs hover:border-[#8C7355] transition-all duration-300 snap-start"
+                className="w-[340px] sm:w-[380px] shrink-0 bg-white border border-[rgba(210,180,140,0.4)] p-6 sm:p-7 flex flex-col justify-between rounded-[6px] shadow-2xs hover:shadow-md hover:border-[#8C7355] transition-all duration-300 snap-start"
               >
                 <div>
-                  {/* Tag de Origem no Topo */}
+                  {/* Tag / Badge de Origem no Topo & Tempo de Leitura */}
                   <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
-                    <span className="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold">
-                      {news.sourceBadge.split('•')[0].trim()}
+                    <span className="px-2.5 py-1 bg-[#D2B48C]/20 border border-[#D2B48C]/40 text-[#8C7355] text-[10.5px] font-bold tracking-wider uppercase rounded-[3px]">
+                      {news.badge}
                     </span>
-                    <span className="text-[10.5px] text-[#71717A] font-mono tracking-wide">
-                      {news.date}
-                    </span>
+                    <div className="flex items-center gap-1.5 text-[10.5px] text-[#71717A] font-mono">
+                      <span>⏱️ {news.readTime}</span>
+                      <span>•</span>
+                      <span>{news.date}</span>
+                    </div>
                   </div>
 
-                  {/* Título da Notícia */}
-                  <h3 className="font-serif text-lg sm:text-[19px] text-[#18181B] font-normal leading-snug mb-3 hover:text-[#8C7355] transition-colors">
+                  {/* Título da Notícia (Headline Editorial de Impacto) */}
+                  <h3 className="font-serif text-[1.15rem] leading-[1.4] text-[#18181B] font-normal sm:font-medium mb-3 hover:text-[#8C7355] transition-colors">
                     {news.title}
                   </h3>
 
-                  {/* Breve Resumo */}
-                  <p className="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-6">
+                  {/* Resumo Estratégico (O "Por que isso importa?") */}
+                  <p className="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-4">
                     {news.summary}
                   </p>
+
+                  {/* Micro-Copy: Impacto Prático */}
+                  <div className="p-3 bg-[#FAF7F2] border-l-2 border-[#8C7355] rounded-r-[3px] mb-6">
+                    <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-bold block mb-0.5">
+                      Impacto Prático:
+                    </span>
+                    <p className="text-xs text-[#18181B] font-medium leading-snug">
+                      {news.impact}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Rodapé com Link de Conferência Oficial */}
-                <div className="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs">
+                {/* Rodapé com Botão Refinado [Acessar Publicação ↗] */}
+                <div className="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs gap-2">
                   <a
                     href={news.officialUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors inline-flex items-center gap-1.5 uppercase text-[11px] tracking-wider"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#FAF7F2] hover:bg-[#8C7355] text-[#8C7355] hover:text-white border border-[#D2B48C]/50 hover:border-[#8C7355] text-[11px] font-semibold tracking-wider uppercase rounded-[4px] transition-all duration-300 shadow-2xs group/btn"
                   >
                     <span>Acessar Publicação</span>
-                    <span>↗</span>
+                    <span className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform">↗</span>
                   </a>
 
                   {news.partnerUrl && (
@@ -1341,7 +1358,7 @@ export default function BeatrizRochaAdvocacia() {
                       href={news.partnerUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="px-2.5 py-1 bg-[#FAF7F2] border border-[#E5E0DA] text-[10.5px] text-[#71717A] hover:text-[#18181B] hover:border-[#8C7355] transition-colors rounded-[2px]"
+                      className="px-2.5 py-1.5 bg-white border border-[#E5E0DA] hover:border-[#8C7355] text-[10.5px] text-[#71717A] hover:text-[#18181B] transition-colors rounded-[3px]"
                     >
                       {news.partnerLabel}
                     </a>
