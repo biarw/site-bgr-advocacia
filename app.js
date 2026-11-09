@@ -276,272 +276,292 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 9. Stepper Interativo de Medidas de Urgência & Checklist Dinâmico
-  const urgencyStepsData = [
-    {
-      stepNumber: "01",
-      shortTitle: "Triagem Documental",
-      fullTitle: "Análise Técnica e Imediata do Laudo e da Negativa",
-      phaseBadge: "Fase 01 • Análise Preliminar",
-      timeEstimate: "Até 2h úteis",
-      timeSelo: "⏱️ Prazo estimado: Análise imediata (até 2h úteis)",
-      timeBadge: "⏱️ Prazo estimado: Análise imediata (até 2h úteis)",
-      description: "Avaliamos minuciosamente o relatório do médico assistente e a justificativa da recusa pelo plano de saúde. Em demandas de neurodesenvolvimento (TEA) ou risco iminente de descontinuidade clínica, a indicação médica fundamentada prevalece juridicamente sobre restrições administrativas da operadora.",
-      legalThesis: "Lei Federal nº 14.454/2022 (Superação do rol taxativo da ANS), Súmula 102 do TJSP e dever de assistência integral à saúde.",
-      deliverable: "Diagnóstico inicial de viabilidade jurídica para ingresso imediato com o pedido de tutela provisória de urgência.",
-      isChecklistStep: true
-    },
-    {
-      stepNumber: "02",
-      shortTitle: "Estratégia e Protocolo",
-      fullTitle: "Petição Inicial com Pedido de Tutela Provisória de Urgência",
-      phaseBadge: "Fase 02 • Ajuizamento Eletrônico",
-      timeEstimate: "4h a 12h",
-      timeSelo: "⚡ Protocolo célere: 4h a 12h",
-      timeBadge: "⚡ Protocolo célere: 4h a 12h",
-      description: "Redação artesanal e ajuizamento eletrônico do pedido liminar inaudita altera parte, demonstrando a probabilidade do direito (fumus boni iuris) e o perigo de dano irreparável ao neurodesenvolvimento ou à integridade do paciente (periculum in mora).",
-      legalThesis: "Artigo 300 do Código de Processo Civil (CPC), Princípio da Dignidade da Pessoa Humana e Artigo 196 da CF/88.",
-      deliverable: "Comprovante formal de distribuição no tribunal competente com número de protocolo CNJ e chave de acesso aos autos.",
-      isChecklistStep: false
-    },
-    {
-      stepNumber: "03",
-      shortTitle: "Acompanhamento da Liminar",
-      fullTitle: "Despacho Direto com o Magistrado e Monitoramento Ostensivo",
-      phaseBadge: "Fase 03 • Decisão Judicial",
-      timeEstimate: "24h a 72h",
-      timeSelo: "⚡ Decisão em 24h a 72h (regime de plantão)",
-      timeBadge: "⚡ Decisão em 24h a 72h (regime de plantão)",
-      description: "Interlocução direta e despacho com o magistrado da causa ou no plantão judiciário de saúde. Monitoramento ostensivo do processo para assegurar que a prescrição médica seja apreciada com a máxima celeridade, antes de qualquer prejuízo clínico.",
-      legalThesis: "Tema 1.295 do Superior Tribunal de Justiça (STJ - cobertura ilimitada no TEA) e Resoluções do CNJ sobre plantão em saúde.",
-      deliverable: "Cópia da decisão interlocutória concessiva da tutela de urgência contendo a ordem judicial de custeio/fornecimento.",
-      isChecklistStep: false
-    },
-    {
-      stepNumber: "04",
-      shortTitle: "Efetivação do Direito",
-      fullTitle: "Intimação Obrigatória e Início do Atendimento",
-      phaseBadge: "Fase 04 • Cumprimento Imediato",
-      timeEstimate: "Até 24h",
-      timeSelo: "⏱️ Intimação imediata: até 24h sob pena de multa",
-      timeBadge: "⏱️ Intimação imediata: até 24h sob pena de multa",
-      description: "Intimação imediata da operadora para emissão das guias de autorização ou custeio em clínica especializada (com reembolso integral em caso de falha de rede credenciada), fixando-se multa cominatória diária (astreintes) em caso de mora ou recusa de cumprimento.",
-      legalThesis: "Artigos 536 e 537 do CPC (Medidas Indutivas e Coercitivas), Tema 1.082 do STJ e RN 566/2022 da ANS.",
-      deliverable: "Comprovante de autorização emitido pela operadora, início das terapias e assessoria contínua durante todo o processo.",
-      isChecklistStep: false
-    }
-  ];
+  // 9. Interatividade por Hover e Toque (Passo 01: Triagem Documental)
+  const urgencyCardStep1 = document.getElementById('urgency-card-step1');
+  const urgencyStep1Normal = document.getElementById('urgency-step1-normal');
+  const urgencyStep1Hover = document.getElementById('urgency-step1-hover');
 
-  let currentUrgencyStep = 0;
-  const urgencyTabs = document.querySelectorAll('.urgency-tab');
-  const urgencyCard = document.getElementById('urgency-step-card');
-  const phaseBadge = document.getElementById('urgency-phase-badge');
-  const stepCounter = document.getElementById('urgency-step-counter');
-  const timeBadge = document.getElementById('urgency-time-badge');
-  const stepTitle = document.getElementById('urgency-step-title');
-  const stepDesc = document.getElementById('urgency-step-desc');
-  const legalThesis = document.getElementById('urgency-legal-thesis');
-  const deliverable = document.getElementById('urgency-deliverable');
-  const checklistWrapper = document.getElementById('urgency-checklist-wrapper');
-  const prevBtn = document.getElementById('urgency-prev-btn');
-  const nextBtn = document.getElementById('urgency-next-btn');
-  const finalCta = document.getElementById('urgency-final-cta');
-  const startNote = document.getElementById('urgency-start-note');
-  const stepDots = document.querySelectorAll('#urgency-step-dots button');
-
-  // Elementos do Checklist
-  const chkNegativa = document.getElementById('chk-negativa');
-  const chkLaudo = document.getElementById('chk-laudo');
-  const chkComprovantes = document.getElementById('chk-comprovantes');
-  const checklistBox = document.getElementById('checklist-whatsapp-box');
-  const checklistPlaceholder = document.getElementById('checklist-placeholder');
-  const checklistBtn = document.getElementById('checklist-whatsapp-btn');
-
-  function updateChecklistState() {
-    if (!chkNegativa || !chkLaudo || !chkComprovantes) return;
-    const hasAny = chkNegativa.checked || chkLaudo.checked || chkComprovantes.checked;
-
-    // Atualiza classes visuais dos itens
-    document.querySelectorAll('.checklist-item').forEach(item => {
-      const input = item.querySelector('input[type="checkbox"]');
-      if (input && input.checked) {
-        item.classList.add('bg-[#FAF7F2]', 'border-[#8C7355]', 'ring-1', 'ring-[#8C7355]/30', 'shadow-xs');
-        item.classList.remove('bg-white', 'border-[rgba(210,180,140,0.4)]');
+  if (urgencyCardStep1 && urgencyStep1Normal && urgencyStep1Hover) {
+    let step1Active = false;
+    urgencyCardStep1.addEventListener('click', () => {
+      // Suporte para alternância por toque em smartphones e tablets
+      step1Active = !step1Active;
+      if (step1Active) {
+        urgencyStep1Normal.classList.add('opacity-0', 'pointer-events-none');
+        urgencyStep1Hover.classList.remove('opacity-0', 'pointer-events-none');
+        urgencyStep1Hover.classList.add('opacity-100', 'pointer-events-auto');
+        urgencyCardStep1.classList.add('border-[#8C7355]', 'bg-[#FAF7F2]');
       } else {
-        item.classList.remove('bg-[#FAF7F2]', 'border-[#8C7355]', 'ring-1', 'ring-[#8C7355]/30', 'shadow-xs');
-        item.classList.add('bg-white', 'border-[rgba(210,180,140,0.4)]');
+        urgencyStep1Normal.classList.remove('opacity-0', 'pointer-events-none');
+        urgencyStep1Hover.classList.remove('opacity-100', 'pointer-events-auto');
+        urgencyStep1Hover.classList.add('opacity-0', 'pointer-events-none');
+        urgencyCardStep1.classList.remove('border-[#8C7355]', 'bg-[#FAF7F2]');
       }
     });
-
-    if (hasAny) {
-      if (checklistBox) {
-        checklistBox.classList.remove('hidden');
-        checklistBox.classList.add('flex');
-      }
-      if (checklistPlaceholder) {
-        checklistPlaceholder.classList.add('hidden');
-      }
-
-      // Prepara mensagem de WhatsApp
-      const selectedLabels = [];
-      if (chkNegativa.checked) selectedLabels.push("• Negativa formal do plano de saúde por escrito (ou protocolo de recusa)");
-      if (chkLaudo.checked) selectedLabels.push("• Relatório médico circunstanciado com a CID e indicação terapêutica detalhada");
-      if (chkComprovantes.checked) selectedLabels.push("• Carteirinha do plano de saúde e comprovantes de quitação recentes");
-
-      const message = [
-        "*SOLICITAÇÃO DE TRIAGEM DOCUMENTAL DE URGÊNCIA*",
-        "*Beatriz Rocha Sociedade Individual de Advocacia*",
-        "",
-        "Olá, Dra. Beatriz Rocha. Preenchi o checklist de triagem no site e já possuo em mãos os seguintes documentos:",
-        "",
-        ...selectedLabels,
-        "",
-        "Gostaria de orientações sobre a análise preliminar e os próximos passos para a medida liminar."
-      ].join("\n");
-
-      if (checklistBtn) {
-        checklistBtn.href = `https://wa.me/5514997118732?text=${encodeURIComponent(message)}`;
-      }
-    } else {
-      if (checklistBox) {
-        checklistBox.classList.add('hidden');
-        checklistBox.classList.remove('flex');
-      }
-      if (checklistPlaceholder) {
-        checklistPlaceholder.classList.remove('hidden');
-      }
-    }
   }
 
-  [chkNegativa, chkLaudo, chkComprovantes].forEach(chk => {
-    if (chk) {
-      chk.addEventListener('change', updateChecklistState);
-    }
-  });
+  // ============================================================================
+  // 10. CENTRAL DE FERRAMENTAS JURÍDICAS (UTILIDADE PÚBLICA • CLIENT-SIDE)
+  // ============================================================================
 
-  function renderUrgencyStep(stepIdx) {
-    if (stepIdx < 0 || stepIdx >= urgencyStepsData.length) return;
-    currentUrgencyStep = stepIdx;
-    const data = urgencyStepsData[stepIdx];
+  // Navegação de Abas da Central
+  const toolTabBtns = document.querySelectorAll('.tool-tab-btn');
+  const toolPanels = document.querySelectorAll('.tool-panel');
+  const toolToast = document.getElementById('tool-copied-toast');
 
-    // Atualiza tabs
-    urgencyTabs.forEach((tab, idx) => {
-      const isAct = idx === stepIdx;
-      tab.setAttribute('aria-selected', isAct ? 'true' : 'false');
-      const numSpan = tab.querySelector('.urgency-tab-num');
-      const timeSpan = tab.querySelector('.urgency-tab-time');
-      const titleH4 = tab.querySelector('.urgency-tab-title');
-      const barSpan = tab.querySelector('.urgency-tab-bar');
-
-      if (isAct) {
-        tab.className = 'urgency-tab relative p-3.5 sm:p-4 text-left rounded-[4px] transition-all duration-300 cursor-pointer flex flex-col justify-between min-w-[210px] md:min-w-0 flex-1 shrink-0 bg-[#D2B48C]/20 border-2 border-[#8C7355] text-[#18181B] shadow-xs';
-        if (numSpan) numSpan.className = 'urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#8C7355] text-white shadow-xs';
-        if (timeSpan) timeSpan.className = 'urgency-tab-time text-[10px] uppercase tracking-wider font-semibold text-[#8C7355] bg-white border border-[#D2B48C]/50 px-2 py-0.5 rounded-[3px]';
-        if (titleH4) titleH4.className = 'urgency-tab-title text-xs sm:text-sm font-serif font-semibold leading-tight text-[#18181B]';
-        if (barSpan) {
-          barSpan.className = 'urgency-tab-bar absolute bottom-0 left-3 right-3 h-[3px] bg-[#8C7355] rounded-full';
+  function switchTool(toolId) {
+    // Atualiza botões
+    toolTabBtns.forEach(btn => {
+      const isTarget = btn.getAttribute('data-tool') === toolId;
+      if (isTarget) {
+        if (toolId === 'emergencia-pix') {
+          btn.className = 'tool-tab-btn active px-3.5 py-2.5 rounded-[4px] text-xs font-medium whitespace-nowrap transition-all cursor-pointer flex items-center gap-2 shrink-0 bg-rose-900 text-white shadow-xs';
+        } else if (toolId === 'triage') {
+          btn.className = 'tool-tab-btn active px-3.5 py-2.5 rounded-[4px] text-xs font-medium whitespace-nowrap transition-all cursor-pointer flex items-center gap-2 shrink-0 bg-[#18181B] text-white shadow-xs';
+        } else {
+          btn.className = 'tool-tab-btn active px-3.5 py-2.5 rounded-[4px] text-xs font-medium whitespace-nowrap transition-all cursor-pointer flex items-center gap-2 shrink-0 bg-[#8C7355] text-white shadow-xs';
         }
       } else {
-        tab.className = 'urgency-tab relative p-3.5 sm:p-4 text-left rounded-[4px] transition-all duration-300 cursor-pointer flex flex-col justify-between min-w-[210px] md:min-w-0 flex-1 shrink-0 bg-white/80 border border-[#E6E1D6] hover:bg-white hover:border-[#D2B48C] text-[#52525B]';
-        if (numSpan) numSpan.className = 'urgency-tab-num w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors bg-[#FAF7F2] border border-[#E6E1D6] text-[#71717A]';
-        if (timeSpan) timeSpan.className = 'urgency-tab-time text-[10px] uppercase tracking-wider font-medium text-[#A1A1AA] px-0 py-0.5';
-        if (titleH4) titleH4.className = 'urgency-tab-title text-xs sm:text-sm font-serif font-medium leading-tight text-[#52525B]';
-        if (barSpan) {
-          barSpan.className = 'urgency-tab-bar hidden absolute bottom-0 left-3 right-3 h-[3px] bg-[#8C7355] rounded-full';
+        if (btn.getAttribute('data-tool') === 'emergencia-pix') {
+          btn.className = 'tool-tab-btn px-3.5 py-2.5 rounded-[4px] text-xs font-medium whitespace-nowrap transition-all cursor-pointer flex items-center gap-2 shrink-0 text-rose-900 bg-rose-50/70 border border-rose-200/60 hover:bg-rose-100/70';
+        } else {
+          btn.className = 'tool-tab-btn px-3.5 py-2.5 rounded-[4px] text-xs font-medium whitespace-nowrap transition-all cursor-pointer flex items-center gap-2 shrink-0 text-[#52525B] hover:text-[#18181B] hover:bg-[#FAF7F2]';
         }
       }
     });
 
-    // Atualiza Dots
-    stepDots.forEach((dot, idx) => {
-      if (idx === stepIdx) {
-        dot.className = 'h-2.5 rounded-full transition-all cursor-pointer w-6 bg-[#8C7355]';
+    // Atualiza painéis
+    toolPanels.forEach(panel => {
+      if (panel.id === `tool-panel-${toolId}`) {
+        panel.classList.remove('hidden');
+        panel.classList.add('animate-fadeIn');
       } else {
-        dot.className = 'h-2.5 rounded-full transition-all cursor-pointer w-2.5 bg-[#D4CEB2] hover:bg-[#8C7355]/60';
-      }
-    });
-
-    // Atualiza Conteúdo
-    if (phaseBadge) phaseBadge.textContent = data.phaseBadge;
-    if (stepCounter) stepCounter.textContent = `Etapa ${stepIdx + 1} de ${urgencyStepsData.length}`;
-    if (timeBadge) timeBadge.textContent = data.timeSelo || data.timeBadge;
-    if (stepTitle) stepTitle.textContent = data.fullTitle;
-    if (stepDesc) stepDesc.textContent = data.description;
-    if (legalThesis) legalThesis.textContent = data.legalThesis;
-    if (deliverable) deliverable.textContent = data.deliverable;
-
-    // Toggle checklist
-    if (checklistWrapper) {
-      if (data.isChecklistStep) {
-        checklistWrapper.classList.remove('hidden');
-      } else {
-        checklistWrapper.classList.add('hidden');
-      }
-    }
-
-    // Botão Anterior
-    if (stepIdx > 0) {
-      if (prevBtn) {
-        prevBtn.classList.remove('hidden');
-        prevBtn.textContent = `← Etapa Anterior: ${urgencyStepsData[stepIdx - 1].shortTitle}`;
-      }
-      if (startNote) startNote.classList.add('hidden');
-    } else {
-      if (prevBtn) prevBtn.classList.add('hidden');
-      if (startNote) startNote.classList.remove('hidden');
-    }
-
-    // Botão Próximo / Final CTA
-    if (stepIdx < urgencyStepsData.length - 1) {
-      if (nextBtn) {
-        nextBtn.classList.remove('hidden');
-        nextBtn.textContent = `Próxima Etapa: ${urgencyStepsData[stepIdx + 1].shortTitle} →`;
-      }
-      if (finalCta) finalCta.classList.add('hidden');
-    } else {
-      if (nextBtn) nextBtn.classList.add('hidden');
-      if (finalCta) finalCta.classList.remove('hidden');
-    }
-
-    // Transição Suave (Fade In)
-    if (urgencyCard) {
-      urgencyCard.classList.remove('animate-fadeIn');
-      void urgencyCard.offsetWidth; // Trigger reflow
-      urgencyCard.classList.add('animate-fadeIn');
-    }
-  }
-
-  // Listeners de Tabs
-  urgencyTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const idx = parseInt(tab.getAttribute('data-step-index') || '0', 10);
-      renderUrgencyStep(idx);
-    });
-  });
-
-  // Listeners de Dots
-  stepDots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const idx = parseInt(dot.getAttribute('data-dot-index') || '0', 10);
-      renderUrgencyStep(idx);
-    });
-  });
-
-  // Listeners de Prev e Next
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      if (currentUrgencyStep > 0) {
-        renderUrgencyStep(currentUrgencyStep - 1);
+        panel.classList.add('hidden');
+        panel.classList.remove('animate-fadeIn');
       }
     });
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      if (currentUrgencyStep < urgencyStepsData.length - 1) {
-        renderUrgencyStep(currentUrgencyStep + 1);
+  toolTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const toolId = btn.getAttribute('data-tool');
+      if (toolId) switchTool(toolId);
+    });
+  });
+
+  // Botões de navegação rápida (Wizard e Pontes contextuais)
+  document.querySelectorAll('[data-nav-tool]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTool = btn.getAttribute('data-nav-tool');
+      if (targetTool) {
+        switchTool(targetTool);
+        const section = document.getElementById('ferramentas');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     });
+  });
+
+  // Função utilitária de cópia com Toast
+  function copyTextWithToast(text) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        if (toolToast) {
+          toolToast.classList.remove('hidden');
+          toolToast.classList.add('flex');
+          setTimeout(() => {
+            toolToast.classList.add('hidden');
+            toolToast.classList.remove('flex');
+          }, 2500);
+        }
+      });
+    }
+  }
+
+    // ============================================================================
+  // GERENCIAMENTO DE MODAIS DA CENTRAL DE FERRAMENTAS (FLUXO DIRETO EM 1 CLIQUE)
+  // ============================================================================
+  const legalModals = document.querySelectorAll('.legal-modal');
+
+  function openLegalModal(modalId) {
+    const targetModal = document.getElementById(modalId);
+    if (targetModal) {
+      targetModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeAllLegalModals() {
+    legalModals.forEach(m => m.classList.add('hidden'));
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-open-modal]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const modalId = trigger.getAttribute('data-open-modal');
+      if (modalId) openLegalModal(modalId);
+    });
+  });
+
+  document.querySelectorAll('[data-close-modal]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeAllLegalModals();
+    });
+  });
+
+  legalModals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeAllLegalModals();
+      }
+    });
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllLegalModals();
+    }
+  });
+
+  // --- FERRAMENTA 1: SIMULADOR DE RENDA BPC/LOAS ---
+  const bpcMembers = document.getElementById('bpc-members');
+  const bpcIncome = document.getElementById('bpc-income');
+  const bpcExpenses = document.getElementById('bpc-expenses');
+
+  function updateBpcCalc() {
+    if (!bpcMembers || !bpcIncome || !bpcExpenses) return;
+    const members = Math.max(1, parseInt(bpcMembers.value, 10) || 1);
+    const income = Math.max(0, parseFloat(bpcIncome.value) || 0);
+    const expenses = Math.max(0, parseFloat(bpcExpenses.value) || 0);
+
+    const netIncome = Math.max(0, income - expenses);
+    const rawPerCapita = income / members;
+    const deductionPerCapita = expenses / members;
+    const netPerCapita = netIncome / members;
+
+    const elRaw = document.getElementById('bpc-out-raw');
+    const elDed = document.getElementById('bpc-out-ded');
+    const elNet = document.getElementById('bpc-out-net');
+    const elAnalysis = document.getElementById('bpc-out-analysis');
+
+    if (elRaw) elRaw.textContent = `R$ ${rawPerCapita.toFixed(2).replace('.', ',')}`;
+    if (elDed) elDed.textContent = `- R$ ${deductionPerCapita.toFixed(2).replace('.', ',')}`;
+    if (elNet) elNet.textContent = `R$ ${netPerCapita.toFixed(2).replace('.', ',')}`;
+
+    if (elAnalysis) {
+      if (netPerCapita <= 353.00) {
+        elAnalysis.innerHTML = `<span class="text-emerald-900 font-medium">✓ A renda líquida de R$ ${netPerCapita.toFixed(2).replace('.', ',')} está <strong>dentro do limite objetivo estrito de 1/4 do salário mínimo (R$ 353,00)</strong>. Atende formalmente aos critérios administrativos diretos de concessão do INSS.</span>`;
+      } else if (netPerCapita <= 706.00) {
+        elAnalysis.innerHTML = `<span class="text-amber-900 font-medium">⚖️ A renda líquida de R$ ${netPerCapita.toFixed(2).replace('.', ',')} está entre 1/4 e 1/2 salário mínimo (R$ 706,00). O INSS costuma negar administrativamente, mas a <strong>jurisprudência consolidada do STF (RE 567.985)</strong> autoriza a concessão mediante comprovação das despesas contínuas de saúde.</span>`;
+      } else {
+        elAnalysis.innerHTML = `<span class="text-[#52525B]">ℹ️ A renda líquida apurada de R$ ${netPerCapita.toFixed(2).replace('.', ',')} supera 1/2 salário mínimo. A concessão exige demonstração probatória aprofundada de vulnerabilidade socioeconômica.</span>`;
+      }
+    }
+  }
+
+  [bpcMembers, bpcIncome, bpcExpenses].forEach(inp => {
+    if (inp) {
+      inp.addEventListener('input', updateBpcCalc);
+      inp.addEventListener('change', updateBpcCalc);
+    }
+  });
+
+  const btnCopyBpc = document.getElementById('btn-copy-bpc');
+  if (btnCopyBpc) {
+    btnCopyBpc.addEventListener('click', () => {
+      const members = bpcMembers ? bpcMembers.value : 3;
+      const gross = bpcIncome ? bpcIncome.value : 1412;
+      const expenses = bpcExpenses ? bpcExpenses.value : 350;
+      const netPerCap = bpcMembers && bpcIncome && bpcExpenses ? Math.max(0, (bpcIncome.value - bpcExpenses.value) / bpcMembers.value).toFixed(2) : '354.00';
+      const text = `[SIMULAÇÃO BPC/LOAS]\nEscritório: Beatriz Rocha Advocacia (OAB/SP 463.673)\n\n• Pessoas na família: ${members}\n• Renda Bruta: R$ ${gross}\n• Despesas Médicas: R$ ${expenses}\n• Renda Líquida per Capita: R$ ${netPerCap}\n• Enquadramento: Conforme Lei 8.742/93 e Precedentes STF (RE 567.985)`;
+      copyTextWithToast(text);
+    });
+  }
+
+  // --- FERRAMENTA 2: CALCULADORA DE COPARTICIPAÇÃO ---
+  const copayMonthly = document.getElementById('copay-monthly');
+  const copaySessions = document.getElementById('copay-sessions');
+  const copaySessionVal = document.getElementById('copay-session-val');
+
+  function updateCopayCalc() {
+    if (!copayMonthly || !copaySessions || !copaySessionVal) return;
+    const monthly = Math.max(1, parseFloat(copayMonthly.value) || 1);
+    const sessions = Math.max(0, parseInt(copaySessions.value, 10) || 0);
+    const sessionVal = Math.max(0, parseFloat(copaySessionVal.value) || 0);
+
+    const totalCopay = sessions * sessionVal;
+    const copayPct = (totalCopay / monthly) * 100;
+
+    const elTotal = document.getElementById('copay-out-total');
+    const elPct = document.getElementById('copay-out-pct');
+    const elAnalysis = document.getElementById('copay-out-analysis');
+
+    if (elTotal) elTotal.textContent = `R$ ${totalCopay.toFixed(2).replace('.', ',')}`;
+    if (elPct) elPct.textContent = `${copayPct.toFixed(1)}% do plano`;
+
+    if (elAnalysis) {
+      if (copayPct > 50) {
+        elAnalysis.innerHTML = `<span class="text-rose-900 font-medium">⚠️ <strong>Cobrança com Fortes Indícios de Abusividade:</strong> A coparticipação equivale a ${copayPct.toFixed(1)}% da mensalidade, violando o teto orientativo da ANS (máximo de 30% a 50%) e inviabilizando o tratamento. Para pacientes com TEA, o STJ (Tema 1.295) veda restrições financeiras que comprometam as horas prescritas.</span>`;
+      } else {
+        elAnalysis.innerHTML = `<span class="text-emerald-900 font-medium">✓ A coparticipação calculada (${copayPct.toFixed(1)}%) encontra-se dentro dos limites percentuais gerais. Contudo, em casos de TEA ou tratamentos graves e contínuos, limites de sessões e cobranças cumulativas não podem impedir a continuidade terapêutica prescrita.</span>`;
+      }
+    }
+  }
+
+  [copayMonthly, copaySessions, copaySessionVal].forEach(inp => {
+    if (inp) {
+      inp.addEventListener('input', updateCopayCalc);
+      inp.addEventListener('change', updateCopayCalc);
+    }
+  });
+
+  const btnCopyCopay = document.getElementById('btn-copy-copay');
+  if (btnCopyCopay) {
+    btnCopyCopay.addEventListener('click', () => {
+      const monthly = copayMonthly ? copayMonthly.value : 850;
+      const sessions = copaySessions ? copaySessions.value : 16;
+      const val = copaySessionVal ? copaySessionVal.value : 95;
+      const total = (sessions * val).toFixed(2);
+      const pct = ((total / (monthly || 1)) * 100).toFixed(1);
+      const text = `[ANÁLISE DE COPARTICIPAÇÃO]\nEscritório: Beatriz Rocha Advocacia (OAB/SP 463.673)\n\n• Mensalidade: R$ ${monthly}\n• Sessões: ${sessions}x de R$ ${val}\n• Total Coparticipação: R$ ${total} (${pct}% da mensalidade)\n• Parecer: ${pct > 50 ? 'Custo desproporcional / Indício de Abusividade (Tema 1.295 STJ)' : 'Dentro dos limites gerais da ANS'}`;
+      copyTextWithToast(text);
+    });
+  }
+
+  // --- FERRAMENTA 3: EMERGÊNCIA PIX & GOLPES ---
+  const btnCopyPix = document.getElementById('btn-copy-pix');
+  if (btnCopyPix) {
+    btnCopyPix.addEventListener('click', () => {
+      const timeframeEl = document.getElementById('pix-timeframe');
+      const typeEl = document.getElementById('pix-type');
+      const text = `[ROTEIRO DE EMERGÊNCIA PIX / MED]\nEscritório: Beatriz Rocha Advocacia (OAB/SP 463.673)\n\n1. ACIONAR MED NO APP:\n- Entrar no comprovante do Pix e clicar em 'Contestar/Reportar Fraude' (Resolução BCB nº 103/2021).\n\n2. BOLETIM DE OCORRÊNCIA:\n- Lavrar B.O. com o código End-to-End Id de 32 caracteres.\n\n3. BASE JURÍDICA:\n- Súmula 479 do STJ (Responsabilidade objetiva das instituições financeiras por fortuito interno).`;
+      copyTextWithToast(text);
+    });
+  }
+
+  // Inicialização dos cálculos na carga
+  updateBpcCalc();
+  updateCopayCalc();
+
+// 11. Scroll Reveal Global (Fade-in Suave com Elevação de 15px)
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+  if (!('IntersectionObserver' in window)) {
+    revealElements.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
+    });
+    revealElements.forEach(el => observer.observe(el));
   }
 
 });

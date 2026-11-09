@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import CentralFerramentas from './components/CentralFerramentas/CentralFerramentas';
 
 export default function BeatrizRochaAdvocacia() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -6,19 +7,8 @@ export default function BeatrizRochaAdvocacia() {
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
 
-  // Estados do Stepper de Medidas de Urgência & Checklist Dinâmico
-  const [activeUrgencyStep, setActiveUrgencyStep] = useState(0);
-  const [checklistItems, setChecklistItems] = useState({
-    negativa: false,
-    laudo: false,
-    comprovantes: false
-  });
-
-  const toggleChecklistItem = (key) => {
-    setChecklistItems(prev => ({ ...prev, [key]: !prev[key] }));
-  };
-
-  const hasAnyChecklistSelected = checklistItems.negativa || checklistItems.laudo || checklistItems.comprovantes;
+  // Estado para interação por toque/click no Passo 01 (Medidas de Urgência) em dispositivos móveis
+  const [step1Active, setStep1Active] = useState(false);
 
   // Estados dos Modais Institucionais e LGPD
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
@@ -59,6 +49,31 @@ export default function BeatrizRochaAdvocacia() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [privacyModalOpen, termsModalOpen]);
+
+  // Scroll Reveal Global (Fade-in Suave com Elevação de 15px)
+  useEffect(() => {
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    if (!('IntersectionObserver' in window)) {
+      revealElements.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   // Estados e controle do Carrossel de Notícias (Drag & Scroll)
   const carouselRef = useRef(null);
@@ -107,95 +122,9 @@ export default function BeatrizRochaAdvocacia() {
   });
 
   const whatsappBaseUrl = "https://wa.me/5514997118732";
-  const whatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica.`;
-  const whatsappUrgenciaUrl = `${whatsappBaseUrl}?text=Ol%C3%A1%2C%20Dra.%20Beatriz.%20Preciso%20de%20uma%20an%C3%A1lise%20de%20urg%C3%AAncia%20para%20uma%20negativa%20de%20sa%C3%BAde%20%2F%20terapias%20TEA.`;
+  const whatsappUrl = `${whatsappBaseUrl}?text=Ol%C3%A1.%20Gostaria%20de%20solicitar%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20ao%20escrit%C3%B3rio%20Beatriz%20Rocha%20Advocacia.`;
+  const whatsappUrgenciaUrl = `${whatsappBaseUrl}?text=Ol%C3%A1.%20Preciso%20de%20uma%20an%C3%A1lise%20de%20urg%C3%AAncia%20junto%20ao%20escrit%C3%B3rio%20Beatriz%20Rocha%20Advocacia%20para%20uma%20negativa%20de%20sa%C3%BAde%20%2F%20terapias%20TEA.`;
 
-  // URL dinâmica com itens assinalados no checklist de triagem
-  const getChecklistWhatsAppUrl = () => {
-    const selectedLabels = [];
-    if (checklistItems.negativa) {
-      selectedLabels.push("• Negativa formal do plano de saúde por escrito (ou protocolo de recusa)");
-    }
-    if (checklistItems.laudo) {
-      selectedLabels.push("• Relatório médico circunstanciado com a CID e indicação terapêutica detalhada");
-    }
-    if (checklistItems.comprovantes) {
-      selectedLabels.push("• Carteirinha do plano de saúde e comprovantes de quitação recentes");
-    }
-
-    const message = [
-      "*SOLICITAÇÃO DE TRIAGEM DOCUMENTAL DE URGÊNCIA*",
-      "*Beatriz Rocha Sociedade Individual de Advocacia*",
-      "",
-      "Olá, Dra. Beatriz Rocha. Preenchi o checklist de triagem no site e já possuo em mãos os seguintes documentos:",
-      "",
-      ...selectedLabels,
-      "",
-      "Gostaria de orientações sobre a análise preliminar e os próximos passos para a medida liminar."
-    ].join("\n");
-
-    return `${whatsappBaseUrl}?text=${encodeURIComponent(message)}`;
-  };
-
-  // Dados Estruturados das Etapas da Atuação em Medidas de Urgência
-  const urgencyStepsData = [
-    {
-      id: 0,
-      stepNumber: "01",
-      shortTitle: "Triagem Documental",
-      fullTitle: "Análise Técnica e Imediata do Laudo e da Negativa",
-      phaseBadge: "Fase 01 • Análise Preliminar",
-      timeEstimate: "Até 2h úteis",
-      timeSelo: "⏱️ Prazo estimado: Análise imediata (até 2h úteis)",
-      timeBadge: "Tempo estimado: Análise imediata (até 2h úteis)",
-      description: "Avaliamos minuciosamente o relatório do médico assistente e a justificativa da recusa pelo plano de saúde. Em demandas de neurodesenvolvimento (TEA) ou risco iminente de descontinuidade clínica, a indicação médica fundamentada prevalece juridicamente sobre restrições administrativas da operadora.",
-      legalThesis: "Lei Federal nº 14.454/2022 (Superação do rol taxativo da ANS), Súmula 102 do TJSP e dever de assistência integral à saúde.",
-      deliverable: "Diagnóstico inicial de viabilidade jurídica para ingresso imediato com o pedido de tutela provisória de urgência.",
-      isChecklistStep: true
-    },
-    {
-      id: 1,
-      stepNumber: "02",
-      shortTitle: "Estratégia e Protocolo",
-      fullTitle: "Petição Inicial com Pedido de Tutela Provisória de Urgência",
-      phaseBadge: "Fase 02 • Ajuizamento Eletrônico",
-      timeEstimate: "4h a 12h",
-      timeSelo: "⚡ Protocolo célere: Distribuição em 4h a 12h",
-      timeBadge: "Tempo estimado: Distribuição em 4h a 12h após conferência",
-      description: "Redação artesanal e ajuizamento eletrônico do pedido liminar inaudita altera parte, demonstrando a probabilidade do direito (fumus boni iuris) e o perigo de dano irreparável ao neurodesenvolvimento ou à integridade do paciente (periculum in mora).",
-      legalThesis: "Artigo 300 do Código de Processo Civil (CPC), Princípio da Dignidade da Pessoa Humana e Artigo 196 da CF/88.",
-      deliverable: "Comprovante formal de distribuição no tribunal competente com número de protocolo CNJ e chave de acesso aos autos.",
-      isChecklistStep: false
-    },
-    {
-      id: 2,
-      stepNumber: "03",
-      shortTitle: "Acompanhamento da Liminar",
-      fullTitle: "Despacho Direto com o Magistrado e Monitoramento Ostensivo",
-      phaseBadge: "Fase 03 • Decisão Judicial",
-      timeEstimate: "24h a 72h",
-      timeSelo: "⚡ Decisão em 24h a 72h (regime de plantão)",
-      timeBadge: "Tempo estimado: Decisão judicial costumeira em 24h a 72h (ou regime de plantão)",
-      description: "Interlocução direta e despacho com o magistrado da causa ou no plantão judiciário de saúde. Monitoramento ostensivo do processo para assegurar que a prescrição médica seja apreciada com a máxima celeridade, antes de qualquer prejuízo clínico.",
-      legalThesis: "Tema 1.295 do Superior Tribunal de Justiça (STJ - cobertura ilimitada no TEA) e Resoluções do CNJ sobre plantão em saúde.",
-      deliverable: "Cópia da decisão interlocutória concessiva da tutela de urgência contendo a ordem judicial de custeio/fornecimento.",
-      isChecklistStep: false
-    },
-    {
-      id: 3,
-      stepNumber: "04",
-      shortTitle: "Efetivação do Direito",
-      fullTitle: "Intimação Obrigatória e Início do Atendimento",
-      phaseBadge: "Fase 04 • Cumprimento Imediato",
-      timeEstimate: "Até 24h",
-      timeSelo: "⏱️ Intimação imediata em até 24h sob pena de multa",
-      timeBadge: "Tempo estimado: Intimação urgente em até 24h sob pena de multa diária",
-      description: "Intimação imediata da operadora para emissão das guias de autorização ou custeio em clínica especializada (com reembolso integral em caso de falha de rede credenciada), fixando-se multa cominatória diária (astreintes) em caso de mora ou recusa de cumprimento.",
-      legalThesis: "Artigos 536 e 537 do CPC (Medidas Indutivas e Coercitivas), Tema 1.082 do STJ e RN 566/2022 da ANS.",
-      deliverable: "Comprovante de autorização emitido pela operadora, início das terapias e assessoria contínua durante todo o processo.",
-      isChecklistStep: false
-    }
-  ];
 
   // Base de FAQ (Perguntas Frequentes Interativas)
   const faqDatabase = [
@@ -368,7 +297,7 @@ export default function BeatrizRochaAdvocacia() {
             <a
               href={whatsappUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-[#18181B] font-medium hover:text-[#8C7355] transition-colors tracking-normal inline-flex items-center gap-1.5"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span>
@@ -406,8 +335,7 @@ export default function BeatrizRochaAdvocacia() {
           {/* Navegação Desktop Fluida & Botão Agendar Consulta */}
           <div className="hidden lg:flex items-center">
             <nav
-              className="flex items-center text-[12.5px] font-medium tracking-[0.1em] uppercase text-[#52525B]"
-              style={{ gap: '2rem' }}
+              className="flex items-center text-[11px] xl:text-[12.5px] font-medium tracking-[0.08em] xl:tracking-[0.1em] uppercase text-[#52525B] gap-3 xl:gap-5 2xl:gap-7 shrink-0"
             >
               <a href="#institucional" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
                 O Escritório
@@ -491,6 +419,10 @@ export default function BeatrizRochaAdvocacia() {
                 )}
               </div>
 
+              <a href="#ferramentas" className="py-2 text-[#8C7355] hover:text-[#18181B] transition-colors whitespace-nowrap font-medium" style={{ whiteSpace: 'nowrap' }}>
+                Central Jurídica
+              </a>
+
               <a href="#informativos" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
                 Informativos
               </a>
@@ -508,9 +440,9 @@ export default function BeatrizRochaAdvocacia() {
             <a
               href={whatsappUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="header-cta-btn bg-[#8C7355] text-white text-[11.5px] tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap inline-flex items-center justify-center shrink-0"
-              style={{ marginLeft: '1.5rem', padding: '0.6rem 1.2rem', whiteSpace: 'nowrap' }}
+              style={{ marginLeft: '1rem', padding: '0.6rem 1.1rem', whiteSpace: 'nowrap' }}
             >
               Agendar Consulta
             </a>
@@ -521,7 +453,7 @@ export default function BeatrizRochaAdvocacia() {
             <a
               href={whatsappUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="px-3.5 py-1.5 bg-[#8C7355] text-white text-[11px] tracking-[0.08em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap"
             >
               Agendar
@@ -570,6 +502,7 @@ export default function BeatrizRochaAdvocacia() {
               )}
             </div>
 
+            <a href="#ferramentas" onClick={() => setMobileMenuOpen(false)} className="py-1 text-[#8C7355] font-semibold">Central de Ferramentas</a>
             <a href="#informativos" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Informativos</a>
             <a href="#contato" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Contato</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">FAQ</a>
@@ -578,7 +511,7 @@ export default function BeatrizRochaAdvocacia() {
       </header>
 
       {/* Hero Section Editorial (Início) */}
-      <section id="inicio" className="border-b border-[#E6E1D6] bg-[#FAF7F2]" style={{ padding: '80px 0' }}>
+      <section id="inicio" className="border-b border-[#E6E1D6] bg-[#FAF7F2] reveal-on-scroll is-visible" style={{ padding: '80px 0' }}>
         <div
           className="hero-grid w-full mx-auto"
           style={{ maxWidth: '1240px', margin: '0 auto', padding: '2rem', gap: '3rem', alignItems: 'center' }}
@@ -626,7 +559,7 @@ export default function BeatrizRochaAdvocacia() {
             <div className="relative aspect-[16/11] overflow-hidden bg-[#FAF7F2] border-b border-[#D2B48C]/25 group">
               <img
                 src="/assets/torre-fachada.jpg"
-                alt="Fachada do Edifício Torre Nova York no Complexo Praça Capital na Avenida das Esmeraldas em Marília/SP"
+                alt="Fachada do Edifício Torre Nova York - Sede de Beatriz Rocha Advocacia em Marília SP"
                 className="w-full h-full object-cover object-center filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
                 loading="eager"
               />
@@ -664,7 +597,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* O Escritório / Institucional Humanizado */}
-      <section id="institucional" className="section-spacing bg-white border-t border-[#D2B48C]/25 relative" style={{ padding: '100px 0' }}>
+      <section id="institucional" className="section-spacing bg-white border-t border-[#D2B48C]/25 relative reveal-on-scroll">
         <div id="escritorio" className="absolute -top-24"></div>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
           <div className="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
@@ -679,14 +612,14 @@ export default function BeatrizRochaAdvocacia() {
               </h2>
               <div className="space-y-4 text-sm md:text-base text-[#52525B] font-light leading-relaxed">
                 <p>
-                  A <strong className="font-medium text-[#18181B]">Beatriz Rocha Advocacia</strong> nasceu da convicção de que assuntos complexos — em especial aqueles que envolvem a saúde de quem amamos ou o patrimônio familiar — não admitem intermediários nem respostas padronizadas. Aqui, cada cliente é atendido diretamente pela advogada titular, do início ao fim da atuação.
+                  A <strong className="font-medium text-[#18181B]">Beatriz Rocha Advocacia</strong> nasceu da convicção de que assuntos complexos — em especial aqueles que envolvem a saúde de quem amamos ou o patrimônio familiar — não admitem intermediários nem respostas padronizadas. Aqui, cada cliente conta com a condução direta pelo escritório, do início ao fim da atuação.
                 </p>
                 <p>
-                  Com escritório instalado no Edifício Torre Nova York (Complexo Praça Capital), na Avenida das Esmeraldas, em Marília/SP, unimos a estrutura de um atendimento presencial privativo à agilidade do processo eletrônico. Atuamos com foco em medidas de urgência perante tribunais em todo o país.
+                  Com sede instalada no Edifício Torre Nova York (Complexo Praça Capital), na Avenida das Esmeraldas, em Marília/SP, unimos a estrutura de um atendimento presencial privativo à agilidade do processo eletrônico. Atuamos com foco em medidas de urgência perante tribunais em todo o país.
                 </p>
               </div>
 
-              {/* Assinatura Estilizada da Advogada Titular */}
+              {/* Assinatura Institucional da Banca */}
               <div className="pt-6 border-t border-[#E6E1D6] mt-8 flex flex-col">
                 <span className="font-serif italic text-3xl text-[#18181B] tracking-wide">
                   Beatriz Guilherme Rocha
@@ -695,18 +628,18 @@ export default function BeatrizRochaAdvocacia() {
                   Advogada Titular • OAB/SP 463.673
                 </span>
                 <p className="text-xs text-[#71717A] font-light mt-1">
-                  Condução pessoal de cada demanda com proximidade, rigor técnico e confidencialidade irrestrita.
+                  Condução estratégica de cada demanda pelo escritório com proximidade, rigor técnico e confidencialidade irrestrita.
                 </p>
               </div>
             </div>
 
-            {/* Coluna 2: Moldura Elegante e Sóbria da Sede / Advogada */}
+            {/* Coluna 2: Moldura Elegante e Sóbria da Sede Corporativa */}
             <div className="md:col-span-5">
               <div className="border border-[#E6E1D6] p-3.5 bg-[#FAF7F2] rounded-[4px] shadow-sm">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-white border border-[#E6E1D6] group">
                   <img
                     src="/assets/recepcao-corporativa.jpg"
-                    alt="Ambiente interno privativo da Torre Nova York em Marília/SP"
+                    alt="Ambiente interno e recepção privativa da Beatriz Rocha Advocacia na Torre Nova York em Marília SP"
                     className="w-full h-full object-cover filter saturate-[0.92] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
@@ -755,7 +688,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* NÚCLEO EXCLUSIVO EM DESTAQUE: Direito à Saúde & Autismo (TEA) */}
-      <section id="saude-tea" className="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25" style={{ padding: '100px 0' }}>
+      <section id="saude-tea" className="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25 reveal-on-scroll">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
           <div className="max-w-3xl mb-14">
@@ -842,9 +775,9 @@ export default function BeatrizRochaAdvocacia() {
 
           </div>
 
-          {/* SEÇÃO: COMO FUNCIONA A ATUAÇÃO DE URGÊNCIA (Componente Interativo em Abas / Stepper Dinâmico) */}
-          <div className="mb-16 bg-white border border-[#E6E1D6] p-6 sm:p-8 md:p-12 shadow-xs rounded-[4px]">
-            <div className="max-w-2xl mb-8">
+          {/* SEÇÃO: COMO FUNCIONA A ATUAÇÃO DE URGÊNCIA (Layout Compacto em Cards com Revelação por Hover no Passo 01) */}
+          <div className="mb-16">
+            <div className="max-w-2xl mb-10">
               <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] block font-medium mb-2">
                 Jornada do Paciente • Resposta Rápida e Previsibilidade
               </span>
@@ -852,289 +785,172 @@ export default function BeatrizRochaAdvocacia() {
                 Como Funciona a Atuação em Medidas de Urgência
               </h3>
               <p className="mt-3 text-xs md:text-sm text-[#52525B] font-light leading-relaxed">
-                Navegue pelas etapas interativas abaixo para entender o rito técnico, os prazos estimados e os documentos necessários para a obtenção de liminar contra o plano de saúde.
+                Entenda o passo a passo transparente de condução do caso, estruturado para acolher a família e agir com a máxima rapidez perante o Poder Judiciário.
               </p>
             </div>
 
-            {/* Stepper / Abas Horizontais Clicáveis */}
-            <div className="flex md:grid md:grid-cols-4 overflow-x-auto no-scrollbar scroll-smooth gap-2 sm:gap-3 mb-8 p-1.5 bg-[#FAF7F2] border border-[#E6E1D6] rounded-[6px]" role="tablist" aria-label="Etapas da atuação de urgência">
-              {urgencyStepsData.map((step, idx) => {
-                const isActive = activeUrgencyStep === idx;
-                return (
-                  <button
-                    key={step.id}
-                    type="button"
-                    role="tab"
-                    aria-selected={isActive}
-                    onClick={() => setActiveUrgencyStep(idx)}
-                    className={`relative p-3.5 sm:p-4 text-left rounded-[4px] transition-all duration-300 cursor-pointer flex flex-col justify-between min-w-[210px] md:min-w-0 flex-1 shrink-0 ${isActive
-                        ? 'bg-[#D2B48C]/20 border-2 border-[#8C7355] text-[#18181B] shadow-xs'
-                        : 'bg-white/80 border border-[#E6E1D6] hover:bg-white hover:border-[#D2B48C] text-[#52525B]'
-                      }`}
-                  >
-                    <div className="flex items-center justify-between mb-2.5">
-                      <span
-                        className={`w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center transition-colors ${isActive
-                            ? 'bg-[#8C7355] text-white shadow-xs'
-                            : 'bg-[#FAF7F2] border border-[#E6E1D6] text-[#71717A]'
-                          }`}
-                      >
-                        {step.stepNumber}
-                      </span>
-                      <span className={`text-[10px] uppercase tracking-wider ${isActive
-                          ? 'font-semibold text-[#8C7355] bg-white border border-[#D2B48C]/50 px-2 py-0.5 rounded-[3px]'
-                          : 'font-medium text-[#A1A1AA] px-0 py-0.5'
-                        }`}>
-                        {step.timeEstimate}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+              {/* Linha conectora visual no desktop */}
+              <div className="hidden lg:block absolute top-10 left-12 right-12 h-px bg-[#E6E1D6] -z-0"></div>
+
+              {/* Passo 01 (Interativo com Revelação por Hover) */}
+              <div
+                className={`relative bg-white border transition-all duration-300 group flex flex-col justify-between rounded-[2px] shadow-2xs hover:-translate-y-1 hover:shadow-md cursor-pointer overflow-hidden ${
+                  step1Active ? 'border-[#8C7355] bg-[#FAF7F2]' : 'border-[#E6E1D6] hover:border-[#8C7355]'
+                }`}
+                onClick={() => setStep1Active(prev => !prev)}
+                title="Passe o mouse para ver a instrução prática da triagem"
+              >
+                {/* Camada do Estado Normal (visível por padrão; esmaece suavemente no hover ou active touch) */}
+                <div
+                  className={`flex flex-col justify-between h-full transition-all duration-300 absolute inset-0 p-6 ${
+                    step1Active ? 'opacity-0 pointer-events-none' : 'group-hover:opacity-0 group-hover:pointer-events-none'
+                  }`}
+                >
+                  <div>
+                    <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+                      <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal transition-colors">01</span>
+                    </div>
+                    <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
+                      Passo 01
+                    </span>
+                    <h4 className="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
+                      Triagem Documental
+                    </h4>
+                    <p className="text-xs text-[#52525B] font-light leading-relaxed">
+                      Análise técnica imediata da negativa formal do plano de saúde e do relatório médico circunstanciado.
+                    </p>
+                    <div className="mt-4 inline-flex items-center gap-1.5 text-[11px] text-[#8C7355] font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#8C7355] animate-pulse"></span>
+                      <span>Passe o mouse para ver detalhes ↳</span>
+                    </div>
+                  </div>
+                  <div className="pt-4 border-t border-[#F0ECE1] mt-5 flex items-center justify-between">
+                    <span className="text-[10px] text-[#71717A] tracking-wider uppercase font-medium">Análise Imediata</span>
+                    <span className="text-[10px] text-[#8C7355] font-semibold">Até 2h úteis</span>
+                  </div>
+                </div>
+
+                {/* Camada Revelada no Hover (Transição Suave para tom Bege/Tan #D2B48C e Instrução Prática Detalhada) */}
+                <div
+                  className={`flex flex-col justify-between h-full transition-all duration-300 absolute inset-0 p-6 bg-[#FAF7F2] border-2 border-[#8C7355] shadow-xs ${
+                    step1Active ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3.5">
+                      <div className="w-8 h-8 rounded-full bg-[#8C7355] text-white flex items-center justify-center font-serif text-sm font-semibold shadow-2xs">
+                        01
+                      </div>
+                      <span className="text-[10px] uppercase tracking-wider font-semibold text-[#8C7355] bg-white border border-[#D2B48C] px-2 py-0.5 rounded-[3px]">
+                        ⏱️ Até 2h úteis
                       </span>
                     </div>
-                    <div>
-                      <h4 className={`text-xs sm:text-sm font-serif leading-tight ${isActive ? 'text-[#18181B] font-semibold' : 'text-[#52525B] font-medium'
-                        }`}>
-                        {step.stepNumber}. {step.shortTitle}
-                      </h4>
-                    </div>
-                    {isActive && (
-                      <span className="absolute bottom-0 left-3 right-3 h-[3px] bg-[#8C7355] rounded-full"></span>
-                    )}
-                  </button>
-                );
-              })}
+                    <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
+                      Instrução Prática
+                    </span>
+                    <h4 className="font-serif text-base text-[#18181B] font-medium leading-snug mb-2">
+                      Como a Triagem é Feita:
+                    </h4>
+                    <p className="text-xs text-[#3F3F46] font-light leading-relaxed">
+                      Conferência técnica do laudo médico (CID e metodologia prescrita) e da justificativa de recusa da operadora, avaliando o cabimento imediato do pedido de liminar contra o plano.
+                    </p>
+                  </div>
+                  <div className="pt-3 border-t border-[#D2B48C]/40 mt-4 flex items-center justify-between">
+                    <span className="text-[10px] text-[#8C7355] font-semibold uppercase tracking-wider">Conferência Direta</span>
+                    <span className="text-[10px] text-emerald-800 font-medium bg-emerald-50 border border-emerald-200/60 px-1.5 py-0.5 rounded">Sem burocracia</span>
+                  </div>
+                </div>
+
+                {/* Bloco invisível estrutural: mantém a altura do grid perfeitamente idêntica aos outros 3 cards sem salto de layout */}
+                <div className="invisible pointer-events-none select-none aria-hidden" aria-hidden="true">
+                  <div className="w-12 h-12 mb-5"></div>
+                  <span className="text-[10px] block mb-1">Passo 01</span>
+                  <h4 className="font-serif text-lg mb-2">Triagem Documental</h4>
+                  <p className="text-xs leading-relaxed">
+                    Análise técnica imediata da negativa formal do plano de saúde e do relatório médico circunstanciado com indicação da metodologia.
+                  </p>
+                  <div className="mt-4 text-[11px]">Placeholder de altura</div>
+                  <div className="pt-4 border-t mt-5">
+                    <span className="text-[10px]">Análise Imediata</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Passo 02 */}
+              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs hover:-translate-y-1 hover:shadow-md duration-300">
+                <div>
+                  <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+                    <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal transition-colors">02</span>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
+                    Passo 02
+                  </span>
+                  <h4 className="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
+                    Estratégia e Protocolo
+                  </h4>
+                  <p className="text-xs text-[#52525B] font-light leading-relaxed">
+                    Elaboração célere da petição inicial com pedido de Tutela Provisória de Urgência (liminar inaudita altera parte).
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#F0ECE1] mt-5">
+                  <span className="text-[10px] text-[#71717A] tracking-wider uppercase font-medium">Ação Customizada</span>
+                </div>
+              </div>
+
+              {/* Passo 03 */}
+              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs hover:-translate-y-1 hover:shadow-md duration-300">
+                <div>
+                  <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+                    <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal transition-colors">03</span>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
+                    Passo 03
+                  </span>
+                  <h4 className="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
+                    Acompanhamento da Liminar
+                  </h4>
+                  <p className="text-xs text-[#52525B] font-light leading-relaxed">
+                    Despacho direto com o magistrado da causa ou no plantão judiciário e monitoramento ostensivo da decisão em 24h a 72h.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#F0ECE1] mt-5">
+                  <span className="text-[10px] text-emerald-800 tracking-wider uppercase font-medium">Decisão em 24h a 72h</span>
+                </div>
+              </div>
+
+              {/* Passo 04 */}
+              <div className="relative bg-white border border-[#E6E1D6] p-6 hover:border-[#8C7355] transition-all group flex flex-col justify-between rounded-[2px] shadow-2xs hover:-translate-y-1 hover:shadow-md duration-300">
+                <div>
+                  <div className="w-12 h-12 rounded-full bg-[#FAF7F2] border border-[#E6E1D6] group-hover:border-[#8C7355] group-hover:bg-[#8C7355] transition-colors flex items-center justify-center mb-5 relative z-10">
+                    <span className="font-serif text-lg text-[#8C7355] group-hover:text-white font-normal transition-colors">04</span>
+                  </div>
+                  <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-semibold block mb-1">
+                    Passo 04
+                  </span>
+                  <h4 className="font-serif text-lg text-[#18181B] mb-2 font-normal leading-snug">
+                    Efetivação do Direito
+                  </h4>
+                  <p className="text-xs text-[#52525B] font-light leading-relaxed">
+                    Intimação da operadora sob pena de multa diária, assegurando o início das terapias, fornecimento do fármaco ou reembolso integral.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-[#F0ECE1] mt-5">
+                  <span className="text-[10px] text-[#8C7355] tracking-wider uppercase font-medium">Tratamento Garantido</span>
+                </div>
+              </div>
             </div>
 
-            {/* Card Principal da Etapa Ativa (Com Transição Fade-In Suave) */}
-            <div
-              key={activeUrgencyStep}
-              className="animate-fadeIn bg-[#FAF7F2]/50 border border-[#E6E1D6] p-6 sm:p-8 md:p-10 rounded-[4px]"
-            >
-              {/* Header do Card Ativo */}
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-5 border-b border-[#E6E1D6]">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="px-2.5 py-1 text-[11px] font-semibold tracking-wider uppercase bg-white border border-[#D2B48C] text-[#8C7355] rounded-[3px] shadow-2xs">
-                    {urgencyStepsData[activeUrgencyStep].phaseBadge}
-                  </span>
-                  <span className="text-xs text-[#71717A]">
-                    Etapa {activeUrgencyStep + 1} de {urgencyStepsData.length}
-                  </span>
-                </div>
-                <div className="inline-flex items-center gap-2 text-xs font-medium text-emerald-950 bg-emerald-50/90 border border-emerald-300/80 px-3 py-1.5 rounded-[4px] self-start sm:self-auto shadow-2xs">
-                  <span>{urgencyStepsData[activeUrgencyStep].timeSelo}</span>
-                </div>
-              </div>
-
-              {/* Título & Descrição Detalhada */}
-              <div className="mt-6 mb-6">
-                <h4 className="font-serif text-xl sm:text-2xl md:text-3xl text-[#18181B] font-normal leading-snug">
-                  {urgencyStepsData[activeUrgencyStep].fullTitle}
-                </h4>
-                <p className="mt-3 text-sm md:text-base text-[#52525B] font-light leading-relaxed max-w-3xl">
-                  {urgencyStepsData[activeUrgencyStep].description}
-                </p>
-              </div>
-
-              {/* Grid Técnico: Tese Jurídica & Entrega / Provimento */}
-              <div className="grid md:grid-cols-2 gap-4 sm:gap-6 my-6">
-                <div className="bg-white border border-[#E6E1D6] p-5 rounded-[3px] shadow-2xs">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
-                    <span className="text-[10.5px] uppercase tracking-wider text-[#8C7355] font-semibold">
-                      Tese Jurídica Aplicada
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#3F3F46] font-light leading-relaxed">
-                    {urgencyStepsData[activeUrgencyStep].legalThesis}
-                  </p>
-                </div>
-
-                <div className="bg-white border border-[#E6E1D6] p-5 rounded-[3px] shadow-2xs">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8C7355]"></span>
-                    <span className="text-[10.5px] uppercase tracking-wider text-[#8C7355] font-semibold">
-                      Entrega & Provimento Esperado
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-[#3F3F46] font-light leading-relaxed">
-                    {urgencyStepsData[activeUrgencyStep].deliverable}
-                  </p>
-                </div>
-              </div>
-
-              {/* CHECKLIST PRÁTICO INTEGRADO (Exclusivo na Etapa 01: Triagem Documental) */}
-              {urgencyStepsData[activeUrgencyStep].isChecklistStep && (
-                <div className="mt-8 pt-6 border-t border-[#E6E1D6] bg-white border border-[#D2B48C]/50 p-6 md:p-8 rounded-[6px] shadow-xs">
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="w-6 h-6 rounded-full bg-[#FAF7F2] border border-[#D2B48C] flex items-center justify-center text-[#8C7355]">
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <polyline points="20 6 9 17 4 12" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"></polyline>
-                      </svg>
-                    </div>
-                    <h5 className="font-serif text-lg text-[#18181B] font-medium">
-                      Checklist Prático para Triagem Imediata
-                    </h5>
-                  </div>
-                  <p className="text-xs text-[#52525B] font-light mb-4">
-                    Assinale abaixo os documentos que você já tem em mãos para agilizar a verificação prévia de viabilidade:
-                  </p>
-
-                  <div className="space-y-3">
-                    {/* Item 1 */}
-                    <label
-                      onClick={() => toggleChecklistItem('negativa')}
-                      className={`flex items-start gap-3.5 p-4 rounded-[6px] border transition-all cursor-pointer select-none ${checklistItems.negativa
-                          ? 'bg-[#FAF7F2] border-[#8C7355] ring-1 ring-[#8C7355]/30 shadow-xs'
-                          : 'bg-white border-[rgba(210,180,140,0.4)] hover:border-[#8C7355] hover:bg-[#FAF7F2]/40'
-                        }`}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={checklistItems.negativa}
-                        onChange={() => { }} // Controlled by label onClick
-                        className="mt-0.5 w-4 h-4 rounded-[3px] text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
-                      />
-                      <div className="flex-1">
-                        <span className="text-xs sm:text-sm font-medium text-[#18181B] block">
-                          Negativa formal do plano por escrito
-                        </span>
-                        <span className="text-[11px] text-[#71717A] font-light">
-                          Documento de recusa, e-mail da operadora ou número de protocolo SAC com prazo extrapolado.
-                        </span>
-                      </div>
-                    </label>
-
-                    {/* Item 2 */}
-                    <label
-                      onClick={() => toggleChecklistItem('laudo')}
-                      className={`flex items-start gap-3.5 p-4 rounded-[6px] border transition-all cursor-pointer select-none ${checklistItems.laudo
-                          ? 'bg-[#FAF7F2] border-[#8C7355] ring-1 ring-[#8C7355]/30 shadow-xs'
-                          : 'bg-white border-[rgba(210,180,140,0.4)] hover:border-[#8C7355] hover:bg-[#FAF7F2]/40'
-                        }`}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={checklistItems.laudo}
-                        onChange={() => { }}
-                        className="mt-0.5 w-4 h-4 rounded-[3px] text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
-                      />
-                      <div className="flex-1">
-                        <span className="text-xs sm:text-sm font-medium text-[#18181B] block">
-                          Relatório médico circunstanciado com a CID e indicação terapêutica
-                        </span>
-                        <span className="text-[11px] text-[#71717A] font-light">
-                          Prescrição do médico assistente justificando a urgência, método recomendado (ex: ABA) e carga horária.
-                        </span>
-                      </div>
-                    </label>
-
-                    {/* Item 3 */}
-                    <label
-                      onClick={() => toggleChecklistItem('comprovantes')}
-                      className={`flex items-start gap-3.5 p-4 rounded-[6px] border transition-all cursor-pointer select-none ${checklistItems.comprovantes
-                          ? 'bg-[#FAF7F2] border-[#8C7355] ring-1 ring-[#8C7355]/30 shadow-xs'
-                          : 'bg-white border-[rgba(210,180,140,0.4)] hover:border-[#8C7355] hover:bg-[#FAF7F2]/40'
-                        }`}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={checklistItems.comprovantes}
-                        onChange={() => { }}
-                        className="mt-0.5 w-4 h-4 rounded-[3px] text-[#8C7355] focus:ring-[#8C7355] accent-[#8C7355] cursor-pointer"
-                      />
-                      <div className="flex-1">
-                        <span className="text-xs sm:text-sm font-medium text-[#18181B] block">
-                          Carteirinha do plano e comprovantes de pagamento recentes
-                        </span>
-                        <span className="text-[11px] text-[#71717A] font-light">
-                          Cópia da identificação do beneficiário e boletos/comprovantes dos últimos 3 meses que atestem adimplência.
-                        </span>
-                      </div>
-                    </label>
-                  </div>
-
-                  {/* Botão Dinâmico de Envio do Checklist */}
-                  {hasAnyChecklistSelected ? (
-                    <div className="mt-5 p-4 bg-[#FAF7F2] border border-[#8C7355]/40 rounded-[6px] flex flex-col sm:flex-row items-center justify-between gap-4 animate-fadeIn">
-                      <div className="text-left w-full sm:w-auto">
-                        <span className="text-xs font-semibold text-[#8C7355] block">
-                          ✓ Documentos assinalados prontos para envio
-                        </span>
-                        <span className="text-[11px] text-[#52525B] font-light">
-                          Inicie o contato direto para a conferência inicial sem custo ou compromisso.
-                        </span>
-                      </div>
-                      <a
-                        href={getChecklistWhatsAppUrl()}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#18181B] hover:bg-[#8C7355] text-white text-xs font-medium tracking-wider uppercase transition-all duration-300 rounded-[4px] shadow-sm whitespace-nowrap cursor-pointer"
-                      >
-                        <svg className="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
-                          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-                        </svg>
-                        <span>Enviar Documentos Selecionados para Análise Preliminar no WhatsApp</span>
-                      </a>
-                    </div>
-                  ) : (
-                    <div className="mt-4 p-3.5 bg-[#FAF7F2]/80 border border-dashed border-[#E6E1D6] rounded-[4px] text-xs text-[#71717A] flex items-center gap-2">
-                      <span className="text-[#8C7355] text-sm">💡</span>
-                      <span>Selecione ao menos um dos itens acima para desbloquear o envio direto da sua lista para triagem no WhatsApp.</span>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Barra de Navegação do Stepper (Anterior / Próximo) */}
-              <div className="mt-8 pt-6 border-t border-[#E6E1D6] flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div>
-                  {activeUrgencyStep > 0 ? (
-                    <button
-                      type="button"
-                      onClick={() => setActiveUrgencyStep(prev => prev - 1)}
-                      className="inline-flex items-center gap-2 px-4 py-2 border border-[#E6E1D6] bg-white hover:bg-[#FAF7F2] text-[#18181B] text-xs font-medium rounded-[2px] transition-colors cursor-pointer"
-                    >
-                      ← Etapa Anterior: {urgencyStepsData[activeUrgencyStep - 1].shortTitle}
-                    </button>
-                  ) : (
-                    <span className="text-xs text-[#A1A1AA] italic">Início da jornada de urgência</span>
-                  )}
-                </div>
-
-                {/* Marcadores de Etapa (Dots) */}
-                <div className="flex items-center gap-2">
-                  {urgencyStepsData.map((s, dotIdx) => (
-                    <button
-                      key={s.id}
-                      type="button"
-                      onClick={() => setActiveUrgencyStep(dotIdx)}
-                      aria-label={`Ir para etapa ${dotIdx + 1}`}
-                      className={`h-2.5 rounded-full transition-all cursor-pointer ${activeUrgencyStep === dotIdx
-                          ? 'w-6 bg-[#8C7355]'
-                          : 'w-2.5 bg-[#D4CEB2] hover:bg-[#8C7355]/60'
-                        }`}
-                    />
-                  ))}
-                </div>
-
-                <div>
-                  {activeUrgencyStep < urgencyStepsData.length - 1 ? (
-                    <button
-                      type="button"
-                      onClick={() => setActiveUrgencyStep(prev => prev + 1)}
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#18181B] hover:bg-[#8C7355] text-white text-xs font-medium rounded-[2px] transition-colors cursor-pointer shadow-2xs"
-                    >
-                      Próxima Etapa: {urgencyStepsData[activeUrgencyStep + 1].shortTitle} →
-                    </button>
-                  ) : (
-                    <a
-                      href={whatsappUrgenciaUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#8C7355] hover:bg-[#735D43] text-white text-xs font-medium rounded-[2px] transition-colors shadow-2xs cursor-pointer"
-                    >
-                      Solicitar Orientação Jurídica Imediata →
-                    </a>
-                  )}
-                </div>
-              </div>
+            <div className="mt-10 p-6 bg-white border border-[#E6E1D6] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#52525B] rounded-[4px]">
+              <span>Possui uma dúvida específica sobre seu contrato ou laudo médico?</span>
+              <a 
+                href={whatsappUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors whitespace-nowrap uppercase tracking-wider"
+              >
+                Consultar o Escritório via WhatsApp ↗
+              </a>
             </div>
           </div>
 
@@ -1155,7 +971,7 @@ export default function BeatrizRochaAdvocacia() {
               <a
                 href={whatsappUrgenciaUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-7 py-3.5 bg-[#8C7355] text-white text-xs tracking-[0.1em] uppercase font-medium hover:bg-[#735D43] transition-colors text-center whitespace-nowrap shadow-sm"
               >
                 Solicitar Análise Documental
@@ -1163,10 +979,10 @@ export default function BeatrizRochaAdvocacia() {
               <a
                 href={whatsappUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-7 py-3.5 border border-[#18181B] bg-white text-[#18181B] text-xs tracking-[0.1em] uppercase hover:bg-[#18181B] hover:text-white transition-colors text-center whitespace-nowrap"
               >
-                Falar com a Advogada no WhatsApp ↗
+                Falar com o Escritório no WhatsApp ↗
               </a>
             </div>
           </div>
@@ -1175,7 +991,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* ÁREAS DE ATUAÇÃO / Especialidades (Família, Tributário & Cível) */}
-      <section id="areas-atuacao" className="section-spacing bg-white border-t border-[#D2B48C]/25 relative" style={{ padding: '100px 0' }}>
+      <section id="areas-atuacao" className="section-spacing bg-white border-t border-[#D2B48C]/25 relative reveal-on-scroll">
         <div id="atuacao" className="absolute -top-24"></div>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
           <div className="max-w-2xl mb-16">
@@ -1189,7 +1005,7 @@ export default function BeatrizRochaAdvocacia() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Família e Sucessões */}
-            <div className="bg-[#FAF7F2]/40 border border-[#E6E1D6] p-8 flex flex-col justify-between">
+            <div className="bg-[#FAF7F2]/40 border border-[#E6E1D6] p-6 sm:p-8 rounded-[4px] shadow-2xs flex flex-col justify-between">
               <div>
                 <span className="text-[10px] tracking-[0.18em] uppercase text-[#8C7355] block mb-3 font-medium">
                   Patrimonial & Sucessório
@@ -1210,7 +1026,7 @@ export default function BeatrizRochaAdvocacia() {
             </div>
 
             {/* Direito Tributário */}
-            <div className="bg-[#FAF7F2]/40 border border-[#E6E1D6] p-8 flex flex-col justify-between">
+            <div className="bg-[#FAF7F2]/40 border border-[#E6E1D6] p-6 sm:p-8 rounded-[4px] shadow-2xs flex flex-col justify-between">
               <div>
                 <span className="text-[10px] tracking-[0.18em] uppercase text-[#8C7355] block mb-3 font-medium">
                   Tributário & Fazendário
@@ -1231,7 +1047,7 @@ export default function BeatrizRochaAdvocacia() {
             </div>
 
             {/* Direito Cível e Contratos */}
-            <div className="bg-[#FAF7F2]/40 border border-[#E6E1D6] p-8 flex flex-col justify-between">
+            <div className="bg-[#FAF7F2]/40 border border-[#E6E1D6] p-6 sm:p-8 rounded-[4px] shadow-2xs flex flex-col justify-between">
               <div>
                 <span className="text-[10px] tracking-[0.18em] uppercase text-[#8C7355] block mb-3 font-medium">
                   Obrigações & Negócios
@@ -1254,8 +1070,11 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </section>
 
+      {/* CENTRAL DE FERRAMENTAS JURÍDICAS (Produto Digital de Utilidade Pública) */}
+      <CentralFerramentas />
+
       {/* SEÇÃO: INFORMATIVOS E ATUALIDADES JURÍDICAS (Carrossel Horizontal Editorial) */}
-      <section id="informativos" className="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative" style={{ padding: '100px 0' }}>
+      <section id="informativos" className="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25 relative reveal-on-scroll">
         <div id="noticias" className="absolute -top-24"></div>
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
@@ -1289,14 +1108,14 @@ export default function BeatrizRochaAdvocacia() {
             </div>
           </div>
 
-          {/* Carrossel Horizontal Drag & Scroll */}
+          {/* Carrossel Horizontal Drag & Scroll com Altura Padronizada e Botão Alinhado */}
           <div
             ref={carouselRef}
             onMouseDown={handleMouseDown}
             onMouseLeave={handleMouseLeave}
             onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}
-            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing pb-8 select-none"
+            className="flex items-stretch gap-6 overflow-x-auto no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing pb-8 select-none"
             style={{
               scrollSnapType: isDragging ? 'none' : 'x mandatory',
               WebkitOverflowScrolling: 'touch',
@@ -1307,33 +1126,35 @@ export default function BeatrizRochaAdvocacia() {
             {newsDatabase.map((news) => (
               <article
                 key={news.id}
-                className="w-[340px] sm:w-[380px] shrink-0 bg-white border border-[rgba(210,180,140,0.4)] p-6 sm:p-7 flex flex-col justify-between rounded-[6px] shadow-2xs hover:shadow-md hover:border-[#8C7355] transition-all duration-300 snap-start"
+                className="w-[340px] sm:w-[380px] shrink-0 bg-white border border-[rgba(210,180,140,0.4)] p-6 sm:p-7 flex flex-col justify-between rounded-[6px] shadow-2xs hover:shadow-md hover:border-[#8C7355] transition-all duration-300 snap-start h-auto"
               >
-                <div>
-                  {/* Tag / Badge de Origem no Topo & Tempo de Leitura */}
-                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
-                    <span className="px-2.5 py-1 bg-[#D2B48C]/20 border border-[#D2B48C]/40 text-[#8C7355] text-[10.5px] font-bold tracking-wider uppercase rounded-[3px]">
-                      {news.badge}
-                    </span>
-                    <div className="flex items-center gap-1.5 text-[10.5px] text-[#71717A] font-mono">
-                      <span>⏱️ {news.readTime}</span>
-                      <span>•</span>
-                      <span>{news.date}</span>
+                <div className="flex-1 flex flex-col justify-between mb-4">
+                  <div>
+                    {/* Tag / Badge de Origem no Topo & Tempo de Leitura */}
+                    <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#E5E0DA]">
+                      <span className="px-2.5 py-1 bg-[#D2B48C]/20 border border-[#D2B48C]/40 text-[#8C7355] text-[10.5px] font-bold tracking-wider uppercase rounded-[3px]">
+                        {news.badge}
+                      </span>
+                      <div className="flex items-center gap-1.5 text-[10.5px] text-[#71717A] font-mono">
+                        <span>⏱️ {news.readTime}</span>
+                        <span>•</span>
+                        <span>{news.date}</span>
+                      </div>
                     </div>
+
+                    {/* Título da Notícia (Headline Editorial de Impacto) */}
+                    <h3 className="font-serif text-[1.15rem] leading-[1.4] text-[#18181B] font-normal sm:font-medium mb-3 hover:text-[#8C7355] transition-colors">
+                      {news.title}
+                    </h3>
+
+                    {/* Resumo Estratégico (O "Por que isso importa?") */}
+                    <p className="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-4">
+                      {news.summary}
+                    </p>
                   </div>
 
-                  {/* Título da Notícia (Headline Editorial de Impacto) */}
-                  <h3 className="font-serif text-[1.15rem] leading-[1.4] text-[#18181B] font-normal sm:font-medium mb-3 hover:text-[#8C7355] transition-colors">
-                    {news.title}
-                  </h3>
-
-                  {/* Resumo Estratégico (O "Por que isso importa?") */}
-                  <p className="text-xs sm:text-[13px] text-[#52525B] font-light leading-relaxed mb-4">
-                    {news.summary}
-                  </p>
-
                   {/* Micro-Copy: Impacto Prático */}
-                  <div className="p-3 bg-[#FAF7F2] border-l-2 border-[#8C7355] rounded-r-[3px] mb-6">
+                  <div className="p-3 bg-[#FAF7F2] border-l-2 border-[#8C7355] rounded-r-[3px] mt-auto">
                     <span className="text-[10px] uppercase tracking-wider text-[#8C7355] font-bold block mb-0.5">
                       Impacto Prático:
                     </span>
@@ -1343,13 +1164,13 @@ export default function BeatrizRochaAdvocacia() {
                   </div>
                 </div>
 
-                {/* Rodapé com Botão Refinado [Acessar Publicação ↗] */}
-                <div className="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs gap-2">
+                {/* Rodapé com Botão Refinado [Acessar Publicação ↗] Alinhado na Base */}
+                <div className="pt-4 border-t border-[#E5E0DA] flex items-center justify-between text-xs gap-2 mt-auto shrink-0">
                   <a
                     href={news.officialUrl}
                     target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#FAF7F2] hover:bg-[#8C7355] text-[#8C7355] hover:text-white border border-[#D2B48C]/50 hover:border-[#8C7355] text-[11px] font-semibold tracking-wider uppercase rounded-[4px] transition-all duration-300 shadow-2xs group/btn"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#FAF7F2] hover:bg-[#8C7355] text-[#8C7355] hover:text-white border border-[#D2B48C]/50 hover:border-[#8C7355] text-[11px] font-semibold tracking-wider uppercase rounded-[4px] transition-all duration-300 shadow-2xs group/btn active:scale-95"
                   >
                     <span>Acessar Publicação</span>
                     <span className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform">↗</span>
@@ -1359,8 +1180,8 @@ export default function BeatrizRochaAdvocacia() {
                     <a
                       href={news.partnerUrl}
                       target="_blank"
-                      rel="noreferrer"
-                      className="px-2.5 py-1.5 bg-white border border-[#E5E0DA] hover:border-[#8C7355] text-[10.5px] text-[#71717A] hover:text-[#18181B] transition-colors rounded-[3px]"
+                      rel="noopener noreferrer"
+                      className="px-2.5 py-1.5 bg-white border border-[#E5E0DA] hover:border-[#8C7355] text-[10.5px] text-[#71717A] hover:text-[#18181B] transition-colors rounded-[3px] active:scale-95"
                     >
                       {news.partnerLabel}
                     </a>
@@ -1383,7 +1204,7 @@ export default function BeatrizRochaAdvocacia() {
             <a
               href={whatsappUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="px-7 py-3.5 bg-[#18181B] text-white text-xs tracking-[0.1em] uppercase hover:bg-[#8C7355] transition-colors whitespace-nowrap shadow-xs font-medium rounded-[2px]"
             >
               Consultar Especialista via WhatsApp
@@ -1394,7 +1215,7 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* CONTATO E AGENDAMENTO */}
-      <section id="contato" className="section-spacing bg-white border-t border-[#D2B48C]/30 relative" style={{ padding: '100px 0' }}>
+      <section id="contato" className="section-spacing bg-white border-t border-[#D2B48C]/30 relative reveal-on-scroll">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
 
           <div className="max-w-2xl mb-12">
@@ -1413,7 +1234,7 @@ export default function BeatrizRochaAdvocacia() {
             {/* Coluna Esquerda: Informações, Fotos Reais da Torre Nova York e Mapa Monocromático */}
             <div className="space-y-8">
               {/* Cartão Institucional de Expediente & Contato */}
-              <div className="bg-[#FAF7F2]/60 border border-[rgba(210,180,140,0.4)] p-7 rounded-[6px] shadow-2xs space-y-5 text-sm">
+              <div className="bg-[#FAF7F2]/60 border border-[rgba(210,180,140,0.4)] p-5 sm:p-7 rounded-[6px] shadow-2xs space-y-5 text-sm">
                 <div>
                   <span className="text-[10px] tracking-[0.16em] uppercase text-[#8C7355] font-semibold block mb-1">
                     Sede Corporativa
@@ -1497,7 +1318,7 @@ export default function BeatrizRochaAdvocacia() {
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=Av.+das+Esmeraldas%2C+3895+-+Mar%C3%ADlia%2C+SP"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[rgba(210,180,140,0.4)] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-all duration-200 rounded-[6px] shadow-2xs"
                   >
                     <span>Google Maps ↗</span>
@@ -1505,7 +1326,7 @@ export default function BeatrizRochaAdvocacia() {
                   <a
                     href="https://waze.com/ul?q=Av.+das+Esmeraldas+3895+Marilia"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 bg-white border border-[rgba(210,180,140,0.4)] text-[11px] text-[#18181B] font-medium uppercase tracking-[0.08em] hover:bg-[#8C7355] hover:text-white hover:border-[#8C7355] transition-all duration-200 rounded-[6px] shadow-2xs"
                   >
                     <span>Abrir no Waze ↗</span>
@@ -1515,7 +1336,7 @@ export default function BeatrizRochaAdvocacia() {
             </div>
 
             {/* Coluna Direita: Formulário de Solicitação de Orientação Jurídica */}
-            <div className="bg-[#FAF7F2]/40 border border-[rgba(210,180,140,0.4)] p-8 md:p-10 rounded-[6px] shadow-2xs">
+            <div className="bg-[#FAF7F2]/40 border border-[rgba(210,180,140,0.4)] p-5 sm:p-8 md:p-10 rounded-[6px] shadow-2xs">
               <div className="mb-7">
                 <span className="text-[10px] tracking-[0.2em] uppercase text-[#8C7355] font-semibold block mb-1">
                   Canal Confidencial
@@ -1637,7 +1458,7 @@ export default function BeatrizRochaAdvocacia() {
                   <span>Enviar para Análise Confidencial</span>
                 </button>
                 <p className="text-[11px] text-[#71717A] text-center font-light">
-                  Seus dados serão encaminhados diretamente via canal criptografado para a banca da Dra. Beatriz Rocha.
+                  Seus dados serão encaminhados diretamente via canal criptografado para o escritório Beatriz Rocha Advocacia.
                 </p>
               </form>
             </div>
@@ -1647,8 +1468,8 @@ export default function BeatrizRochaAdvocacia() {
       </section>
 
       {/* SEÇÃO: FAQ EM ACORDEÃO (Perguntas Frequentes Interativas) */}
-      <section id="faq" className="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25" style={{ padding: '100px 0' }}>
-        <div className="max-w-4xl mx-auto px-6">
+      <section id="faq" className="section-spacing bg-[#FAF7F2] border-t border-[#D2B48C]/25 reveal-on-scroll">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
 
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-[11px] tracking-[0.2em] uppercase text-[#8C7355] block mb-3 font-medium">
@@ -1698,10 +1519,10 @@ export default function BeatrizRochaAdvocacia() {
             <a
               href={whatsappUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-[#8C7355] font-medium hover:text-[#18181B] transition-colors whitespace-nowrap uppercase tracking-wider"
             >
-              Consultar Advogada via WhatsApp ↗
+              Consultar o Escritório via WhatsApp ↗
             </a>
           </div>
 
@@ -1717,7 +1538,7 @@ export default function BeatrizRochaAdvocacia() {
                 Beatriz Rocha Sociedade Individual de Advocacia
               </p>
               <p className="text-[11px] text-[#8C7355] mt-0.5 tracking-wider uppercase font-medium">
-                OAB/SP 463.673 • Sede: Edifício Torre Nova York, Salas 305/306 • Marília/SP
+                Titular: Beatriz Guilherme Rocha • OAB/SP 463.673 • Sede: Edifício Torre Nova York, Salas 305/306 • Marília/SP
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-5 text-[11px] uppercase tracking-wider font-medium text-[#52525B]">

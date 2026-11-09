@@ -184,7 +184,7 @@ header nav span,
   color: #8C7355;
 }
 
-/* Espaçamento Vertical Padronizado entre Seções (100px) */
+/* Espaçamento Vertical Padronizado entre Seções (100px Desktop / 60px Mobile) */
 .section-spacing,
 #institucional,
 #saude-tea,
@@ -194,6 +194,19 @@ header nav span,
 #faq {
   padding-top: 100px !important;
   padding-bottom: 100px !important;
+}
+
+@media (max-width: 768px) {
+  .section-spacing,
+  #institucional,
+  #saude-tea,
+  #areas-atuacao,
+  #informativos,
+  #contato,
+  #faq {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
 }
 
 /* Subtle Tan Section Divider */
@@ -208,4 +221,84 @@ header nav span,
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* ==========================================================================
+   Micro-interações & Scroll Reveal Global (Fade-in com Transição de 15px)
+   ========================================================================== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   Feedback Tátil Refinado em Botões e CTAs (Hover & Active)
+   ========================================================================== */
+.btn-cta-primary,
+.btn-cta-secondary,
+.header-cta-btn,
+.btn-action,
+button:not([disabled]),
+a[href^="https://wa.me"] {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-cta-primary:hover,
+.btn-cta-secondary:hover,
+.header-cta-btn:hover,
+a[href^="https://wa.me"]:hover {
+  transform: translateY(-1.5px);
+}
+
+.btn-cta-primary:active,
+.btn-cta-secondary:active,
+.header-cta-btn:active,
+button:not([disabled]):active,
+a[href^="https://wa.me"]:active {
+  transform: scale(0.98) !important;
+}
+
+/* ==========================================================================
+   Central de Ferramentas - Featured Section (LegalTech SaaS de Alto Padrão)
+   ========================================================================== */
+#ferramentas {
+  padding-top: 110px !important;
+  padding-bottom: 110px !important;
+  background: linear-gradient(180deg, #F5F1EB 0%, #EDE6DC 50%, #F5F1EB 100%) !important;
+  border-top: 1px solid rgba(210, 180, 140, 0.6) !important;
+  border-bottom: 1px solid rgba(210, 180, 140, 0.6) !important;
+  position: relative;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02), inset 0 -2px 6px rgba(0, 0, 0, 0.02);
+}
+
+@media (max-width: 768px) {
+  #ferramentas {
+    padding-top: 70px !important;
+    padding-bottom: 70px !important;
+  }
+}
+
+.legaltech-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+}
+
+.legaltech-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: #8C7355 !important;
+  box-shadow: 0 16px 32px -8px rgba(140, 115, 85, 0.16), 0 8px 16px -4px rgba(0, 0, 0, 0.04) !important;
 }
