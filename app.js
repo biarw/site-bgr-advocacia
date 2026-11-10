@@ -10,12 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // 2. Menu Mobile Drawer & Accordion de Áreas
+  // 2. Menu Mobile Drawer & Accordion de Áreas e Recursos
   const mobileBtn = document.getElementById('mobile-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileAreasToggle = document.getElementById('mobile-areas-toggle');
   const mobileAreasSubmenu = document.getElementById('mobile-areas-submenu');
   const mobileAreasIcon = document.getElementById('mobile-areas-icon');
+
+  const mobileResourcesToggle = document.getElementById('mobile-resources-toggle');
+  const mobileResourcesSubmenu = document.getElementById('mobile-resources-submenu');
+  const mobileResourcesIcon = document.getElementById('mobile-resources-icon');
 
   if (mobileBtn && mobileMenu) {
     mobileBtn.addEventListener('click', () => {
@@ -46,6 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         mobileAreasSubmenu.classList.add('hidden');
         if (mobileAreasIcon) mobileAreasIcon.textContent = '▾';
+      }
+    });
+  }
+
+  if (mobileResourcesToggle && mobileResourcesSubmenu) {
+    mobileResourcesToggle.addEventListener('click', () => {
+      const isHidden = mobileResourcesSubmenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileResourcesSubmenu.classList.remove('hidden');
+        if (mobileResourcesIcon) mobileResourcesIcon.textContent = '▴';
+      } else {
+        mobileResourcesSubmenu.classList.add('hidden');
+        if (mobileResourcesIcon) mobileResourcesIcon.textContent = '▾';
       }
     });
   }

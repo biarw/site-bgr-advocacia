@@ -4,7 +4,9 @@ import CentralFerramentas from './components/CentralFerramentas/CentralFerrament
 export default function BeatrizRochaAdvocacia() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [areasDropdownOpen, setAreasDropdownOpen] = useState(false);
+  const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
 
   // Estado para interação por toque/click no Passo 01 (Medidas de Urgência) em dispositivos móveis
@@ -335,16 +337,16 @@ export default function BeatrizRochaAdvocacia() {
             </div>
           </a>
 
-          {/* Navegação Desktop Fluida & Botão Agendar Consulta */}
+          {/* Navegação Desktop Ultra-Minimalista (3 Itens Principais + CTA) */}
           <div className="hidden lg:flex items-center">
             <nav
-              className="flex items-center text-[11px] xl:text-[12px] font-medium tracking-[0.06em] uppercase text-[#52525B] gap-2.5 xl:gap-4 2xl:gap-5 shrink-0"
+              className="flex items-center text-[12px] xl:text-[12.5px] font-medium tracking-[0.06em] uppercase text-[#52525B] gap-5 xl:gap-8 shrink-0"
             >
               <a href="#institucional" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
                 O Escritório
               </a>
 
-              {/* Dropdown Agrupado de Áreas de Atuação */}
+              {/* 1. Dropdown Áreas de Atuação */}
               <div
                 className="relative py-2 whitespace-nowrap"
                 style={{ whiteSpace: 'nowrap' }}
@@ -418,21 +420,67 @@ export default function BeatrizRochaAdvocacia() {
                 )}
               </div>
 
-              <a href="#ferramentas" className="py-2 text-[#8C7355] hover:text-[#18181B] transition-colors whitespace-nowrap font-medium" style={{ whiteSpace: 'nowrap' }}>
-                Central Jurídica
-              </a>
+              {/* 2. Dropdown Recursos & Conteúdo */}
+              <div
+                className="relative py-2 whitespace-nowrap"
+                style={{ whiteSpace: 'nowrap' }}
+                onMouseEnter={() => setResourcesDropdownOpen(true)}
+                onMouseLeave={() => setResourcesDropdownOpen(false)}
+              >
+                <a
+                  href="#ferramentas"
+                  className="flex items-center gap-1.5 hover:text-[#18181B] transition-colors whitespace-nowrap"
+                  style={{ whiteSpace: 'nowrap' }}
+                >
+                  <span>Recursos & Conteúdo</span>
+                  <span className="text-[10px] text-[#8C7355] font-serif">▾</span>
+                </a>
 
-              <a href="#informativos" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
-                Informativos
-              </a>
+                {/* Submenu Dropdown Recursos & Conteúdo */}
+                {resourcesDropdownOpen && (
+                  <div className="absolute left-0 top-full w-80 bg-white border border-[#E6E1D6] shadow-lg py-2 z-50 animate-fadeIn normal-case">
+                    <a
+                      href="#ferramentas"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                      className="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1] group/item"
+                    >
+                      <span className="text-xs font-semibold text-[#8C7355] flex items-center justify-between group-hover/item:text-[#18181B]">
+                        <span>Central Jurídica Digital</span>
+                        <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#8C7355]/10 text-[#8C7355] font-sans uppercase tracking-wider font-semibold">Exclusivo</span>
+                      </span>
+                      <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
+                        Triagem automatizada, envio seguro e simulador
+                      </span>
+                    </a>
 
-              <a href="#contato" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
-                Contato
-              </a>
+                    <a
+                      href="#informativos"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                      className="block px-5 py-3 hover:bg-[#FAF7F2] border-b border-[#F0ECE1] group/item"
+                    >
+                      <span className="text-xs font-medium text-[#18181B] block group-hover/item:text-[#8C7355]">
+                        Informativos & Jurisprudência
+                      </span>
+                      <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
+                        Artigos práticos, decisões do STJ e tribunais
+                      </span>
+                    </a>
 
-              <a href="#faq" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
-                FAQ
-              </a>
+                    <a
+                      href="#faq"
+                      onClick={() => setResourcesDropdownOpen(false)}
+                      className="block px-5 py-3 hover:bg-[#FAF7F2] group/item"
+                    >
+                      <span className="text-xs font-medium text-[#18181B] block group-hover/item:text-[#8C7355]">
+                        Perguntas Frequentes (FAQ)
+                      </span>
+                      <span className="text-[11px] text-[#71717A] block font-light mt-0.5">
+                        Prazos liminares, documentos e contratação
+                      </span>
+                    </a>
+                  </div>
+                )}
+              </div>
             </nav>
 
             {/* Botão AGENDAR CONSULTA Proporcional, Enxuto e Alinhado */}
@@ -441,7 +489,7 @@ export default function BeatrizRochaAdvocacia() {
               target="_blank"
               rel="noopener noreferrer"
               className="header-cta-btn bg-[#8C7355] text-white text-[12.5px] sm:text-[13px] tracking-[0.06em] uppercase font-medium hover:bg-[#735D43] transition-all rounded-[2px] shadow-2xs whitespace-nowrap inline-flex items-center justify-center shrink-0"
-              style={{ marginLeft: '1rem', padding: '8px 16px', fontSize: '13px', whiteSpace: 'nowrap' }}
+              style={{ marginLeft: '1.5rem', padding: '8px 18px', fontSize: '13px', whiteSpace: 'nowrap' }}
             >
               Agendar Consulta
             </a>
@@ -473,7 +521,7 @@ export default function BeatrizRochaAdvocacia() {
             <a href="#inicio" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Início</a>
             <a href="#institucional" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">O Escritório</a>
 
-            {/* Accordion Áreas de Atuação no Mobile */}
+            {/* Accordion 1: Áreas de Atuação no Mobile */}
             <div>
               <button
                 onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
@@ -500,10 +548,31 @@ export default function BeatrizRochaAdvocacia() {
               )}
             </div>
 
-            <a href="#ferramentas" onClick={() => setMobileMenuOpen(false)} className="py-1 text-[#8C7355] font-semibold">Central de Ferramentas</a>
-            <a href="#informativos" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Informativos</a>
-            <a href="#contato" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Contato</a>
-            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">FAQ</a>
+            {/* Accordion 2: Recursos & Conteúdo no Mobile */}
+            <div>
+              <button
+                onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
+                className="w-full text-left py-1 flex items-center justify-between font-medium text-[#18181B]"
+              >
+                <span>Recursos & Conteúdo</span>
+                <span>{mobileResourcesOpen ? '▴' : '▾'}</span>
+              </button>
+              {mobileResourcesOpen && (
+                <div className="pl-4 py-2 flex flex-col gap-2 text-xs border-l border-[#E6E1D6] my-1">
+                  <a href="#ferramentas" onClick={() => setMobileMenuOpen(false)} className="text-[#8C7355] font-semibold">
+                    • Central Jurídica Digital
+                  </a>
+                  <a href="#informativos" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
+                    • Informativos & Jurisprudência
+                  </a>
+                  <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-[#52525B]">
+                    • Perguntas Frequentes (FAQ)
+                  </a>
+                </div>
+              )}
+            </div>
+
+            <a href="#contato" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Contato & Sede</a>
           </div>
         )}
       </header>
