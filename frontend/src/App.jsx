@@ -282,19 +282,19 @@ export default function BeatrizRochaAdvocacia() {
   return (
     <div className="min-h-screen bg-[#FAF7F2] text-[#18181B] font-sans antialiased selection:bg-[#8C7355]/20">
 
-      {/* Topbar Editorial Minimalista (Oculta em Mobile <= 768px para priorizar espaço útil) */}
+      {/* Topbar Editorial Minimalista (Elementos Mantidos & Proporcionais) */}
       <aside
-        className="hidden md:block topbar-editorial border-b border-[#E6E1D6] bg-[#F4EFE6]/60 text-[11px] sm:text-[11.5px] tracking-[0.05em] text-[#52525B] uppercase"
+        className="topbar-editorial border-b border-[#E6E1D6] bg-[#F4EFE6]/60 text-[10.5px] sm:text-[11px] tracking-[0.04em] text-[#52525B] uppercase"
         aria-label="Informações Institucionais"
       >
         <div
-          className="topbar-container max-w-[1280px] mx-auto px-4 sm:px-8 py-1.5 flex justify-between items-center w-full"
-          style={{ maxWidth: '1280px', margin: '0 auto', padding: '5px 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
+          className="topbar-container max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 py-1 sm:py-1.5 flex justify-between items-center w-full"
+          style={{ maxWidth: '1280px', margin: '0 auto', padding: '4px 5vw', display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
         >
-          <span className="font-normal whitespace-nowrap text-[11px] sm:text-[11.5px]">
+          <span className="font-normal whitespace-nowrap text-[10.5px] sm:text-[11px]">
             EDIFÍCIO TORRE NOVA YORK • MARÍLIA/SP | OAB/SP 463.673
           </span>
-          <div className="flex items-center gap-3 sm:gap-4 whitespace-nowrap text-[11px] sm:text-[11.5px]">
+          <div className="flex items-center gap-3 sm:gap-4 whitespace-nowrap text-[10.5px] sm:text-[11px]">
             <span>Seg. a Sex. 08h30 às 18h00</span>
             <span className="text-[#D6CFC2]">•</span>
             <a
@@ -310,26 +310,26 @@ export default function BeatrizRochaAdvocacia() {
         </div>
       </aside>
 
-      {/* Header Enxuto com Alinhamento Editorial Rigoroso, Logo Harmonizado & CTA */}
+      {/* Header com Alinhamento Flexbox Rigoroso, Proporção Otimizada & CTA */}
       <header
         className="sticky top-0 z-50 header-glass border-b border-[#E5E0DA]"
         style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', backgroundColor: 'rgba(255, 255, 255, 0.92)' }}
       >
         <div
-          className="header-container max-w-[1280px] mx-auto px-4 sm:px-8 py-2.5 sm:py-3 flex items-center justify-between w-full"
-          style={{ maxWidth: '1280px', margin: '0 auto', padding: '12px 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', minHeight: '56px' }}
+          className="header-container max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 flex items-center justify-between w-full"
+          style={{ maxWidth: '1280px', margin: '0 auto', padding: '10px 5vw', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', minHeight: '52px' }}
         >
 
-          {/* Monograma BR + Identidade (Subtítulo oculto no mobile para evitar quebras) */}
-          <a href="#inicio" className="flex items-center gap-3 group shrink-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 border border-[#8C7355]/40 flex items-center justify-center bg-white shadow-2xs group-hover:border-[#8C7355] transition-colors shrink-0">
-              <span className="font-serif text-base sm:text-lg tracking-tight text-[#18181B]">BR</span>
+          {/* Monograma BR + Identidade Proporcional (Subtítulo Preservado e Ajustado) */}
+          <a href="#inicio" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+            <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 border border-[#8C7355]/40 flex items-center justify-center bg-white shadow-2xs group-hover:border-[#8C7355] transition-colors shrink-0">
+              <span className="font-serif text-[14px] sm:text-[15px] tracking-tight text-[#18181B]">BR</span>
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-serif text-[16px] sm:text-[17px] tracking-[0.12em] text-[#18181B] uppercase leading-none font-normal whitespace-nowrap">
+              <span className="font-serif text-[15px] sm:text-[16px] tracking-[0.1em] text-[#18181B] uppercase leading-none font-normal whitespace-nowrap">
                 Beatriz Rocha
               </span>
-              <span className="brand-subtitle hidden md:block text-[7.5px] sm:text-[8px] tracking-[0.08em] text-[#8C7355] uppercase font-sans font-medium mt-0.5 leading-tight whitespace-nowrap">
+              <span className="brand-subtitle text-[7.5px] sm:text-[8.5px] tracking-[0.05em] text-[#8C7355] uppercase font-sans font-medium mt-1 leading-none whitespace-nowrap">
                 Sociedade Individual de Advocacia
               </span>
             </div>
@@ -338,17 +338,13 @@ export default function BeatrizRochaAdvocacia() {
           {/* Navegação Desktop Fluida & Botão Agendar Consulta */}
           <div className="hidden lg:flex items-center">
             <nav
-              className="flex items-center text-[11px] xl:text-[12.5px] font-medium tracking-[0.08em] xl:tracking-[0.1em] uppercase text-[#52525B] gap-3 xl:gap-5 2xl:gap-7 shrink-0"
+              className="flex items-center text-[11px] xl:text-[12px] font-medium tracking-[0.06em] uppercase text-[#52525B] gap-2.5 xl:gap-4 2xl:gap-5 shrink-0"
             >
               <a href="#institucional" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
                 O Escritório
               </a>
 
-              <a href="#saude-tea" className="py-2 hover:text-[#18181B] transition-colors whitespace-nowrap" style={{ whiteSpace: 'nowrap' }}>
-                Saúde & TEA
-              </a>
-
-              {/* Dropdown Organizado de Especialidades */}
+              {/* Dropdown Agrupado de Áreas de Atuação */}
               <div
                 className="relative py-2 whitespace-nowrap"
                 style={{ whiteSpace: 'nowrap' }}
@@ -360,11 +356,11 @@ export default function BeatrizRochaAdvocacia() {
                   className="flex items-center gap-1.5 hover:text-[#18181B] transition-colors whitespace-nowrap"
                   style={{ whiteSpace: 'nowrap' }}
                 >
-                  <span>Especialidades</span>
+                  <span>Áreas de Atuação</span>
                   <span className="text-[10px] text-[#8C7355] font-serif">▾</span>
                 </a>
 
-                {/* Submenu Dropdown Elegante */}
+                {/* Submenu Dropdown Elegante com todas as práticas exclusivas */}
                 {areasDropdownOpen && (
                   <div className="absolute left-0 top-full w-72 bg-white border border-[#E6E1D6] shadow-lg py-2 z-50 animate-fadeIn normal-case">
                     <a
@@ -444,20 +440,20 @@ export default function BeatrizRochaAdvocacia() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="header-cta-btn bg-[#8C7355] text-white text-[13px] tracking-[0.06em] uppercase font-medium hover:bg-[#735D43] transition-all rounded-[2px] shadow-2xs whitespace-nowrap inline-flex items-center justify-center shrink-0"
-              style={{ marginLeft: '1.25rem', padding: '8px 16px', fontSize: '13px', whiteSpace: 'nowrap' }}
+              className="header-cta-btn bg-[#8C7355] text-white text-[12.5px] sm:text-[13px] tracking-[0.06em] uppercase font-medium hover:bg-[#735D43] transition-all rounded-[2px] shadow-2xs whitespace-nowrap inline-flex items-center justify-center shrink-0"
+              style={{ marginLeft: '1rem', padding: '8px 16px', fontSize: '13px', whiteSpace: 'nowrap' }}
             >
               Agendar Consulta
             </a>
           </div>
 
           {/* Botão e CTA Mobile (< 1024px) - Alinhado no Eixo Central Vertical */}
-          <div className="lg:hidden flex items-center gap-2.5 shrink-0">
+          <div className="lg:hidden flex items-center gap-2 shrink-0">
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-[#8C7355] text-white text-[12px] sm:text-[13px] tracking-[0.06em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap inline-flex items-center justify-center"
+              className="px-3 py-1.5 bg-[#8C7355] text-white text-[11.5px] sm:text-[12px] tracking-[0.06em] uppercase font-medium hover:bg-[#735D43] transition-colors rounded-[2px] shadow-2xs whitespace-nowrap inline-flex items-center justify-center"
             >
               Agendar
             </a>
@@ -476,15 +472,14 @@ export default function BeatrizRochaAdvocacia() {
           <div className="lg:hidden border-b border-[#E6E1D6] bg-[#FAF7F2] px-6 py-4 flex flex-col gap-3 text-sm">
             <a href="#inicio" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Início</a>
             <a href="#institucional" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">O Escritório</a>
-            <a href="#saude-tea" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-[#8C7355]">Saúde & TEA</a>
 
-            {/* Accordion Áreas no Mobile */}
+            {/* Accordion Áreas de Atuação no Mobile */}
             <div>
               <button
                 onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
                 className="w-full text-left py-1 flex items-center justify-between font-medium text-[#18181B]"
               >
-                <span>Especialidades</span>
+                <span>Áreas de Atuação</span>
                 <span>{mobileAreasOpen ? '▴' : '▾'}</span>
               </button>
               {mobileAreasOpen && (

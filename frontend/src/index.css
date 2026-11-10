@@ -61,7 +61,7 @@ p {
   padding: 0 2rem;
 }
 
-/* Topbar Fixed Alignment (Lean & Minimalist) */
+/* Topbar Fixed Alignment (Lean & Minimalist, 4px 5vw) */
 .topbar-editorial {
   border-bottom: 1px solid #E6E1D6;
   background-color: rgba(244, 239, 230, 0.6);
@@ -73,47 +73,47 @@ p {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 4px 2rem;
+  padding: 4px 5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 11.5px;
+  font-size: 11px;
   line-height: 1.2;
 }
 
-/* Mobile Media Query to completely hide topbar and brand subtitle on screens <= 768px */
+/* Mobile Media Query to maintain all informative elements aligned without overflow */
 @media (max-width: 768px) {
-  .topbar-editorial,
-  aside[aria-label="Informações Institucionais"] {
-    display: none !important;
-  }
-
-  .brand-subtitle {
-    display: none !important;
+  .topbar-container {
+    padding: 4px 1rem;
+    font-size: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 12px;
+    text-align: center;
   }
 
   .header-container {
-    padding: 10px 1rem !important;
+    padding: 8px 4vw !important;
   }
 }
 
-/* Header Flex Container (10px to 14px vertical padding) */
+/* Header Flex Container (Maximized Usable Area, 10px 5vw) */
 .header-container {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 12px 2rem;
-  min-height: 56px;
+  padding: 10px 5vw;
+  min-height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Header & Navigation Single-Line Guarantee & Spacing */
+/* Header & Navigation Single-Line Guarantee & Balanced Spacing */
 header nav {
   display: flex;
   align-items: center;
-  gap: 1.5rem !important;
+  gap: 1.25rem !important;
 }
 
 header nav a,
@@ -122,12 +122,12 @@ header nav span,
   white-space: nowrap !important;
   font-size: 12px !important;
   font-weight: 500 !important;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
-/* Consultation CTA Button (Compact, 13px-14px, Aligned) */
+/* Consultation CTA Button (Compact, 8px 16px, 13px) */
 .header-cta-btn {
-  margin-left: 1.25rem !important;
+  margin-left: 1rem !important;
   padding: 8px 16px !important;
   font-size: 13px !important;
   font-weight: 500 !important;
